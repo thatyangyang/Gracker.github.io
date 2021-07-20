@@ -20,12 +20,12 @@
     <meta name="keywords" content="Android,Performance,AndroidPerformance,性能,优化,性能优化,Perf,Flutter,Linux,AndroidFramework,Framework">
     
     <meta name="description" content="Focus On Android Performance">
-    <meta name="description" content="背景技术群里的小伙伴发了一条微博， https:&#x2F;&#x2F;weibo.com&#x2F;1808884742&#x2F;IApbpEVQr， 博主 @王波粒 发现， Mate 30 Pro 有个很特别的现象（建议先去看一下视频）   这个视频描述和底下的猜测都不对，我这边总结一下这个现象： 微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片，而同一个版本的微博客户端，安装到其他手机上，在主页列">
+    <meta name="description" content="技术群里的小伙伴发了一条微博， https:&#x2F;&#x2F;weibo.com&#x2F;1808884742&#x2F;IApbpEVQr， 博主 @王波粒 发现， Mate 30 Pro 有个很特别的现象（建议先去看一下视频）  但是这个视频描述和底下的猜测都不对，我这边总结一下这个现象： 微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片，而同一个版本的微博客户端，安装到其他手机上，在主页列表">
 <meta property="og:type" content="article">
 <meta property="og:title" content="华为手机刷微博体验更好？技术角度的一些分析和思考">
 <meta property="og:url" content="https://androidperformance.com/2020/08/20/weibo-imageload-opt-on-huawei/index.html">
 <meta property="og:site_name" content="Android Performance">
-<meta property="og:description" content="背景技术群里的小伙伴发了一条微博， https:&#x2F;&#x2F;weibo.com&#x2F;1808884742&#x2F;IApbpEVQr， 博主 @王波粒 发现， Mate 30 Pro 有个很特别的现象（建议先去看一下视频）   这个视频描述和底下的猜测都不对，我这边总结一下这个现象： 微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片，而同一个版本的微博客户端，安装到其他手机上，在主页列">
+<meta property="og:description" content="技术群里的小伙伴发了一条微博， https:&#x2F;&#x2F;weibo.com&#x2F;1808884742&#x2F;IApbpEVQr， 博主 @王波粒 发现， Mate 30 Pro 有个很特别的现象（建议先去看一下视频）  但是这个视频描述和底下的猜测都不对，我这边总结一下这个现象： 微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片，而同一个版本的微博客户端，安装到其他手机上，在主页列表">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/15979019506115.jpg">
 <meta property="og:image" content="https://androidperformance.com/images/15979019763546.jpg">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://androidperformance.com/images/15979021330055.jpg">
 <meta property="og:image" content="https://androidperformance.com/images/WechatIMG581.png">
 <meta property="article:published_time" content="2020-08-20T05:17:26.000Z">
-<meta property="article:modified_time" content="2021-05-01T14:18:35.000Z">
+<meta property="article:modified_time" content="2021-07-20T15:47:58.805Z">
 <meta property="article:author" content="Gracker">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="流畅性">
@@ -349,7 +349,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">4.6k</span>阅读时长: <span class="post-count reading-time">16 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">4.7k</span>阅读时长: <span class="post-count reading-time">17 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -478,9 +478,12 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>技术群里的小伙伴发了一条微博， <a href="https://weibo.com/1808884742/IApbpEVQr" target="_blank" rel="noopener">https://weibo.com/1808884742/IApbpEVQr</a>， 博主 @王波粒 发现， Mate 30 Pro 有个很特别的现象（建议先去看一下视频） </p>
+        <p>技术群里的小伙伴发了一条微博， <a href="https://weibo.com/1808884742/IApbpEVQr" target="_blank" rel="noopener">https://weibo.com/1808884742/IApbpEVQr</a>， 博主 @王波粒 发现， Mate 30 Pro 有个很特别的现象（建议先去看一下视频） </p>
+<p>但是这个视频描述和底下的猜测都不对，我这边总结一下这个现象： <strong>微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片，而同一个版本的微博客户端，安装到其他手机上，在主页列表上下滑动的情况下，则必须要等到滑动停止之后才会加载图片</strong> </p>
+<p>下面就针对这个现象,从技术的角度来深入分析产生这种现象的原因,以及我们能从里面学到什么</p>
+<a id="more"></a>
+
 <p><img src="/images/15979019506115.jpg" alt=""></p>
-<p>这个视频描述和底下的猜测都不对，我这边总结一下这个现象： <strong>微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片，而同一个版本的微博客户端，安装到其他手机上，在主页列表上下滑动的情况下，则必须要等到滑动停止之后才会加载图片</strong> </p>
 <p><strong>这个现象有什么特别呢 ？</strong> </p>
 <ol>
 <li>从技术上讲，滑动列表停止后再加载图片是目前列表滑动优化中一个比较常见的优化项，很多主流 App 也都是这么做的 ，做这种处理主要是因为 <strong>如果在列表滑动的时候，碰到图片视频就加载，那么会加载很多无用的图片&amp;&amp;视频，浪费资源不说，还可能会影响真正用户看到的图片的加载速度</strong> （加载一般都有并行上限和队列，队列里面无效的图片太多，后来的图片就得排队等待）。 这里比较 <strong>特别的就是同一个版本的微博 APK，在华为的机型上与在其他机型上表现不一致，作为一个系统优化工程师，这个还是值得去搞清楚的（大胆猜测是微博针对华为的机型做了优化），那么这个优化的内容是什么？</strong> </li>
@@ -495,7 +498,7 @@ height:50vh;
 <li><strong>华为的 PerfSDK 还有效果么？答案是有，具体分析可以看下文，因为有了这个 SDK，不仅对微博有好处(减少图片加载个数)，对华为也有好处(提升微博主页列表在华为手机上的滑动体验，即 Fling 曲线优化) ；而粗暴开启 “列表滑动的同时加载图片” 的其他手机，如果性能不足，开启后反而会增加卡顿出现的概率(微博官方应该有性能监控数据可以看到)</strong> </li>
 <li><strong>反编译的微博版本：10.8.1</strong> </li>
 </ol>
-<h2 id="结论先行"><a href="#结论先行" class="headerlink" title="结论先行"></a>结论先行</h2><p><strong>‘’微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片 ‘’这个现象是因为华为和微博做了联合优化，主要是为了优化微博列表滑动时候的用户体验，其优化点如下</strong> </p>
+<h2 id="结论先行"><a href="#结论先行" class="headerlink" title="结论先行"></a>结论先行</h2><p><strong>“微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片” 这个现象是因为华为和微博做了联合优化，主要是为了优化微博列表滑动时候的用户体验，其优化点如下</strong> </p>
 <ol>
 <li>华为提供了一个简单的接口打包成 SDK 提供给微博，这个接口可以让微博的列表监听到列表的当前速度（Velocity），在速度高于阈值或者低于阈值的时候，都会及时通知 App </li>
 <li>微博拿到这个速度回调之后，就可以根据列表的滑动速度来决定是否要在滑动过程中加载图片，一旦列表的滑动速度低于设定的阈值，就开启图片加载；一旦列表的滑动速度高于设定的阈值，就关闭图片加载 </li>
@@ -615,7 +618,7 @@ height:50vh;
             <p>原文作者：<a href="https://androidperformance.com">Gracker</a>
             <p>原文链接：<a href="https://androidperformance.com/2020/08/20/weibo-imageload-opt-on-huawei/">https://androidperformance.com/2020/08/20/weibo-imageload-opt-on-huawei/</a>
             <p>发表日期：<a href="https://androidperformance.com/2020/08/20/weibo-imageload-opt-on-huawei/">August 20th 2020, 1:17:26 pm</a>
-            <p>更新日期：<a href="https://androidperformance.com/2020/08/20/weibo-imageload-opt-on-huawei/">May 1st 2021, 10:18:35 pm</a>
+            <p>更新日期：<a href="https://androidperformance.com/2020/08/20/weibo-imageload-opt-on-huawei/">July 20th 2021, 11:47:58 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -813,7 +816,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-number">1.</span> <span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景备注"><span class="toc-number">1.1.</span> <span class="toc-text">背景备注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论先行"><span class="toc-number">1.2.</span> <span class="toc-text">结论先行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#微博-华为是怎么优化？"><span class="toc-number">2.</span> <span class="toc-text">微博+华为是怎么优化？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#现象分析"><span class="toc-number">2.1.</span> <span class="toc-text">现象分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#阶段一优化"><span class="toc-number">2.1.1.</span> <span class="toc-text">阶段一优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阶段二优化"><span class="toc-number">2.1.2.</span> <span class="toc-text">阶段二优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术分析"><span class="toc-number">2.2.</span> <span class="toc-text">技术分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#阶段一优化的技术分析"><span class="toc-number">2.2.1.</span> <span class="toc-text">阶段一优化的技术分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阶段二优化的技术分析"><span class="toc-number">2.2.2.</span> <span class="toc-text">阶段二优化的技术分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他厂商处理"><span class="toc-number">2.3.</span> <span class="toc-text">其他厂商处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后一个问题：滑动点击"><span class="toc-number">3.</span> <span class="toc-text">最后一个问题：滑动点击</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸阅读"><span class="toc-number">4.</span> <span class="toc-text">延伸阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#列表滑动图片加载的性能考虑"><span class="toc-number">4.1.</span> <span class="toc-text">列表滑动图片加载的性能考虑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表滑动监听背景知识"><span class="toc-number">4.2.</span> <span class="toc-text">列表滑动监听背景知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表滑动状态的变化"><span class="toc-number">4.3.</span> <span class="toc-text">列表滑动状态的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表的-Fling-曲线计算"><span class="toc-number">4.4.</span> <span class="toc-text">列表的 Fling 曲线计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#厂商应用联合优化"><span class="toc-number">5.</span> <span class="toc-text">厂商应用联合优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本文其他地址"><span class="toc-number">6.</span> <span class="toc-text">本文其他地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number">7.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#背景备注"><span class="toc-number">1.</span> <span class="toc-text">背景备注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结论先行"><span class="toc-number">2.</span> <span class="toc-text">结论先行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#微博-华为是怎么优化？"><span class="toc-number"></span> <span class="toc-text">微博+华为是怎么优化？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#现象分析"><span class="toc-number">1.</span> <span class="toc-text">现象分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#阶段一优化"><span class="toc-number">1.1.</span> <span class="toc-text">阶段一优化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阶段二优化"><span class="toc-number">1.2.</span> <span class="toc-text">阶段二优化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#技术分析"><span class="toc-number">2.</span> <span class="toc-text">技术分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#阶段一优化的技术分析"><span class="toc-number">2.1.</span> <span class="toc-text">阶段一优化的技术分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#阶段二优化的技术分析"><span class="toc-number">2.2.</span> <span class="toc-text">阶段二优化的技术分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他厂商处理"><span class="toc-number">3.</span> <span class="toc-text">其他厂商处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#最后一个问题：滑动点击"><span class="toc-number"></span> <span class="toc-text">最后一个问题：滑动点击</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#延伸阅读"><span class="toc-number"></span> <span class="toc-text">延伸阅读</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#列表滑动图片加载的性能考虑"><span class="toc-number">1.</span> <span class="toc-text">列表滑动图片加载的性能考虑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表滑动监听背景知识"><span class="toc-number">2.</span> <span class="toc-text">列表滑动监听背景知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表滑动状态的变化"><span class="toc-number">3.</span> <span class="toc-text">列表滑动状态的变化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表的-Fling-曲线计算"><span class="toc-number">4.</span> <span class="toc-text">列表的 Fling 曲线计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#厂商应用联合优化"><span class="toc-number"></span> <span class="toc-text">厂商应用联合优化</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本文其他地址"><span class="toc-number"></span> <span class="toc-text">本文其他地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number"></span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a>
     </div>
     
     <div class="sidebar sidebar-hide">
