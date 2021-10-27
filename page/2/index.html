@@ -461,6 +461,185 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2020/08/20/weibo-imageload-opt-on-huawei/">
+                
+                <span class="abstract-title-text">华为手机刷微博体验更好？技术角度的一些分析和思考</span>
+            </a>
+            <div class="abstract-content">
+                <p>技术群里的小伙伴发了一条微博， <a href="https://weibo.com/1808884742/IApbpEVQr" target="_blank" rel="noopener">https://weibo.com/1808884742/IApbpEVQr</a>， 博主 @王波粒 发现， Mate 30 Pro 有个很特别的现象（建议先去看一下视频） </p>
+<p>但是这个视频描述和底下的猜测都不对，我这边总结一下这个现象： <strong>微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片，而同一个版本的微博客户端，安装到其他手机上，在主页列表上下滑动的情况下，则必须要等到滑动停止之后才会加载图片</strong> </p>
+<p>下面就针对这个现象,从技术的角度来深入分析产生这种现象的原因,以及我们能从里面学到什么</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/08/20</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="流畅性">流畅性</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="体验优化">体验优化</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2020/05/26/samsung_crash/">
+                
+                <span class="abstract-title-text">一个「闰」字引发的事故 - 三星系统重启分析</span>
+            </a>
+            <div class="abstract-content">
+                <p>2020 年 5 月 23 号凌晨 1 点 30 左右, 大量三星手机用户的手机出现死机, 无限重启、进 Recovery 等问题, 并且操作不当会导致数据丢失, 并且上了知乎的热点, 售后点更是人满为患</p>
+<p>知乎的部分回答中, 大家更是对三星的家属送上了亲切的问候, 甚至有的人已经将这次事故与 Note7 事件、充电门、绿屏门事件相提并论, 甚至预言三星因此会退出国内市场 ; 有的人因为这个丢了 Offer , 有的人准备了很久的资源丢失, 有的人甚至直接把手机砸了…</p>
+<p>作为一个 Android 开发者, 我并不想对三星落井下石 , 我只想搞清楚到底是什么原因导致了这场事故 , 以及我们能从里面学到什么 . 我认为既然是 Android 系统出了问题, 我们有必要从技术的角度来分析为什么会出现这样的问题</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/26</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2020/05/07/Android-App-Chain-Wakeup/">
+                
+                <span class="abstract-title-text">Android App 链式唤醒分析</span>
+            </a>
+            <div class="abstract-content">
+                <p>MIUI 12 的发布, 将之前一直是应用开发者和 Rom 开发者斗争最激烈的部分展示给了普通消费者, 让普通消费者也知道了这场斗争的细节, 正所谓 “魔高一尺道高一丈” , Rom 开发者由于有更高的代码修改权限, 始终占据着上风 ; App 开发者当然也不甘示弱, 各种保活拉起黑科技层出不穷,甚至 Google 都参与到了这部分斗争中, 居中调和, 制定各种规则来规范双方. 当然斗争对双方来说都算是好事, 毕竟任何一方完全的胜利都会导致 “狡兔死走狗烹,飞鸟尽良弓藏”</p>
+<p>不过双方斗争的受害者无疑还是使用手机的消费者 , App 如果斗争成功, 那么手机上各种后台进程乱跑, 杀不掉, 占用 CPU 和内存 , 这不是消费者想看到的 ; 如果 Rom 开发者斗争成功 , App 的体验必定会大打折扣 , 各位 App 开发者应该深有体会. </p>
+<p>从文章最后一段可以看到, 其实各个手机厂商对付这一套都有自己的策略, 基本上都可以搞定自启动和关联启动. 至于隐私 , 李彦宏曾经说过 “<strong>中国人对隐私问题的态度更加开放，也相对来说没那么敏感。如果他们可以用隐私换取便利、安全或者效率。在很多情况下，他们就愿意这么做</strong>“ . 大家想想在微信里面复制一段话打开到淘宝就可以自动跳转到这个物品, 方不方便? 好不好用? 还想不想用? 剪贴板再借我看一看?</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/05/07</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2020/02/14/Android-Systrace-SurfaceFlinger/">
+                
+                <span class="abstract-title-text">Android Systrace 基础知识 - SurfaceFlinger 解读</span>
+            </a>
+            <div class="abstract-content">
+                <p>本文是 Systrace 系列文章的第五篇，主要是对 SurfaceFlinger 进行简单介绍，介绍了 SurfaceFlinger 中几个比较重要的线程，包括 Vsync 信号的解读、应用的 Buffer 展示、卡顿判定等，由于 Vsync 这一块在<a href="https://www.androidperformance.com/2019/12/01/Android-Systrace-Vsync/" target="_blank" rel="noopener">Systrace 基础知识 - Vsync 解读</a> 和 <a href="https://androidperformance.com/2019/10/22/Android-Choreographer/">Android 基于 Choreographer 的渲染机制详解</a> 这两篇文章里面已经介绍过，这里就不再做详细的讲解了。</p>
+<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/14</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2020/02/03/android-development-learning-path-2020-edition/">
+                
+                <span class="abstract-title-text">Android 开发者学习路线(2020 版本)</span>
+            </a>
+            <div class="abstract-content">
+                <p>Medium 上 @MindOrks 发布了一篇 <a href="https://medium.com/mindorks/android-development-learning-path-2020-edition-3f464ac56dbf" target="_blank" rel="noopener">2020 年 Android 程序员的学习线路</a>，鉴于一部分人无法阅读原文(你懂得原因)，我把这篇文章的内容结合自己的 2020 年的学习计划，一起发出来，给大家一个参考</p>
+<p><strong>原文比较简单，并没有介绍为什么要推荐这些，只是单纯地列了一下知识点，我这边针对每个知识点做一些简单的介绍，有些知识点原文并没有提到，我会根据自己的理解加上，仅供参考</strong></p>
+<p>这篇文章主要针对 Android 开发者，如果你是新手，那么下面的内容可以帮助你找到学习的线路；如果你是老手，这篇文章列出的内容也可以帮助你查漏补缺。如果各位有什么其他的建议，欢迎留言交流</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/03</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2020/01/28/2020-read/">
                 
                 <span class="abstract-title-text">我的 2020 年读书单</span>
@@ -637,196 +816,10 @@
         </article>
         <div class="index-post-divider"></div>
     
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/11/18/Android-App-Lunch-Optimize/">
-                
-                <span class="abstract-title-text">Android App 启动优化全记录</span>
-            </a>
-            <div class="abstract-content">
-                <p>本文参考了目前大部分 Android 应用启动优化的方案，将大家的方案做一个汇总，如果你有这方面的需求，只需要对照这篇文章，看看其他人的方案，查漏补缺。很多方案是要根据具体的业务去做优化的，所以这里也没有对每一种方案进行详细的介绍，要用到哪一个方案的时候，可以具体去网上查找对应方案的具体实现方法，这里只是做一个汇总</p>
-<p>另外我还加上了部分系统厂商所做的启动相关的优化，不过只写了一些我知道的，还有一些厂商有黑科技，就不在这里的讨论范围了。知道厂商做的事情，可能也会帮助到你，比如联系厂商做白名单、接入厂商 SDK 等</p>
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/18</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Lunch">Lunch</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/11/06/Android-Systrace-MainThread-And-RenderThread/">
-                
-                <span class="abstract-title-text">Android Systrace 基础知识 - MainThread 和 RenderThread 解读</span>
-            </a>
-            <div class="abstract-content">
-                <p>本文是 Systrace 系列文章的第九篇，主要是是介绍 Android App 中的 MainThread 和 RenderThread，也就是大家熟悉的<strong>主线程</strong>和<strong>渲染线程</strong>。文章会从 Systrace 的角度来看 MainThread 和 RenderThread 的工作流程，以及涉及到的相关知识：卡顿、软件渲染、掉帧计算等</p>
-<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些</p>
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/06</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/11/04/Android-Systrace-Input/">
-                
-                <span class="abstract-title-text">Android Systrace 基础知识 - Input 解读</span>
-            </a>
-            <div class="abstract-content">
-                <p>本文是 Systrace 系列文章的第六篇，主要是对 Systrace 中的 Input 进行简单介绍，介绍其 Input 的流程； Systrace 中 Input 信息的体现 ，以及如何结合 Input 信息，分析与 Input 相关的问题</p>
-<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/04</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/10/24/Android-Background-Animation/">
-                
-                <span class="abstract-title-text">Android 中的“后台无效动画“行为分析</span>
-            </a>
-            <div class="abstract-content">
-                <p>当一个 Android App 退到后台之后，只要他没有被杀死，那么他做什么事情大家都不要奇怪，因为这就是 Android。但是当用户知道一个你一个 App 退到后台之后还在持续做无效的动画，而这个动画完全是无意义的，而且用户还不知道他在做动画，消耗用户那可怜的电量的时候，轻则被多任务杀掉，禁止后台运行，重则直接卸载。</p>
-<p>一般的开发者很难发现这个问题，但是如果你经常使用 <a href="https://www.androidperformance.com/2019/05/28/Android-Systrace-About/" target="_blank" rel="noopener">Systrace</a> ，多开几十个应用然后退回到桌面，左右滑动抓取 <a href="https://www.androidperformance.com/2019/05/28/Android-Systrace-About/" target="_blank" rel="noopener">Systrace</a> ，就可以很容易发现，总有那么几个后台的应用，还在频繁地做无效的动画。</p>
-<p>这里说的后台做动画，指的是由于某种原因，应用在退到后台之后，用户看不到任何这个 App 界面的时候，他仍然在后台不断地更新，耗费 CPU。引起这个问题的原因可能有好多个，毕竟 往 <a href="https://www.androidperformance.com/2019/10/22/Android-Choreographer/" target="_blank" rel="noopener">Choreographer</a> 扔 CALLBACK_ANIMATION 的地方太多了，而且每个应用可能都不一样，但最终还是需要各个应用去做修复</p>
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/24</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Framework">Framework</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/10/22/Android-Choreographer/">
-                
-                <span class="abstract-title-text">Android 基于 Choreographer 的渲染机制详解</span>
-            </a>
-            <div class="abstract-content">
-                <p>本文介绍了 App 开发者不经常接触到但是在 Android Framework 渲染链路中非常重要的一个类 Choreographer。包括 Choreographer 的引入背景、Choreographer 的简介、部分源码解析、Choreographer 与 MessageQueue、Choreographer 和 APM，以及手机厂商基于 Choreographer 的一些优化思路</p>
-<p>Choreographer 的引入，主要是配合 Vsync ，给上层 App 的渲染提供一个稳定的 Message 处理的时机，也就是 Vsync 到来的时候 ，系统通过对  Vsync 信号周期的调整，来控制每一帧绘制操作的时机. 目前大部分手机都是 60Hz 的刷新率，也就是 16.6ms 刷新一次，系统为了配合屏幕的刷新频率，将 Vsync 的周期也设置为 16.6 ms，每个 16.6 ms ， Vsync 信号唤醒 Choreographer 来做 App 的绘制操作 ，这就是引入 Choreographer 的主要作用. 了解 Choreographer 还可以帮助 App 开发者知道程序每一帧运行的基本原理，也可以加深对 Message、Handler、Looper、MessageQueue、Measure、Layout、Draw 的理解</p>
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Framework">Framework</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
     <!-- paginator  -->
     
         <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">NEXT &gt;</a>
+            <a class="extend prev" rel="prev" href="/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/3/">NEXT &gt;</a>
         </nav>
     
 </main>
@@ -1620,7 +1613,66 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2111,7 +2163,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 88
+        Total : 93
         </div>
         <!-- search  -->
         
@@ -2125,6 +2177,36 @@
             <div class="archive-year"> 2021 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/2021/10/27/if-i-write-a-book-about-performance/">一本讲 Android 流畅性的书，应该有什么内容？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span>
+            <a class="archive-post-title" href="/2021/10/26/build-android-12/">Android 系统开发系列（1）：Android 12 源代码下载、编译和刷机</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-3/">Systrace 响应速度实战 3 ：响应速度延伸知识</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-2/">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-1/">Systrace 响应速度实战 1 ：了解响应速度原理</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/24</span>
@@ -2925,6 +3007,11 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>

@@ -461,6 +461,140 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2015/03/15/android-tips-round-up-3/">
+                
+                <span class="abstract-title-text">Android 小技巧 -3</span>
+            </a>
+            <div class="abstract-content">
+                <p>本文是一篇译文,这篇是这个系列的第三篇.讲述的是Android开发中遇到的一些好用的小技巧,或者一些实用的API,很多人都知道,但也有人不知道,记录下来,如果能帮助到大家,也是极好的.由于不是严格的博文,所以翻译也不那么严格,有些工具和类我也会经常用,所以我会根据自己的想法去写.有些地方坐在并没有将这个工具的作用讲出来,我会补充上去.</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/03/15</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2015/02/04/build-rom-for-nexus5/">
+                
+                <span class="abstract-title-text">为 Nexus5 编译 AndroidL 固件</span>
+            </a>
+            <div class="abstract-content">
+                <p>接前一篇文章<a href="https://www.androidperformance.com/view-android-source-code-with-androidstudio.html" target="_blank" rel="noopener">使用Android Studio查看Android Lollipop源码</a>, 我们知道,仅仅看代码,提高是比较有限的,而且理解起来也比较肤浅,往往过目就忘. 而自己写过的代码,往往会印象比较深刻,在写的时候也会比较容易理解流程. 所以我们在看代码的同时, 如果能修改代码, 在手机上跑起来并看到修改的效果,这无疑会加快看代码的效率和积极性. 所以这篇文章,就讲解一下如何自己编译AndroidL的源码,并且在Nexus5上跑起来. 至于为何需要自己编译固件,而不是直接安装Google给出的工厂固件?原因是Google给出的工厂固件是User版本,是没法随心所欲Push东西进去的. 所以我们需要编译自己的Userdebug版本.</p>
+<p>本文假设你已经下载了AndroidL的源码,并且有一台Nexus5手机(手机系统开发人员必备), 如果你还没有AndroidL的源码,或者你有源码但是没有配置编译的环境,那么 <a href="https://source.android.com/source/initializing.html" target="_blank" rel="noopener">Initializing a Build Environment</a> 和<a href="https://source.android.com/source/downloading.html" target="_blank" rel="noopener">Downloading the Source</a>这两篇文章你应该先去看一下(我又一次假设你会翻墙,如果你不会翻墙,那么下代码也是一个痛苦的事情). 这后面的教程Google官网也有教程.所以我只针对Nexus5进行讲解.</p>
+<p>另外你需要知道AOSP,AOSP即Android Open Source Project 汉语意思是：谷歌开放源代码项目.我们通过Google官方下载的源代码,就是AOSP的代码, 其中是不包含Google开发的那些个应用的,各个厂商拿到的也是这个版本,在这个版本的基础上进行修改. 而Google发布的工厂固件则是包含全套Google服务的. 厂商如果想安装Google服务,就需要过Google的那一套认证,比较麻烦,而且价格不菲,鉴于Google在国内的尴尬地位,国内很多厂商都没有过这个认证.</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/02/04</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2015/01/30/android-performance-tools-systrace-1/">
+                
+                <span class="abstract-title-text">Android 性能优化之 Systrace 工具介绍(一)</span>
+            </a>
+            <div class="abstract-content">
+                <p><strong>注意</strong>，本篇内容已经过时，请参考新的 <a href="https://www.androidperformance.com/2019/05/28/Android-Systrace-About/" target="_blank" rel="noopener">Systrace 系列文章</a></p>
+<p>本文是Android性能优化工具系列的第一篇，这个系列主要介绍Android性能优化过程中会使用到的一些工具，以及如何用这些工具来发现问题和解决问题。在性能优化方面，Android有不少性能工具供大家来使用，按照我们一贯地 “发现问题-解决问题”的思路来看，发现问题才是最主要的，一上来就想着如何去解决问题，反而会事倍功半。</p>
+<p>这一篇先来简单介绍一下Systrace这个工具。</p>
+<h2 id="Systrace简单介绍"><a href="#Systrace简单介绍" class="headerlink" title="Systrace简单介绍"></a>Systrace简单介绍</h2><p>Systrace是Android4.1中新增的性能数据采样和分析工具。它可帮助开发者收集Android关键子系统（如surfaceflinger、WindowManagerService等Framework部分关键模块、服务，View系统等）的运行信息，从而帮助开发者更直观的分析系统瓶颈，改进性能。</p>
+<p>Systrace的功能包括跟踪系统的I/O操作、内核工作队列、CPU负载以及Android各个子系统的运行状况等。在Android平台中，它主要由3部分组成：</p>
+<ul>
+<li>内核部分：Systrace利用了Linux Kernel中的ftrace功能。所以，如果要使用Systrace的话，必须开启kernel中和ftrace相关的模块。</li>
+<li>数据采集部分：Android定义了一个Trace类。应用程序可利用该类把统计信息输出给ftrace。同时，Android还有一个atrace程序，它可以从ftrace中读取统计信息然后交给数据分析工具来处理。</li>
+<li>数据分析工具：Android提供一个systrace.py（python脚本文件，位于Android SDK目录/tools/systrace中，其内部将调用atrace程序）用来配置数据采集的方式（如采集数据的标签、输出文件名等）和收集ftrace统计数据并生成一个结果网页文件供用户查看。 从本质上说，Systrace是对Linux Kernel中ftrace的封装。应用进程需要利用Android提供的Trace类来使用Systrace.<br>关于Systrace的官方介绍和使用可以看这里：<a href="http://developer.android.com/tools/help/systrace.html" target="_blank" rel="noopener" title="SysTrace官方介绍">Systrace</a></li>
+</ul>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/01/30</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2015/01/16/view-android-source-code-with-androidstudio/">
+                
+                <span class="abstract-title-text">使用 Android Studio 查看 Android Lollipop 源码</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h2><p>作为Google的亲儿子,Nexus手机系列所收到的待遇大家有目共睹.Android5.0出来之后,Nexus5第一时间就升级到了最新的系统.那么作为Google亲儿子的Android Studio同样备受Google的重视,我也是第一时间从Eclipse转投到了Android Studio的怀抱中,从最初的测试版本一路升级到现在的1.0正式版本(今天发布了1.1,果断已经升级了).</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/01/16</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2015/01/13/android-performance-optimization-overdraw-2/">
+                
+                <span class="abstract-title-text">Android 性能优化之过渡绘制 - 实战篇</span>
+            </a>
+            <div class="abstract-content">
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇<a href="https://www.androidperformance.com/2014/10/20/android-performance-optimization-overdraw-1/" target="_blank" rel="noopener">文章</a>从理论的角度讲解了一下什么是过渡绘制，以及可以用来查看和确认过渡绘制的工具，还提供了一些优化过渡绘制的方法。对代码和布局比较熟悉的人，看完上一篇其实就已经可以对自己的应用进行优化了。我记得有人说过，用iphone你只需要保证苹果有节操即可，用Android你就得保证所有的Android开发者都有节操。但现实是残酷的，现在Android市场上，有很多粗制滥造的应用，其中不乏大厂之作，各位打开过渡绘制按钮，就知道我所言非虚。作为一个Android开发人员，我肯定是更希望Android能一步一步好起来，超越iphone。</p>
+<p>这篇文章从实战的角度，讲解了一个过渡绘制的优化过程。当然这里用到的只是很少的一部分，毕竟每个应用差别很大，优化方式也各不一样。所以这篇文章仅供参考，想把这块做好还是要下功夫的。</p>
+<p>如果没有看过前一篇，可以点这里：<a href="https://www.androidperformance.com/2014/10/20/android-performance-optimization-overdraw-1/" target="_blank" rel="noopener">Android性能优化之过渡绘制(一)</a></p>
+<hr>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/01/13</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2014/10/20/android-performance-optimization-overdraw-1/">
                 
                 <span class="abstract-title-text">Android 性能优化之过渡绘制 - 理论篇</span>
@@ -590,88 +724,10 @@ android:focusableInTouchMode="true"
         </article>
         <div class="index-post-divider"></div>
     
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2014/04/01/android-service-build-your-own-notification-servers-app/">
-                
-                <span class="abstract-title-text">Android Service：开发自己的通知中心(2):辅助性服务实战</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="1-辅助性服务实战介绍"><a href="#1-辅助性服务实战介绍" class="headerlink" title="1.辅助性服务实战介绍"></a>1.辅助性服务实战介绍</h2><p>上一篇文章介绍了什么是Accessibility以及简单的使用，这一篇文章就来讲讲如何使用Accessibility服务来创建一个简单的Android通知中心。Android中通知中心是一个系统层面的服务，负责显示应用和系统发来的通知（Notification，比如USB插入、选择输入法、未接来电、截图、天气信息、新闻推送等等）。在android4.3之前，一般的第三方应用是无法获取Notification list的（在Android4.3之后，有了一个新的接口,NotificationListenerService.getActiveNotifications(),可以获取当前的Notification）。但是利用Accessibility服务可以监听到各种事件的特性，可以开发一个第三方的通知中心，实现与系统通知栏类似的功能。</p>
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/04/01</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2014/03/25/ubuntu-adb-can-not-find-devices/">
-                
-                <span class="abstract-title-text">Android:Ubuntu 下执行 Adb 命令找不到设备</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="1-问题概述"><a href="#1-问题概述" class="headerlink" title="1.问题概述"></a>1.问题概述</h2><p><span style="color: #000000;">最近开发Nokia项目，遇到的问题如下：</span></p>
-<p><span style="color: #000000;">插入Nokia x后，电脑没有反应，即不识别，同事的windows也不识别，最后在谷歌上搜索了良久，才找到了解决方案，但是没有记录，后来又要给别人配置的时候，发现忘记怎么配置了。想想这也是一个具有通性的问题，还是记录下来，分享给大家。</span></p>
-<h2 id="2-问题解决方案"><a href="#2-问题解决方案" class="headerlink" title="2.问题解决方案"></a>2.问题解决方案</h2><p><span style="color: #000000;">首先问题是：执行adb命令提示找不到设备，在做其他操作之前，请先确认已经做了如下操作：</span></p>
-<ol>
-<li><span style="color: #000000;">确定已经打开了USB调试选项（设置-开发者选项-USB调试），有的机器没有开发者选项，需要到关于里面点击版本号若干下，或者去百度谷歌。</span></li>
-<li><span style="color: #000000;">确定使用sudo命令adb kill-server 和adb start-server后仍然没有用。</span><br><span style="color: #000000;">如果上述操作都确认了，还是找不到设备，那么继续往下看：</span></li>
-</ol>
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/03/25</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2014/03/17/android-build-your-own-android-notification-service-app/">
-                
-                <span class="abstract-title-text">Android Service：开发自己的通知中心(1):辅助性服务介绍</span>
-            </a>
-            <div class="abstract-content">
-                <h1 id="1-辅助性服务介绍"><a href="#1-辅助性服务介绍" class="headerlink" title="1 辅助性服务介绍"></a>1 辅助性服务介绍</h1><p>辅助性服务是安卓框架的一个特性，它的设计是为了让已经安装在安卓设备上的应用程序能够为用户提供一种导航式(引导式）回应。一个辅助性服务能够传达给<br>用户关于这个应用程序的利益，例如把文本转换成语音、当用户手指停留屏幕的一个重要区域时的haptic反馈。这一节涵盖了怎样去创建一个辅助性服务，如何处理应用程序的信息接收，还有如何把信息反馈给用户。<br>创建自己的辅助性服务</p>
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/03/17</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
     <!-- paginator  -->
     
         <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/page/8/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span>
+            <a class="extend prev" rel="prev" href="/page/8/">&lt; PREV</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">NEXT &gt;</a>
         </nav>
     
 </main>
@@ -1465,7 +1521,66 @@ android:focusableInTouchMode="true"
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1956,7 +2071,7 @@ android:focusableInTouchMode="true"
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 88
+        Total : 93
         </div>
         <!-- search  -->
         
@@ -1970,6 +2085,36 @@ android:focusableInTouchMode="true"
             <div class="archive-year"> 2021 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/2021/10/27/if-i-write-a-book-about-performance/">一本讲 Android 流畅性的书，应该有什么内容？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span>
+            <a class="archive-post-title" href="/2021/10/26/build-android-12/">Android 系统开发系列（1）：Android 12 源代码下载、编译和刷机</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-3/">Systrace 响应速度实战 3 ：响应速度延伸知识</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-2/">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-1/">Systrace 响应速度实战 1 ：了解响应速度原理</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/24</span>
@@ -2770,6 +2915,11 @@ android:focusableInTouchMode="true"
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>

@@ -446,6 +446,197 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2021/10/27/if-i-write-a-book-about-performance/">
+                
+                <span class="abstract-title-text">一本讲 Android 流畅性的书，应该有什么内容？</span>
+            </a>
+            <div class="abstract-content">
+                <p>最近读了一本新书：《打造流畅的 Android App》，京东链接：<a href="https://item.jd.com/10035215362170.html" target="_blank" rel="noopener">https://item.jd.com/10035215362170.html</a> 。因为书名所以买了这本书，读完之后觉得有必要写一篇文章，让还没有买此书的同学了解一下</p>
+<p>我个人的建议是：如果你是个老鸟，不建议买，这本书里面没有介绍太多原理性的东西，对于 Android 流畅性也没有一个比较全面的介绍；如果你是新手，这本书用来当做开阔视野 + 查漏补缺还可以，想更深入的了解 Android 流畅度还是差了点东西</p>
+<p>之所以我会这么建议，是因为这本书确实没有讲太多性能或者流畅度相关的东西，也没有比较深入的原理部分，篇幅更多在讲<strong>静态代码审查</strong>、<strong>AS Profiler 的使用</strong>、<strong>App 架构</strong>、<strong>保活</strong>、<strong>网络性能优化</strong>、<strong>APK 大小优化</strong>、<strong>App 耗电</strong>等，内容也不深，浅尝辄止</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/10/27</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="读书笔记">读书笔记</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2021/10/26/build-android-12/">
+                
+                <span class="abstract-title-text">Android 系统开发系列（1）：Android 12 源代码下载、编译和刷机</span>
+            </a>
+            <div class="abstract-content">
+                <p>Android 12 <a href="https://mp.weixin.qq.com/s/OiFSWEnc-0N2z7JYWTJluw" target="_blank" rel="noopener">正式版</a> 已经发布：<a href="https://mp.weixin.qq.com/s/OiFSWEnc-0N2z7JYWTJluw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/OiFSWEnc-0N2z7JYWTJluw</a> 。Android 12 正式版的代码也已经发布，<a href="https://source.android.google.cn/" target="_blank" rel="noopener">官方文档</a> 也进行了更新：<a href="https://source.android.google.cn/" target="_blank" rel="noopener">https://source.android.google.cn/</a></p>
+<p>本文就带大家下载和编译最新的 Android 12 代码，本地编译的代码有下面几个好处</p>
+<ol>
+<li>可以刷真机，方便开发者进行本地 Debug，同时代码可以导入 Android Studio 进行 Debug</li>
+<li>可以编译 Userdebug 版本，可以 root 和 remount，方便对系统和 App 进行 Debug，Debug 模式下可以看到许多 User 版本上看不到的问题；同时由于可以看到更多的信息，也方便进行 App 竞品分析、App 行为分析</li>
+<li>可以更方便地进行 Android 源代码的学习，本地版本可以打开很多系统级别的 Debug Log，也可以自己加 Log，或者自己修改流程</li>
+</ol>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/10/26</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-3/">
+                
+                <span class="abstract-title-text">Systrace 响应速度实战 3 ：响应速度延伸知识</span>
+            </a>
+            <div class="abstract-content">
+                <p>在讨论 Android 性能问题的时候，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这三个性能相关的知识点通常会放到一起来讲，因为引起卡顿、响应慢、ANR 的原因类似，只不过根据重要程度，被人为分成了卡顿、响应慢、ANR 三种，所以我们可以定义广义上的卡顿，包含了卡顿、响应慢和 ANR 三种，所以如果用户反馈说手机卡顿或者 App 卡顿，大部分情况下都是广义上的卡顿，需要搞清楚，到底出现了哪一种问题</p>
+<p>如果是动画播放卡顿、列表滑动卡顿这种，我们一般定义为 <strong>狭义的卡顿</strong>，对应的英文描述我觉得应该是 <strong>Jank</strong>；如果是应用启动慢、亮灭屏慢、场景切换慢，我们一般定义为 <strong>响应慢</strong> ，对应的英文描述我觉得应该是 <strong>Slow</strong> ；如果是发生了 ANR，那就是 <strong>应用无响应问题</strong> 。三种情况所对应的分析方法和解决方法不太一样，所以需要分开来讲</p>
+<p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
+<p>本文是响应速度系列的第三篇，主要是讲在使用 Systrace 分析应用响应速度问题的时候，其中的一些延伸知识，包括启动速度测试、Log 输出解读、Systrace 状态解读、三方启动库等内容
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="响应速度">响应速度</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-2/">
+                
+                <span class="abstract-title-text">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</span>
+            </a>
+            <div class="abstract-content">
+                <p>在讨论 Android 性能问题的时候，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这三个性能相关的知识点通常会放到一起来讲，因为引起卡顿、响应慢、ANR 的原因类似，只不过根据重要程度，被人为分成了卡顿、响应慢、ANR 三种，所以我们可以定义广义上的卡顿，包含了卡顿、响应慢和 ANR 三种，所以如果用户反馈说手机卡顿或者 App 卡顿，大部分情况下都是广义上的卡顿，需要搞清楚，到底出现了哪一种问题</p>
+<p>如果是动画播放卡顿、列表滑动卡顿这种，我们一般定义为 <strong>狭义的卡顿</strong>，对应的英文描述我觉得应该是 <strong>Jank</strong>；如果是应用启动慢、亮灭屏慢、场景切换慢，我们一般定义为 <strong>响应慢</strong> ，对应的英文描述我觉得应该是 <strong>Slow</strong> ；如果是发生了 ANR，那就是 <strong>应用无响应问题</strong> 。三种情况所对应的分析方法和解决方法不太一样，所以需要分开来讲</p>
+<p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
+<p>本文是响应速度系列的第二篇，主要是以 Android App 冷启动为例，讲解如实使用 Systrace 来分析冷启动
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="响应速度">响应速度</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-1/">
+                
+                <span class="abstract-title-text">Systrace 响应速度实战 1 ：了解响应速度原理</span>
+            </a>
+            <div class="abstract-content">
+                <p>在讨论 Android 性能问题的时候，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这三个性能相关的知识点通常会放到一起来讲，因为引起卡顿、响应慢、ANR 的原因类似，只不过根据重要程度，被人为分成了卡顿、响应慢、ANR 三种，所以我们可以定义广义上的卡顿，包含了卡顿、响应慢和 ANR 三种，所以如果用户反馈说手机卡顿或者 App 卡顿，大部分情况下都是广义上的卡顿，需要搞清楚，到底出现了哪一种问题</p>
+<p>如果是动画播放卡顿、列表滑动卡顿这种，我们一般定义为 <strong>狭义的卡顿</strong>，对应的英文描述我觉得应该是 <strong>Jank</strong>；如果是应用启动慢、亮灭屏慢、场景切换慢，我们一般定义为 <strong>响应慢</strong> ，对应的英文描述我觉得应该是 <strong>Slow</strong> ；如果是发生了 ANR，那就是 <strong>应用无响应问题</strong> 。三种情况所对应的分析方法和解决方法不太一样，所以需要分开来讲</p>
+<p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
+<p>本文是响应速度系列的第一篇，主要是讲响应速度相关的理论知识，包括性能工程概述、响应速度涉及到的知识点、响应速度的分析方法和套路等
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="响应速度">响应速度</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2021/04/24/android-systrace-smooth-in-action-3/">
                 
                 <span class="abstract-title-text">Systrace 流畅性实战 3 ：卡顿分析过程中的一些疑问</span>
@@ -1145,7 +1336,66 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1636,7 +1886,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 88
+        Total : 93
         </div>
         <!-- search  -->
         
@@ -1650,6 +1900,36 @@
             <div class="archive-year"> 2021 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/2021/10/27/if-i-write-a-book-about-performance/">一本讲 Android 流畅性的书，应该有什么内容？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span>
+            <a class="archive-post-title" href="/2021/10/26/build-android-12/">Android 系统开发系列（1）：Android 12 源代码下载、编译和刷机</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-3/">Systrace 响应速度实战 3 ：响应速度延伸知识</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-2/">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-1/">Systrace 响应速度实战 1 ：了解响应速度原理</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/24</span>
@@ -2450,6 +2730,11 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>

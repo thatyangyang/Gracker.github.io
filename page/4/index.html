@@ -461,6 +461,209 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2019/09/01/Android-Activity-Lunch-Mode/">
+                
+                <span class="abstract-title-text">Android 中的 Activity Launch Mode 详解</span>
+            </a>
+            <div class="abstract-content">
+                <p>Android 中的 Activity 有几种比较重要的启动模式,Standard\SingleTop\SingleTask\SingleInstance , 每一种启动模式有不同的使用场景, 网上也有许多分析这个的文章, 这里我以 Demo 的模式, 从 Activity 栈的角度来展示不同启动模式下的 Activity 的行为.</p>
+<p>Activity 栈是一个先进后出的数据结构, 各位可以关注在每一步操作之后, 栈内容那一栏 , 可以更好地帮助理解不同的启动模式.</p>
+<p>Demo 比较简单, 我也放到了 Github 上 , <a href="https://github.com/Gracker/AndroidlunchModeTest" target="_blank" rel="noopener">https://github.com/Gracker/AndroidLaunchModeTest</a> , 有兴趣的可以自己跑一下 , 看看结果 , 只需要修改 StandardActivity 里面的跳转 Activity 就可以了.</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/01</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2019/07/27/Android-Hardware-Layer/">
+                
+                <span class="abstract-title-text">Android 中的 Hardware Layer 详解</span>
+            </a>
+            <div class="abstract-content">
+                硬件加速与软件加速很多人会把 Android 中的硬件加速和 Hardware Layer 搞混，会以为启用了硬件加速，就是启用了 Hardware Layer. 所以在说 Hardware Layer 之前，我们先说一下硬件加速
+关于硬件加速的比较详细的文章，推荐大家看这三篇
+
+Android硬件加速原理与实现简介
+理解Android硬件加速的小白文
+官方文档：Hardware acceleration
+
+硬件加速，实际上应该叫 GPU 加速，软硬件加速的区别主要是图形的绘制究竟是 GPU 来处理还是 CPU，如果是 GPU，就认为是硬件加速绘制，反之，则是软件绘制
+目前的 Andro...
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/27</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2019/07/23/Android-Systrace-Pre/">
+                
+                <span class="abstract-title-text">Android Systrace 基础知识 -- 分析 Systrace 预备知识</span>
+            </a>
+            <div class="abstract-content">
+                <p>本文是 Systrace 系列文章的第二篇，主要是讲解一些分析 Systrace 的预备知识, 有了这些预备知识, 分析 Systrace 才会事半功倍, 更快也更有效率地找到问题点.</p>
+<p>本文介绍了如何查看 Systrace 中的线程状态 , 如何对进程的唤醒信息进行分析, 如何解读信息区的数据, 以及介绍了常用的快捷键. 通过本篇文章的学习, 相信你可以掌握进程和线程相关的一些信息, 也知道如何查看复杂的 Systrace 中包含的关键信息</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2019/06/29/Android-Systrace-SystemServer/">
+                
+                <span class="abstract-title-text">Android Systrace 基础知识 - SystemServer 解读</span>
+            </a>
+            <div class="abstract-content">
+                <p>本文是 Systrace 系列文章的第四篇，主要是对 SystemServer 进行简单介绍，介绍了 SystemServer 中几个比较重要的线程，由于 Input 和 Binder 比较重要，所以单独拿出来讲，在这里就没有再涉及到。</p>
+<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/29</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2019/05/28/Android-Systrace-About/">
+                
+                <span class="abstract-title-text">Android Systrace 基础知识 -- Systrace 简介</span>
+            </a>
+            <div class="abstract-content">
+                <p>本文是 Systrace 系列文章的第一篇，主要是对 Systrace 进行简单介绍，介绍其简单使用方法；如何去看 Systrace；如何结合其他工具对 Systrace 中的现象进行分析。</p>
+<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
+            </div>
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/28</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2019/05/27/why-60-fps/">
                 
                 <span class="abstract-title-text">Android Systrace 基础知识 -- Why 60 fps ？</span>
@@ -636,200 +839,10 @@ Systrace 分析本地测试有一台复现, 拿过来之后分析发现,手指�
         </article>
         <div class="index-post-divider"></div>
     
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/01/12/recommend-of-2018/">
-                
-                <span class="abstract-title-text">2018 年度好物推荐 - 给辛勤工作的自己一点奖励</span>
-            </a>
-            <div class="abstract-content">
-                <p>2018 年初写了一篇<a href="https://www.androidperformance.com/2018/01/06/2017%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90/" target="_blank" rel="noopener">&lt;2017 年度最推荐-给辛勤工作的自己一点奖励&gt;</a> , 最近有人问我今年是否会有 2018 年的年度推荐，我想了想，2018 年虽然不景气，但是还是有一些好东西可以推荐给大家，于是便有了这一篇文章。</p>
-<p>跟 2017年一样，我会把 2018 年里面我觉得体验很棒或者对工作生活很有帮助的东西推荐给大家，或许 2019 你会需要他们。推荐的内容包含了 App、硬件、书籍、博客、专栏等，希望能帮助到看到这篇文章的你</p>
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/12</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="年度推荐">年度推荐</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2018/11/01/android-system-develop-0/">
-                
-                <span class="abstract-title-text">Android 系统开发源码环境搭建</span>
-            </a>
-            <div class="abstract-content">
-                不管是 Android App 开发工程师还是 Android 系统开发工程师，对 Android 系统有一定的了解是很有必要的，正好我这几天在家里搭建了个开发环境，把过程分享出来，有需要的人可以看一下。
-大概的步骤包含下面几个：
-
-安装 Ubuntu 系统
-配置 Ubuntu 系统
-安装必备的软件
-配置 VPN (可选)
-下载 AOSP 代码
-配置编译环境并编译 Pixel 的代码
-刷机
-修改和编译 Framework 、Service、Res
-
-建议准备下面的硬件，当然没有也没关系，有了更好
-
-PC 或者笔记本
-512GB 的 SSD
-Pixel 手机一台
-
-安装 Ubuntu 系统...
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/01</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Framework">Framework</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Ubuntu">Ubuntu</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2018/10/25/How-do-engineers-count-well/">
-                
-                <span class="abstract-title-text">陆奇：除了好代码，工程师怎样才算优秀？</span>
-            </a>
-            <div class="abstract-content">
-                
-转自：百度Family，内容为陆奇 2017 年 7 月 的百度内部分享，非常值得技术人员学习和思考
-
-个人非常崇拜陆奇,  “陆奇以精力旺盛著称，通常凌晨4点起床，先查邮件，然后在跑步机上跑4英里，边跑边听古典音乐或看新闻。早上5点至6点就办公室，利用这段时间不受别人干扰准备一天的工作，然后一直工作到晚上10点，有时也会在半夜给同事发电子邮件。LinkedIn CEO 杰夫·维纳(Jeff Weiner)曾在雅虎与陆奇共事多年，他开始以为这种日程安排无法持久，后来不得不说：“陆奇的确是我所见过最有干劲的人。”前雅虎工程师阿米特·库玛尔(Amit Kumar)也夸奖陆奇人缘好。陆奇说：...
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/25</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="程序员">程序员</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2018/10/01/how-to-stop-sucking-and-be-awesome-instead-8/">
-                
-                <span class="abstract-title-text">程序员的修炼-08-阅读之美</span>
-            </a>
-            <div class="abstract-content">
-                本文是 &lt;程序员的修炼-从优秀到卓越&gt; 的读书笔记的第八篇，这本书的作者是 Jeff Atwood，StackOverflow 的创始人之一，Jeff 的文章涉及面很广，他是一个经验老道的程序员、管理者、创业者，这本书谈到了编程之外的很多东西，不管你是初级工程师，还是资深工程师，本书都值得一读。随着你的阅历的增加，每一次重读这本书，都会有不一样的感悟，正如书名“从优秀到卓越”，作者为你指明了道路，至于是否能成功，则要看自己的修炼了。
-我会把读书过程中一些精彩的言论摘录下来，有时会加入一些自己的见解或者经历，读书笔记的大纲与书本身的大纲是一致的，这也是我从另外一个地方学到并一直...
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/01</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="程序员的修炼">程序员的修炼</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="阅读之美">阅读之美</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2018/09/30/how-to-stop-sucking-and-be-awesome-instead-7/">
-                
-                <span class="abstract-title-text">程序员的修炼-07-游戏与编程</span>
-            </a>
-            <div class="abstract-content">
-                本文是 &lt;程序员的修炼-从优秀到卓越&gt; 的读书笔记的第七篇，这本书的作者是 Jeff Atwood，StackOverflow 的创始人之一，Jeff 的文章涉及面很广，他是一个经验老道的程序员、管理者、创业者，这本书谈到了编程之外的很多东西，不管你是初级工程师，还是资深工程师，本书都值得一读。随着你的阅历的增加，每一次重读这本书，都会有不一样的感悟，正如书名“从优秀到卓越”，作者为你指明了道路，至于是否能成功，则要看自己的修炼了。
-我会把读书过程中一些精彩的言论摘录下来，有时会加入一些自己的见解或者经历，读书笔记的大纲与书本身的大纲是一致的，这也是我从另外一个地方学到并一直...
-            </div>
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/30</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="程序员的修炼">程序员的修炼</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="游戏与编程">游戏与编程</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
     <!-- paginator  -->
     
         <nav class="page-nav">
-            <a class="extend prev" rel="prev" href="/page/3/">&lt; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/5/">NEXT &gt;</a>
+            <a class="extend prev" rel="prev" href="/page/3/">&lt; PREV</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/">NEXT &gt;</a>
         </nav>
     
 </main>
@@ -1623,7 +1636,66 @@ Pixel 手机一台
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2114,7 +2186,7 @@ Pixel 手机一台
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 88
+        Total : 93
         </div>
         <!-- search  -->
         
@@ -2128,6 +2200,36 @@ Pixel 手机一台
             <div class="archive-year"> 2021 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/2021/10/27/if-i-write-a-book-about-performance/">一本讲 Android 流畅性的书，应该有什么内容？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span>
+            <a class="archive-post-title" href="/2021/10/26/build-android-12/">Android 系统开发系列（1）：Android 12 源代码下载、编译和刷机</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-3/">Systrace 响应速度实战 3 ：响应速度延伸知识</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-2/">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-1/">Systrace 响应速度实战 1 ：了解响应速度原理</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/24</span>
@@ -2928,6 +3030,11 @@ Pixel 手机一台
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>

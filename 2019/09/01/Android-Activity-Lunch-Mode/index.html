@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://androidperformance.com/images//15673132395730.jpg">
 <meta property="og:image" content="https://androidperformance.com/images/WechatIMG581.png">
 <meta property="article:published_time" content="2019-09-01T04:37:47.000Z">
-<meta property="article:modified_time" content="2020-06-18T00:20:39.246Z">
+<meta property="article:modified_time" content="2020-06-18T00:20:39.000Z">
 <meta property="article:author" content="Gracker">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Performance">
@@ -533,7 +533,7 @@
 <h1 id="Standard-标准模式"><a href="#Standard-标准模式" class="headerlink" title="Standard 标准模式"></a>Standard 标准模式</h1><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">android:</span>launchMode=<span class="string">"standard"</span></span><br></pre></td></tr></table></figure>
 
 <p>最基本的模式，每次启动都会创建一个新的 Activity</p>
-<figure class="highlight plain"><figcaption><span>模式</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// 1. 启动 Activity</span><br><span class="line">MainActivity</span><br><span class="line"></span><br><span class="line">//栈内容</span><br><span class="line">com.example.launchmodetest/.MainActivity</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------</span><br><span class="line">// 2. 启动 StandardActivity</span><br><span class="line">MainActivity -&gt; StandardActivity</span><br><span class="line"></span><br><span class="line">//栈内容</span><br><span class="line">com.example.launchmodetest/.StandardActivity</span><br><span class="line">com.example.launchmodetest/.MainActivity</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------</span><br><span class="line">// 3. 启动 StandardActivity</span><br><span class="line">MainActivity -&gt; StandardActivity -&gt;  StandardActivity</span><br><span class="line"></span><br><span class="line">//栈内容</span><br><span class="line">com.example.launchmodetest/.StandardActivity</span><br><span class="line">com.example.launchmodetest/.StandardActivity</span><br><span class="line">com.example.launchmodetest/.MainActivity</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>模式</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 1. 启动 Activity</span><br><span class="line">MainActivity</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;栈内容</span><br><span class="line">com.example.launchmodetest&#x2F;.MainActivity</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------</span><br><span class="line">&#x2F;&#x2F; 2. 启动 StandardActivity</span><br><span class="line">MainActivity -&gt; StandardActivity</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;栈内容</span><br><span class="line">com.example.launchmodetest&#x2F;.StandardActivity</span><br><span class="line">com.example.launchmodetest&#x2F;.MainActivity</span><br><span class="line"></span><br><span class="line">-------------------------------------------------------------------</span><br><span class="line">&#x2F;&#x2F; 3. 启动 StandardActivity</span><br><span class="line">MainActivity -&gt; StandardActivity -&gt;  StandardActivity</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;栈内容</span><br><span class="line">com.example.launchmodetest&#x2F;.StandardActivity</span><br><span class="line">com.example.launchmodetest&#x2F;.StandardActivity</span><br><span class="line">com.example.launchmodetest&#x2F;.MainActivity</span><br></pre></td></tr></table></figure>
 
 <h1 id="SingleTop-栈顶复用模式"><a href="#SingleTop-栈顶复用模式" class="headerlink" title="SingleTop 栈顶复用模式"></a>SingleTop 栈顶复用模式</h1><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">android:</span>launchMode=<span class="string">"singleTop"</span></span><br></pre></td></tr></table></figure>
 <p>如果当前 Activity 已经在栈顶，那么其 onNewIntent 会被调用；否则会重新创建 Activity</p>
@@ -1274,7 +1274,66 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1765,7 +1824,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 88
+        Total : 93
         </div>
         <!-- search  -->
         
@@ -1779,6 +1838,36 @@
             <div class="archive-year"> 2021 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/27</span>
+            <a class="archive-post-title" href="/2021/10/27/if-i-write-a-book-about-performance/">一本讲 Android 流畅性的书，应该有什么内容？</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">10/26</span>
+            <a class="archive-post-title" href="/2021/10/26/build-android-12/">Android 系统开发系列（1）：Android 12 源代码下载、编译和刷机</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-3/">Systrace 响应速度实战 3 ：响应速度延伸知识</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-2/">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">09/13</span>
+            <a class="archive-post-title" href="/2021/09/13/android-systrace-Responsiveness-in-action-1/">Systrace 响应速度实战 1 ：了解响应速度原理</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">04/24</span>
@@ -2579,6 +2668,11 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
