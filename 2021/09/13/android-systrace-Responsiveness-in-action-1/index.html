@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://androidperformance.com/images/XyGmCIpqfZxRFCs7.png">
 <meta property="og:image" content="https://androidperformance.com/images/WechatIMG581.png">
 <meta property="article:published_time" content="2021-09-13T02:46:22.000Z">
-<meta property="article:modified_time" content="2021-11-01T15:56:29.543Z">
+<meta property="article:modified_time" content="2021-11-01T16:15:35.766Z">
 <meta property="article:author" content="Gracker">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Systrace">
@@ -529,14 +529,10 @@
 <h1 id="性能工程"><a href="#性能工程" class="headerlink" title="性能工程"></a>性能工程</h1><p>在介绍响应速度的原理之前，这里先放一段 &lt;<strong>性能之巅</strong>&gt; 这本书中对于性能的描述，具体来说就是方法论，非常贴合本文的主题，也强烈推荐各位搞性能优化的同学，把这本书作为手头常读的方法论书籍：</p>
 <blockquote>
 <h1 id="性能是充满挑战的"><a href="#性能是充满挑战的" class="headerlink" title="性能是充满挑战的"></a>性能是充满挑战的</h1><p>系统性能工程是一个充满挑战的领域，具体原因有很多，其中包括以下事实，系统性能是主观的、复杂的，而且常常是多问题并存的</p>
-</blockquote>
-<blockquote>
 <h2 id="性能是主观的"><a href="#性能是主观的" class="headerlink" title="性能是主观的"></a>性能是主观的</h2><ol>
 <li>技术学科往往是客观的，太多的业界人士审视问题非黑即白。在进行软件故障查找的时候，判断 bug 是否存在或 bug 是否修复就是这样。bug 的出现总是伴随着错误信息，错误信息通常容易解读，进而你就明白错误为什么会出现了</li>
-<li>与此不同，性能常常是主观性的。开始着手性能问题的时候，对问题是否存在的判断都有可能是模糊的，在问题被修复的时候也同样，被一个用户认为是“不好”的性能，另一个用户可能认为是“好”的</li>
+<li>与此不同，性能常常是主观性的。开始着手性能问题的时候，对问题是否存在的判断都有可能是模糊的，在问题被修复的时候也同样，被一个用户认为是“不好”的性能，另一个用户可能认为是“好”的  </li>
 </ol>
-</blockquote>
-<blockquote>
 <h2 id="系统是复杂的"><a href="#系统是复杂的" class="headerlink" title="系统是复杂的"></a>系统是复杂的</h2><ol>
 <li>除了主观性之外，性能工程作为一门充满了挑战的学科，除了因为系统的复杂性，还因为对于性能，我们常常缺少一个明确的分析起点。有时我们只是从猜测开始，比如，责怪网络，而性能分析必须对这是不是一个正确的方向做出判断</li>
 <li>性能问题可能出在子系统之间复杂的互联上，即便这些子系统隔离时表现得都很好。也可能由于连锁故障（<strong>cascading failure</strong>）出现性能问题，这指的是一个出现故障的组件会导致其他组件产生性能问题。要理解这些产生的问题，你必须理清组件之间的关系，还要了解它们是怎样协作的</li>
@@ -544,17 +540,17 @@
 <li>除了系统的复杂性之外，生产环境负载的复杂特性也可能会导致性能问题。在实验室环境很难重现这类情况，或者只能间歇式地重现</li>
 <li>解决复杂的性能问题常常需要全局性的方法。整个系统——包括自身内部和外部的交互——都可能需要被调查研究。这项工作要求有非常广泛的技能，一般不太可能集中在一人身上，这促使性能工程成为一门多变的并且充满智力挑战的工作</li>
 </ol>
-</blockquote>
-<blockquote>
 <h2 id="可能有多个问题并存"><a href="#可能有多个问题并存" class="headerlink" title="可能有多个问题并存"></a>可能有多个问题并存</h2><ol>
-<li>找到一个性能问题点往往并不是问题本身，在复杂的软件中通常会有多个问题</li>
-<li>性能分析的又一个难点：真正的任务不是寻找问题，而是辨别问题或者说是辨别哪些问题是最重要的</li>
-<li>要做到这一点，性能分析必须量化（<strong>quantify</strong>）问题的重要程度。某些性能问题可能并不适用于你的工作负载或者只在非常小的程度上适用。理想情况下，你不仅要量化问题，还要估计每个问题修复后能带来的增速。当管理层审查工程或运维资源的开销缘由时，这类信息尤其有用。</li>
-<li>有一个指标非常适合用来量化性能，那就是 延时（<strong>latency</strong>）</li>
+<li><p>找到一个性能问题点往往并不是问题本身，在复杂的软件中通常会有多个问题</p>
+</li>
+<li><p>性能分析的又一个难点：真正的任务不是寻找问题，而是辨别问题或者说是辨别哪些问题是最重要的</p>
+</li>
+<li><p>要做到这一点，性能分析必须量化（<strong>quantify</strong>）问题的重要程度。某些性能问题可能并不适用于你的工作负载或者只在非常小的程度上适用。理想情况下，你不仅要量化问题，还要估计每个问题修复后能带来的增速。当管理层审查工程或运维资源的开销缘由时，这类信息尤其有用。</p>
+</li>
+<li><p>有一个指标非常适合用来量化性能，那就是 延时（<strong>latency</strong>）</p>
+<p>– 以上几段内容摘录自 &lt;<strong>性能之巅</strong>&gt; </p>
+</li>
 </ol>
-</blockquote>
-<blockquote>
-<p> – 以上几段内容摘录自 &lt;<strong>性能之巅</strong>&gt; </p>
 </blockquote>
 <h1 id="响应速度概述"><a href="#响应速度概述" class="headerlink" title="响应速度概述"></a>响应速度概述</h1><p><strong>响应速度</strong>是应用 App 性能的重要指标之一。响应慢通常表现为<strong>点击效果延迟</strong>、<strong>操作等待</strong>或<strong>白屏时间长</strong>等，主要场景包括：</p>
 <ul>
@@ -751,7 +747,7 @@
             <p>原文作者：<a href="https://androidperformance.com">Gracker</a>
             <p>原文链接：<a href="https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/">https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/</a>
             <p>发表日期：<a href="https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/">September 13th 2021, 10:46:22 am</a>
-            <p>更新日期：<a href="https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/">November 1st 2021, 11:56:29 pm</a>
+            <p>更新日期：<a href="https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/">November 2nd 2021, 12:15:35 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
