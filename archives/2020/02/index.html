@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -265,8 +263,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed">
     <!-- back to top button -->
@@ -435,7 +431,7 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
@@ -443,6 +439,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -454,9 +452,11 @@
                 <p>本文是 Systrace 系列文章的第五篇，主要是对 SurfaceFlinger 进行简单介绍，介绍了 SurfaceFlinger 中几个比较重要的线程，包括 Vsync 信号的解读、应用的 Buffer 展示、卡顿判定等，由于 Vsync 这一块在<a href="https://www.androidperformance.com/2019/12/01/Android-Systrace-Vsync/" target="_blank" rel="noopener">Systrace 基础知识 - Vsync 解读</a> 和 <a href="https://androidperformance.com/2019/10/22/Android-Choreographer/">Android 基于 Choreographer 的渲染机制详解</a> 这两篇文章里面已经介绍过，这里就不再做详细的讲解了。</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/14</span>
                 </div>
                 <!-- tags -->
@@ -482,6 +482,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -494,9 +496,11 @@
 <p><strong>原文比较简单，并没有介绍为什么要推荐这些，只是单纯地列了一下知识点，我这边针对每个知识点做一些简单的介绍，有些知识点原文并没有提到，我会根据自己的理解加上，仅供参考</strong></p>
 <p>这篇文章主要针对 Android 开发者，如果你是新手，那么下面的内容可以帮助你找到学习的线路；如果你是老手，这篇文章列出的内容也可以帮助你查漏补缺。如果各位有什么其他的建议，欢迎留言交流</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/03</span>
                 </div>
                 <!-- tags -->
@@ -2541,14 +2545,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -2556,9 +2560,9 @@
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -2571,9 +2575,9 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2591,14 +2595,25 @@
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->

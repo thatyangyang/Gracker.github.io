@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -267,8 +265,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed index-footer-fixed">
     <!-- back to top button -->
@@ -450,7 +446,7 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
@@ -458,6 +454,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -468,9 +466,11 @@
             <div class="abstract-content">
                 <p>本文是一篇译文,这篇是这个系列的第四篇.讲述的是Android开发中遇到的一些好用的小技巧,或者一些实用的API,很多人都知道,但也有人不知道,记录下来,如果能帮助到大家,也是极好的.由于不是严格的博文,所以翻译也不那么严格,有些工具和类我也会经常用,所以我会根据自己的想法去写.有些地方坐在并没有将这个工具的作用讲出来,我会补充上去.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/03/15</span>
                 </div>
                 <!-- tags -->
@@ -482,6 +482,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -492,9 +494,11 @@
             <div class="abstract-content">
                 <p>本文是一篇译文,这篇是这个系列的第三篇.讲述的是Android开发中遇到的一些好用的小技巧,或者一些实用的API,很多人都知道,但也有人不知道,记录下来,如果能帮助到大家,也是极好的.由于不是严格的博文,所以翻译也不那么严格,有些工具和类我也会经常用,所以我会根据自己的想法去写.有些地方坐在并没有将这个工具的作用讲出来,我会补充上去.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/03/15</span>
                 </div>
                 <!-- tags -->
@@ -506,6 +510,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -518,9 +524,11 @@
 <p>本文假设你已经下载了AndroidL的源码,并且有一台Nexus5手机(手机系统开发人员必备), 如果你还没有AndroidL的源码,或者你有源码但是没有配置编译的环境,那么 <a href="https://source.android.com/source/initializing.html" target="_blank" rel="noopener">Initializing a Build Environment</a> 和<a href="https://source.android.com/source/downloading.html" target="_blank" rel="noopener">Downloading the Source</a>这两篇文章你应该先去看一下(我又一次假设你会翻墙,如果你不会翻墙,那么下代码也是一个痛苦的事情). 这后面的教程Google官网也有教程.所以我只针对Nexus5进行讲解.</p>
 <p>另外你需要知道AOSP,AOSP即Android Open Source Project 汉语意思是：谷歌开放源代码项目.我们通过Google官方下载的源代码,就是AOSP的代码, 其中是不包含Google开发的那些个应用的,各个厂商拿到的也是这个版本,在这个版本的基础上进行修改. 而Google发布的工厂固件则是包含全套Google服务的. 厂商如果想安装Google服务,就需要过Google的那一套认证,比较麻烦,而且价格不菲,鉴于Google在国内的尴尬地位,国内很多厂商都没有过这个认证.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/02/04</span>
                 </div>
                 <!-- tags -->
@@ -532,6 +540,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -551,9 +561,11 @@
 <li>数据分析工具：Android提供一个systrace.py（python脚本文件，位于Android SDK目录/tools/systrace中，其内部将调用atrace程序）用来配置数据采集的方式（如采集数据的标签、输出文件名等）和收集ftrace统计数据并生成一个结果网页文件供用户查看。 从本质上说，Systrace是对Linux Kernel中ftrace的封装。应用进程需要利用Android提供的Trace类来使用Systrace.<br>关于Systrace的官方介绍和使用可以看这里：<a href="http://developer.android.com/tools/help/systrace.html" target="_blank" rel="noopener" title="SysTrace官方介绍">Systrace</a></li>
 </ul>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/01/30</span>
                 </div>
                 <!-- tags -->
@@ -565,6 +577,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -575,9 +589,11 @@
             <div class="abstract-content">
                 <h2 id="Android-Studio"><a href="#Android-Studio" class="headerlink" title="Android Studio"></a>Android Studio</h2><p>作为Google的亲儿子,Nexus手机系列所收到的待遇大家有目共睹.Android5.0出来之后,Nexus5第一时间就升级到了最新的系统.那么作为Google亲儿子的Android Studio同样备受Google的重视,我也是第一时间从Eclipse转投到了Android Studio的怀抱中,从最初的测试版本一路升级到现在的1.0正式版本(今天发布了1.1,果断已经升级了).</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/01/16</span>
                 </div>
                 <!-- tags -->
@@ -589,6 +605,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -602,9 +620,11 @@
 <p>如果没有看过前一篇，可以点这里：<a href="https://www.androidperformance.com/2014/10/20/android-performance-optimization-overdraw-1/" target="_blank" rel="noopener">Android性能优化之过渡绘制(一)</a></p>
 <hr>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/01/13</span>
                 </div>
                 <!-- tags -->
@@ -616,6 +636,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -628,9 +650,11 @@
 <p>首先将讲解一下GPU过渡绘制，也是开发者最直接接触的部分吧，这个内容将分为两个部分来将讲，第一部分初步讲解一下gpu过渡绘制的原理，和一些优化建议，第二部分将用实际例子来讲解优化GPU过渡绘制的一般步骤。</p>
 <h2 id="过渡绘制概念"><a href="#过渡绘制概念" class="headerlink" title="过渡绘制概念"></a>过渡绘制概念</h2><p>GPU过渡绘制的概念：GPU过度绘制指的是在屏幕一个像素上绘制多次(超过一次),比如一个TextView后有背景，那么显示文本的像素至少绘了两次，一次是背景，一次是文本。GPU过度绘制或多或少对性能有些影响,设备的内存带宽是有限的，当过度绘制导致应用需要更多的带宽(超过了可用带宽)的时候性能就会降低。带宽的限制每个设备都可能是不一样的。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/10/20</span>
                 </div>
                 <!-- tags -->
@@ -639,6 +663,7 @@
         </article>
         <div class="index-post-divider"></div>
     
+        
         
         
         
@@ -656,9 +681,11 @@ android:focusable="true"
 android:focusableInTouchMode="true"
 这样做的原理是让用户进入到这个页面之后,EditText的父控件 获取焦点,这样的话EditText就...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/06/03</span>
                 </div>
                 <!-- tags -->
@@ -670,6 +697,8 @@ android:focusableInTouchMode="true"
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -680,9 +709,11 @@ android:focusableInTouchMode="true"
             <div class="abstract-content">
                 <p>本文是一篇译文,这篇是这个系列的第二篇.讲述的是Android开发中遇到的一些好用的小技巧,或者一些实用的API,很多人都知道,但也有人不知道,记录下来,如果能帮助到大家,也是极好的.由于不是严格的博文,所以翻译也不那么严格,有些工具和类我也会经常用,所以我会根据自己的想法去写.有些地方坐在并没有将这个工具的作用讲出来,我会补充上去.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/05/31</span>
                 </div>
                 <!-- tags -->
@@ -694,6 +725,8 @@ android:focusableInTouchMode="true"
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -704,9 +737,11 @@ android:focusableInTouchMode="true"
             <div class="abstract-content">
                 <p>本文是一篇译文,这篇是这个系列的第一篇.讲述的是Android开发中遇到的一些好用的小技巧,或者一些实用的API,很多人都知道,但也有人不知道,记录下来,如果能帮助到大家,也是极好的.由于不是严格的博文,所以翻译也不那么严格,有些工具和类我也会经常用,所以我会根据自己的想法去写.有些地方坐在并没有将这个工具的作用讲出来,我会补充上去.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/05/28</span>
                 </div>
                 <!-- tags -->
@@ -825,7 +860,10 @@ android:focusableInTouchMode="true"
     
     
         <div class="friends">
-            <div>FRIENDS</div>
+            <div>
+                
+                FRIENDS
+            </div>
             
                 
                     <span>
@@ -932,9 +970,14 @@ android:focusableInTouchMode="true"
         </div>
     
     
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
+        <div class="profile-link-item">
+            <a href="/about" class="about-me">
+                
+                ABOUT ME
+            </a>
         </div>
+    
+    
     
 </div>
 
@@ -2961,14 +3004,14 @@ android:focusableInTouchMode="true"
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -2976,9 +3019,9 @@ android:focusableInTouchMode="true"
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -2991,9 +3034,9 @@ android:focusableInTouchMode="true"
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -3011,14 +3054,25 @@ android:focusableInTouchMode="true"
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->

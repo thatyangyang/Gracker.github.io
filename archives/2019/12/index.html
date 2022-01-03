@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -265,8 +263,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed">
     <!-- back to top button -->
@@ -435,7 +431,7 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
@@ -443,6 +439,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -454,9 +452,11 @@
                 <p>本文是 Systrace 系列文章的第十二篇，主要是对 Systrace 中的 CPU 信息区域(Kernel)进行简单介绍，简单介绍了如何在 Systrace 中查看 Kernel 模块输出的 CPU 相关的信息，了解 CPU 频率、调度、锁频、锁核相关的信息</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/21</span>
                 </div>
                 <!-- tags -->
@@ -482,6 +482,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -493,9 +495,11 @@
                 <p>本文是 Systrace 系列文章的第十一篇，主要是对 Systrace 中的 Triple Buffer 进行简单介绍，简单介绍了如何在 Systrace 中判断卡顿情况的发生，进行初步的定位和分析，以及介绍 Triple Buffer 的引入对性能的影响</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/15</span>
                 </div>
                 <!-- tags -->
@@ -521,6 +525,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -532,9 +538,11 @@
                 <p>本文是 Systrace 系列文章的第十篇，主要是对 Systrace 中的 Binder 和锁信息进行简单介绍，简单介绍了 Binder 的情况，介绍了 Systrace 中 Binder 通信的表现形式，以及 Binder 信息查看，SystemServer 锁竞争分析等</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/06</span>
                 </div>
                 <!-- tags -->
@@ -560,6 +568,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -573,9 +583,11 @@
                 <p>本博客内容主要集中在 Android 开发和优化相关的话题，包括一些性能工具的使用、Android App 优化知识、Android Framework 知识讲解，性能理论知识讲解等，这里整理了一份目录供大家参考，大家可以挑感兴趣的部分来看。这里不仅仅包含博客中的内容，一些我在<a href="https://www.zhihu.com/people/gracker" target="_blank" rel="noopener">知乎</a>或者<a href="https://t.zsxq.com/mIimiey" target="_blank" rel="noopener">知识星球</a>的回答也会放到这里,不过这个目录里面放的都是我原创的博客，另外还收集了一些优秀文章 , 我也会不定期更新:<a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">Android 性能优化必知必会</a></p>
 <p>博客的每次更新都会更新这篇目录，方便大家查阅。我会尽量保证每周一更，学无止境，与大家共勉，有什么想了解的或者博客中不足的地方，请大家在博客或者知乎、微博、微信留言给我，我会积极改正</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/01</span>
                 </div>
                 <!-- tags -->
@@ -587,6 +599,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -598,9 +612,11 @@
                 <p>本文是 Systrace 系列文章的第七篇，主要是是介绍 Android 中的 Vsync 机制。文章会从 Systrace 的角度来看 Android 系统如何基于 Vsync 每一帧的展示。Vsync 是 Systrace 中一个非常关键的机制，虽然我们在操作手机的时候看不见，摸不着，但是在 Systrace 中我们可以看到，Android 系统在 Vsync 信号的指引下，有条不紊地进行者每一帧的渲染、合成操作，使我们可以享受稳定帧率的画面。</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/01</span>
                 </div>
                 <!-- tags -->
@@ -2651,14 +2667,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -2666,9 +2682,9 @@
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -2681,9 +2697,9 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2701,14 +2717,25 @@
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->

@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -265,8 +263,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed">
     <!-- back to top button -->
@@ -435,7 +431,7 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
@@ -443,6 +439,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -456,9 +454,11 @@
 <p>随着 Android 系统版本的更迭 , 以及 App 的代码膨胀 , Android 系统对内存的需求越来越大 , 但是目前市面上还存在着大量的 4G 内存以下的机器 , 这部分用户就很容易遇到整机低内存的情况 , 尤其是在系统大版本更新和 App 越装越多的情况下 . </p>
 <p>Android 低内存会导致性能问题 , 具体表现就是响应慢和卡顿 . 比如启动一个应用要花比平时更长的时间 ; 滑动列表会掉更多帧 ; 后台的进程减少导致冷启动变多 ; 手机很容易发热发烫等 , 下面我会概述发生这些性能问题的原因 . Debug 的方法 , 以及可能的优化措施 . </p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/18</span>
                 </div>
                 <!-- tags -->
@@ -470,6 +470,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -482,9 +484,11 @@
 <p>这篇文章中分析过程包括我之前在<a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">Android 中的卡顿丢帧原因概述 - 方法论</a> 里面提到的一些工具 , 包括 : 复现视频 \ Event Log \ Android Studio 源码和 App Debug  \ Android Studio Profile \ Systrace \ Dumpsys \ PS 等 . 大多数工具大家都在开发过程中使用过 , 这次分析正是使用了这些工具相互配合 , 最终找到的问题的原因.</p>
 <p>大家看下来可能会觉得 , 这么简单一个问题还需要写一篇文章 ? 我写这篇文章的目的一是为了记录给自己 , 二是觉得分析过程比较有普遍性 , 包括分析思路和工具的使用 , 如果可以帮助到大家 , 那么最好不过了 , 如果你也有好的思路或者独家调试技巧 , 欢迎大家扫描<a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> 里面的讨论群二维码加入群聊 , 共同进步!</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/17</span>
                 </div>
                 <!-- tags -->
@@ -508,6 +512,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -521,9 +527,11 @@
 <p>说回流畅度 , 其实就是操作过程中的丢帧 , 本来一秒中画面需要更新 60 帧,但是如果这期间只更新了 55 帧 , 那么在用户看来就是丢帧了 , 主观感觉就是卡了 , 尤其是帧率波动 , 用户的感知会更明显. 引起丢帧的原因非常多, 有硬件层面的 , 有软件层面的 , 也有 App 自身的问题. 所以这一部分我分为四篇文章去讲 , 会简单讲一下哪些原因会用户觉得卡顿丢帧 :</p>
 <p><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">0. Android 中的卡顿丢帧原因概述 - 方法论</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-System/" target="_blank" rel="noopener">1. Android 中的卡顿丢帧原因概述 - 系统篇</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-App/" target="_blank" rel="noopener">2. Android 中的卡顿丢帧原因概述 - 应用篇</a><br><a href="https://www.androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/" target="_blank" rel="noopener">3. Android 中的卡顿丢帧原因概述 - 低内存篇</a></p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/05</span>
                 </div>
                 <!-- tags -->
@@ -549,6 +557,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -562,9 +572,11 @@
 <p>说回流畅度 , 其实就是操作过程中的丢帧 , 本来一秒中画面需要更新 60 帧,但是如果这期间只更新了 55 帧 , 那么在用户看来就是丢帧了 , 主观感觉就是卡了 , 尤其是帧率波动 , 用户的感知会更明显. 引起丢帧的原因非常多, 有硬件层面的 , 有软件层面的 , 也有 App 自身的问题. 所以这一部分我分为四篇文章去讲 , 会简单讲一下哪些原因会用户觉得卡顿丢帧 :</p>
 <p><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">0. Android 中的卡顿丢帧原因概述 - 方法论</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-System/" target="_blank" rel="noopener">1. Android 中的卡顿丢帧原因概述 - 系统篇</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-App/" target="_blank" rel="noopener">2. Android 中的卡顿丢帧原因概述 - 应用篇</a><br><a href="https://www.androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/" target="_blank" rel="noopener">3. Android 中的卡顿丢帧原因概述 - 低内存篇</a></p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/05</span>
                 </div>
                 <!-- tags -->
@@ -590,6 +602,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -603,9 +617,11 @@
 <p>说回流畅度 , 其实就是操作过程中的丢帧 , 本来一秒中画面需要更新 60 帧,但是如果这期间只更新了 55 帧 , 那么在用户看来就是丢帧了 , 主观感觉就是卡了 , 尤其是帧率波动 , 用户的感知会更明显. 引起丢帧的原因非常多, 有硬件层面的 , 有软件层面的 , 也有 App 自身的问题. 所以这一部分我分为四篇文章去讲 , 会简单讲一下哪些原因会用户觉得卡顿丢帧 :</p>
 <p><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">0. Android 中的卡顿丢帧原因概述 - 方法论</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-System/" target="_blank" rel="noopener">1. Android 中的卡顿丢帧原因概述 - 系统篇</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-App/" target="_blank" rel="noopener">2. Android 中的卡顿丢帧原因概述 - 应用篇</a><br><a href="https://www.androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/" target="_blank" rel="noopener">3. Android 中的卡顿丢帧原因概述 - 低内存篇</a></p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/05</span>
                 </div>
                 <!-- tags -->
@@ -631,6 +647,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -643,9 +661,11 @@
 <p>Activity 栈是一个先进后出的数据结构, 各位可以关注在每一步操作之后, 栈内容那一栏 , 可以更好地帮助理解不同的启动模式.</p>
 <p>Demo 比较简单, 我也放到了 Github 上 , <a href="https://github.com/Gracker/AndroidlunchModeTest" target="_blank" rel="noopener">https://github.com/Gracker/AndroidLaunchModeTest</a> , 有兴趣的可以自己跑一下 , 看看结果 , 只需要修改 StandardActivity 里面的跳转 Activity 就可以了.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/01</span>
                 </div>
                 <!-- tags -->
@@ -2696,14 +2716,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -2711,9 +2731,9 @@
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -2726,9 +2746,9 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2746,14 +2766,25 @@
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->

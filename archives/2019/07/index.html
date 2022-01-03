@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -265,8 +263,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed">
     <!-- back to top button -->
@@ -435,11 +431,12 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
     
+        
         
         
         
@@ -461,9 +458,11 @@ Android硬件加速原理与实现简介
 硬件加速，实际上应该叫 GPU 加速，软硬件加速的区别主要是图形的绘制究竟是 GPU 来处理还是 CPU，如果是 GPU，就认为是硬件加速绘制，反之，则是软件绘制
 目前的 Andro...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/27</span>
                 </div>
                 <!-- tags -->
@@ -489,6 +488,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -500,9 +501,11 @@ Android硬件加速原理与实现简介
                 <p>本文是 Systrace 系列文章的第二篇，主要是讲解一些分析 Systrace 的预备知识, 有了这些预备知识, 分析 Systrace 才会事半功倍, 更快也更有效率地找到问题点.</p>
 <p>本文介绍了如何查看 Systrace 中的线程状态 , 如何对线程的唤醒信息进行分析, 如何解读信息区的数据, 以及介绍了常用的快捷键. 通过本篇文章的学习, 相信你可以掌握进程和线程相关的一些信息, 也知道如何查看复杂的 Systrace 中包含的关键信息</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/21">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
                 </div>
                 <!-- tags -->
@@ -2553,14 +2556,14 @@ Android硬件加速原理与实现简介
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -2568,9 +2571,9 @@ Android硬件加速原理与实现简介
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -2583,9 +2586,9 @@ Android硬件加速原理与实现简介
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2603,14 +2606,25 @@ Android硬件加速原理与实现简介
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->

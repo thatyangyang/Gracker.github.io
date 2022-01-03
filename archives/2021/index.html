@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -265,8 +263,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed">
     <!-- back to top button -->
@@ -435,7 +431,7 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
@@ -443,6 +439,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -455,9 +453,11 @@
 <p>我个人的建议是：如果你是个老鸟，不建议买，这本书里面没有介绍太多原理性的东西，对于 Android 流畅性也没有一个比较全面的介绍；如果你是新手，这本书用来当做开阔视野 + 查漏补缺还可以，想更深入的了解 Android 流畅度还是差了点东西</p>
 <p>之所以我会这么建议，是因为这本书确实没有讲太多性能或者流畅度相关的东西，也没有比较深入的原理部分，篇幅更多在讲<strong>静态代码审查</strong>、<strong>AS Profiler 的使用</strong>、<strong>App 架构</strong>、<strong>保活</strong>、<strong>网络性能优化</strong>、<strong>APK 大小优化</strong>、<strong>App 耗电</strong>等，内容也不深，浅尝辄止</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/10/27</span>
                 </div>
                 <!-- tags -->
@@ -479,6 +479,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -495,9 +497,11 @@
 <li>可以更方便地进行 Android 源代码的学习，本地版本可以打开很多系统级别的 Debug Log，也可以自己加 Log，或者自己修改流程</li>
 </ol>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/10/26</span>
                 </div>
                 <!-- tags -->
@@ -517,6 +521,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -530,9 +536,11 @@
 <p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
 <p><strong>本文是响应速度系列的第三篇，主要是讲在使用 Systrace 分析应用响应速度问题的时候，其中的一些延伸知识，包括启动速度测试、Log 输出解读、Systrace 状态解读、三方启动库等内容</strong>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
                 </div>
                 <!-- tags -->
@@ -556,6 +564,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -569,9 +579,11 @@
 <p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
 <p><strong>本文是响应速度系列的第二篇，主要是以 Android App 冷启动为例，讲解如何使用 Systrace 来分析 App 冷启动</strong>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
                 </div>
                 <!-- tags -->
@@ -595,6 +607,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -608,9 +622,11 @@
 <p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
 <p><strong>本文是响应速度系列的第一篇，主要是讲</strong>响应速度<strong>相关的理论知识，包括性能工程概述、响应速度涉及到的知识点、响应速度的分析方法和套路等</strong>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
                 </div>
                 <!-- tags -->
@@ -634,6 +650,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -650,9 +668,11 @@
 <li>流畅性这个系列主要是分析流畅度相关的问题，响应速度和稳定性会有专门的文章介绍，在理解了流畅性相关的内容之后，再去分析响应速度和稳定性问题会事半功倍</li>
 <li>流畅性这个系列主要是讲如何使用 Systrace (Perfetto) 工具去分析，之所以 Systrace 为切入点，是因为影响流畅度的因素很多，有 App 自身的原因、也有系统的原因。而  (Perfetto)  工具可以从一个整机运行的角度来展示问题发生的过程，方便我们去初步定位问题
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/24</span>
                 </div>
                 <!-- tags -->
@@ -676,6 +696,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -692,9 +714,11 @@
 <li>流畅性这个系列主要是分析流畅度相关的问题，响应速度和稳定性会有专门的文章介绍，在理解了流畅性相关的内容之后，再去分析响应速度和稳定性问题会事半功倍</li>
 <li>流畅性这个系列主要是讲如何使用 Systrace (Perfetto) 工具去分析，之所以 Systrace 为切入点，是因为影响流畅度的因素很多，有 App 自身的原因、也有系统的原因。而 (Perfetto) 工具可以从一个整机运行的角度来展示问题发生的过程，方便我们去初步定位问题
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/24</span>
                 </div>
                 <!-- tags -->
@@ -718,6 +742,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -734,9 +760,11 @@
 <li>流畅性这个系列主要是分析流畅度相关的问题，响应速度和稳定性会有专门的文章介绍，在理解了流畅性相关的内容之后，再去分析响应速度和稳定性问题会事半功倍</li>
 <li>流畅性这个系列主要是讲如何使用 Systrace (Perfetto) 工具去分析，之所以 Systrace 为切入点，是因为影响流畅度的因素很多，有 App 自身的原因、也有系统的原因。而  (Perfetto)  工具可以从一个整机运行的角度来展示问题发生的过程，方便我们去初步定位问题
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/24</span>
                 </div>
                 <!-- tags -->
@@ -2785,14 +2813,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -2800,9 +2828,9 @@
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -2815,9 +2843,9 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2835,14 +2863,25 @@
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->

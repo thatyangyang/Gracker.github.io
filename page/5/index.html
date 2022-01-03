@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -267,8 +265,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed index-footer-fixed">
     <!-- back to top button -->
@@ -450,11 +446,12 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
     
+        
         
         
         
@@ -472,9 +469,11 @@ Systrace 分析本地测试有一台复现, 拿过来之后分析发现,手指�
 红色箭头处就是掉帧的地方. 从上面的 Buffer 个数可以看到, SF没有绘制的原因是 Launcher 没有提交 Buffer 上来.
 对应的 Launcher Trace如下 , 可以看到 La...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/21</span>
                 </div>
                 <!-- tags -->
@@ -494,6 +493,8 @@ Systrace 分析本地测试有一台复现, 拿过来之后分析发现,手指�
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -505,9 +506,11 @@ Systrace 分析本地测试有一台复现, 拿过来之后分析发现,手指�
                 <p>2018 年初写了一篇<a href="https://www.androidperformance.com/2018/01/06/2017%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90/" target="_blank" rel="noopener">&lt;2017 年度最推荐-给辛勤工作的自己一点奖励&gt;</a> , 最近有人问我今年是否会有 2018 年的年度推荐，我想了想，2018 年虽然不景气，但是还是有一些好东西可以推荐给大家，于是便有了这一篇文章。</p>
 <p>跟 2017年一样，我会把 2018 年里面我觉得体验很棒或者对工作生活很有帮助的东西推荐给大家，或许 2019 你会需要他们。推荐的内容包含了 App、硬件、书籍、博客、专栏等，希望能帮助到看到这篇文章的你</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/01/12</span>
                 </div>
                 <!-- tags -->
@@ -524,6 +527,7 @@ Systrace 分析本地测试有一台复现, 拿过来之后分析发现,手指�
         </article>
         <div class="index-post-divider"></div>
     
+        
         
         
         
@@ -555,9 +559,11 @@ Pixel 手机一台
 
 安装 Ubuntu 系统...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/11/01</span>
                 </div>
                 <!-- tags -->
@@ -579,6 +585,7 @@ Pixel 手机一台
         
         
         
+        
             
         
         <article class="index-post">
@@ -592,9 +599,11 @@ Pixel 手机一台
 
 个人非常崇拜陆奇,  “陆奇以精力旺盛著称，通常凌晨4点起床，先查邮件，然后在跑步机上跑4英里，边跑边听古典音乐或看新闻。早上5点至6点就办公室，利用这段时间不受别人干扰准备一天的工作，然后一直工作到晚上10点，有时也会在半夜给同事发电子邮件。LinkedIn CEO 杰夫·维纳(Jeff Weiner)曾在雅虎与陆奇共事多年，他开始以为这种日程安排无法持久，后来不得不说：“陆奇的确是我所见过最有干劲的人。”前雅虎工程师阿米特·库玛尔(Amit Kumar)也夸奖陆奇人缘好。陆奇说：...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/25</span>
                 </div>
                 <!-- tags -->
@@ -614,6 +623,7 @@ Pixel 手机一台
         
         
         
+        
             
         
         <article class="index-post">
@@ -625,9 +635,11 @@ Pixel 手机一台
                 本文是 &lt;程序员的修炼-从优秀到卓越&gt; 的读书笔记的第八篇，这本书的作者是 Jeff Atwood，StackOverflow 的创始人之一，Jeff 的文章涉及面很广，他是一个经验老道的程序员、管理者、创业者，这本书谈到了编程之外的很多东西，不管你是初级工程师，还是资深工程师，本书都值得一读。随着你的阅历的增加，每一次重读这本书，都会有不一样的感悟，正如书名“从优秀到卓越”，作者为你指明了道路，至于是否能成功，则要看自己的修炼了。
 我会把读书过程中一些精彩的言论摘录下来，有时会加入一些自己的见解或者经历，读书笔记的大纲与书本身的大纲是一致的，这也是我从另外一个地方学到并一直...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2020/04/21">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/10/01</span>
                 </div>
                 <!-- tags -->
@@ -649,6 +661,7 @@ Pixel 手机一台
         
         
         
+        
             
         
         <article class="index-post">
@@ -660,9 +673,11 @@ Pixel 手机一台
                 本文是 &lt;程序员的修炼-从优秀到卓越&gt; 的读书笔记的第七篇，这本书的作者是 Jeff Atwood，StackOverflow 的创始人之一，Jeff 的文章涉及面很广，他是一个经验老道的程序员、管理者、创业者，这本书谈到了编程之外的很多东西，不管你是初级工程师，还是资深工程师，本书都值得一读。随着你的阅历的增加，每一次重读这本书，都会有不一样的感悟，正如书名“从优秀到卓越”，作者为你指明了道路，至于是否能成功，则要看自己的修炼了。
 我会把读书过程中一些精彩的言论摘录下来，有时会加入一些自己的见解或者经历，读书笔记的大纲与书本身的大纲是一致的，这也是我从另外一个地方学到并一直...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/30</span>
                 </div>
                 <!-- tags -->
@@ -684,6 +699,7 @@ Pixel 手机一台
         
         
         
+        
             
         
         <article class="index-post">
@@ -695,9 +711,11 @@ Pixel 手机一台
                 本文是 &lt;程序员的修炼-从优秀到卓越&gt; 的读书笔记的第六篇，这本书的作者是 Jeff Atwood，StackOverflow 的创始人之一，Jeff 的文章涉及面很广，他是一个经验老道的程序员、管理者、创业者，这本书谈到了编程之外的很多东西，不管你是初级工程师，还是资深工程师，本书都值得一读。随着你的阅历的增加，每一次重读这本书，都会有不一样的感悟，正如书名“从优秀到卓越”，作者为你指明了道路，至于是否能成功，则要看自己的修炼了。
 我会把读书过程中一些精彩的言论摘录下来，有时会加入一些自己的见解或者经历，读书笔记的大纲与书本身的大纲是一致的，这也是我从另外一个地方学到并一直...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2020/04/21">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/29</span>
                 </div>
                 <!-- tags -->
@@ -719,6 +737,7 @@ Pixel 手机一台
         
         
         
+        
             
         
         <article class="index-post">
@@ -730,9 +749,11 @@ Pixel 手机一台
                 本文是 &lt;程序员的修炼-从优秀到卓越&gt; 的读书笔记的第五篇，这本书的作者是 Jeff Atwood，StackOverflow 的创始人之一，Jeff 的文章涉及面很广，他是一个经验老道的程序员、管理者、创业者，这本书谈到了编程之外的很多东西，不管你是初级工程师，还是资深工程师，本书都值得一读。随着你的阅历的增加，每一次重读这本书，都会有不一样的感悟，正如书名“从优秀到卓越”，作者为你指明了道路，至于是否能成功，则要看自己的修炼了。
 我会把读书过程中一些精彩的言论摘录下来，有时会加入一些自己的见解或者经历，读书笔记的大纲与书本身的大纲是一致的，这也是我从另外一个地方学到并一直...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2020/04/21">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/28</span>
                 </div>
                 <!-- tags -->
@@ -754,6 +775,7 @@ Pixel 手机一台
         
         
         
+        
             
         
         <article class="index-post">
@@ -765,9 +787,11 @@ Pixel 手机一台
                 本文是 &lt;程序员的修炼-从优秀到卓越&gt; 的读书笔记的第四篇，这本书的作者是 Jeff Atwood，StackOverflow 的创始人之一，Jeff 的文章涉及面很广，他是一个经验老道的程序员、管理者、创业者，这本书谈到了编程之外的很多东西，不管你是初级工程师，还是资深工程师，本书都值得一读。随着你的阅历的增加，每一次重读这本书，都会有不一样的感悟，正如书名“从优秀到卓越”，作者为你指明了道路，至于是否能成功，则要看自己的修炼了。
 我会把读书过程中一些精彩的言论摘录下来，有时会加入一些自己的见解或者经历，读书笔记的大纲与书本身的大纲是一致的，这也是我从另外一个地方学到并一直...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2020/04/21">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/27</span>
                 </div>
                 <!-- tags -->
@@ -789,6 +813,7 @@ Pixel 手机一台
         
         
         
+        
             
         
         <article class="index-post">
@@ -800,9 +825,11 @@ Pixel 手机一台
                 本文是 &lt;程序员的修炼-从优秀到卓越&gt; 的读书笔记的第三篇，这本书的作者是 Jeff Atwood，StackOverflow 的创始人之一，Jeff 的文章涉及面很广，他是一个经验老道的程序员、管理者、创业者，这本书谈到了编程之外的很多东西，不管你是初级工程师，还是资深工程师，本书都值得一读。随着你的阅历的增加，每一次重读这本书，都会有不一样的感悟，正如书名“从优秀到卓越”，作者为你指明了道路，至于是否能成功，则要看自己的修炼了。
 我会把读书过程中一些精彩的言论摘录下来，有时会加入一些自己的见解或者经历，读书笔记的大纲与书本身的大纲是一致的，这也是我从另外一个地方学到并一直...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2020/04/21">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/09/26</span>
                 </div>
                 <!-- tags -->
@@ -931,7 +958,10 @@ Pixel 手机一台
     
     
         <div class="friends">
-            <div>FRIENDS</div>
+            <div>
+                
+                FRIENDS
+            </div>
             
                 
                     <span>
@@ -1038,9 +1068,14 @@ Pixel 手机一台
         </div>
     
     
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
+        <div class="profile-link-item">
+            <a href="/about" class="about-me">
+                
+                ABOUT ME
+            </a>
         </div>
+    
+    
     
 </div>
 
@@ -3067,14 +3102,14 @@ Pixel 手机一台
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -3082,9 +3117,9 @@ Pixel 手机一台
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -3097,9 +3132,9 @@ Pixel 手机一台
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -3117,14 +3152,25 @@ Pixel 手机一台
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->

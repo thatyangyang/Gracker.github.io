@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -265,8 +263,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed">
     <!-- back to top button -->
@@ -435,7 +431,7 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
@@ -443,6 +439,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -456,9 +454,11 @@
 <p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
 <p><strong>本文是响应速度系列的第三篇，主要是讲在使用 Systrace 分析应用响应速度问题的时候，其中的一些延伸知识，包括启动速度测试、Log 输出解读、Systrace 状态解读、三方启动库等内容</strong>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
                 </div>
                 <!-- tags -->
@@ -482,6 +482,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -495,9 +497,11 @@
 <p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
 <p><strong>本文是响应速度系列的第二篇，主要是以 Android App 冷启动为例，讲解如何使用 Systrace 来分析 App 冷启动</strong>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
                 </div>
                 <!-- tags -->
@@ -521,6 +525,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -534,9 +540,11 @@
 <p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
 <p><strong>本文是响应速度系列的第一篇，主要是讲</strong>响应速度<strong>相关的理论知识，包括性能工程概述、响应速度涉及到的知识点、响应速度的分析方法和套路等</strong>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
                 </div>
                 <!-- tags -->
@@ -560,6 +568,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -571,9 +581,11 @@
                 <p>本文是 Systrace 系列文章的第五篇，主要是对 SurfaceFlinger 进行简单介绍，介绍了 SurfaceFlinger 中几个比较重要的线程，包括 Vsync 信号的解读、应用的 Buffer 展示、卡顿判定等，由于 Vsync 这一块在<a href="https://www.androidperformance.com/2019/12/01/Android-Systrace-Vsync/" target="_blank" rel="noopener">Systrace 基础知识 - Vsync 解读</a> 和 <a href="https://androidperformance.com/2019/10/22/Android-Choreographer/">Android 基于 Choreographer 的渲染机制详解</a> 这两篇文章里面已经介绍过，这里就不再做详细的讲解了。</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/14</span>
                 </div>
                 <!-- tags -->
@@ -599,6 +611,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -610,9 +624,11 @@
                 <p>本文是 Systrace 系列文章的第十二篇，主要是对 Systrace 中的 CPU 信息区域(Kernel)进行简单介绍，简单介绍了如何在 Systrace 中查看 Kernel 模块输出的 CPU 相关的信息，了解 CPU 频率、调度、锁频、锁核相关的信息</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/21</span>
                 </div>
                 <!-- tags -->
@@ -638,6 +654,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -649,9 +667,11 @@
                 <p>本文是 Systrace 系列文章的第十一篇，主要是对 Systrace 中的 Triple Buffer 进行简单介绍，简单介绍了如何在 Systrace 中判断卡顿情况的发生，进行初步的定位和分析，以及介绍 Triple Buffer 的引入对性能的影响</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/15</span>
                 </div>
                 <!-- tags -->
@@ -677,6 +697,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -688,9 +710,11 @@
                 <p>本文是 Systrace 系列文章的第十篇，主要是对 Systrace 中的 Binder 和锁信息进行简单介绍，简单介绍了 Binder 的情况，介绍了 Systrace 中 Binder 通信的表现形式，以及 Binder 信息查看，SystemServer 锁竞争分析等</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/06</span>
                 </div>
                 <!-- tags -->
@@ -716,6 +740,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -727,9 +753,11 @@
                 <p>本文是 Systrace 系列文章的第七篇，主要是是介绍 Android 中的 Vsync 机制。文章会从 Systrace 的角度来看 Android 系统如何基于 Vsync 每一帧的展示。Vsync 是 Systrace 中一个非常关键的机制，虽然我们在操作手机的时候看不见，摸不着，但是在 Systrace 中我们可以看到，Android 系统在 Vsync 信号的指引下，有条不紊地进行者每一帧的渲染、合成操作，使我们可以享受稳定帧率的画面。</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/12/01</span>
                 </div>
                 <!-- tags -->
@@ -755,6 +783,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -766,9 +796,11 @@
                 <p>本文是 Systrace 系列文章的第九篇，主要是是介绍 Android App 中的 MainThread 和 RenderThread，也就是大家熟悉的<strong>主线程</strong>和<strong>渲染线程</strong>。文章会从 Systrace 的角度来看 MainThread 和 RenderThread 的工作流程，以及涉及到的相关知识：卡顿、软件渲染、掉帧计算等</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/10/28">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/06</span>
                 </div>
                 <!-- tags -->
@@ -794,6 +826,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -805,9 +839,11 @@
                 <p>本文是 Systrace 系列文章的第六篇，主要是对 Systrace 中的 Input 进行简单介绍，介绍其 Input 的流程； Systrace 中 Input 信息的体现 ，以及如何结合 Input 信息，分析与 Input 相关的问题</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/11/04</span>
                 </div>
                 <!-- tags -->
@@ -833,6 +869,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -845,9 +883,11 @@
 <p>这篇文章中分析过程包括我之前在<a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">Android 中的卡顿丢帧原因概述 - 方法论</a> 里面提到的一些工具 , 包括 : 复现视频 \ Event Log \ Android Studio 源码和 App Debug  \ Android Studio Profile \ Systrace \ Dumpsys \ PS 等 . 大多数工具大家都在开发过程中使用过 , 这次分析正是使用了这些工具相互配合 , 最终找到的问题的原因.</p>
 <p>大家看下来可能会觉得 , 这么简单一个问题还需要写一篇文章 ? 我写这篇文章的目的一是为了记录给自己 , 二是觉得分析过程比较有普遍性 , 包括分析思路和工具的使用 , 如果可以帮助到大家 , 那么最好不过了 , 如果你也有好的思路或者独家调试技巧 , 欢迎大家扫描<a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> 里面的讨论群二维码加入群聊 , 共同进步!</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/17</span>
                 </div>
                 <!-- tags -->
@@ -871,6 +911,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -884,9 +926,11 @@
 <p>说回流畅度 , 其实就是操作过程中的丢帧 , 本来一秒中画面需要更新 60 帧,但是如果这期间只更新了 55 帧 , 那么在用户看来就是丢帧了 , 主观感觉就是卡了 , 尤其是帧率波动 , 用户的感知会更明显. 引起丢帧的原因非常多, 有硬件层面的 , 有软件层面的 , 也有 App 自身的问题. 所以这一部分我分为四篇文章去讲 , 会简单讲一下哪些原因会用户觉得卡顿丢帧 :</p>
 <p><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">0. Android 中的卡顿丢帧原因概述 - 方法论</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-System/" target="_blank" rel="noopener">1. Android 中的卡顿丢帧原因概述 - 系统篇</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-App/" target="_blank" rel="noopener">2. Android 中的卡顿丢帧原因概述 - 应用篇</a><br><a href="https://www.androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/" target="_blank" rel="noopener">3. Android 中的卡顿丢帧原因概述 - 低内存篇</a></p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/05</span>
                 </div>
                 <!-- tags -->
@@ -912,6 +956,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -925,9 +971,11 @@
 <p>说回流畅度 , 其实就是操作过程中的丢帧 , 本来一秒中画面需要更新 60 帧,但是如果这期间只更新了 55 帧 , 那么在用户看来就是丢帧了 , 主观感觉就是卡了 , 尤其是帧率波动 , 用户的感知会更明显. 引起丢帧的原因非常多, 有硬件层面的 , 有软件层面的 , 也有 App 自身的问题. 所以这一部分我分为四篇文章去讲 , 会简单讲一下哪些原因会用户觉得卡顿丢帧 :</p>
 <p><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">0. Android 中的卡顿丢帧原因概述 - 方法论</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-System/" target="_blank" rel="noopener">1. Android 中的卡顿丢帧原因概述 - 系统篇</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-App/" target="_blank" rel="noopener">2. Android 中的卡顿丢帧原因概述 - 应用篇</a><br><a href="https://www.androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/" target="_blank" rel="noopener">3. Android 中的卡顿丢帧原因概述 - 低内存篇</a></p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/05</span>
                 </div>
                 <!-- tags -->
@@ -953,6 +1001,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -966,9 +1016,11 @@
 <p>说回流畅度 , 其实就是操作过程中的丢帧 , 本来一秒中画面需要更新 60 帧,但是如果这期间只更新了 55 帧 , 那么在用户看来就是丢帧了 , 主观感觉就是卡了 , 尤其是帧率波动 , 用户的感知会更明显. 引起丢帧的原因非常多, 有硬件层面的 , 有软件层面的 , 也有 App 自身的问题. 所以这一部分我分为四篇文章去讲 , 会简单讲一下哪些原因会用户觉得卡顿丢帧 :</p>
 <p><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">0. Android 中的卡顿丢帧原因概述 - 方法论</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-System/" target="_blank" rel="noopener">1. Android 中的卡顿丢帧原因概述 - 系统篇</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-App/" target="_blank" rel="noopener">2. Android 中的卡顿丢帧原因概述 - 应用篇</a><br><a href="https://www.androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/" target="_blank" rel="noopener">3. Android 中的卡顿丢帧原因概述 - 低内存篇</a></p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/05</span>
                 </div>
                 <!-- tags -->
@@ -994,6 +1046,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -1006,9 +1060,11 @@
 <p>Activity 栈是一个先进后出的数据结构, 各位可以关注在每一步操作之后, 栈内容那一栏 , 可以更好地帮助理解不同的启动模式.</p>
 <p>Demo 比较简单, 我也放到了 Github 上 , <a href="https://github.com/Gracker/AndroidlunchModeTest" target="_blank" rel="noopener">https://github.com/Gracker/AndroidLaunchModeTest</a> , 有兴趣的可以自己跑一下 , 看看结果 , 只需要修改 StandardActivity 里面的跳转 Activity 就可以了.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/01</span>
                 </div>
                 <!-- tags -->
@@ -1034,6 +1090,7 @@
         
         
         
+        
             
         
         <article class="index-post">
@@ -1052,9 +1109,11 @@ Android硬件加速原理与实现简介
 硬件加速，实际上应该叫 GPU 加速，软硬件加速的区别主要是图形的绘制究竟是 GPU 来处理还是 CPU，如果是 GPU，就认为是硬件加速绘制，反之，则是软件绘制
 目前的 Andro...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/27</span>
                 </div>
                 <!-- tags -->
@@ -1080,6 +1139,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -1091,9 +1152,11 @@ Android硬件加速原理与实现简介
                 <p>本文是 Systrace 系列文章的第二篇，主要是讲解一些分析 Systrace 的预备知识, 有了这些预备知识, 分析 Systrace 才会事半功倍, 更快也更有效率地找到问题点.</p>
 <p>本文介绍了如何查看 Systrace 中的线程状态 , 如何对线程的唤醒信息进行分析, 如何解读信息区的数据, 以及介绍了常用的快捷键. 通过本篇文章的学习, 相信你可以掌握进程和线程相关的一些信息, 也知道如何查看复杂的 Systrace 中包含的关键信息</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/21">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
                 </div>
                 <!-- tags -->
@@ -1119,6 +1182,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -1130,9 +1195,11 @@ Android硬件加速原理与实现简介
                 <p>本文是 Systrace 系列文章的第四篇，主要是对 SystemServer 进行简单介绍，介绍了 SystemServer 中几个比较重要的线程，由于 Input 和 Binder 比较重要，所以单独拿出来讲，在这里就没有再涉及到。</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/29</span>
                 </div>
                 <!-- tags -->
@@ -1158,6 +1225,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -1169,9 +1238,11 @@ Android硬件加速原理与实现简介
                 <p>本文是 Systrace 系列文章的第一篇，主要是对 Systrace 进行简单介绍，介绍其简单使用方法；如何去看 Systrace；如何结合其他工具对 Systrace 中的现象进行分析。</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/28</span>
                 </div>
                 <!-- tags -->
@@ -1197,6 +1268,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -1208,9 +1281,11 @@ Android硬件加速原理与实现简介
                 <p>本文是 Systrace 系列文章的第三篇，解释一下为何大家总是强调 60 fps。60 fps 是一个软件的概念，与屏幕刷新率里面提到的 60hz 是不一样的，可以参考这篇文章：<a href="https://www.androidperformance.com/2019/05/15/90hz-on-android/" target="_blank" rel="noopener">新的流畅体验，90Hz 漫谈</a></p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 的运行，从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/27</span>
                 </div>
                 <!-- tags -->
@@ -1236,6 +1311,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -1247,9 +1324,11 @@ Android硬件加速原理与实现简介
                 <p>随着 Systrace 的功能越来越完善，加上 Android 版本的更迭，之前写的 Systrace 系列教程已经有点过时；另外随着自己技能的完善，从 Systrace 里挖掘了更多的信息，对解决各种性能问题很有帮助。这些技能我需要记录下来，增强自己的总结和归纳的能力，如果能帮助到看文章的人，也是极好的</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/26</span>
                 </div>
                 <!-- tags -->
@@ -3300,14 +3379,14 @@ Android硬件加速原理与实现简介
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -3315,9 +3394,9 @@ Android硬件加速原理与实现简介
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -3330,9 +3409,9 @@ Android硬件加速原理与实现简介
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -3350,14 +3429,25 @@ Android硬件加速原理与实现简介
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->

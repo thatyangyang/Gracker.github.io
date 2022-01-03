@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -267,8 +265,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed index-footer-fixed">
     <!-- back to top button -->
@@ -450,7 +446,7 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
@@ -458,6 +454,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -471,9 +469,11 @@
 <p>说回流畅度 , 其实就是操作过程中的丢帧 , 本来一秒中画面需要更新 60 帧,但是如果这期间只更新了 55 帧 , 那么在用户看来就是丢帧了 , 主观感觉就是卡了 , 尤其是帧率波动 , 用户的感知会更明显. 引起丢帧的原因非常多, 有硬件层面的 , 有软件层面的 , 也有 App 自身的问题. 所以这一部分我分为四篇文章去讲 , 会简单讲一下哪些原因会用户觉得卡顿丢帧 :</p>
 <p><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">0. Android 中的卡顿丢帧原因概述 - 方法论</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-System/" target="_blank" rel="noopener">1. Android 中的卡顿丢帧原因概述 - 系统篇</a><br><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-App/" target="_blank" rel="noopener">2. Android 中的卡顿丢帧原因概述 - 应用篇</a><br><a href="https://www.androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/" target="_blank" rel="noopener">3. Android 中的卡顿丢帧原因概述 - 低内存篇</a></p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/05</span>
                 </div>
                 <!-- tags -->
@@ -499,6 +499,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -511,9 +513,11 @@
 <p>Activity 栈是一个先进后出的数据结构, 各位可以关注在每一步操作之后, 栈内容那一栏 , 可以更好地帮助理解不同的启动模式.</p>
 <p>Demo 比较简单, 我也放到了 Github 上 , <a href="https://github.com/Gracker/AndroidlunchModeTest" target="_blank" rel="noopener">https://github.com/Gracker/AndroidLaunchModeTest</a> , 有兴趣的可以自己跑一下 , 看看结果 , 只需要修改 StandardActivity 里面的跳转 Activity 就可以了.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/01</span>
                 </div>
                 <!-- tags -->
@@ -539,6 +543,7 @@
         
         
         
+        
             
         
         <article class="index-post">
@@ -557,9 +562,11 @@ Android硬件加速原理与实现简介
 硬件加速，实际上应该叫 GPU 加速，软硬件加速的区别主要是图形的绘制究竟是 GPU 来处理还是 CPU，如果是 GPU，就认为是硬件加速绘制，反之，则是软件绘制
 目前的 Andro...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/27</span>
                 </div>
                 <!-- tags -->
@@ -585,6 +592,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -596,9 +605,11 @@ Android硬件加速原理与实现简介
                 <p>本文是 Systrace 系列文章的第二篇，主要是讲解一些分析 Systrace 的预备知识, 有了这些预备知识, 分析 Systrace 才会事半功倍, 更快也更有效率地找到问题点.</p>
 <p>本文介绍了如何查看 Systrace 中的线程状态 , 如何对线程的唤醒信息进行分析, 如何解读信息区的数据, 以及介绍了常用的快捷键. 通过本篇文章的学习, 相信你可以掌握进程和线程相关的一些信息, 也知道如何查看复杂的 Systrace 中包含的关键信息</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/21">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
                 </div>
                 <!-- tags -->
@@ -624,6 +635,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -635,9 +648,11 @@ Android硬件加速原理与实现简介
                 <p>本文是 Systrace 系列文章的第四篇，主要是对 SystemServer 进行简单介绍，介绍了 SystemServer 中几个比较重要的线程，由于 Input 和 Binder 比较重要，所以单独拿出来讲，在这里就没有再涉及到。</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/29</span>
                 </div>
                 <!-- tags -->
@@ -663,6 +678,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -674,9 +691,11 @@ Android硬件加速原理与实现简介
                 <p>本文是 Systrace 系列文章的第一篇，主要是对 Systrace 进行简单介绍，介绍其简单使用方法；如何去看 Systrace；如何结合其他工具对 Systrace 中的现象进行分析。</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/28</span>
                 </div>
                 <!-- tags -->
@@ -702,6 +721,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -713,9 +734,11 @@ Android硬件加速原理与实现简介
                 <p>本文是 Systrace 系列文章的第三篇，解释一下为何大家总是强调 60 fps。60 fps 是一个软件的概念，与屏幕刷新率里面提到的 60hz 是不一样的，可以参考这篇文章：<a href="https://www.androidperformance.com/2019/05/15/90hz-on-android/" target="_blank" rel="noopener">新的流畅体验，90Hz 漫谈</a></p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 的运行，从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/27</span>
                 </div>
                 <!-- tags -->
@@ -741,6 +764,8 @@ Android硬件加速原理与实现简介
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -752,9 +777,11 @@ Android硬件加速原理与实现简介
                 <p>随着 Systrace 的功能越来越完善，加上 Android 版本的更迭，之前写的 Systrace 系列教程已经有点过时；另外随着自己技能的完善，从 Systrace 里挖掘了更多的信息，对解决各种性能问题很有帮助。这些技能我需要记录下来，增强自己的总结和归纳的能力，如果能帮助到看文章的人，也是极好的</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/26</span>
                 </div>
                 <!-- tags -->
@@ -780,6 +807,7 @@ Android硬件加速原理与实现简介
         
         
         
+        
             
         
         <article class="index-post">
@@ -792,9 +820,11 @@ Android硬件加速原理与实现简介
 技术术语解释什么是屏幕刷新率 ？首先我们需要知道什么是屏幕刷新率，简单来说，屏幕刷新率是一个硬件的概念，是说屏幕这个硬件刷新画面的频率。
 举例...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/15</span>
                 </div>
                 <!-- tags -->
@@ -814,6 +844,7 @@ Android硬件加速原理与实现简介
         
         
         
+        
             
         
         <article class="index-post">
@@ -825,9 +856,11 @@ Android硬件加速原理与实现简介
                 之前很久就看到过利器社群计划，看了大家的分享，学到了很多东西，正如开头所讲 “工具和灵感，都是利器。当来自不同的领域，不同类型的创造者的工具和灵感互相碰撞的时候，才会迸发出更多的可能性”。下面是我针对利器社群计划的6个问题的简单回答，希望有能帮助到大家的部分。
 介绍一下你自己和所做的工作？我是一名 Android 系统开发工程师，在某手机厂商的系统研发部门。工作主要是负责 Android 系统相关的工作，比如性能、功耗、稳定性、框架维护等，工作比较杂，都是打杂的工作。爱好方面，打篮球、跑步、打游戏这些程序员必备技能自然是不能少；读书、养猫、喝茶这些艺术青年的爱好也不落下；业余时间喜欢刷刷...
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/04/07</span>
                 </div>
                 <!-- tags -->
@@ -954,7 +987,10 @@ Android硬件加速原理与实现简介
     
     
         <div class="friends">
-            <div>FRIENDS</div>
+            <div>
+                
+                FRIENDS
+            </div>
             
                 
                     <span>
@@ -1061,9 +1097,14 @@ Android硬件加速原理与实现简介
         </div>
     
     
-        <div class="about-me">
-            <a href="/about">ABOUT ME</a>
+        <div class="profile-link-item">
+            <a href="/about" class="about-me">
+                
+                ABOUT ME
+            </a>
         </div>
+    
+    
     
 </div>
 
@@ -3090,14 +3131,14 @@ Android硬件加速原理与实现简介
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -3105,9 +3146,9 @@ Android硬件加速原理与实现简介
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -3120,9 +3161,9 @@ Android硬件加速原理与实现简介
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -3140,14 +3181,25 @@ Android硬件加速原理与实现简介
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->

@@ -9,7 +9,6 @@
 
 
 
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -196,17 +195,16 @@
     }
 </style>
 
-    <link rel="preload" href="/css/style.css?v=202107" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=202107" as="style">
-    <link rel="stylesheet" href="/css/mobile.css?v=202107" media="(max-width: 980px)">
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=202107" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=202107" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/js/all.min.js" data-auto-replace-svg="nest"></script>
     <!-- algolia -->
     
     <!-- 百度统计  -->
@@ -265,8 +263,6 @@
     
 </header>
 
-        <!-- dark mode -->
-        <script src="/scripts/dark.js"></script>
         <!-- fixed footer -->
         <footer class="footer-fixed">
     <!-- back to top button -->
@@ -435,7 +431,7 @@
     asyncErr
   )
 </script>
-        
+
             <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
             <div class="container container-unloaded">
                 <main class="main index-page">
@@ -443,6 +439,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -468,9 +466,11 @@
 </blockquote>
 <h2 id="GPU-Profile工具"><a href="#GPU-Profile工具" class="headerlink" title="GPU Profile工具"></a>GPU Profile工具</h2><p>渲染性能问题往往是偷取你宝贵帧数的罪魁祸首,这种问题很容易产生,很容易出现,而且在一个非常方便的工具的帮助下,也非常容易去追踪. 使用Peofile GPU Rendering tool,你可以在手机上就可以看到究竟是什么导致你的应用程序出现卡顿,变慢的情况.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/04/19</span>
                 </div>
                 <!-- tags -->
@@ -496,6 +496,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -524,9 +526,11 @@
 </blockquote>
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>想要开发一个高性能的应用程序,首先你得了解他的硬件工作原理,那么最好的办法就是去使用它,应用程序运行速度的快慢,很容易被人误解为硬件进程的控制问题,然而这最主要的根源在于渲染性能.如果你想要提高你应用程序的渲染性能,你就必须知道什么是<strong>VSYNC</strong>.</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/04/19</span>
                 </div>
                 <!-- tags -->
@@ -552,6 +556,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -581,9 +587,11 @@
 <h2 id="OverDraw概念"><a href="#OverDraw概念" class="headerlink" title="OverDraw概念"></a>OverDraw概念</h2><p>视频开头作者举了一个例子，说如果你是一个粉刷匠，你应该会知道，给墙壁粉刷是一件工作量非常大的工作，而且如果你需要重新粉刷一遍的话(比如对颜色不满意),那么第一次的粉刷就白干了. 同样的道理,如果你的应用程序中出现了过度绘制问题,那么你之前所做的事情也就白费了.如果你想兼顾高性能和完美的设计,那么你的程序可能会出现一个性能问题:<strong>OverDraw</strong>!</p>
 <p><strong>OverDraw</strong>是一个术语, 它表示某些组件在屏幕上的一个像素点的绘制超过1次.如下面的图所示,我们有一堆重叠的卡片,被用户激活的卡片在最上面,而那些没有激活的卡片在下面,这意味着我们画大力气绘制的那些卡片,基本都是不可见的.问题就在于次,我们像素渲染的并不全是用户最后能看打的部分, 这是在浪费GPU的时间!</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/04/19</span>
                 </div>
                 <!-- tags -->
@@ -609,6 +617,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -635,9 +645,11 @@
 <h2 id="Android渲染知识"><a href="#Android渲染知识" class="headerlink" title="Android渲染知识"></a>Android渲染知识</h2><p>当你觉得自己开发了一个改变世界的应用的时候，你的用户可能并不会这么认为，他们认为你的应用又慢又卡，达不到他们所期望的那种顺滑，更谈不上改变这该死的世界了，回收站走你！等等！明明我这个应用在我的Nexus5上非常顺滑啊？你咋能说又慢又卡呢？如果你对Android的碎片化有一定了解的话，你就应该知道，很多低配置的手机并不像Nexus5那样有强大的处理器和GPU，以及没有被怎么污染的原生系统。</p>
 <p>如果有大量的用户投诉说你的应用又卡又慢的时候，不要总是抱怨用户的低端手机，有时候问题就出在你的应用本身，也就意味着你的Android存在比较严重的渲染性能问题。只有真正了解问题发生的根源，才能有效的解决问题。所以了解Android渲染相关的知识，是一个Android开发者必不可少的知识。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/04/19</span>
                 </div>
                 <!-- tags -->
@@ -663,6 +675,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -689,9 +703,11 @@
 <p>总之就是一系列讲解Android性能相关的视频。这些小视频的时间非常短，在3-5分钟之内，主讲人的英文语速也非常快，初期这些视频没有翻译的时候，着实考验了一把听力。好消息是现在这些视频已经都有中英文字幕了。</p>
 <p>这些视频的时间虽然很短，但是信息量却非常大，有些他一句话带过的内容，我们却需要花费很多的时间去研究他的原理，或者研究一个调试工具如何使用。也就是说，这一系列视频并没有真正教你如何去优化你的应用，而是告诉你关于Android性能优化你需要知道的知识，这样你去优化你的Android应用的时候，<strong>知道该用什么工具，该采取什么样的步骤，需要达到什么样的目标。</strong></p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/04/19</span>
                 </div>
                 <!-- tags -->
@@ -717,6 +733,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -734,9 +752,11 @@
 <p>在使用MAT查看应用程序内存使用情况的时候,我们经常会碰到Bitmap对象以及BitmapDrawable$BitmapState对象,而且在内存使用上,Bitmap所占用的内存占大多数.在这样的情况下, Bitmap所造成的内存泄露尤其严重, 需要及时发现并且及时处理.在这样的需求下, 当我们在MAT中发现和图片相关的内存泄露的时候, 如果能知道是那一张图片,对分析问题会有很大的帮助.</p>
 <p>本文就介绍如何将MAT中的Bitmap数组对象还原成一张图片。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/04/11</span>
                 </div>
                 <!-- tags -->
@@ -762,6 +782,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -784,9 +806,11 @@
 <h1 id="MAT使用技巧进阶"><a href="#MAT使用技巧进阶" class="headerlink" title="MAT使用技巧进阶"></a>MAT使用技巧进阶</h1><h2 id="使用Android-Studio-Dump内存文件"><a href="#使用Android-Studio-Dump内存文件" class="headerlink" title="使用Android Studio Dump内存文件"></a>使用Android Studio Dump内存文件</h2><p>Android Studio的最新版本可以直接获取hprof文件：</p>
 <p><img src="/images/MAT_Pro/MAT_1.png" alt="Android-Studio"></p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/04/11</span>
                 </div>
                 <!-- tags -->
@@ -812,6 +836,8 @@
         
         
         
+        
+            
             
         
         <article class="index-post">
@@ -830,9 +856,11 @@
 <p><img src="/images/MAT/MAT_Intro.png" alt="image"></p>
 <p>当然MAT也有独立的不依赖Eclipse的版本，只不过这个版本在调试Android内存的时候，需要将DDMS生成的文件进行转换，才可以在独立版本的MAT上打开。不过Android SDK中已经提供了这个Tools，所以使用起来也是很方便的。</p>
             </div>
+            <!-- read more -->
+            
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date">
+                <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/04/11</span>
                 </div>
                 <!-- tags -->
@@ -2883,14 +2911,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android/Memory">
+        <span class="sidebar-category-name" data-categories="Memory">
             <span class="iconfont-archer">&#xe60a;</span>
-            Android/Memory
+            Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Memory/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Memory/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Performance">
@@ -2898,9 +2926,9 @@
             Performance
         </span>
     
-        <span class="sidebar-category-name" data-categories="Performance/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Performance/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Java">
@@ -2913,9 +2941,9 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Framework/Android">
+        <span class="sidebar-category-name" data-categories="Android">
             <span class="iconfont-archer">&#xe60a;</span>
-            Framework/Android
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2933,14 +2961,25 @@
 
         <!-- site-meta -->
         <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
     var siteMeta = {
-        root: "/",
+        url: "https://androidperformance.com",
+        root: siteMetaRoot,
         author: "Gracker"
     }
 </script>
 
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
         <!-- main func -->
-        <script src="/scripts/main.js"></script>
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
         <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
