@@ -3,6 +3,20 @@
 
 
     <url>
+        <loc>https://androidperformance.com/tags/Framework/</loc>
+        <lastmod>2022-01-06T00:16:04.107Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://androidperformance.com/tags/Android/</loc>
+        <lastmod>2022-01-06T00:16:04.107Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://androidperformance.com/tags/%25E5%25B9%25B4%25E5%25BA%25A6%25E6%258E%25A8%25E8%258D%2590/</loc>
         <lastmod>2022-01-05T15:30:24.698Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -31,13 +45,6 @@
     </url>
 
     <url>
-        <loc>https://androidperformance.com/tags/Android/</loc>
-        <lastmod>2022-01-05T15:26:56.938Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://androidperformance.com/tags/%25E5%2593%258D%25E5%25BA%2594%25E9%2580%259F%25E5%25BA%25A6/</loc>
         <lastmod>2021-12-01T16:21:30.507Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -54,13 +61,6 @@
     <url>
         <loc>https://androidperformance.com/tags/%25E6%25B5%2581%25E7%2595%2585%25E6%2580%25A7/</loc>
         <lastmod>2021-12-01T16:18:39.108Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://androidperformance.com/tags/Framework/</loc>
-        <lastmod>2021-12-01T16:09:46.900Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
