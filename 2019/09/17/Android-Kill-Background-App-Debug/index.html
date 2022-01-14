@@ -245,6 +245,8 @@
             ga('send', 'pageview');
         </script>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6592910800642606"
+    crossorigin="anonymous"></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -573,7 +575,7 @@
 <p>我们使用 ctrl+f 进行搜索 killBackgroundProcesses , 如果有的话 , 会以高亮显示, 我们只需要用鼠标放大就可以看到详细的调用栈<br><img src="/images//15687217316253.jpg" alt=""></p>
 <p>可以看到这个 App 在 loadComplete 回调里面执行了 killBackground 方法.(到了这里，应用开发者就已经知道是哪里的问题了，修复起来飞快)</p>
 <h2 id="权限问题分析"><a href="#权限问题分析" class="headerlink" title="权限问题分析"></a>权限问题分析</h2><p>如上面所示 , 调用 killBackgroundProcesses 是需要Manifest.permission.KILL_BACKGROUND_PROCESSES 这个权限的 .  </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">RequiresPermission</span>(<span class="keyword">Manifest</span>.<span class="keyword">permission</span>.<span class="keyword">KILL_BACKGROUND_PROCESSES</span>)</span><br><span class="line"><span class="keyword">public</span> void killBackgroundProcesses(String packageName) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">@RequiresPermission(Manifest.permission.KILL_BACKGROUND_PROCESSES)</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">killBackgroundProcesses</span><span class="params">(<span class="keyword">String</span> packageName)</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>执行 adb shell dumpsys package com.jx.cmcc.ict.ibelieve 查看 com.jx.cmcc.ict.ibelieve 这个进程所申请的权限 , 发现这个应用在安装的时候就申请了KILL_BACKGROUND_PROCESSES 这个权限 , 且默认是授予的.</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">install permissions:</span><br><span class="line">  <span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br><span class="line">  android.permission.ACCESS_NETWORK_STATE: <span class="attribute">granted</span>=<span class="literal">true</span></span><br><span class="line">  android.permission.KILL_BACKGROUND_PROCESSES: <span class="attribute">granted</span>=<span class="literal">true</span></span><br><span class="line">  android.permission.WRITE_USER_DICTIONARY: <span class="attribute">granted</span>=<span class="literal">true</span></span><br><span class="line">  <span class="built_in">..</span><span class="built_in">..</span><span class="built_in">..</span></span><br></pre></td></tr></table></figure>
 
@@ -2515,6 +2517,11 @@
                 随笔
             </span>
         
+            <span class="sidebar-tag-name" data-tags="流畅度">
+                <span class="iconfont-archer">&#xe606;</span>
+                流畅度
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Android">
                 <span class="iconfont-archer">&#xe606;</span>
                 Android
@@ -2535,19 +2542,19 @@
                 Systrace
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Lunch">
                 <span class="iconfont-archer">&#xe606;</span>
                 Lunch
             </span>
         
-            <span class="sidebar-tag-name" data-tags="流畅度">
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
                 <span class="iconfont-archer">&#xe606;</span>
-                流畅度
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="MAT">
@@ -2558,11 +2565,6 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2600,14 +2602,14 @@
                 Java
             </span>
         
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Singleton">
                 <span class="iconfont-archer">&#xe606;</span>
                 Singleton
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Nexus">
-                <span class="iconfont-archer">&#xe606;</span>
-                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="流畅性">
@@ -2620,14 +2622,14 @@
                 个人感悟
             </span>
         
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="设计规范">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计规范
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Nexus">
+                <span class="iconfont-archer">&#xe606;</span>
+                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="Process">
@@ -2635,14 +2637,14 @@
                 Process
             </span>
         
-            <span class="sidebar-tag-name" data-tags="卡顿">
-                <span class="iconfont-archer">&#xe606;</span>
-                卡顿
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Ubuntu">
                 <span class="iconfont-archer">&#xe606;</span>
                 Ubuntu
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
             <span class="sidebar-tag-name" data-tags="体验优化">
@@ -2660,6 +2662,11 @@
                 程序员的修炼
             </span>
         
+            <span class="sidebar-tag-name" data-tags="卡顿">
+                <span class="iconfont-archer">&#xe606;</span>
+                卡顿
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="测试">
                 <span class="iconfont-archer">&#xe606;</span>
                 测试
@@ -2668,6 +2675,11 @@
             <span class="sidebar-tag-name" data-tags="设计原则">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计原则
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="互联网那些事">
+                <span class="iconfont-archer">&#xe606;</span>
+                互联网那些事
             </span>
         
             <span class="sidebar-tag-name" data-tags="了解你的用户">
@@ -2690,11 +2702,6 @@
                 利器
             </span>
         
-            <span class="sidebar-tag-name" data-tags="互联网那些事">
-                <span class="iconfont-archer">&#xe606;</span>
-                互联网那些事
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="用户体验">
                 <span class="iconfont-archer">&#xe606;</span>
                 用户体验
@@ -2708,11 +2715,6 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
             </span>
         
     </div>

@@ -243,6 +243,8 @@
             ga('send', 'pageview');
         </script>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6592910800642606"
+    crossorigin="anonymous"></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -605,7 +607,7 @@
 </ol>
 <p>核心代码 loopOnce 处理流程如下：<br><img src="/images/15728723980792.jpg" alt=""></p>
 <p>InputReader 核心 Loop 函数 loopOnce 逻辑如下</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> InputReader::loopOnce() &#123;</span><br><span class="line">    <span class="keyword">int32_t</span> oldGeneration;</span><br><span class="line">    <span class="keyword">int32_t</span> timeoutMillis;</span><br><span class="line">    <span class="keyword">bool</span> inputDevicesChanged = <span class="literal">false</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;InputDeviceInfo&gt; inputDevices;</span><br><span class="line">    &#123; <span class="comment">// acquire lock</span></span><br><span class="line">    ......</span><br><span class="line">    <span class="comment">//获取输入事件、设备增删事件，count 为事件数量</span></span><br><span class="line">    <span class="keyword">size_t</span> count = mEventHub -&gt;getEvents(timeoutMillis, mEventBuffer, EVENT_BUFFER_SIZE);</span><br><span class="line">    &#123;</span><br><span class="line">    ......</span><br><span class="line">        <span class="keyword">if</span> (count) &#123;<span class="comment">//处理事件</span></span><br><span class="line">            processEventsLocked(mEventBuffer, count);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">    mQueuedListener-&gt;flush();<span class="comment">//将事件传到 InputDispatcher，这里getListener 得到的就是 InputDispatcher</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InputReader::loopOnce</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int32_t</span> oldGeneration;</span><br><span class="line">    <span class="keyword">int32_t</span> timeoutMillis;</span><br><span class="line">    <span class="keyword">bool</span> inputDevicesChanged = <span class="literal">false</span>;</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">vector</span>&lt;InputDeviceInfo&gt; inputDevices;</span><br><span class="line">    &#123; <span class="comment">// acquire lock</span></span><br><span class="line">    ......</span><br><span class="line">    <span class="comment">//获取输入事件、设备增删事件，count 为事件数量</span></span><br><span class="line">    <span class="keyword">size_t</span> count = mEventHub -&gt;getEvents(timeoutMillis, mEventBuffer, EVENT_BUFFER_SIZE);</span><br><span class="line">    &#123;</span><br><span class="line">    ......</span><br><span class="line">        <span class="keyword">if</span> (count) &#123;<span class="comment">//处理事件</span></span><br><span class="line">            processEventsLocked(mEventBuffer, count);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    ......</span><br><span class="line">    mQueuedListener-&gt;flush();<span class="comment">//将事件传到 InputDispatcher，这里getListener 得到的就是 InputDispatcher</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="InputDispatcher"><a href="#InputDispatcher" class="headerlink" title="InputDispatcher"></a>InputDispatcher</h2><p>上面的 InputReader 调用 mQueuedListener-&gt;flush 之后 ，将 Input 事件加入到InputDispatcher 的 mInboundQueue ，然后唤醒 InputDispatcher ， 从 Systrace 的唤醒信息那里也可以看到 InputDispatch 线程是被 InputReader 唤醒的</p>
 <p><img src="/images/15728724564781.jpg" alt=""></p>
@@ -620,7 +622,7 @@
 </ol>
 <p><img src="/images/15728724685263.jpg" alt=""></p>
 <p>其核心处理逻辑在 dispatchOnceInnerLocked 这里</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> InputDispatcher::dispatchOnceInnerLocked(<span class="keyword">nsecs_t</span>* nextWakeupTime) &#123;</span><br><span class="line">    <span class="comment">// Ready to start a new event.</span></span><br><span class="line">    <span class="comment">// If we don't already have a pending event, go grab one.</span></span><br><span class="line">    <span class="keyword">if</span> (! mPendingEvent) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mInboundQueue.isEmpty()) &#123;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// Inbound queue has at least one entry.</span></span><br><span class="line">            mPendingEvent = mInboundQueue.dequeueAtHead();</span><br><span class="line">            traceInboundQueueLengthLocked();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Poke user activity for this event.</span></span><br><span class="line">        <span class="keyword">if</span> (mPendingEvent-&gt;policyFlags &amp; POLICY_FLAG_PASS_TO_USER) &#123;</span><br><span class="line">            pokeUserActivityLocked(mPendingEvent);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Get ready to dispatch the event.</span></span><br><span class="line">        resetANRTimeoutsLocked();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">case</span> EventEntry::TYPE_MOTION: &#123;</span><br><span class="line">        done = dispatchMotionLocked(currentTime, typedEntry,</span><br><span class="line">                &amp;dropReason, nextWakeupTime);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (done) &#123;</span><br><span class="line">        <span class="keyword">if</span> (dropReason != DROP_REASON_NOT_DROPPED) &#123;</span><br><span class="line">            dropInboundEventLocked(mPendingEvent, dropReason);</span><br><span class="line">        &#125;</span><br><span class="line">        mLastDropReason = dropReason;</span><br><span class="line">        releasePendingEventLocked();</span><br><span class="line">        *nextWakeupTime = LONG_LONG_MIN;  <span class="comment">// force next poll to wake up immediately</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InputDispatcher::dispatchOnceInnerLocked</span><span class="params">(<span class="keyword">nsecs_t</span>* nextWakeupTime)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Ready to start a new event.</span></span><br><span class="line">    <span class="comment">// If we don't already have a pending event, go grab one.</span></span><br><span class="line">    <span class="keyword">if</span> (! mPendingEvent) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mInboundQueue.isEmpty()) &#123;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// Inbound queue has at least one entry.</span></span><br><span class="line">            mPendingEvent = mInboundQueue.dequeueAtHead();</span><br><span class="line">            traceInboundQueueLengthLocked();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Poke user activity for this event.</span></span><br><span class="line">        <span class="keyword">if</span> (mPendingEvent-&gt;policyFlags &amp; POLICY_FLAG_PASS_TO_USER) &#123;</span><br><span class="line">            pokeUserActivityLocked(mPendingEvent);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Get ready to dispatch the event.</span></span><br><span class="line">        resetANRTimeoutsLocked();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">case</span> EventEntry::TYPE_MOTION: &#123;</span><br><span class="line">        done = dispatchMotionLocked(currentTime, typedEntry,</span><br><span class="line">                &amp;dropReason, nextWakeupTime);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (done) &#123;</span><br><span class="line">        <span class="keyword">if</span> (dropReason != DROP_REASON_NOT_DROPPED) &#123;</span><br><span class="line">            dropInboundEventLocked(mPendingEvent, dropReason);</span><br><span class="line">        &#125;</span><br><span class="line">        mLastDropReason = dropReason;</span><br><span class="line">        releasePendingEventLocked();</span><br><span class="line">        *nextWakeupTime = LONG_LONG_MIN;  <span class="comment">// force next poll to wake up immediately</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="InboundQueue"><a href="#InboundQueue" class="headerlink" title="InboundQueue"></a>InboundQueue</h2><p>InputDispatcher 执行 notifyKey 的时候，会将 Input 事件封装后放到  InboundQueue 中，后续 InputDispatcher 循环处理 Input 事件的时候，就是从 InboundQueue 取出事件然后做处理</p>
 <p><img src="/images/15728724936139.jpg" alt=""></p>
@@ -2593,6 +2595,11 @@
                 随笔
             </span>
         
+            <span class="sidebar-tag-name" data-tags="流畅度">
+                <span class="iconfont-archer">&#xe606;</span>
+                流畅度
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Android">
                 <span class="iconfont-archer">&#xe606;</span>
                 Android
@@ -2613,19 +2620,19 @@
                 Systrace
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Lunch">
                 <span class="iconfont-archer">&#xe606;</span>
                 Lunch
             </span>
         
-            <span class="sidebar-tag-name" data-tags="流畅度">
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
                 <span class="iconfont-archer">&#xe606;</span>
-                流畅度
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="MAT">
@@ -2636,11 +2643,6 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2678,14 +2680,14 @@
                 Java
             </span>
         
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Singleton">
                 <span class="iconfont-archer">&#xe606;</span>
                 Singleton
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Nexus">
-                <span class="iconfont-archer">&#xe606;</span>
-                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="流畅性">
@@ -2698,14 +2700,14 @@
                 个人感悟
             </span>
         
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="设计规范">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计规范
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Nexus">
+                <span class="iconfont-archer">&#xe606;</span>
+                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="Process">
@@ -2713,14 +2715,14 @@
                 Process
             </span>
         
-            <span class="sidebar-tag-name" data-tags="卡顿">
-                <span class="iconfont-archer">&#xe606;</span>
-                卡顿
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Ubuntu">
                 <span class="iconfont-archer">&#xe606;</span>
                 Ubuntu
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
             <span class="sidebar-tag-name" data-tags="体验优化">
@@ -2738,6 +2740,11 @@
                 程序员的修炼
             </span>
         
+            <span class="sidebar-tag-name" data-tags="卡顿">
+                <span class="iconfont-archer">&#xe606;</span>
+                卡顿
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="测试">
                 <span class="iconfont-archer">&#xe606;</span>
                 测试
@@ -2746,6 +2753,11 @@
             <span class="sidebar-tag-name" data-tags="设计原则">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计原则
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="互联网那些事">
+                <span class="iconfont-archer">&#xe606;</span>
+                互联网那些事
             </span>
         
             <span class="sidebar-tag-name" data-tags="了解你的用户">
@@ -2768,11 +2780,6 @@
                 利器
             </span>
         
-            <span class="sidebar-tag-name" data-tags="互联网那些事">
-                <span class="iconfont-archer">&#xe606;</span>
-                互联网那些事
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="用户体验">
                 <span class="iconfont-archer">&#xe606;</span>
                 用户体验
@@ -2786,11 +2793,6 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
             </span>
         
     </div>

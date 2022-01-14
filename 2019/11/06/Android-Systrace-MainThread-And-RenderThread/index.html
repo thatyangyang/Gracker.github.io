@@ -243,6 +243,8 @@
             ga('send', 'pageview');
         </script>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6592910800642606"
+    crossorigin="anonymous"></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -579,12 +581,12 @@
 </ol>
 <h1 id="主线程的创建"><a href="#主线程的创建" class="headerlink" title="主线程的创建"></a>主线程的创建</h1><p>Android App 的进程是基于 Linux 的，其管理也是基于 Linux 的进程管理机制，所以其创建也是调用了 fork 函数</p>
 <p>frameworks/base/core/jni/com_android_internal_os_Zygote.cpp</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pid_t pid = fork()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">pid_t pid</span> = fork();</span><br></pre></td></tr></table></figure>
 <p>Fork 出来的进程，我们这里可以把他看做主线程，但是这个线程还没有和 Android 进行连接，所以无法处理 Android App 的 Message ；由于 Android App 线程运行<strong>基于消息机制</strong> ，那么这个 Fork 出来的主线程需要和 Android 的 Message 消息绑定，才能处理 Android App 的各种 Message </p>
 <p>这里就引入了 <strong>ActivityThread</strong> ，确切的说，ActivityThread 应该起名叫 ProcessThread 更贴切一些。ActivityThread 连接了 Fork 出来的进程和 App 的 Message ，他们的通力配合组成了我们熟知的 Android App 主线程。所以说 ActivityThread 其实并不是一个 Thread，而是他初始化了 Message 机制所需要的 MessageQueue、Looper、Handler ，而且其 Handler 负责处理大部分 Message 消息，所以我们习惯上觉得 ActivityThread 是主线程，其实他只是主线程的一个逻辑处理单元。</p>
 <h2 id="ActivityThread-的创建"><a href="#ActivityThread-的创建" class="headerlink" title="ActivityThread 的创建"></a>ActivityThread 的创建</h2><p>App 进程 fork 出来之后，回到 App 进程，查找 ActivityThread 的 Main函数</p>
 <p>com/android/internal/os/ZygoteInit.java</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> Runnable childZygoteInit(</span><br><span class="line">        <span class="keyword">int</span> targetSdkVersion, String[] argv, ClassLoader classLoader) &#123;</span><br><span class="line">    RuntimeInit.Arguments args = <span class="keyword">new</span> RuntimeInit.Arguments(argv);</span><br><span class="line">    <span class="function"><span class="keyword">return</span> RuntimeInit.<span class="title">findStaticMain</span><span class="params">(args.startClass, args.startArgs, classLoader)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> Runnable <span class="title">childZygoteInit</span><span class="params">(</span></span></span><br><span class="line"><span class="function"><span class="params">        <span class="keyword">int</span> targetSdkVersion, <span class="keyword">String</span>[] argv, ClassLoader classLoader)</span> </span>&#123;</span><br><span class="line">    RuntimeInit.Arguments args = <span class="keyword">new</span> RuntimeInit.Arguments(argv);</span><br><span class="line">    <span class="keyword">return</span> RuntimeInit.findStaticMain(args.startClass, args.startArgs, classLoader);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里的 startClass 就是 ActivityThread，找到之后调用，逻辑就到了 ActivityThread的main函数</p>
 <p>android/app/ActivityThread.java</p>
 <figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String<span class="literal">[]</span> args) &#123;</span><br><span class="line">    <span class="comment">//1. 初始化 Looper、MessageQueue</span></span><br><span class="line">    <span class="module-access"><span class="module"><span class="identifier">Looper</span>.</span></span>prepare<span class="constructor">MainLooper()</span>;</span><br><span class="line">    <span class="comment">// 2. 初始化 ActivityThread</span></span><br><span class="line">    ActivityThread thread = <span class="keyword">new</span> <span class="constructor">ActivityThread()</span>;</span><br><span class="line">    <span class="comment">// 3. 主要是调用 AMS.attachApplicationLocked，同步进程信息，做一些初始化工作</span></span><br><span class="line">    thread.attach(<span class="literal">false</span>, startSeq);</span><br><span class="line">    <span class="comment">// 4. 获取主线程的 Handler，这里是 H ，基本上 App 的 Message 都会在这个 Handler 里面进行处理 </span></span><br><span class="line">    <span class="keyword">if</span> (sMainThreadHandler<span class="operator"> == </span>null) &#123;</span><br><span class="line">        sMainThreadHandler = thread.get<span class="constructor">Handler()</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 5. 初始化完成，Looper 开始工作</span></span><br><span class="line">    <span class="module-access"><span class="module"><span class="identifier">Looper</span>.</span></span>loop<span class="literal">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -610,7 +612,7 @@
 <figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">mAttachInfo.mThreadedRenderer.<span class="title">draw</span>(mView, mAttachInfo, <span class="keyword">this</span>);</span><br><span class="line"><span class="keyword">void</span> <span class="title">draw</span>(View view, AttachInfo attachInfo, DrawCallbacks callbacks) &#123;</span><br><span class="line">    <span class="keyword">final</span> Choreographer choreographer = attachInfo.mViewRootImpl.mChoreographer;</span><br><span class="line">    choreographer.mFrameInfo.markDrawStart();</span><br><span class="line"></span><br><span class="line">    updateRootDisplayList(view, callbacks);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (attachInfo.mPendingAnimatingRenderNodes != <span class="keyword">null</span>) &#123;</span><br><span class="line">        <span class="keyword">final</span> <span class="built_in">int</span> count = attachInfo.mPendingAnimatingRenderNodes.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">            registerAnimatingRenderNode(</span><br><span class="line">                    attachInfo.mPendingAnimatingRenderNodes.<span class="built_in">get</span>(i));</span><br><span class="line">        &#125;</span><br><span class="line">        attachInfo.mPendingAnimatingRenderNodes.<span class="built_in">clear</span>();</span><br><span class="line">        attachInfo.mPendingAnimatingRenderNodes = <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">int</span> syncResult = syncAndDrawFrame(choreographer.mFrameInfo);</span><br><span class="line">    <span class="keyword">if</span> ((syncResult &amp; SYNC_LOST_SURFACE_REWARD_IF_FOUND) != <span class="number">0</span>) &#123;</span><br><span class="line">        setEnabled(<span class="keyword">false</span>);</span><br><span class="line">        attachInfo.mViewRootImpl.mSurface.release();</span><br><span class="line">        attachInfo.mViewRootImpl.invalidate();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((syncResult &amp; SYNC_REDRAW_REQUESTED) != <span class="number">0</span>) &#123;</span><br><span class="line">        attachInfo.mViewRootImpl.invalidate();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>上面的 draw 只是更新 DIsplayList ，更新结束后，调用 syncAndDrawFrame ，通知渲染线程开始工作，主线程释放。渲染线程的核心实现在 libhwui 库里面，其代码位于 frameworks/base/libs/hwui</p>
 <p>frameworks/base/libs/hwui/renderthread/RenderProxy.cpp</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> RenderProxy::syncAndDrawFrame() &#123;</span><br><span class="line">    <span class="keyword">return</span> mDrawFrameTask.drawFrame();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">RenderProxy::syncAndDrawFrame</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mDrawFrameTask.drawFrame();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>关于 RenderThread 的工作流程这里就不细说了，后续会有专门的篇幅来讲解这个，目前 hwui 这一块的流程也有很多优秀的文章，大家可以对照文章和源码来看，其核心流程在 Systrace 上的表现如下:</p>
 <p><img src="/images/15732905545821.jpg" alt=""></p>
 <h2 id="主线程和渲染线程的分工"><a href="#主线程和渲染线程的分工" class="headerlink" title="主线程和渲染线程的分工"></a>主线程和渲染线程的分工</h2><p>主线程负责处理进程 Message、处理 Input 事件、处理 Animation 逻辑、处理 Measure、Layout、Draw ，更新 DIsplayList ，但是不涉及 SurfaceFlinger 打交道；渲染线程负责渲染渲染相关的工作，一部分工作也是 CPU 来完成的，一部分操作是调用 OpenGL 函数来完成的</p>
@@ -2585,6 +2587,11 @@
                 随笔
             </span>
         
+            <span class="sidebar-tag-name" data-tags="流畅度">
+                <span class="iconfont-archer">&#xe606;</span>
+                流畅度
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Android">
                 <span class="iconfont-archer">&#xe606;</span>
                 Android
@@ -2605,19 +2612,19 @@
                 Systrace
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Lunch">
                 <span class="iconfont-archer">&#xe606;</span>
                 Lunch
             </span>
         
-            <span class="sidebar-tag-name" data-tags="流畅度">
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
                 <span class="iconfont-archer">&#xe606;</span>
-                流畅度
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="MAT">
@@ -2628,11 +2635,6 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2670,14 +2672,14 @@
                 Java
             </span>
         
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Singleton">
                 <span class="iconfont-archer">&#xe606;</span>
                 Singleton
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Nexus">
-                <span class="iconfont-archer">&#xe606;</span>
-                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="流畅性">
@@ -2690,14 +2692,14 @@
                 个人感悟
             </span>
         
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="设计规范">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计规范
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Nexus">
+                <span class="iconfont-archer">&#xe606;</span>
+                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="Process">
@@ -2705,14 +2707,14 @@
                 Process
             </span>
         
-            <span class="sidebar-tag-name" data-tags="卡顿">
-                <span class="iconfont-archer">&#xe606;</span>
-                卡顿
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Ubuntu">
                 <span class="iconfont-archer">&#xe606;</span>
                 Ubuntu
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
             <span class="sidebar-tag-name" data-tags="体验优化">
@@ -2730,6 +2732,11 @@
                 程序员的修炼
             </span>
         
+            <span class="sidebar-tag-name" data-tags="卡顿">
+                <span class="iconfont-archer">&#xe606;</span>
+                卡顿
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="测试">
                 <span class="iconfont-archer">&#xe606;</span>
                 测试
@@ -2738,6 +2745,11 @@
             <span class="sidebar-tag-name" data-tags="设计原则">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计原则
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="互联网那些事">
+                <span class="iconfont-archer">&#xe606;</span>
+                互联网那些事
             </span>
         
             <span class="sidebar-tag-name" data-tags="了解你的用户">
@@ -2760,11 +2772,6 @@
                 利器
             </span>
         
-            <span class="sidebar-tag-name" data-tags="互联网那些事">
-                <span class="iconfont-archer">&#xe606;</span>
-                互联网那些事
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="用户体验">
                 <span class="iconfont-archer">&#xe606;</span>
                 用户体验
@@ -2778,11 +2785,6 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
             </span>
         
     </div>

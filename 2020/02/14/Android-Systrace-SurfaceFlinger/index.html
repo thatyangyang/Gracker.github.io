@@ -242,6 +242,8 @@
             ga('send', 'pageview');
         </script>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6592910800642606"
+    crossorigin="anonymous"></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -611,7 +613,7 @@
 <li>MessageQueue::REFRESH — 主要是执行 handleMessageRefresh 方法</li>
 </ol>
 <p>frameworks/native/services/surfaceflinger/SurfaceFlinger.cpp</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> SurfaceFlinger::onMessageReceived(<span class="keyword">int32_t</span> what) NO_THREAD_SAFETY_ANALYSIS &#123;</span><br><span class="line">    ATRACE_CALL();</span><br><span class="line">    <span class="keyword">switch</span> (what) &#123;</span><br><span class="line">        <span class="keyword">case</span> MessageQueue::INVALIDATE: &#123;</span><br><span class="line">            ......</span><br><span class="line">            <span class="keyword">bool</span> refreshNeeded = handleMessageTransaction();</span><br><span class="line">            refreshNeeded |= handleMessageInvalidate();</span><br><span class="line">            ......</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> MessageQueue::REFRESH: &#123;</span><br><span class="line">            handleMessageRefresh();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//handleMessageInvalidate 实现如下</span></span><br><span class="line"><span class="keyword">bool</span> SurfaceFlinger::handleMessageInvalidate() &#123;</span><br><span class="line">    ATRACE_CALL();</span><br><span class="line">    <span class="keyword">bool</span> refreshNeeded = handlePageFlip();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mVisibleRegionsDirty) &#123;</span><br><span class="line">        computeLayerBounds();</span><br><span class="line">        <span class="keyword">if</span> (mTracingEnabled) &#123;</span><br><span class="line">            mTracing.notify(<span class="string">"visibleRegionsDirty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; layer : mLayersPendingRefresh) &#123;</span><br><span class="line">        Region visibleReg;</span><br><span class="line">        visibleReg.<span class="built_in">set</span>(layer-&gt;getScreenBounds());</span><br><span class="line">        invalidateLayerStack(layer, visibleReg);</span><br><span class="line">    &#125;</span><br><span class="line">    mLayersPendingRefresh.clear();</span><br><span class="line">    <span class="keyword">return</span> refreshNeeded;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//handleMessageRefresh 实现如下， SurfaceFlinger 的大部分工作都是在handleMessageRefresh 中发起的</span></span><br><span class="line"><span class="keyword">void</span> SurfaceFlinger::handleMessageRefresh() &#123;</span><br><span class="line">    ATRACE_CALL();</span><br><span class="line"></span><br><span class="line">    mRefreshPending = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">bool</span> repaintEverything = mRepaintEverything.exchange(<span class="literal">false</span>);</span><br><span class="line">    preComposition();</span><br><span class="line">    rebuildLayerStacks();</span><br><span class="line">    calculateWorkingSet();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [token, display] : mDisplays) &#123;</span><br><span class="line">        beginFrame(display);</span><br><span class="line">        prepareFrame(display);</span><br><span class="line">        doDebugFlashRegions(display, repaintEverything);</span><br><span class="line">        doComposition(display, repaintEverything);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    logLayerStats();</span><br><span class="line"></span><br><span class="line">    postFrame();</span><br><span class="line">    postComposition();</span><br><span class="line"></span><br><span class="line">    mHadClientComposition = <span class="literal">false</span>;</span><br><span class="line">    mHadDeviceComposition = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [token, displayDevice] : mDisplays) &#123;</span><br><span class="line">        <span class="keyword">auto</span> display = displayDevice-&gt;getCompositionDisplay();</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> displayId = display-&gt;getId();</span><br><span class="line">        mHadClientComposition =</span><br><span class="line">                mHadClientComposition || getHwComposer().hasClientComposition(displayId);</span><br><span class="line">        mHadDeviceComposition =</span><br><span class="line">                mHadDeviceComposition || getHwComposer().hasDeviceComposition(displayId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mVsyncModulator.onRefreshed(mHadClientComposition);</span><br><span class="line"></span><br><span class="line">    mLayersWithQueuedFrames.clear();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SurfaceFlinger::onMessageReceived</span><span class="params">(<span class="keyword">int32_t</span> what)</span> NO_THREAD_SAFETY_ANALYSIS </span>&#123;</span><br><span class="line">    ATRACE_CALL();</span><br><span class="line">    <span class="keyword">switch</span> (what) &#123;</span><br><span class="line">        <span class="keyword">case</span> MessageQueue::INVALIDATE: &#123;</span><br><span class="line">            ......</span><br><span class="line">            <span class="keyword">bool</span> refreshNeeded = handleMessageTransaction();</span><br><span class="line">            refreshNeeded |= handleMessageInvalidate();</span><br><span class="line">            ......</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">case</span> MessageQueue::REFRESH: &#123;</span><br><span class="line">            handleMessageRefresh();</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//handleMessageInvalidate 实现如下</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">SurfaceFlinger::handleMessageInvalidate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ATRACE_CALL();</span><br><span class="line">    <span class="keyword">bool</span> refreshNeeded = handlePageFlip();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (mVisibleRegionsDirty) &#123;</span><br><span class="line">        computeLayerBounds();</span><br><span class="line">        <span class="keyword">if</span> (mTracingEnabled) &#123;</span><br><span class="line">            mTracing.notify(<span class="string">"visibleRegionsDirty"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; layer : mLayersPendingRefresh) &#123;</span><br><span class="line">        Region visibleReg;</span><br><span class="line">        visibleReg.<span class="built_in">set</span>(layer-&gt;getScreenBounds());</span><br><span class="line">        invalidateLayerStack(layer, visibleReg);</span><br><span class="line">    &#125;</span><br><span class="line">    mLayersPendingRefresh.clear();</span><br><span class="line">    <span class="keyword">return</span> refreshNeeded;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//handleMessageRefresh 实现如下， SurfaceFlinger 的大部分工作都是在handleMessageRefresh 中发起的</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SurfaceFlinger::handleMessageRefresh</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ATRACE_CALL();</span><br><span class="line"></span><br><span class="line">    mRefreshPending = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">bool</span> repaintEverything = mRepaintEverything.exchange(<span class="literal">false</span>);</span><br><span class="line">    preComposition();</span><br><span class="line">    rebuildLayerStacks();</span><br><span class="line">    calculateWorkingSet();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [token, display] : mDisplays) &#123;</span><br><span class="line">        beginFrame(display);</span><br><span class="line">        prepareFrame(display);</span><br><span class="line">        doDebugFlashRegions(display, repaintEverything);</span><br><span class="line">        doComposition(display, repaintEverything);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    logLayerStats();</span><br><span class="line"></span><br><span class="line">    postFrame();</span><br><span class="line">    postComposition();</span><br><span class="line"></span><br><span class="line">    mHadClientComposition = <span class="literal">false</span>;</span><br><span class="line">    mHadDeviceComposition = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [token, displayDevice] : mDisplays) &#123;</span><br><span class="line">        <span class="keyword">auto</span> display = displayDevice-&gt;getCompositionDisplay();</span><br><span class="line">        <span class="keyword">const</span> <span class="keyword">auto</span> displayId = display-&gt;getId();</span><br><span class="line">        mHadClientComposition =</span><br><span class="line">                mHadClientComposition || getHwComposer().hasClientComposition(displayId);</span><br><span class="line">        mHadDeviceComposition =</span><br><span class="line">                mHadDeviceComposition || getHwComposer().hasDeviceComposition(displayId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    mVsyncModulator.onRefreshed(mHadClientComposition);</span><br><span class="line"></span><br><span class="line">    mLayersWithQueuedFrames.clear();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>handleMessageRefresh 中按照重要性主要有下面几个功能</p>
 <ol>
 <li>准备工作<ol>
@@ -2598,6 +2600,11 @@
                 随笔
             </span>
         
+            <span class="sidebar-tag-name" data-tags="流畅度">
+                <span class="iconfont-archer">&#xe606;</span>
+                流畅度
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Android">
                 <span class="iconfont-archer">&#xe606;</span>
                 Android
@@ -2618,19 +2625,19 @@
                 Systrace
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Lunch">
                 <span class="iconfont-archer">&#xe606;</span>
                 Lunch
             </span>
         
-            <span class="sidebar-tag-name" data-tags="流畅度">
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
                 <span class="iconfont-archer">&#xe606;</span>
-                流畅度
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="MAT">
@@ -2641,11 +2648,6 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2683,14 +2685,14 @@
                 Java
             </span>
         
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Singleton">
                 <span class="iconfont-archer">&#xe606;</span>
                 Singleton
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Nexus">
-                <span class="iconfont-archer">&#xe606;</span>
-                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="流畅性">
@@ -2703,14 +2705,14 @@
                 个人感悟
             </span>
         
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="设计规范">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计规范
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Nexus">
+                <span class="iconfont-archer">&#xe606;</span>
+                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="Process">
@@ -2718,14 +2720,14 @@
                 Process
             </span>
         
-            <span class="sidebar-tag-name" data-tags="卡顿">
-                <span class="iconfont-archer">&#xe606;</span>
-                卡顿
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Ubuntu">
                 <span class="iconfont-archer">&#xe606;</span>
                 Ubuntu
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
             <span class="sidebar-tag-name" data-tags="体验优化">
@@ -2743,6 +2745,11 @@
                 程序员的修炼
             </span>
         
+            <span class="sidebar-tag-name" data-tags="卡顿">
+                <span class="iconfont-archer">&#xe606;</span>
+                卡顿
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="测试">
                 <span class="iconfont-archer">&#xe606;</span>
                 测试
@@ -2751,6 +2758,11 @@
             <span class="sidebar-tag-name" data-tags="设计原则">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计原则
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="互联网那些事">
+                <span class="iconfont-archer">&#xe606;</span>
+                互联网那些事
             </span>
         
             <span class="sidebar-tag-name" data-tags="了解你的用户">
@@ -2773,11 +2785,6 @@
                 利器
             </span>
         
-            <span class="sidebar-tag-name" data-tags="互联网那些事">
-                <span class="iconfont-archer">&#xe606;</span>
-                互联网那些事
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="用户体验">
                 <span class="iconfont-archer">&#xe606;</span>
                 用户体验
@@ -2791,11 +2798,6 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
             </span>
         
     </div>

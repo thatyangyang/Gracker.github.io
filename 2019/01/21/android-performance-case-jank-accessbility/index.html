@@ -235,6 +235,8 @@
             ga('send', 'pageview');
         </script>
     
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6592910800642606"
+    crossorigin="anonymous"></script>
 <meta name="generator" content="Hexo 4.2.1"></head>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -531,16 +533,16 @@
 <p>那么接下来， 就需要从代码的角度来看为什么 InputReader 没有唤醒 InputDIspatcher 。</p>
 <h1 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h1><p>InputReader 唤醒 InputDispatcher 线程的逻辑如下（以本例中的 Move 手势为例。），</p>
 <p>frameworks/native/services/inputflinger/InputDispatcher.cpp</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> InputDispatcher::notifyMotion(<span class="keyword">const</span> NotifyMotionArgs* args) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!validateMotionEvent(args-&gt;action, args-&gt;actionButton,</span><br><span class="line">                args-&gt;pointerCount, args-&gt;pointerProperties)) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">uint32_t</span> policyFlags = args-&gt;policyFlags;</span><br><span class="line">    policyFlags |= POLICY_FLAG_TRUSTED;</span><br><span class="line"></span><br><span class="line">    android::base::Timer t;</span><br><span class="line">    mPolicy-&gt;interceptMotionBeforeQueueing(args-&gt;eventTime, <span class="comment">/*byref*/</span> policyFlags);</span><br><span class="line">    <span class="keyword">if</span> (t.duration() &gt; SLOW_INTERCEPTION_THRESHOLD) &#123;</span><br><span class="line">        ALOGW(<span class="string">"Excessive delay in interceptMotionBeforeQueueing; took %s ms"</span>,</span><br><span class="line">                <span class="built_in">std</span>::to_string(t.duration().count()).c_str());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> needWake; <span class="comment">//是否需要唤醒</span></span><br><span class="line">    &#123; <span class="comment">// acquire lock</span></span><br><span class="line">        mLock.lock();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (shouldSendMotionToInputFilterLocked(args)) &#123;</span><br><span class="line">            mLock.unlock();</span><br><span class="line"></span><br><span class="line">            MotionEvent event;</span><br><span class="line">            event.initialize(args-&gt;deviceId, args-&gt;source, args-&gt;action, args-&gt;actionButton,</span><br><span class="line">                    args-&gt;flags, args-&gt;edgeFlags, args-&gt;metaState, args-&gt;buttonState,</span><br><span class="line">                    <span class="number">0</span>, <span class="number">0</span>, args-&gt;xPrecision, args-&gt;yPrecision,</span><br><span class="line">                    args-&gt;downTime, args-&gt;eventTime,</span><br><span class="line">                    args-&gt;pointerCount, args-&gt;pointerProperties, args-&gt;pointerCoords);</span><br><span class="line"></span><br><span class="line">            policyFlags |= POLICY_FLAG_FILTERED;</span><br><span class="line">            <span class="comment">// SystemServer 上层要对事件进行过滤</span></span><br><span class="line">            <span class="keyword">if</span> (!mPolicy-&gt;filterInputEvent(&amp;event, policyFlags)) &#123;</span><br><span class="line">                <span class="keyword">return</span>; <span class="comment">// event was consumed by the filter</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            mLock.lock();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Just enqueue a new motion event.</span></span><br><span class="line">        MotionEntry* newEntry = <span class="keyword">new</span> MotionEntry(args-&gt;eventTime,</span><br><span class="line">                args-&gt;deviceId, args-&gt;source, policyFlags,</span><br><span class="line">                args-&gt;action, args-&gt;actionButton, args-&gt;flags,</span><br><span class="line">                args-&gt;metaState, args-&gt;buttonState,</span><br><span class="line">                args-&gt;edgeFlags, args-&gt;xPrecision, args-&gt;yPrecision, args-&gt;downTime,</span><br><span class="line">                args-&gt;displayId,</span><br><span class="line">                args-&gt;pointerCount, args-&gt;pointerProperties, args-&gt;pointerCoords, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        needWake = enqueueInboundEventLocked(newEntry); </span><br><span class="line">        mLock.unlock();</span><br><span class="line">    &#125; <span class="comment">// release lock</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (needWake) &#123;</span><br><span class="line">        mLooper-&gt;wake();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InputDispatcher::notifyMotion</span><span class="params">(<span class="keyword">const</span> NotifyMotionArgs* args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!validateMotionEvent(args-&gt;action, args-&gt;actionButton,</span><br><span class="line">                args-&gt;pointerCount, args-&gt;pointerProperties)) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">uint32_t</span> policyFlags = args-&gt;policyFlags;</span><br><span class="line">    policyFlags |= POLICY_FLAG_TRUSTED;</span><br><span class="line"></span><br><span class="line">    android::base::Timer t;</span><br><span class="line">    mPolicy-&gt;interceptMotionBeforeQueueing(args-&gt;eventTime, <span class="comment">/*byref*/</span> policyFlags);</span><br><span class="line">    <span class="keyword">if</span> (t.duration() &gt; SLOW_INTERCEPTION_THRESHOLD) &#123;</span><br><span class="line">        ALOGW(<span class="string">"Excessive delay in interceptMotionBeforeQueueing; took %s ms"</span>,</span><br><span class="line">                <span class="built_in">std</span>::to_string(t.duration().count()).c_str());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">bool</span> needWake; <span class="comment">//是否需要唤醒</span></span><br><span class="line">    &#123; <span class="comment">// acquire lock</span></span><br><span class="line">        mLock.lock();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (shouldSendMotionToInputFilterLocked(args)) &#123;</span><br><span class="line">            mLock.unlock();</span><br><span class="line"></span><br><span class="line">            MotionEvent event;</span><br><span class="line">            event.initialize(args-&gt;deviceId, args-&gt;source, args-&gt;action, args-&gt;actionButton,</span><br><span class="line">                    args-&gt;flags, args-&gt;edgeFlags, args-&gt;metaState, args-&gt;buttonState,</span><br><span class="line">                    <span class="number">0</span>, <span class="number">0</span>, args-&gt;xPrecision, args-&gt;yPrecision,</span><br><span class="line">                    args-&gt;downTime, args-&gt;eventTime,</span><br><span class="line">                    args-&gt;pointerCount, args-&gt;pointerProperties, args-&gt;pointerCoords);</span><br><span class="line"></span><br><span class="line">            policyFlags |= POLICY_FLAG_FILTERED;</span><br><span class="line">            <span class="comment">// SystemServer 上层要对事件进行过滤</span></span><br><span class="line">            <span class="keyword">if</span> (!mPolicy-&gt;filterInputEvent(&amp;event, policyFlags)) &#123;</span><br><span class="line">                <span class="keyword">return</span>; <span class="comment">// event was consumed by the filter</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            mLock.lock();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Just enqueue a new motion event.</span></span><br><span class="line">        MotionEntry* newEntry = <span class="keyword">new</span> MotionEntry(args-&gt;eventTime,</span><br><span class="line">                args-&gt;deviceId, args-&gt;source, policyFlags,</span><br><span class="line">                args-&gt;action, args-&gt;actionButton, args-&gt;flags,</span><br><span class="line">                args-&gt;metaState, args-&gt;buttonState,</span><br><span class="line">                args-&gt;edgeFlags, args-&gt;xPrecision, args-&gt;yPrecision, args-&gt;downTime,</span><br><span class="line">                args-&gt;displayId,</span><br><span class="line">                args-&gt;pointerCount, args-&gt;pointerProperties, args-&gt;pointerCoords, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        needWake = enqueueInboundEventLocked(newEntry); </span><br><span class="line">        mLock.unlock();</span><br><span class="line">    &#125; <span class="comment">// release lock</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (needWake) &#123;</span><br><span class="line">        mLooper-&gt;wake();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>需要注意这里 ，mPolicy-&gt;filterInputEvent 直接 return了，也就是说这里如果返回 false，那么就直接 return 了， 不继续执行下面的步骤。</p>
 <p>继续看 mPolicy-&gt;filterInputEvent</p>
 <p>frameworks/base/services/core/jni/com_android_server_input_InputManagerService.cpp</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> NativeInputManager::filterInputEvent(<span class="keyword">const</span> InputEvent* inputEvent, <span class="keyword">uint32_t</span> policyFlags) &#123;</span><br><span class="line">    ATRACE_CALL();</span><br><span class="line">    jobject inputEventObj;</span><br><span class="line"></span><br><span class="line">    JNIEnv* env = jniEnv();</span><br><span class="line">    <span class="keyword">switch</span> (inputEvent-&gt;getType()) &#123;</span><br><span class="line">    <span class="keyword">case</span> AINPUT_EVENT_TYPE_KEY:</span><br><span class="line">        inputEventObj = android_view_KeyEvent_fromNative(env,</span><br><span class="line">                <span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> KeyEvent*&gt;(inputEvent));</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> AINPUT_EVENT_TYPE_MOTION:</span><br><span class="line">        inputEventObj = android_view_MotionEvent_obtainAsCopy(env,</span><br><span class="line">                <span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> MotionEvent*&gt;(inputEvent));</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// dispatch the event normally</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// The callee is responsible for recycling the event.</span></span><br><span class="line">    jboolean pass = env-&gt;CallBooleanMethod(mServiceObj, gServiceClassInfo.filterInputEvent,</span><br><span class="line">            inputEventObj, policyFlags);</span><br><span class="line">    <span class="keyword">if</span> (checkAndClearExceptionFromCallback(env, <span class="string">"filterInputEvent"</span>)) &#123;</span><br><span class="line">        pass = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    env-&gt;DeleteLocalRef(inputEventObj);</span><br><span class="line">    <span class="keyword">return</span> pass;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">NativeInputManager::filterInputEvent</span><span class="params">(<span class="keyword">const</span> InputEvent* inputEvent, <span class="keyword">uint32_t</span> policyFlags)</span> </span>&#123;</span><br><span class="line">    ATRACE_CALL();</span><br><span class="line">    jobject inputEventObj;</span><br><span class="line"></span><br><span class="line">    JNIEnv* env = jniEnv();</span><br><span class="line">    <span class="keyword">switch</span> (inputEvent-&gt;getType()) &#123;</span><br><span class="line">    <span class="keyword">case</span> AINPUT_EVENT_TYPE_KEY:</span><br><span class="line">        inputEventObj = android_view_KeyEvent_fromNative(env,</span><br><span class="line">                <span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> KeyEvent*&gt;(inputEvent));</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> AINPUT_EVENT_TYPE_MOTION:</span><br><span class="line">        inputEventObj = android_view_MotionEvent_obtainAsCopy(env,</span><br><span class="line">                <span class="keyword">static_cast</span>&lt;<span class="keyword">const</span> MotionEvent*&gt;(inputEvent));</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">// dispatch the event normally</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">     </span><br><span class="line">    </span><br><span class="line">    <span class="comment">// The callee is responsible for recycling the event.</span></span><br><span class="line">    jboolean pass = env-&gt;CallBooleanMethod(mServiceObj, gServiceClassInfo.filterInputEvent,</span><br><span class="line">            inputEventObj, policyFlags);</span><br><span class="line">    <span class="keyword">if</span> (checkAndClearExceptionFromCallback(env, <span class="string">"filterInputEvent"</span>)) &#123;</span><br><span class="line">        pass = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    env-&gt;DeleteLocalRef(inputEventObj);</span><br><span class="line">    <span class="keyword">return</span> pass;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>这里从 jni 调回到 java 层， 也就是 InputManagerService 的 filterInputEvent 方法。</p>
 <p>com/android/server/input/InputManagerService.java</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Native callback.</span></span><br><span class="line"><span class="function">final boolean <span class="title">filterInputEvent</span><span class="params">(InputEvent event, <span class="keyword">int</span> policyFlags)</span> </span>&#123;</span><br><span class="line">    synchronized (mInputFilterLock) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mInputFilter != null) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                mInputFilter.filterInputEvent(event, policyFlags);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                <span class="comment">/* ignore */</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    event.recycle();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Native callback.</span></span><br><span class="line"><span class="function"><span class="keyword">final</span> boolean <span class="title">filterInputEvent</span><span class="params">(InputEvent event, <span class="keyword">int</span> policyFlags)</span> </span>&#123;</span><br><span class="line">    synchronized (mInputFilterLock) &#123;</span><br><span class="line">        <span class="keyword">if</span> (mInputFilter != null) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                mInputFilter.filterInputEvent(event, policyFlags);</span><br><span class="line">            &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</span><br><span class="line">                <span class="comment">/* ignore */</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    event.recycle();</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>跟代码流程发现, 这个 mInputFilter 是 AccessibilityInputFilter 的一个实例, 在 辅助功能里面打开开关的时候,会调用 AccessibilityManagerService 的 updateInputFilter 方法来设置 InputFilter.</p>
 <p>android/view/InputFilter.java</p>
@@ -2506,6 +2508,11 @@
                 随笔
             </span>
         
+            <span class="sidebar-tag-name" data-tags="流畅度">
+                <span class="iconfont-archer">&#xe606;</span>
+                流畅度
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Android">
                 <span class="iconfont-archer">&#xe606;</span>
                 Android
@@ -2526,19 +2533,19 @@
                 Systrace
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Lunch">
                 <span class="iconfont-archer">&#xe606;</span>
                 Lunch
             </span>
         
-            <span class="sidebar-tag-name" data-tags="流畅度">
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
                 <span class="iconfont-archer">&#xe606;</span>
-                流畅度
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="MAT">
@@ -2549,11 +2556,6 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2591,14 +2593,14 @@
                 Java
             </span>
         
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Singleton">
                 <span class="iconfont-archer">&#xe606;</span>
                 Singleton
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Nexus">
-                <span class="iconfont-archer">&#xe606;</span>
-                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="流畅性">
@@ -2611,14 +2613,14 @@
                 个人感悟
             </span>
         
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="设计规范">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计规范
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Nexus">
+                <span class="iconfont-archer">&#xe606;</span>
+                Nexus
             </span>
         
             <span class="sidebar-tag-name" data-tags="Process">
@@ -2626,14 +2628,14 @@
                 Process
             </span>
         
-            <span class="sidebar-tag-name" data-tags="卡顿">
-                <span class="iconfont-archer">&#xe606;</span>
-                卡顿
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Ubuntu">
                 <span class="iconfont-archer">&#xe606;</span>
                 Ubuntu
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
             <span class="sidebar-tag-name" data-tags="体验优化">
@@ -2651,6 +2653,11 @@
                 程序员的修炼
             </span>
         
+            <span class="sidebar-tag-name" data-tags="卡顿">
+                <span class="iconfont-archer">&#xe606;</span>
+                卡顿
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="测试">
                 <span class="iconfont-archer">&#xe606;</span>
                 测试
@@ -2659,6 +2666,11 @@
             <span class="sidebar-tag-name" data-tags="设计原则">
                 <span class="iconfont-archer">&#xe606;</span>
                 设计原则
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="互联网那些事">
+                <span class="iconfont-archer">&#xe606;</span>
+                互联网那些事
             </span>
         
             <span class="sidebar-tag-name" data-tags="了解你的用户">
@@ -2681,11 +2693,6 @@
                 利器
             </span>
         
-            <span class="sidebar-tag-name" data-tags="互联网那些事">
-                <span class="iconfont-archer">&#xe606;</span>
-                互联网那些事
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="用户体验">
                 <span class="iconfont-archer">&#xe606;</span>
                 用户体验
@@ -2699,11 +2706,6 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
             </span>
         
     </div>
