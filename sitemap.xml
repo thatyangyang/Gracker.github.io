@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
+    
+    <lastmod>2022-01-21T03:03:30.527Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://androidperformance.com/2022/01/21/android-systrace-cpu-state-runnable/</loc>
     
     <lastmod>2022-01-21T02:58:35.194Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/</loc>
     
     <lastmod>2021-12-01T16:31:30.594Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
-    
-    <lastmod>2021-12-01T16:20:13.625Z</lastmod>
     
   </url>
   
