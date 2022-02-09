@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://androidperformance.com/2021/10/26/build-android-12/</loc>
+    <lastmod>2022-02-09</lastmod>
+  </url>
+  <url>
     <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
     <lastmod>2022-02-07</lastmod>
   </url>
@@ -18,10 +22,6 @@
   </url>
   <url>
     <loc>https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/</loc>
-    <lastmod>2022-01-20</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2021/10/26/build-android-12/</loc>
     <lastmod>2022-01-20</lastmod>
   </url>
   <url>
