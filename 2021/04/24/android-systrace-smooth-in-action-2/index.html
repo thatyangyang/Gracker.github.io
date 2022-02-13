@@ -42,7 +42,7 @@
 <meta property="og:image" content="https://androidperformance.com/images/Systrace-Smooth%20e5d284a979a447ad8b45ff021d6e41cf/Untitled%2021.png">
 <meta property="og:image" content="https://androidperformance.com/images/WechatIMG581.png">
 <meta property="article:published_time" content="2021-04-24T11:55:07.000Z">
-<meta property="article:modified_time" content="2021-12-01T16:18:02.642Z">
+<meta property="article:modified_time" content="2022-02-13T07:08:15.910Z">
 <meta property="article:author" content="Gracker">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="流畅性">
@@ -368,7 +368,7 @@
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">4.2k</span>阅读时长: <span class="post-count reading-time">14 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">4.2k</span>阅读时长: <span class="post-count reading-time">15 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -575,15 +575,15 @@
 <li>小米桌面版本：RELEASE-4.21.11.2922-03151646</li>
 </ol>
 </blockquote>
-<h1 id="Systrace-分析"><a href="#Systrace-分析" class="headerlink" title="Systrace 分析"></a>Systrace 分析</h1><p>分析卡顿问题，我们一般的流程如下</p>
+<h1 id="Systrace-分析"><a href="#Systrace-分析" class="headerlink" title="Systrace 分析"></a>Systrace 分析</h1><p>使用 Systrace 分析卡顿问题，我们一般的流程如下</p>
 <ol>
-<li>抓取 Systrace，可以用 shell 或者手机自带的工具来抓取</li>
-<li>在 Chrome 中打开 Systrace 文件（html 结尾）,如果不能直接打开，可以在 Chrome 中输入 chrome://tracing/，然后把 Systrace 文件拖到里面就可以打开</li>
-<li>定位 App 进程在 Systrace 中的位置</li>
-<li>定位问题发生点 - 一般以输入事件，比如 input 事件</li>
-<li>分析 App 进程的主线程和渲染线程</li>
-<li>分析 SurfaceFlinger 进程的主线程和 Binder 线程</li>
-<li>分析 SystemServer 进程的 Binder （不涉及可以不用看）</li>
+<li><strong>复现卡顿的场景，抓取 Systrace，可以用 shell 或者手机自带的工具来抓取，或者是用户提供或者卡顿自动上报产生的 Systrace</strong></li>
+<li><strong>双击抓出来的 trace.html 直接在 Chrome 中打开 Systrace 文件；如果不能直接打开，可以在 Chrome 中输入 chrome://tracing/，然后把 Systrace 文件拖到里面就可以打开</strong></li>
+<li><strong>定位 App 进程在 Systrace 中的位置</strong></li>
+<li><strong>定位问题发生点 - 一般以输入事件为开始，比如 input 事件</strong></li>
+<li><strong>分析 App 进程的主线程和渲染线程</strong></li>
+<li><strong>分析 SurfaceFlinger 进程的主线程和 Binder 线程</strong></li>
+<li><strong>分析 SystemServer 进程的 Binder （不涉及可以不用看）</strong></li>
 </ol>
 <p>按照这个流程分析之后，需要再反过来看各个进程，把各个线索联系起来，推断最有可能的原因</p>
 <h2 id="从-Input-事件开始"><a href="#从-Input-事件开始" class="headerlink" title="从 Input 事件开始"></a>从 Input 事件开始</h2><p>这次抓的 Systrace 我只滑动了一次，所以比较好定位，滑动的 input 事件由一个 Input Down 事件 + 若干个 Input Move 事件 + 一个 Input Up 事件组成</p>
@@ -704,7 +704,7 @@
             <p>原文作者：<a href="https://androidperformance.com">Gracker</a>
             <p>原文链接：<a href="https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/">https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/</a>
             <p>发表日期：<a href="https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/">April 24th 2021, 7:55:07 pm</a>
-            <p>更新日期：<a href="https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/">December 2nd 2021, 12:18:02 am</a>
+            <p>更新日期：<a href="https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/">February 13th 2022, 3:08:15 pm</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
