@@ -742,9 +742,9 @@
       
         <tags>
             
-            <tag> Systrace </tag>
-            
             <tag> Framework </tag>
+            
+            <tag> Systrace </tag>
             
             <tag> MethodTrace </tag>
             
