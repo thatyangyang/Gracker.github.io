@@ -33,11 +33,11 @@
 <meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-sleep/image_4.png">
 <meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-sleep/image_5.png">
 <meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-sleep/image_6.png">
-<meta property="og:image" content="https://androidperformance.com/2022/03/13/images/android-systrace-cpu-state-sleep/image_7.png">
+<meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-sleep/image_7.png">
 <meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-sleep/image_8.png">
 <meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-sleep/image_9.png">
 <meta property="article:published_time" content="2022-03-13T00:38:12.000Z">
-<meta property="article:modified_time" content="2022-03-13T02:18:47.302Z">
+<meta property="article:modified_time" content="2022-03-13T02:30:19.673Z">
 <meta property="article:author" content="Gracker">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Performance">
@@ -540,7 +540,7 @@
 <li><strong>TASK_UNINTERRUPTIBLE</strong> → 不可中断 </li>
 <li><strong>TASK_KILLABLE</strong>  → 等同于 TASK_WAKEKILL | TASK_UNINTERRUPTIBLE </li>
 </ul>
-<p><img src="/images/android-systrace-cpu-state-sleep/image.png" alt="" title="图 1: 性能之巅 2 CPU 优化"></p>
+<p><img src="/images/android-systrace-cpu-state-sleep/image.png" alt=" &quot;图 1: 性能之巅 2 CPU 优化&quot;"></p>
 <p>在 Systrace/Perfetto 中，Sleep 状态指的是 Linux 中的TASK_INTERUPTIBLE，trace 中的颜色为白色。Uninterruptible Sleep 指的是 Linux 中的 TASK_UNINTERRUPTIBLE，trace 中的颜色为橙色。 </p>
 <p>本质上他们都是处于睡眠状态，拿不到 CPU的时间片，只有满足某些条件时才会拿到时间片，即变为 Runnable，随后是 Running。  </p>
 <p>TASK_INTERRUPTIBLE 与 TASK_UNINTERRUPTIBLE 本质上都是 Sleep，<strong>区别在于前者是可以处理 Signal 而后者不能，即使是 Kill 类型的Signal</strong>。因此，除非是拿到自己等待的资源之外，没有其他方法可以唤醒它们。 TASK_WAKEKILL 是指可以接受 Kill 类型的Signal 的TASK_UNINTERRUPTIBLE。</p>
@@ -560,10 +560,10 @@
 <p>以下把 TASK_INTERUPTIBLE 称之为 Sleep，TASK_UNINTERRUPTIBLE称之为 UninterruptibleSleep，目的是与 Systrac 中的用词保持一致。 </p>
 <p>初期分析 Sleep 与 UninterruptibleSleep 状态的经验不足时你会感到困惑，这种困惑主要是来自于对系统的不了解。你需要读大量的框架层、内核层的代码才能从 Trace 中找出蛛丝马迹。目前并没有一种 Trace 工具能把整个逻辑链路描述的很清楚，而且他们有时候还有不准的时候，比如 Systrace 中的 wakeup_from 信息。只有广泛的系统运行原理做为支持储备，再结合 Trace 工具分析问题，才能做到准确定位问题根因。否则就是我经常说的「性能优化流氓」，你说什么是什么，别人也没法证伪。反复折磨测试同学复测，没测出来之后，这个问题也就不了了之了。 </p>
 <p>本文没办法列举完所有状态的原因，因此只能列举最为常见的类型，以及典型的实际案例。更重要的是，你需要掌握诊断方法，并结合源代码来定位问题。</p>
-<h2 id="Trace-中的可视化效果"><a href="#Trace-中的可视化效果" class="headerlink" title="Trace 中的可视化效果"></a>Trace 中的可视化效果</h2><p><img src="/images/android-systrace-cpu-state-sleep/image_1.png" alt="" title="Pefetto 中支持显示的状态"></p>
-<p><img src="/images/android-systrace-cpu-state-sleep/image_2.png" alt="" title="Systrace 支持显示的状态"></p>
-<h1 id="Sleep-状态分析"><a href="#Sleep-状态分析" class="headerlink" title="Sleep 状态分析"></a>Sleep 状态分析</h1><p><img src="/images/android-systrace-cpu-state-sleep/image_3.png" alt="" title="图 1: UIThread 等待 RenderThread"></p>
-<p><img src="/images/android-systrace-cpu-state-sleep/image_4.png" alt="" title="图 2: Binder 调用等待"></p>
+<h2 id="Trace-中的可视化效果"><a href="#Trace-中的可视化效果" class="headerlink" title="Trace 中的可视化效果"></a>Trace 中的可视化效果</h2><p><img src="/images/android-systrace-cpu-state-sleep/image_1.png" alt="Pefetto 中支持显示的状态"></p>
+<p><img src="/images/android-systrace-cpu-state-sleep/image_2.png" alt="Systrace 支持显示的状态"></p>
+<h1 id="Sleep-状态分析"><a href="#Sleep-状态分析" class="headerlink" title="Sleep 状态分析"></a>Sleep 状态分析</h1><p><img src="/images/android-systrace-cpu-state-sleep/image_3.png" alt="图 1: UIThread 等待 RenderThread"></p>
+<p><img src="/images/android-systrace-cpu-state-sleep/image_4.png" alt="图 2: Binder 调用等待"></p>
 <h2 id="诊断方法"><a href="#诊断方法" class="headerlink" title="诊断方法"></a>诊断方法</h2><h3 id="通过-wakeup-from-tid-查看唤醒线程"><a href="#通过-wakeup-from-tid-查看唤醒线程" class="headerlink" title="通过 wakeup from tid: ***查看唤醒线程"></a>通过 <code>wakeup from tid: ***</code>查看唤醒线程</h3><p>Sleep 最常见的有图 1（UIThread 与 RenderThread 同步）的情况与图 2（Binder 调用）的情况。 Sleep 状态一般是由程序主动等待某个事件的发生而造成的，比如锁等待，因此它有个比较明确地唤醒源。比如图 1，UIThread 等待的是 RenderThread，你可以通过阅读代码来了解这种多线程之间的交互关系。虽然最直接，但是对开发者的要求非常高，因为这需要你熟读图形栈的代码。这可不是一般的难度，是追求的目标，但不具备普适性。 </p>
 <p>更简单的方法是通过所谓的 <code>wakeup from tid: ***</code> 来调查线程之间的交互关系。从前面的 <a href="https://articles.zsxq.com/id_wzkkiwop5pgm.html" target="_blank" rel="noopener">Runnable 文章</a>中讲过，任何线程进入 Running 之前会先进入到 Runnable 状态，由此再转换成 Running。从 Sleep 状态切换到 Running，必然也要经过 Runnable。</p>
 <p>进入到 Runnable 有两种方式，一种是 Running 中的程序被抢占了，暂时进入到 Runnable。还有一种是由另外一个线程将此线程（处于 Sleep 的线程）变成了 Runnable。 </p>
@@ -604,7 +604,7 @@
 
 
 <p>从函数解释上可以看到，函数首先是通过无锁的方式pin 应用侧的 pages，如果失败的时候不得不尝试持锁后走慢速执行路径。此时，无法持锁的时候那就要等待了，直到先前持锁的人释放锁。那之前被谁持有了呢？这时候可以利用之前介绍的Sleep 诊断方法，如下图。</p>
-<p><img src="../images/android-systrace-cpu-state-sleep/image_7.png" alt=""></p>
+<p><img src="/images/android-systrace-cpu-state-sleep/image_7.png" alt=""></p>
 <p>UninterruptibleSleep 状态相比 Sleep 有点复杂，因为它涉及到 Linux 内部的实现。可能是内核本身的机制有问题，也有可能是应用层使用不对，因此要联合上层的行为综合诊断才行。毕竟内核也不是万能的，它也有自己的能力边界，当应用层的使用超过其边界的时候，就会出现影响性能的现象。 </p>
 <h2 id="IOWait-常见原因与优化方法"><a href="#IOWait-常见原因与优化方法" class="headerlink" title="IOWait 常见原因与优化方法"></a>IOWait 常见原因与优化方法</h2><h3 id="1-主动IO-操作"><a href="#1-主动IO-操作" class="headerlink" title="1. 主动IO 操作"></a>1. <strong>主动IO 操作</strong></h3><ul>
 <li>程序进行频繁、大量的读或者写 IO 操作，这是最常见的情况。  </li>
@@ -719,7 +719,7 @@
             <p>原文作者：<a href="https://androidperformance.com">Gracker</a>
             <p>原文链接：<a href="https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/">https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/</a>
             <p>发表日期：<a href="https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/">March 13th 2022, 8:38:12 am</a>
-            <p>更新日期：<a href="https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/">March 13th 2022, 10:18:47 am</a>
+            <p>更新日期：<a href="https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/">March 13th 2022, 10:30:19 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
