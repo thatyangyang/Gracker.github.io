@@ -458,6 +458,117 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2019/10/22/Android-Choreographer/">
+                
+                <span class="abstract-title-text">Android 基于 Choreographer 的渲染机制详解</span>
+            </a>
+            <div class="abstract-content">
+                <p>本文介绍了 App 开发者不经常接触到但是在 Android Framework 渲染链路中非常重要的一个类 Choreographer。包括 Choreographer 的引入背景、Choreographer 的简介、部分源码解析、Choreographer 与 MessageQueue、Choreographer 和 APM，以及手机厂商基于 Choreographer 的一些优化思路</p>
+<p>Choreographer 的引入，主要是配合 Vsync ，给上层 App 的渲染提供一个稳定的 Message 处理的时机，也就是 Vsync 到来的时候 ，系统通过对  Vsync 信号周期的调整，来控制每一帧绘制操作的时机. 目前大部分手机都是 60Hz 的刷新率，也就是 16.6ms 刷新一次，系统为了配合屏幕的刷新频率，将 Vsync 的周期也设置为 16.6 ms，每个 16.6 ms ， Vsync 信号唤醒 Choreographer 来做 App 的绘制操作 ，这就是引入 Choreographer 的主要作用. 了解 Choreographer 还可以帮助 App 开发者知道程序每一帧运行的基本原理，也可以加深对 Message、Handler、Looper、MessageQueue、Measure、Layout、Draw 的理解</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/01/10">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/22</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Framework">Framework</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2019/09/18/Android-Jank-Due-To-Low-Memory/">
+                
+                <span class="abstract-title-text">Android 中的卡顿丢帧原因概述 - 低内存篇</span>
+            </a>
+            <div class="abstract-content">
+                <p>在<a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-System/" target="_blank" rel="noopener">Android 中的卡顿丢帧原因概述 - 系统篇</a> 这篇文章中 , 实际案例这里我们有列举一些由于系统低内存导致的卡顿 , 由于 Android 低内存对整机性能影响比较大 , 所以单独写一篇文章 , 来概述系统低内存对整机性能的影响 .</p>
+<p>随着 Android 系统版本的更迭 , 以及 App 的代码膨胀 , Android 系统对内存的需求越来越大 , 但是目前市面上还存在着大量的 4G 内存以下的机器 , 这部分用户就很容易遇到整机低内存的情况 , 尤其是在系统大版本更新和 App 越装越多的情况下 . </p>
+<p>Android 低内存会导致性能问题 , 具体表现就是响应慢和卡顿 . 比如启动一个应用要花比平时更长的时间 ; 滑动列表会掉更多帧 ; 后台的进程减少导致冷启动变多 ; 手机很容易发热发烫等 , 下面我会概述发生这些性能问题的原因 . Debug 的方法 , 以及可能的优化措施 . </p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2022/01/10">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/18</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
+            <a class="abstract-title" href="/2019/09/17/Android-Kill-Background-App-Debug/">
+                
+                <span class="abstract-title-text">Android 桌面被杀问题分析案例</span>
+            </a>
+            <div class="abstract-content">
+                <p>写这篇文章的契机是因为一个实际遇到的问题 , 这个问题其实不难 , 不过在分析了这个问题然后写日记的时候 , 我突然觉得这个问题分析的过程有必要记录一下 , 分享给大家 . 分析过程中有用到一些工具 , 一些方法 , 也从另外一个聪明的小伙伴梅明那里学到了一些分析技巧和工具的使用技巧 .</p>
+<p>这篇文章中分析过程包括我之前在<a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">Android 中的卡顿丢帧原因概述 - 方法论</a> 里面提到的一些工具 , 包括 : 复现视频 \ Event Log \ Android Studio 源码和 App Debug  \ Android Studio Profile \ Systrace \ Dumpsys \ PS 等 . 大多数工具大家都在开发过程中使用过 , 这次分析正是使用了这些工具相互配合 , 最终找到的问题的原因.</p>
+<p>大家看下来可能会觉得 , 这么简单一个问题还需要写一篇文章 ? 我写这篇文章的目的一是为了记录给自己 , 二是觉得分析过程比较有普遍性 , 包括分析思路和工具的使用 , 如果可以帮助到大家 , 那么最好不过了 , 如果你也有好的思路或者独家调试技巧 , 欢迎大家扫描<a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> 里面的讨论群二维码加入群聊 , 共同进步!</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2021/12/02">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/09/17</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Framework">Framework</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="MethodTrace">MethodTrace</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2019/09/05/Android-Jank-Due-To-App/">
                 
                 <span class="abstract-title-text">Android 中的卡顿丢帧原因概述 - 应用篇</span>
@@ -698,7 +809,7 @@ Android硬件加速原理与实现简介
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/01/21">
+                <div class="abstract-date" title="Last updated: 2022/03/12">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
                 </div>
                 <!-- tags -->
@@ -743,135 +854,6 @@ Android硬件加速原理与实现简介
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/29</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/05/28/Android-Systrace-About/">
-                
-                <span class="abstract-title-text">Android Systrace 基础知识 -- Systrace 简介</span>
-            </a>
-            <div class="abstract-content">
-                <p>本文是 Systrace 系列文章的第一篇，主要是对 Systrace 进行简单介绍，介绍其简单使用方法；如何去看 Systrace；如何结合其他工具对 Systrace 中的现象进行分析。</p>
-<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/01/05">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/28</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/05/27/why-60-fps/">
-                
-                <span class="abstract-title-text">Android Systrace 基础知识 -- Why 60 fps ？</span>
-            </a>
-            <div class="abstract-content">
-                <p>本文是 Systrace 系列文章的第三篇，解释一下为何大家总是强调 60 fps。60 fps 是一个软件的概念，与屏幕刷新率里面提到的 60hz 是不一样的，可以参考这篇文章：<a href="https://www.androidperformance.com/2019/05/15/90hz-on-android/" target="_blank" rel="noopener">新的流畅体验，90Hz 漫谈</a></p>
-<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 的运行，从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2021/12/02">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/27</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/05/26/Android_Systrace_0/">
-                
-                <span class="abstract-title-text">Android Systrace -- 系列文章目录</span>
-            </a>
-            <div class="abstract-content">
-                <p>随着 Systrace 的功能越来越完善，加上 Android 版本的更迭，之前写的 Systrace 系列教程已经有点过时；另外随着自己技能的完善，从 Systrace 里挖掘了更多的信息，对解决各种性能问题很有帮助。这些技能我需要记录下来，增强自己的总结和归纳的能力，如果能帮助到看文章的人，也是极好的</p>
-<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2021/12/02">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/05/26</span>
                 </div>
                 <!-- tags -->
                 
@@ -1738,7 +1720,50 @@ Android硬件加速原理与实现简介
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -2279,7 +2304,7 @@ Android硬件加速原理与实现简介
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 96
+        Total : 99
         </div>
         <!-- search  -->
         
@@ -2293,6 +2318,24 @@ Android硬件加速原理与实现简介
             <div class="archive-year"> 2022 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/13</span>
+            <a class="archive-post-title" href="/2022/03/13/the-performance/">The Performance 知识星球简介</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/13</span>
+            <a class="archive-post-title" href="/2022/03/13/android-systrace-cpu-state-sleep/">Systrace 线程 CPU 运行状态分析技巧 - Sleep 和 Uninterruptible Sleep 篇</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/13</span>
+            <a class="archive-post-title" href="/2022/03/13/android-systrace-cpu-state-running/">Systrace 线程 CPU 运行状态分析技巧 - Running 篇</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">01/21</span>
@@ -3221,6 +3264,11 @@ Android硬件加速原理与实现简介
         <span class="sidebar-category-name" data-categories="读书笔记">
             <span class="iconfont-archer">&#xe60a;</span>
             读书笔记
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Tools">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Tools
         </span>
     
     </div>

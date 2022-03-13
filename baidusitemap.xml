@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/</loc>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2022/03/13/android-systrace-cpu-state-running/</loc>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
     <loc>https://androidperformance.com/2022/01/21/android-systrace-cpu-state-runnable/</loc>
-    <lastmod>2022-03-08</lastmod>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/</loc>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2022/03/13/the-performance/</loc>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/07/23/Android-Systrace-Pre/</loc>
+    <lastmod>2022-03-12</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/</loc>
@@ -35,18 +59,6 @@
   <url>
     <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
     <lastmod>2022-02-07</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
-    <lastmod>2022-01-21</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/07/23/Android-Systrace-Pre/</loc>
-    <lastmod>2022-01-21</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/</loc>
-    <lastmod>2022-01-20</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2019/10/22/Android-Choreographer/</loc>

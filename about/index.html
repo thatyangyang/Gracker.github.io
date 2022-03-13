@@ -27,11 +27,11 @@
 <meta property="og:description" content="我叫 Chris，叫我高兄就好，在社交网络上多用 Gracker 或者高爷  目前主要在做 Android 系统开发和应用快省稳优化相关的工作，主要的研究方向是 Android Framework、Android APM、Android 系统优化等，对 Android App 开发和 Linux 也有一定的了解，但是很多知识并没有非常深入，目前还在努力学习中，希望跟大家多交流。人在成都，欢迎各位面">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/15677824703625.jpg">
-<meta property="og:image" content="https://androidperformance.com/images/2021-Review/0d2d6300-16d8-4069-b9af-4fff436c58c0.jpg">
+<meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-runnable/image-20220308234016600.png">
 <meta property="og:image" content="https://androidperformance.com/images/WechatIMG581.png">
 <meta property="og:image" content="https://androidperformance.com/images/2021-Review/wechat.png">
 <meta property="article:published_time" content="2019-09-25T16:16:33.000Z">
-<meta property="article:modified_time" content="2022-01-03T15:59:05.991Z">
+<meta property="article:modified_time" content="2022-03-13T00:53:49.976Z">
 <meta property="article:author" content="Gracker">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://androidperformance.com/images/15677824703625.jpg">
@@ -466,7 +466,7 @@
 <p><strong>邮箱</strong> : <a href="dreamtale.jg@gmail.com">gmail</a> , <a href="553000664@qq.com">QQ</a><br><strong>微博</strong> : <a href="https://weibo.com/1315612820/profile" target="_blank" rel="noopener">高爷</a><br><strong>知乎</strong> : <a href="https://www.zhihu.com/people/gracker" target="_blank" rel="noopener">Gracker</a><br><strong>掘金</strong> : <a href="https://juejin.im/user/557b0590e4b052e031453d76" target="_blank" rel="noopener">Gracker</a><br><strong>微信 / QQ</strong> : 553000664 (加好友备注: Blog，方便的话，可以提供 <strong>昵称(真名)_公司/_App/Framework</strong>，我这边加个备注，不方便就算了我就简单说一下就可以了，随缘)</p>
 <p><img src="/images/15677824703625.jpg" alt="个人微信"></p>
 <p> <a href="https://t.zsxq.com/Fuvvf6y" target="_blank" rel="noopener"><strong>The Performance 知识星球</strong></a> ：跟两个性能方面的大佬一起运营的知识星球，星球名叫 <strong>The Performance</strong>，一个分享 Android 开发领域性能优化相关的圈子，主理人是三个国内一线手机厂商性能优化方面的一线开发者，有多年性能相关领域的知识积累和案例分析经验，可以提供性能、功耗分析知识的一站式服务，涵盖了基础、方法论、工具使用和最宝贵的案例分析</p>
-<p><img src="/images/2021-Review/0d2d6300-16d8-4069-b9af-4fff436c58c0.jpg" alt=" TeamWork - 付费知识星球"></p>
+<p><img src="/images/android-systrace-cpu-state-runnable/image-20220308234016600.png" alt="TeamWork - 付费知识星球"></p>
 <p>还有一个<strong>微信讨论群，群里主要讨论 Android 开发相关的问题，包括但不限于 Android App 开发、Android Framework 、Linux 、APM 、面试、Flutter、新技术等话题</strong> (谢绝猎头、潜水客、观光客)，因为讨论群已经达到 500 人了，需要你加我微信，你可以加我微信拉你进新群</p>
 <p>如果你看到了这里，说明是对这 Android 或者对本人感兴趣的，那么加微信交个朋友吧（不过先打个预防针，微信群只适合聊天，或者讨论一些问题，如果想真正的学到东西，还是推荐系统地去学习，比如读书或者报视频课，也推荐费曼学习法）</p>
 <h1 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h1><p>同时会搬运一些好的文章到微信公众号上，感兴趣的可以关注一下，<br><img src="/images/WechatIMG581.png" alt="微信扫一扫"></p>
@@ -1095,7 +1095,50 @@
         
         
         
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -1636,7 +1679,7 @@
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 96
+        Total : 99
         </div>
         <!-- search  -->
         
@@ -1650,6 +1693,24 @@
             <div class="archive-year"> 2022 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/13</span>
+            <a class="archive-post-title" href="/2022/03/13/the-performance/">The Performance 知识星球简介</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/13</span>
+            <a class="archive-post-title" href="/2022/03/13/android-systrace-cpu-state-sleep/">Systrace 线程 CPU 运行状态分析技巧 - Sleep 和 Uninterruptible Sleep 篇</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/13</span>
+            <a class="archive-post-title" href="/2022/03/13/android-systrace-cpu-state-running/">Systrace 线程 CPU 运行状态分析技巧 - Running 篇</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">01/21</span>
@@ -2578,6 +2639,11 @@
         <span class="sidebar-category-name" data-categories="读书笔记">
             <span class="iconfont-archer">&#xe60a;</span>
             读书笔记
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Tools">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Tools
         </span>
     
     </div>
