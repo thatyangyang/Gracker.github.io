@@ -458,6 +458,46 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2019/10/24/Android-Background-Animation/">
+                
+                <span class="abstract-title-text">Android 中的“后台无效动画“行为分析</span>
+            </a>
+            <div class="abstract-content">
+                <p>当一个 Android App 退到后台之后，只要他没有被杀死，那么他做什么事情大家都不要奇怪，因为这就是 Android。但是当用户知道一个你一个 App 退到后台之后还在持续做无效的动画，而这个动画完全是无意义的，而且用户还不知道他在做动画，消耗用户那可怜的电量的时候，轻则被多任务杀掉，禁止后台运行，重则直接卸载。</p>
+<p>一般的开发者很难发现这个问题，但是如果你经常使用 <a href="https://www.androidperformance.com/2019/05/28/Android-Systrace-About/" target="_blank" rel="noopener">Systrace</a> ，多开几十个应用然后退回到桌面，左右滑动抓取 <a href="https://www.androidperformance.com/2019/05/28/Android-Systrace-About/" target="_blank" rel="noopener">Systrace</a> ，就可以很容易发现，总有那么几个后台的应用，还在频繁地做无效的动画。</p>
+<p>这里说的后台做动画，指的是由于某种原因，应用在退到后台之后，用户看不到任何这个 App 界面的时候，他仍然在后台不断地更新，耗费 CPU。引起这个问题的原因可能有好多个，毕竟 往 <a href="https://www.androidperformance.com/2019/10/22/Android-Choreographer/" target="_blank" rel="noopener">Choreographer</a> 扔 CALLBACK_ANIMATION 的地方太多了，而且每个应用可能都不一样，但最终还是需要各个应用去做修复</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2021/12/02">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/10/24</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Framework">Framework</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2019/10/22/Android-Choreographer/">
                 
                 <span class="abstract-title-text">Android 基于 Choreographer 的渲染机制详解</span>
@@ -811,49 +851,6 @@ Android硬件加速原理与实现简介
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2022/03/12">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Tools">Tools</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2019/06/29/Android-Systrace-SystemServer/">
-                
-                <span class="abstract-title-text">Android Systrace 基础知识 - SystemServer 解读</span>
-            </a>
-            <div class="abstract-content">
-                <p>本文是 Systrace 系列文章的第四篇，主要是对 SystemServer 进行简单介绍，介绍了 SystemServer 中几个比较重要的线程，由于 Input 和 Binder 比较重要，所以单独拿出来讲，在这里就没有再涉及到。</p>
-<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2021/12/02">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/29</span>
                 </div>
                 <!-- tags -->
                 
@@ -1735,7 +1732,14 @@ Android硬件加速原理与实现简介
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
         
         
         
@@ -2304,7 +2308,7 @@ Android硬件加速原理与实现简介
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 99
+        Total : 100
         </div>
         <!-- search  -->
         
@@ -2318,6 +2322,12 @@ Android硬件加速原理与实现简介
             <div class="archive-year"> 2022 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/27</span>
+            <a class="archive-post-title" href="/2022/03/27/the-performance-tea-part-01/">知识星球茶话会 - 01</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">03/13</span>
@@ -3200,6 +3210,11 @@ Android硬件加速原理与实现简介
                 利器
             </span>
         
+            <span class="sidebar-tag-name" data-tags="知识星球">
+                <span class="iconfont-archer">&#xe606;</span>
+                知识星球
+            </span>
+        
     </div>
     <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
     <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
@@ -3269,6 +3284,11 @@ Android硬件加速原理与实现简介
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="知识星球">
+            <span class="iconfont-archer">&#xe60a;</span>
+            知识星球
         </span>
     
     </div>

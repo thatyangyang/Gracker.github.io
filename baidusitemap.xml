@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://androidperformance.com/2022/03/27/the-performance-tea-part-01/</loc>
+    <lastmod>2022-03-27</lastmod>
+  </url>
+  <url>
     <loc>https://androidperformance.com/2022/03/13/the-performance/</loc>
-    <lastmod>2022-03-26</lastmod>
+    <lastmod>2022-03-27</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/</loc>
