@@ -227,8 +227,9 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
+    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
     <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
@@ -251,7 +252,8 @@
     
 <meta name="generator" content="Hexo 4.2.1"></head>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -522,7 +524,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -2653,14 +2655,14 @@
                 年度推荐
             </span>
         
-            <span class="sidebar-tag-name" data-tags="随笔">
-                <span class="iconfont-archer">&#xe606;</span>
-                随笔
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅度">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅度
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="随笔">
+                <span class="iconfont-archer">&#xe606;</span>
+                随笔
             </span>
         
             <span class="sidebar-tag-name" data-tags="Android">
@@ -2688,6 +2690,11 @@
                 Framework
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="MethodTrace">
                 <span class="iconfont-archer">&#xe606;</span>
                 MethodTrace
@@ -2703,26 +2710,6 @@
                 Memory
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="启动优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 启动优化
@@ -2733,14 +2720,19 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="程序员">
-                <span class="iconfont-archer">&#xe606;</span>
-                程序员
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Java">
                 <span class="iconfont-archer">&#xe606;</span>
                 Java
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="程序员">
+                <span class="iconfont-archer">&#xe606;</span>
+                程序员
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2773,11 +2765,6 @@
                 卡顿
             </span>
         
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="Process">
                 <span class="iconfont-archer">&#xe606;</span>
                 Process
@@ -2798,6 +2785,21 @@
                 体验优化
             </span>
         
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="读书笔记">
                 <span class="iconfont-archer">&#xe606;</span>
                 读书笔记
@@ -2806,11 +2808,6 @@
             <span class="sidebar-tag-name" data-tags="程序员的修炼">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员的修炼
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="设计原则">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计原则
             </span>
         
             <span class="sidebar-tag-name" data-tags="测试">
@@ -2823,11 +2820,6 @@
                 互联网那些事
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
@@ -2836,6 +2828,16 @@
             <span class="sidebar-tag-name" data-tags="阅读之美">
                 <span class="iconfont-archer">&#xe606;</span>
                 阅读之美
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计原则">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计原则
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
+                <span class="iconfont-archer">&#xe606;</span>
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="利器">
@@ -2969,7 +2971,8 @@
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
+        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->
