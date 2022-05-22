@@ -13,15 +13,19 @@
     <lastmod>2022-03-13</lastmod>
   </url>
   <url>
+    <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2022/01/21/android-systrace-cpu-state-runnable/</loc>
+    <lastmod>2022-03-13</lastmod>
+  </url>
+  <url>
     <loc>https://androidperformance.com/2022/03/13/android-systrace-cpu-state-running/</loc>
     <lastmod>2022-03-13</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
-    <lastmod>2022-03-13</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2022/01/21/android-systrace-cpu-state-runnable/</loc>
     <lastmod>2022-03-13</lastmod>
   </url>
   <url>
@@ -33,8 +37,12 @@
     <lastmod>2022-03-12</lastmod>
   </url>
   <url>
+    <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/</loc>
+    <lastmod>2022-03-03</lastmod>
+  </url>
+  <url>
     <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/</loc>
-    <lastmod>2022-02-28</lastmod>
+    <lastmod>2022-03-01</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/</loc>
@@ -49,20 +57,12 @@
     <lastmod>2022-02-28</lastmod>
   </url>
   <url>
-    <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/</loc>
-    <lastmod>2022-02-28</lastmod>
-  </url>
-  <url>
     <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-3/</loc>
     <lastmod>2022-02-28</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2021/10/26/build-android-12/</loc>
     <lastmod>2022-02-09</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
-    <lastmod>2022-02-07</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2019/10/22/Android-Choreographer/</loc>
