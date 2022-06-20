@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://androidperformance.com/2022/03/27/the-performance-tea-part-01/</loc>
-    <lastmod>2022-03-27</lastmod>
+    <loc>https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/</loc>
+    <lastmod>2022-06-20</lastmod>
   </url>
   <url>
-    <loc>https://androidperformance.com/2022/03/13/the-performance/</loc>
-    <lastmod>2022-03-27</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/</loc>
-    <lastmod>2022-03-13</lastmod>
+    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
+    <lastmod>2022-06-20</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
+    <lastmod>2022-06-20</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2022/03/13/the-performance/</loc>
+    <lastmod>2022-06-20</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2022/03/27/the-performance-tea-part-01/</loc>
+    <lastmod>2022-06-20</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/</loc>
     <lastmod>2022-03-13</lastmod>
   </url>
   <url>
@@ -22,10 +30,6 @@
   </url>
   <url>
     <loc>https://androidperformance.com/2022/03/13/android-systrace-cpu-state-running/</loc>
-    <lastmod>2022-03-13</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
     <lastmod>2022-03-13</lastmod>
   </url>
   <url>
@@ -122,10 +126,6 @@
   </url>
   <url>
     <loc>https://androidperformance.com/2020/08/20/weibo-imageload-opt-on-huawei/</loc>
-    <lastmod>2021-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/</loc>
     <lastmod>2021-12-01</lastmod>
   </url>
   <url>

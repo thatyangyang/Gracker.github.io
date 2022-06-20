@@ -28,7 +28,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/WechatIMG581.png">
 <meta property="article:published_time" content="2018-05-07T12:10:44.000Z">
-<meta property="article:modified_time" content="2021-12-01T16:08:57.661Z">
+<meta property="article:modified_time" content="2022-06-20T16:10:12.119Z">
 <meta property="article:author" content="Gracker">
 <meta property="article:tag" content="Performance">
 <meta name="twitter:card" content="summary">
@@ -349,7 +349,7 @@
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">4.2k</span>阅读时长: <span class="post-count reading-time">16 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">5.9k</span>阅读时长: <span class="post-count reading-time">22 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -512,11 +512,12 @@
     <article class="article-entry">
         <p>做了这么久性能相关的工作,也接触了不少模块,说实话要做好性能这一块,真心不容易.为什么这么说? 是因为需要接触的知识实在是太多了, Android 是一个整体,牵一发而动全身,不是说只懂一个模块就可以做好</p>
 <p>在学习的过程中,除了看源码,我还接触到了很多互联网上已有的知识,各位前辈们,将他们的知识和经验倾囊相授,让我少走了很多弯路. 我在自己的笔记里面存了很多很优秀的技术文章和技术文档,现在我决定将这些放到网上,让每一个想进入 Android 系统开发和优化这个领域的人,能通过阅读这篇文章,快速入门. 同时也算是我对知识的一个梳理,查漏补缺,终身学习</p>
-<p>这篇文章记录了 Android 性能优化所必须掌握的知识,涵盖性能优化相关的方方面面(当然如果读者同学你也有很棒的私藏文章,也可以加入到这篇文章里面).部分文章可能需要特殊的技巧才能看到，希望你已经掌握了这一部分技巧。另外附送<a href="https://androidperformance.com/2020/02/03/android-development-learning-path-2020-edition/">Android 开发者学习路线(2020 版本)</a></p>
-<p>这篇文章会持续更新，最新更新时间：2020-04-27</p>
+<p>这篇文章记录了 Android 性能优化所必须掌握的知识,涵盖性能优化相关的方方面面(当然如果读者同学你也有很棒的私藏文章,也可以加入到这篇文章里面).部分文章可能需要特殊的技巧才能看到，希望你已经掌握了这一部分技巧。另外附送 <a href="https://androidperformance.com/2020/02/03/android-development-learning-path-2020-edition/">Android 开发者学习路线(2020 版本)</a></p>
+<p>这篇文章会持续更新，最新更新时间：2022-06-20</p>
 <a id="more"></a>
 
 <h1 id="优化心得和经验"><a href="#优化心得和经验" class="headerlink" title="优化心得和经验"></a>优化心得和经验</h1><ol>
+<li><a href="https://mp.weixin.qq.com/s/-3uY3aSF67xTzWEJsa7e-A" target="_blank" rel="noopener">抖音 Android 性能优化系列：启动优化实践</a></li>
 <li><a href="https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE" target="_blank" rel="noopener">系列视频 Android Performance Patterns</a></li>
 <li><a href="https://juejin.im/entry/5aa24187518825557207f8e2" target="_blank" rel="noopener">给 App 提速：Android 性能优化总结 </a></li>
 <li><a href="https://tech.meituan.com/hertz.html" target="_blank" rel="noopener">移动端性能监控方案 Hertz </a></li>
@@ -545,8 +546,15 @@
 <li><a href="https://mp.weixin.qq.com/s/YJJdh3220y7TvBu3hAE3dQ" target="_blank" rel="noopener">性能问题终结者”Olympic</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/123328822" target="_blank" rel="noopener">美团 Java 线程池实现原理及其在美团业务中的实践</a></li>
 <li><a href="https://mp.weixin.qq.com/s/tO1yxFs2qNQlQ2bJ8vGzQA" target="_blank" rel="noopener">Probe：Android线上OOM问题定位组件</a></li>
+<li><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/Kc1BSlbJgAUxOSIkPF4GzA">优化实践: 高刷下列表滑动出现卡顿掉帧的现象</a></li>
+<li><a href="https://mp.weixin.qq.com/s/gMxTq0_nmE-xW7GA3pkBJg" target="_blank" rel="noopener">iOS 高刷屏监控 + 优化：从理论到实践全面解析</a></li>
+<li><a href="https://juejin.cn/post/6844904136266219534" target="_blank" rel="noopener">通过 ASM 实现大图监控</a></li>
+<li><a href="https://www.jianshu.com/p/b0de542204f8" target="_blank" rel="noopener">Android S 原生系统内存泄露问题案例</a></li>
+<li><a href="https://proandroiddev.com/can-you-trust-time-measurements-in-profiler-5b3566a55e0c" target="_blank" rel="noopener">Can you trust time measurements in Profiler?</a></li>
+<li><a href="https://mp.weixin.qq.com/s/UizFbjIjrOzDLmLc0uLkbA" target="_blank" rel="noopener">移动域全链路可观测架构和关键技术</a></li>
 </ol>
 <h1 id="响应速度"><a href="#响应速度" class="headerlink" title="响应速度"></a>响应速度</h1><ol>
+<li><a href="https://www.jianshu.com/p/37370c1d17fc" target="_blank" rel="noopener">Android应用启动全流程分析（源码深度剖析）</a></li>
 <li><a href="https://androidperformance.com/2019/11/18/Android-App-Lunch-Optimize/">Android App 启动优化全记录</a></li>
 <li><a href="https://source.android.com/devices/tech/perf/boot-times" target="_blank" rel="noopener">Optimizing Boot Times</a></li>
 <li><a href="https://androidperformance.com/2015/12/31/How-to-calculation-android-app-lunch-time/">Android 中如何计算 App 的启动时间</a></li>
@@ -558,11 +566,17 @@
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247485101&idx=1&sn=abbbb6da1aba37a04047fc210363bcc9&chksm=e9d0cd4fdea7445989cf26623a16fc8ce2876bf3bda95a5532bb0e5e5b1420765653df0b94d1&mpshare=1&scene=1&srcid=&sharer_sharetime=1565403851018&sharer_shareid=60bd7acea7881a97fbf9a6126d3e88d3#rd" target="_blank" rel="noopener">抖音研发实践：基于二进制文件重排的解决方案 App 启动速度提升超15%</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzI4MTQyNDg3Mg==&mid=2247485301&idx=2&sn=bb1e9c17b705d0dce176f127e539dd97&chksm=eba821f2dcdfa8e4890696f0870a6f48306c0bdb7bffaab146f7250446494470245647a4eb09&mpshare=1&scene=1&srcid=0114JKmlCgbw5D3pMso2K2i8#rd" target="_blank" rel="noopener">爱奇艺 Android 客户端启动优化与分析</a></li>
 <li><a href="https://juejin.im/post/5e6f18a951882549422ef333" target="_blank" rel="noopener">深入探索 Android 启动速度优化</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247491335&idx=1&sn=e3eabd9253ab2f83925af974db3f3072&chksm=e9d0d4e5dea75df3f718744d1f5fe3aa518f7c119d3d1a7392952274fc0d90a07fad88cad133&scene=178&cur_album_id=1659632937832595461#rd" target="_blank" rel="noopener">抖音 Android 性能优化系列：启动优化之理论和工具篇</a></li>
+<li><a href="https://mp.weixin.qq.com/s/Hgjm0GaI27he7VWbPB56YA" target="_blank" rel="noopener">APM 页面加载耗时校准</a></li>
+<li><a href="https://android-developers.googleblog.com/2022/01/improving-app-performance-with-baseline.html" target="_blank" rel="noopener">Improving App Performance with Baseline Profiles</a></li>
 </ol>
 <h1 id="流畅度"><a href="#流畅度" class="headerlink" title="流畅度"></a>流畅度</h1><ol>
 <li><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Debug/" target="_blank" rel="noopener">Android 中的卡顿丢帧原因概述 - 方法论</a> </li>
 <li><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-System/" target="_blank" rel="noopener">Android 中的卡顿丢帧原因概述 - 系统篇</a></li>
 <li><a href="https://www.androidperformance.com/2019/09/05/Android-Jank-Due-To-App/" target="_blank" rel="noopener">Android 中的卡顿丢帧原因概述 - 应用篇</a></li>
+<li><a href="https://www.jianshu.com/p/386bbb5fa29a" target="_blank" rel="noopener">Android 卡顿掉帧问题分析之原理篇</a> </li>
+<li><a href="https://www.jianshu.com/p/cf531a3af828" target="_blank" rel="noopener">Android 卡顿掉帧问题分析之工具篇</a> </li>
+<li><a href="https://www.jianshu.com/p/f1a777551b70" target="_blank" rel="noopener">Android 卡顿掉帧问题分析之实战篇</a></li>
 <li><a href="https://androidperformance.com/2019/01/21/android-performance-case-jank-accessbility/">Android 平台应用宝和讯飞输入法无障碍服务导致的全局卡顿分析</a></li>
 <li><a href="https://source.android.com/devices/tech/debug/eval_perf" target="_blank" rel="noopener">Evaluating Performance</a></li>
 <li><a href="https://source.android.com/devices/tech/debug/systrace" target="_blank" rel="noopener">Understanding Systrace</a></li>
@@ -574,44 +588,115 @@
 <li><a href="https://juejin.im/post/5ae98d33518825670b33e5e6" target="_blank" rel="noopener">Android 流畅度检测原理简析</a></li>
 <li><a href="https://blog.csdn.net/msf568834002/article/details/79015497" target="_blank" rel="noopener">Android JankTracker 原理解析</a></li>
 <li><a href="https://juejin.im/entry/56dce0bb5bbb50004cce752d" target="_blank" rel="noopener">Android 界面性能调优手册</a></li>
-<li><a href="https://juejin.im/post/5da33dc56fb9a04e35597a47" target="_blank" rel="noopener">App流畅度优化：利用字节码插桩实现一个快速排查高耗时方法的工具</a></li>
+<li><a href="https://juejin.im/post/5da33dc56fb9a04e35597a47" target="_blank" rel="noopener">App 流畅度优化：利用字节码插桩实现一个快速排查高耗时方法的工具</a></li>
+<li><a href="https://juejin.cn/post/6844904182898524168" target="_blank" rel="noopener">或许是迄今为止第一篇讲解 fps 计算原理的文章吧</a></li>
+<li><a href="https://perfdog.qq.com/article_detail?id=10162&issue_id=0&plat_id=1" target="_blank" rel="noopener">Jank 卡顿及 stutter 卡顿率说明</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247491520&idx=1&sn=dbd14f1d0d6107c87c137433ef435b5b" target="_blank" rel="noopener">一文读懂直播卡顿优化那些事儿</a></li>
 </ol>
 <h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1><ol>
-<li><a href="https://androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/">Android 中低内存对性能的影响</a></li>
-<li><a href="https://source.android.com/devices/tech/perf/low-ram" target="_blank" rel="noopener">Low RAM Configuration</a></li>
-<li><a href="http://www.tinylab.cn/linux-swap-and-zramfs/#zram-" target="_blank" rel="noopener">Linux Swap 与 Zram 详解</a></li>
-<li><a href="http://www.tinylab.cn/android-loading-a-different-relationship-between-dpi-and-memory-consumption-of-resources/" target="_blank" rel="noopener">Android 加载不同 DPI 资源与内存消耗间的关系</a></li>
-<li><a href="https://nekosc.com/technology/zram.html" target="_blank" rel="noopener">ZRAM SWAP 内存管理讲解</a></li>
-<li><a href="https://tech.meituan.com/oom_analysis.html" target="_blank" rel="noopener">Android OOM 案例分析</a></li>
-<li><a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/">Android 代码内存优化建议-Android 资源篇</a></li>
-<li><a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-Google/">Android 代码内存优化建议-Android 官方篇</a></li>
-<li><a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-Java/">Android 代码内存优化建议-Java 官方篇</a></li>
-<li><a href="https://androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/">Android 内存优化之一：MAT 使用入门</a></li>
-<li><a href="https://androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/">Android 内存优化之二：MAT 使用进阶</a></li>
-<li><a href="https://androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/">Android 内存优化之三：打开 MAT 中的 Bitmap 原图</a></li>
-<li><a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/">Android 代码内存优化建议-OnTrimMemory 优化</a></li>
-<li><a href="http://gityuan.com/2016/09/17/android-lowmemorykiller/" target="_blank" rel="noopener">Android LowMemoryKiller原理分析</a></li>
-<li><a href="https://juejin.im/post/59e818bb6fb9a044fd10de38" target="_blank" rel="noopener">Android 匿名共享内存（Ashmem）原理</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664286&idx=1&sn=370af253ab45e8ce6da7c7eaeae0fbd1&chksm=810f3743b678be55df8f08dd554586e7e6a4e93fe61a9c557f5b161a6242eee6cd463f68a7e9&mpshare=1&scene=1&srcid=0425PBKSCz1pnccS17NcC4GX%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第1节课</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664286&idx=2&sn=d6f22ef91a616e8e9232217e6dea96d4&chksm=810f3743b678be559350754a23bae993303f785ab9a46e71c09dc52ac980dd53b0d8ea7d2892&mpshare=1&scene=1&srcid=0425t2vpFk5Q1h02R7jrapFy%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第2节课</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664286&idx=3&sn=9124b05c129eedc47e6dd222779a4ea6&chksm=810f3743b678be556d267e68102911aaaa68a31299705c5714a184e97478f45c8aa69cb96472&mpshare=1&scene=1&srcid=0425yjP3kUsqYPi4WgBMNs0q%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第3节课</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664305&idx=1&sn=4f6de1dedec10704704ece849d395525&chksm=810f376cb678be7a7a18a7a3626615e5b8ecedae737a3f18d01db6a1af59cc04529832d1f7cb&mpshare=1&scene=1&srcid=0425iqjnsJkZEnueYQGAhWkj%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第4节课</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664329&idx=1&sn=6b7841d49a5ddff8383097a3c60490e9&chksm=810f3494b678bd82fa38e95fa07e411820499f5a4a772ac60a9ade35bde48c248a30929758a1&mpshare=1&scene=1&srcid=0425aPqzRj0bES2nCueOQMqb%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第5节课</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664344&idx=1&sn=e5975e775e25e2ad1612c9dda5df52f4&chksm=810f3485b678bd933fa0c4a5bcad4298ae797724614018933f426a53b952d130557badd19518&mpshare=1&scene=1&srcid=04262p3N4EDsCVq23hxqLteY%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第6节课</a></li>
-<li><a href="https://developer.android.google.cn/topic/performance/memory" target="_blank" rel="noopener">Manage your app’s memory</a></li>
-<li><a href="https://developer.android.google.cn/topic/performance/memory-overview" target="_blank" rel="noopener">Overview of memory management</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&mid=2651481746&idx=1&sn=17ffd1a167e6cd4abb71ef84a1d78dac&chksm=bd250aed8a5283fb9a09a166b58606dc7bccf03eef3e28594470a84f94ef4db1b0c2cc5e5fb6&mpshare=1&scene=1&srcid=0916ILFD69CAZIwr7fzDjip8%23rd" target="_blank" rel="noopener">Linux 查看进程消耗内存情况总结</a></li>
-<li><a href="https://blog.csdn.net/mychen/article/details/80001687" target="_blank" rel="noopener">一次过程 Android 平台 native heap 内存泄露的追查过程</a></li>
-<li><a href="http://www.wowotech.net/memory_management/458.html" target="_blank" rel="noopener">浅谈 Cache Memory</a></li>
-<li><a href="https://juejin.im/post/5bfbd5406fb9a049be5d2a20" target="_blank" rel="noopener">Bitmap 优化详谈</a></li>
-<li><a href="https://mp.weixin.qq.com/s/EerrwaRGdTkOFPLrg8_-oQ" target="_blank" rel="noopener">探索 Android 内存优化方法</a></li>
-<li><a href="https://mp.weixin.qq.com/s?__biz=MzAxMTI4MTkwNQ==&mid=2650828463&idx=1&sn=414bdd7012ed465664d3b99ec8f55566&chksm=80b7ba31b7c03327e86c08a9be9216b51788bce46a33be3444e1f306802be3f62d9f72a3e45d&mpshare=1&scene=1&srcid=#rd" target="_blank" rel="noopener">看完这篇文章,解决 APP 中 90 % 的内存异常问题</a></li>
-<li><a href="https://juejin.im/post/5b1b5e29f265da6e01174b84" target="_blank" rel="noopener">实践App内存优化：如何有序地做内存分析与优化</a></li>
-<li><a href="https://mp.weixin.qq.com/s/dUCrkGGSvIzYwOxBNd-Ltw" target="_blank" rel="noopener">谈谈内存压缩那些事</a></li>
-<li><a href="https://mp.weixin.qq.com/s/pwOFI-l2seDrZgik-KvIMg" target="_blank" rel="noopener">dumpsys meminfo 的原理和应用</a></li>
+<li><p><a href="https://mp.weixin.qq.com/s/S-YJ72qW_amYgIkBSEnsGg" target="_blank" rel="noopener">抖音 Android 性能优化系列：Java OOM 优化之 NativeBitmap 方案</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247491166&idx=1&sn=eca012171fbdf0a4e79f6d3dfe72d8d3&chksm=e9d0d5bcdea75caa9a5b34499cc462b461c2fe886087065df1c9f32d09a3f25620bb54c0dbbf&scene=178&cur_album_id=2220817947374174211#rd" target="_blank" rel="noopener">拯救OOM！字节自研 Android 虚拟机内存管理优化黑科技 mSponge</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247487267&idx=1&sn=64858e39d3c0ac3b3444213856f0d9a3&chksm=e9d0c4c1dea74dd72482c94f936fa31d5609eff5f09b7ee2405e95eecba7ce00bbbb5657730b&scene=178&cur_album_id=1590407741716611075#rd" target="_blank" rel="noopener">抖音 Android 性能优化系列：Java 内存优化篇</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247486499&idx=1&sn=1f38a8dd301d6fe1d0b62f7e027113de&chksm=e9d0c7c1dea74ed70621fb46b1f081626177610d98e1fbb4c4867099eb43edc051f61f1a2371&scene=178&cur_album_id=1568330323321470981#rd" target="_blank" rel="noopener">Android Camera内存问题剖析</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s/yYb4pkkb30SCEGrb2w_evQ" target="_blank" rel="noopener">一次大量 JVM Native 内存泄露的排查分析（64M 问题）</a></p>
+</li>
+<li><p><a href="https://juejin.cn/post/7027025137320853534" target="_blank" rel="noopener">Andriod Native | 采样型内存调试工具GWP-ASan</a></p>
+</li>
+<li><p><a href="https://juejin.cn/post/7013595058125406238" target="_blank" rel="noopener">Android Native | 内存问题的终极武器——MTE</a></p>
+</li>
+<li><p><a href="https://androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/">Android 中低内存对性能的影响</a></p>
+</li>
+<li><p><a href="https://source.android.com/devices/tech/perf/low-ram" target="_blank" rel="noopener">Low RAM Configuration</a></p>
+</li>
+<li><p><a href="http://www.tinylab.cn/linux-swap-and-zramfs/#zram-" target="_blank" rel="noopener">Linux Swap 与 Zram 详解</a></p>
+</li>
+<li><p><a href="http://www.tinylab.cn/android-loading-a-different-relationship-between-dpi-and-memory-consumption-of-resources/" target="_blank" rel="noopener">Android 加载不同 DPI 资源与内存消耗间的关系</a></p>
+</li>
+<li><p><a href="https://nekosc.com/technology/zram.html" target="_blank" rel="noopener">ZRAM SWAP 内存管理讲解</a></p>
+</li>
+<li><p><a href="https://tech.meituan.com/oom_analysis.html" target="_blank" rel="noopener">Android OOM 案例分析</a></p>
+</li>
+<li><p><a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/">Android 代码内存优化建议-Android 资源篇</a></p>
+</li>
+<li><p><a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-Google/">Android 代码内存优化建议-Android 官方篇</a></p>
+</li>
+<li><p><a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-Java/">Android 代码内存优化建议-Java 官方篇</a></p>
+</li>
+<li><p><a href="https://androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/">Android 内存优化之一：MAT 使用入门</a></p>
+</li>
+<li><p><a href="https://androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/">Android 内存优化之二：MAT 使用进阶</a></p>
+</li>
+<li><p><a href="https://androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/">Android 内存优化之三：打开 MAT 中的 Bitmap 原图</a></p>
+</li>
+<li><p><a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/">Android 代码内存优化建议-OnTrimMemory 优化</a></p>
+</li>
+<li><p><a href="http://gityuan.com/2016/09/17/android-lowmemorykiller/" target="_blank" rel="noopener">Android LowMemoryKiller原理分析</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/59e818bb6fb9a044fd10de38" target="_blank" rel="noopener">Android 匿名共享内存（Ashmem）原理</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664286&idx=1&sn=370af253ab45e8ce6da7c7eaeae0fbd1&chksm=810f3743b678be55df8f08dd554586e7e6a4e93fe61a9c557f5b161a6242eee6cd463f68a7e9&mpshare=1&scene=1&srcid=0425PBKSCz1pnccS17NcC4GX%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第1节课</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664286&idx=2&sn=d6f22ef91a616e8e9232217e6dea96d4&chksm=810f3743b678be559350754a23bae993303f785ab9a46e71c09dc52ac980dd53b0d8ea7d2892&mpshare=1&scene=1&srcid=0425t2vpFk5Q1h02R7jrapFy%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第2节课</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664286&idx=3&sn=9124b05c129eedc47e6dd222779a4ea6&chksm=810f3743b678be556d267e68102911aaaa68a31299705c5714a184e97478f45c8aa69cb96472&mpshare=1&scene=1&srcid=0425yjP3kUsqYPi4WgBMNs0q%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第3节课</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664305&idx=1&sn=4f6de1dedec10704704ece849d395525&chksm=810f376cb678be7a7a18a7a3626615e5b8ecedae737a3f18d01db6a1af59cc04529832d1f7cb&mpshare=1&scene=1&srcid=0425iqjnsJkZEnueYQGAhWkj%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第4节课</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664329&idx=1&sn=6b7841d49a5ddff8383097a3c60490e9&chksm=810f3494b678bd82fa38e95fa07e411820499f5a4a772ac60a9ade35bde48c248a30929758a1&mpshare=1&scene=1&srcid=0425aPqzRj0bES2nCueOQMqb%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第5节课</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652664344&idx=1&sn=e5975e775e25e2ad1612c9dda5df52f4&chksm=810f3485b678bd933fa0c4a5bcad4298ae797724614018933f426a53b952d130557badd19518&mpshare=1&scene=1&srcid=04262p3N4EDsCVq23hxqLteY%23rd" target="_blank" rel="noopener">郝健: Linux内存管理学习笔记-第6节课</a></p>
+</li>
+<li><p><a href="https://developer.android.google.cn/topic/performance/memory" target="_blank" rel="noopener">Manage your app’s memory</a></p>
+</li>
+<li><p><a href="https://developer.android.google.cn/topic/performance/memory-overview" target="_blank" rel="noopener">Overview of memory management</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MjM5NzMyMjAwMA==&mid=2651481746&idx=1&sn=17ffd1a167e6cd4abb71ef84a1d78dac&chksm=bd250aed8a5283fb9a09a166b58606dc7bccf03eef3e28594470a84f94ef4db1b0c2cc5e5fb6&mpshare=1&scene=1&srcid=0916ILFD69CAZIwr7fzDjip8%23rd" target="_blank" rel="noopener">Linux 查看进程消耗内存情况总结</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/mychen/article/details/80001687" target="_blank" rel="noopener">一次过程 Android 平台 native heap 内存泄露的追查过程</a></p>
+</li>
+<li><p><a href="http://www.wowotech.net/memory_management/458.html" target="_blank" rel="noopener">浅谈 Cache Memory</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/5bfbd5406fb9a049be5d2a20" target="_blank" rel="noopener">Bitmap 优化详谈</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s/EerrwaRGdTkOFPLrg8_-oQ" target="_blank" rel="noopener">探索 Android 内存优化方法</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s?__biz=MzAxMTI4MTkwNQ==&mid=2650828463&idx=1&sn=414bdd7012ed465664d3b99ec8f55566&chksm=80b7ba31b7c03327e86c08a9be9216b51788bce46a33be3444e1f306802be3f62d9f72a3e45d&mpshare=1&scene=1&srcid=#rd" target="_blank" rel="noopener">看完这篇文章,解决 APP 中 90 % 的内存异常问题</a></p>
+</li>
+<li><p><a href="https://juejin.im/post/5b1b5e29f265da6e01174b84" target="_blank" rel="noopener">实践App内存优化：如何有序地做内存分析与优化</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s/dUCrkGGSvIzYwOxBNd-Ltw" target="_blank" rel="noopener">谈谈内存压缩那些事</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s/pwOFI-l2seDrZgik-KvIMg" target="_blank" rel="noopener">dumpsys meminfo 的原理和应用</a></p>
+</li>
+<li><p><a href="https://juejin.cn/post/6844904113046568973" target="_blank" rel="noopener">Binder | 内存拷贝的本质和变迁</a></p>
+</li>
+<li><p><a href="https://mp.weixin.qq.com/s/V7sK1WwQ4D3LikK2AHgrZQ" target="_blank" rel="noopener">内存优化: 纹理压缩技术</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/f25539c80768" target="_blank" rel="noopener">使用 perfetto 分析 Android native 物理内存泄漏</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/b609f34f77c4" target="_blank" rel="noopener">使用 Android profiler 分析 Android native 物理内存泄漏</a></p>
+</li>
+<li><p><a href="https://www.jianshu.com/p/ab7bbc319dd9" target="_blank" rel="noopener">Android JVMTI 实现应用内存动态检测</a></p>
+</li>
+<li><p><a href="https://juejin.cn/post/7065931214120550413" target="_blank" rel="noopener">ThreadLocal 源码分析以及可能引发的内存泄漏问题</a></p>
+</li>
+<li><p><a href="https://juejin.cn/post/7063068797304832030" target="_blank" rel="noopener">【解惑】App处于前台，Activity就不会被回收了？</a></p>
+</li>
 </ol>
 <h1 id="图形栈"><a href="#图形栈" class="headerlink" title="图形栈"></a>图形栈</h1><ol>
-<li><a href="https://mp.weixin.qq.com/s/MuPX4s46tR7Hn_ak51x95Q" target="_blank" rel="noopener">Android display pipeline本身以及进程调度</a></li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15641545.html" target="_blank" rel="noopener">Android 12(S) 图形显示系统 - 开篇</a></li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15702027.html" target="_blank" rel="noopener">Android 12(S) 图形显示系统 - 基本概念（一）</a></li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15707940.html" target="_blank" rel="noopener">Android 12(S) 图形显示系统 - 示例应用（二）</a></li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15714247.html" target="_blank" rel="noopener">Android 12(S) 图形显示系统 - 应用建立和 SurfaceFlinger 的沟通桥梁（三）</a></li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15761646.html" target="_blank" rel="noopener">Android 12(S) 图形显示系统 - SurfaceFlinger 的启动和消息队列处理机制（四）</a></li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15768028.html" target="_blank" rel="noopener">Android 12(S) 图形显示系统 - createSurface 的流程（五）</a></li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15773008.html" target="_blank" rel="noopener">Android 12(S) 图形显示系统 - BufferQueue/BLASTBufferQueue 之初识（六）</a></li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15773010.html" target="_blank" rel="noopener">Android 12(S) 图形显示系统 - 几个常用类的介绍（七）</a></li>
+<li><a href="https://mp.weixin.qq.com/s/MuPX4s46tR7Hn_ak51x95Q" target="_blank" rel="noopener">Android display pipeline 本身以及进程调度</a></li>
 <li><a href="https://androidperformance.com/2019/07/27/Android-Hardware-Layer/">Android 中的 Hardware Layer 详解</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/25477828" target="_blank" rel="noopener">Android 硬件加速原理与实现简介</a></li>
 <li><a href="http://gityuan.com/2017/02/05/graphic_arch/" target="_blank" rel="noopener">Android 图形系统概述</a></li>
@@ -643,6 +728,17 @@
 <li><a href="https://zhuanlan.zhihu.com/p/81974121" target="_blank" rel="noopener">渲染流水线中的光栅化2</a></li>
 </ol>
 <h1 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h1><ol>
+<li><a href="https://juejin.cn/post/6875678394332217357" target="_blank" rel="noopener">ART虚拟机 | GC的触发时机和条件</a></li>
+<li><a href="https://juejin.cn/post/7088976209387716622" target="_blank" rel="noopener">ART虚拟机 | Large Object Space</a></li>
+<li><a href="https://juejin.cn/post/6888987190857039885" target="_blank" rel="noopener">ART虚拟机 | JNI调用的中间环节</a></li>
+<li><a href="https://juejin.cn/post/6891918738846105614" target="_blank" rel="noopener">ART虚拟机 | Finalize的替代者Cleaner</a></li>
+<li>[ART虚拟机 | 如何让GC同步回收native内存](ART虚拟机 | 如何让GC同步回收native内存)</li>
+<li><a href="https://juejin.cn/post/6950920684768296996" target="_blank" rel="noopener">ART虚拟机 | Java对象和类的内存结构</a></li>
+<li><a href="https://juejin.cn/post/6955322183895908366" target="_blank" rel="noopener">ART虚拟机 | JNI静态注册和动态注册</a></li>
+<li><a href="https://juejin.cn/post/6956213033806872606" target="_blank" rel="noopener">ART虚拟机 | 锁</a></li>
+<li><a href="https://juejin.cn/post/6966169836703449119" target="_blank" rel="noopener">ART虚拟机 | Android应用中SIGSEGV信号的处理流程</a></li>
+<li><a href="http://lihaizhou.top/2021/11/01/第三视角-一个ART-GC的优化故事/" target="_blank" rel="noopener">第三视角: 一个 ART GC 的优化故事</a></li>
+<li><a href="http://lihaizhou.top/2021/09/08/GC超时导致的后台应用崩溃问题分析/" target="_blank" rel="noopener">GC 超时导致的后台应用崩溃问题分析</a></li>
 <li><a href="https://mp.weixin.qq.com/s/ayhmYTbmnIThGQ-GH5cP2A" target="_blank" rel="noopener">带你了解 Android 10 中的 art</a></li>
 <li><a href="https://mp.weixin.qq.com/s/Vea97ljPww8QfAEmATtKGg" target="_blank" rel="noopener">带你了解 Android 10 中的 art</a></li>
 <li><a href="https://mp.weixin.qq.com/s/rBxBoOUyXtUBcFqfYdxl_g" target="_blank" rel="noopener">带你了解 Android 10 中的 art</a></li>
@@ -665,6 +761,11 @@
 <li><a href="https://mp.weixin.qq.com/s/pmtbK8aezOcd_yBjGu4n7g" target="_blank" rel="noopener">Android ART dex2oat 浅析</a></li>
 </ol>
 <h1 id="系统框架"><a href="#系统框架" class="headerlink" title="系统框架"></a>系统框架</h1><ol>
+<li><a href="https://www.jianshu.com/p/df46e4b39428" target="_blank" rel="noopener">Android画面显示流程分析(1)</a></li>
+<li><a href="https://www.jianshu.com/p/f96ab6646ae3" target="_blank" rel="noopener">Android画面显示流程分析(2)</a></li>
+<li><a href="https://www.jianshu.com/p/3c61375cc15b" target="_blank" rel="noopener">Android画面显示流程分析(3)</a></li>
+<li><a href="https://www.jianshu.com/p/7a18666a43ce" target="_blank" rel="noopener">Android画面显示流程分析(4)</a></li>
+<li><a href="https://www.jianshu.com/p/dcaf1eeddeb1" target="_blank" rel="noopener">Android画面显示流程分析(5)</a></li>
 <li><a href="https://source.android.com/devices/tech/perf/task-snapshots" target="_blank" rel="noopener">Task Snapshots</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/29152319" target="_blank" rel="noopener">Android Input 子系统：Input 进程的创建，监听线程的启动</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/29386642" target="_blank" rel="noopener">Android Input 子系统：Input 事件的产生、读取和分发，InputReader、InputDispatcher</a></li>
@@ -710,6 +811,8 @@
 <li><a href="https://juejin.im/post/5e993b87e51d4546d962075c" target="_blank" rel="noopener">卢半山 - Binder 的异常机制</a></li>
 <li><a href="https://juejin.im/post/5daaf2b1e51d4524b601bb0b" target="_blank" rel="noopener">卢半山 - Binder 世界中的代理机制（上）</a></li>
 <li><a href="https://juejin.im/post/5d9fea976fb9a04de237a5af" target="_blank" rel="noopener">卢半山 - Binder 概述</a></li>
+<li><a href="https://juejin.cn/post/7021558328421515271" target="_blank" rel="noopener">卢半山 -Binder | 对象的生命周期</a></li>
+<li><a href="https://juejin.cn/post/7024432171779620894" target="_blank" rel="noopener">卢半山 -Binder | 代理对象的泄露及其检测</a></li>
 <li><a href="https://sharrychoo.github.io/blog/android-source/graphic-choreographer" target="_blank" rel="noopener">Android 系统架构 —— Choreographer 的工作机制 </a></li>
 <li><a href="https://mp.weixin.qq.com/s/IHQDWKYJY6lbEGZZxPT8lw" target="_blank" rel="noopener">Looper的wake机制升级</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5NDk5ODQwNA==&mid=2652469018&idx=1&sn=b6a21164fffda38bf1fe423a8bba4a57&chksm=bd12e6f18a656fe7c59b3b1af47b436bd2472b51e2b12477ab9e87175688299e58c59a2582c5&scene=21#wechat_redirect" target="_blank" rel="noopener">Android10.0 Binder 通信原理(一)Binder、HwBinder、VndBinder概要</a></li>
@@ -722,8 +825,15 @@
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5NDk5ODQwNA==&mid=2652469168&idx=1&sn=6360b7fd3c4b93e426ec232e7dfe23d4&chksm=bd12e65b8a656f4de0ec426d381dba2b8dd969b03c83e18e6f002a55bf7af7c4616139567d3b&scene=21#wechat_redirect" target="_blank" rel="noopener">Android10.0 Binder 通信原理(八)-Framework层分析</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5NDk5ODQwNA==&mid=2652469170&idx=1&sn=c9c4ff24bec544d8435b55fe87274b7e&chksm=bd12e6598a656f4f9daa31544126182d6ac86f7efe8f4031359867b7651247eea00ef486c0c5&scene=21#wechat_redirect" target="_blank" rel="noopener">Android10.0 Binder 通信原理(九)-AIDL Binder示例</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MjM5NDk5ODQwNA==&mid=2652469171&idx=1&sn=6b8498ad20051d343d6f4808d021aa52&chksm=bd12e6588a656f4eb5ec89dff303b8525091696e56e529dd22ffb9512f02b67b5b1546cb2f93&scene=21#wechat_redirect" target="_blank" rel="noopener">Android10.0 Binder 通信原理(十)-AIDL原理分析-Proxy-Stub设计模式</a></li>
+<li><a href="https://juejin.cn/post/6922704248195153927" target="_blank" rel="noopener">Android Framework | 一种新型的应用启动机制:USAP</a></li>
+<li><a href="https://carsonho.blog.csdn.net/article/details/73560642" target="_blank" rel="noopener">Android 跨进程通信：图文详解 Binder 机制 原理</a> </li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15099541.html" target="_blank" rel="noopener">Android Native – Message/Handler/Looper 机制（原理篇）</a></li>
+<li><a href="https://www.cnblogs.com/roger-yu/p/15100416.html" target="_blank" rel="noopener">Android Native – Message/Handler/Looper 机制（应用篇）</a></li>
+<li><a href="https://blog.csdn.net/learnframework/article/details/123032419" target="_blank" rel="noopener">Android P/Q/R/S 9/10/11/12 多任务手势动画 OtherActivityInputConsumer 情况</a></li>
+<li><a href="https://developer.android.google.cn/guide/topics/ui/splash-screen" target="_blank" rel="noopener">Android 启动画面</a></li>
 </ol>
 <h1 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h1><ol>
+<li><a href="https://link.zhihu.com/?target=https%3A//mp.weixin.qq.com/s/40T6ITvJNWR8F42530k4DA">Android ANR|原理解析及常见案例</a></li>
 <li><a href="http://gityuan.com/2019/04/06/android-anr/" target="_blank" rel="noopener">彻底理解安卓应用无响应机制</a></li>
 <li><a href="https://www.jianshu.com/p/18f16aba79dd" target="_blank" rel="noopener">应用与系统稳定性第一篇—ANR 问题分析的一般套路</a></li>
 <li><a href="https://www.jianshu.com/p/ac545e10e39e" target="_blank" rel="noopener">应用与系统稳定性第二篇—ANR 的监测与信息采集</a></li>
@@ -732,10 +842,27 @@
 <li><a href="https://www.jianshu.com/p/f2713f371589" target="_blank" rel="noopener">应用与系统稳定性第五篇—Watchdog 原理和问题分析</a></li>
 <li><a href="https://www.jianshu.com/p/e398e450c597" target="_blank" rel="noopener">应用与系统稳定性第六篇—JVM 垃圾回收之 finalize 执行时引起 timed out 闪退分析</a></li>
 <li><a href="https://www.jianshu.com/p/2addc08cb84b" target="_blank" rel="noopener">应用与系统稳定性第七篇— 用 Asan 提前解决NDK疑难crash</a></li>
+<li><a href="https://juejin.cn/post/7076326625436467214" target="_blank" rel="noopener">Android中的进程名和线程名</a></li>
+<li><a href="https://juejin.cn/post/7041834777229393934" target="_blank" rel="noopener">Android Runtime | Trace文件的生成机制</a></li>
+<li><a href="https://juejin.cn/post/7028518916355801101" target="_blank" rel="noopener">讨论 | 基于FP的栈回溯对于主线程的特殊处理</a></li>
+<li><a href="https://juejin.cn/post/7018153262482194446" target="_blank" rel="noopener">Android 资源溢出崩溃轻松解</a></li>
+<li><a href="https://juejin.cn/post/7025432746382065678" target="_blank" rel="noopener">字节Android Native Crash治理之Memory Corruption工具原理与实践</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247487203&idx=1&sn=182584b69910c843ae95f60e74127249&chksm=e9d0c501dea74c178e16f95a2ffc5007c5dbca89a02d56895ed9b05883cf0562da689ac6146b&token=2044639920&lang=zh_CN&scene=21#wechat_redirect" target="_blank" rel="noopener">西瓜视频稳定性治理体系建设一：Tailor 原理及实践</a></li>
+<li><a href="https://mp.weixin.qq.com/s/RF3m9_v5bYTYbwY-d1RloQ" target="_blank" rel="noopener">西瓜视频稳定性治理体系建设二：Raphael 原理及实践</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247489902&idx=1&sn=bfdf9f48dc6dc973722b5dcab9cd5882&chksm=e9d0d28cdea75b9ad255eb5de227240d2e6f0e9d66e562d3f49cf69f8ed4127c9954ef21bb6d&scene=178&cur_album_id=1833937688379310087#rd" target="_blank" rel="noopener">西瓜视频稳定性治理体系建设三：Sliver 原理及实践</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247489949&idx=1&sn=01948c047c0ce203956a3cf81dd20e83&chksm=e9d0d27fdea75b697e70a665b4c6912a8081649700766cf007a7b75d420a57089fe06d2e85b0&scene=178&cur_album_id=1833937688379310087#rd" target="_blank" rel="noopener">西瓜卡顿 &amp; ANR 优化治理及监控体系建设</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247488116&idx=1&sn=fdf80fa52c57a3360ad1999da2a9656b&chksm=e9d0d996dea750807aadc62d7ed442948ad197607afb9409dd5a296b16fb3d5243f9224b5763&scene=178&cur_album_id=1780091311874686979#rd" target="_blank" rel="noopener">今日头条 ANR 优化实践系列 - 设计原理及影响因素</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247488182&idx=1&sn=6337f1b51d487057b162064c3e24c439&chksm=e9d0d954dea75042193ed09f30eb8ba0acd93870227c5d33b33361b739a03562afb685df9215&scene=178&cur_album_id=1780091311874686979#rd" target="_blank" rel="noopener">今日头条 ANR 优化实践系列 - 监控工具与分析思路</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247488243&idx=1&sn=1f948e0ef616c6dfe54513a2a94357be&chksm=e9d0d911dea75007f36b3701b51842b9fa40969fe8175c2cb4aecf96793504602c574945d636&scene=178&cur_album_id=1780091311874686979#rd" target="_blank" rel="noopener">今日头条 ANR 优化实践系列分享 - 实例剖析集锦</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247488314&idx=1&sn=559e52288ae2730a580fcd550f22d895&chksm=e9d0d8d8dea751ceecb715d472796f0c678a9358abf91eb279cdb0576329595e87531e221438&scene=178&cur_album_id=1780091311874686979#rd" target="_blank" rel="noopener">今日头条 ANR 优化实践系列 - Barrier 导致主线程假死</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247488558&idx=1&sn=27dda3c3630116d37ab56a8c7bdf1382&chksm=e9d0dfccdea756daed46b340fb8021b57ea8cc300e58bdb59f0305f8290704984308a089bf2d&scene=178&cur_album_id=1780091311874686979#rd" target="_blank" rel="noopener">今日头条 ANR 优化实践系列 - 告别 SharedPreference 等待</a></li>
+<li><a href="https://mp.weixin.qq.com/s/FuZ2CBVB_tQgvYyH66Ehcw" target="_blank" rel="noopener">自动拦截 50% crash，字节自研 Fastbot 如何助力今日头条稳定性测试</a></li>
+<li><a href="https://mp.weixin.qq.com/s?__biz=Mzk0MzI4OTI1Ng==&mid=2247487678&idx=1&sn=2d8017af87b906ab9fa8f6387ded0a45" target="_blank" rel="noopener">线上故障 - 通过系统日志分析和定位</a></li>
 </ol>
 <h1 id="功耗"><a href="#功耗" class="headerlink" title="功耗"></a>功耗</h1><ol>
 <li><a href="https://mp.weixin.qq.com/s/ATppCpaKh1GcJCdts_EsyA" target="_blank" rel="noopener">能感知功耗的 Linux 调度器(EAS)</a></li>
 <li><a href="https://paul.pub/android-power" target="_blank" rel="noopener">Android 功耗改进</a></li>
+<li><a href="https://www.bilibili.com/video/BV1qf4y1c74A" target="_blank" rel="noopener">视频 - iPhone 13 Pro/Max 为什么省电？- ProMotion 技术分析</a></li>
 </ol>
 <h1 id="进程管理"><a href="#进程管理" class="headerlink" title="进程管理"></a>进程管理</h1><ol>
 <li><a href="https://www.kernel.org/doc/Documentation/cgroup-v1/cpusets.txt" target="_blank" rel="noopener">cpuset</a></li>
@@ -760,6 +887,7 @@
 <li><a href="https://sharrychoo.github.io/blog/android-performance-opt/io" target="_blank" rel="noopener">Android 性能优化 —— IO 的监控与优化 </a></li>
 <li><a href="https://www.cnblogs.com/huxiao-tee/p/4657851.html" target="_blank" rel="noopener">从内核文件系统看文件读写过程</a></li>
 <li><a href="https://www.cnblogs.com/huxiao-tee/p/4660352.html" target="_blank" rel="noopener">认真分析 mmap：是什么 为什么 怎么用</a></li>
+<li><a href="https://mp.weixin.qq.com/s/HNgoXqlXQC-lGU_yjxYixA" target="_blank" rel="noopener">Android IO 监控 | 性能监控系列</a></li>
 </ol>
 <h1 id="调试工具"><a href="#调试工具" class="headerlink" title="调试工具"></a>调试工具</h1><ol>
 <li><a href="https://zhuanlan.zhihu.com/p/25277481" target="_blank" rel="noopener">另一个 Android 性能剖析工具——simpleperf</a></li>
@@ -781,6 +909,15 @@
 <li><a href="https://www.androidperformance.com/2019/12/06/Android-Systrace-Binder/" target="_blank" rel="noopener">Systrace 基础知识 - Binder 和锁竞争解读</a></li>
 <li><a href="https://www.androidperformance.com/2019/12/15/Android-Systrace-Triple-Buffer" target="_blank" rel="noopener">Systrace 基础知识 - Triple Buffer 解读</a></li>
 <li><a href="https://www.androidperformance.com/2019/12/21/Android-Systrace-CPU" target="_blank" rel="noopener">Systrace 基础知识 - CPU Info 解读</a></li>
+<li><a href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/" target="_blank" rel="noopener">Systrace 流畅性实战 1 ：了解卡顿原理</a></li>
+<li><a href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/" target="_blank" rel="noopener">Systrace 流畅性实战 2 ：案例分析: MIUI 桌面滑动卡顿分析</a></li>
+<li><a href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-3/" target="_blank" rel="noopener">Systrace 流畅性实战 3 ：卡顿分析过程中的一些疑问</a></li>
+<li><a href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/" target="_blank" rel="noopener">Systrace 响应速度实战 1 ：了解响应速度原理</a></li>
+<li><a href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-2/" target="_blank" rel="noopener">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a></li>
+<li><a href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/" target="_blank" rel="noopener">Systrace 响应速度实战 3 ：响应速度延伸知识</a>  </li>
+<li><a href="https://www.androidperformance.com/2022/01/21/android-systrace-cpu-state-runnable/" target="_blank" rel="noopener">Systrace 线程 CPU 运行状态分析技巧 - Runnable 篇</a></li>
+<li><a href="https://www.androidperformance.com/2022/03/13/android-systrace-cpu-state-running/" target="_blank" rel="noopener">Systrace 线程 CPU 运行状态分析技巧 - Running 篇</a></li>
+<li><a href="https://www.androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/" target="_blank" rel="noopener">Systrace 线程 CPU 运行状态分析技巧 - Sleep 和 Uninterruptible Sleep 篇</a></li>
 <li><a href="https://source.android.google.cn/devices/graphics/tracing-win-transitions" target="_blank" rel="noopener">Tracing Window Transitions</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/108260089" target="_blank" rel="noopener">Android 性能问题分析之 bugreport</a></li>
 <li><a href="https://www.jianshu.com/p/95dfe1f41971" target="_blank" rel="noopener">腾讯 Apm 框架 Matrix 源码阅读 - gradle插件</a></li>
@@ -789,6 +926,8 @@
 <li><a href="https://www.jianshu.com/p/5721f5d11ae5" target="_blank" rel="noopener">腾讯 Apm 框架 Matrix 源码阅读 - TracePlugin 之 StartupTracer</a></li>
 <li><a href="https://www.jianshu.com/p/731a5f4b4cd3" target="_blank" rel="noopener">腾讯 Apm 框架 Matrix 源码阅读 - TracePlugin 之 FrameTracer</a></li>
 <li><a href="https://www.jianshu.com/p/d0f2164dd053" target="_blank" rel="noopener">腾讯 Apm 框架 Matrix 源码阅读 - 架构解析</a></li>
+<li><a href="https://ui.perfetto.dev/#!/viewer" target="_blank" rel="noopener">PerfettoViewer</a></li>
+<li><a href="https://mp.weixin.qq.com/s/zT5bEYBbXd6U1E9bFd26RA" target="_blank" rel="noopener">Android 性能分析工具介绍 | 开发者说·DTalk</a></li>
 </ol>
 <h1 id="硬件相关"><a href="#硬件相关" class="headerlink" title="硬件相关"></a>硬件相关</h1><ol>
 <li><a href="https://source.android.com/devices/tech/perf/flash-wear" target="_blank" rel="noopener">Flash Wear Management in Android Automotive </a></li>
@@ -807,6 +946,10 @@
 </ol>
 </li>
 <li><a href="https://zhuanlan.zhihu.com/p/24344559" target="_blank" rel="noopener">彻底理解引用在 Android 和 Java 中的工作原理</a></li>
+<li><a href="https://juejin.cn/post/7068901166456766472" target="_blank" rel="noopener">Kotlin 中的协程、上下文和作用域</a></li>
+<li><a href="https://juejin.cn/post/7064541449332719647" target="_blank" rel="noopener">抽丝剥茧聊协程之深入理解 Continuation 原理</a></li>
+<li><a href="https://medium.com/team-pratilipi/android-architecture-pattern-82aa0cf7e236" target="_blank" rel="noopener">Android Architecture Pattern</a> </li>
+<li><a href="https://magdamiu.medium.com/high-performance-with-idiomatic-kotlin-d52e099d0df0" target="_blank" rel="noopener">High performance with idiomatic Kotlin</a></li>
 </ol>
 <h1 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h1><ol>
 <li><a href="http://www.tinylab.cn/kernel-explore-regmap-framework/" target="_blank" rel="noopener">内核探索：Regmap 框架：简化慢速 I/O 接口优化性能 </a></li>
@@ -847,6 +990,11 @@
 <li><a href="https://mp.weixin.qq.com/s/SuKRPYTMUbC5PRw9NnvUTg" target="_blank" rel="noopener">内存泄漏（增长）火焰图</a></li>
 <li><a href="https://mp.weixin.qq.com/s/nkiE4CEo_zSN35I_qITAvQ" target="_blank" rel="noopener">Linux 系统性能评测基准系统配置及其原理</a></li>
 <li><a href="https://mp.weixin.qq.com/s/38ki8Rx0LLtHUAURJgUJpw" target="_blank" rel="noopener">Cgroups 与 Systemd</a></li>
+<li><a href="https://mp.weixin.qq.com/s/zUPcVOyP6mCtTMub5imf1w" target="_blank" rel="noopener">Devfreq Bus Dcvs</a></li>
+<li><a href="https://mp.weixin.qq.com/s/sO1MBsDyYyDOtA_aGq-YXw" target="_blank" rel="noopener">基于 eBPF 的 CPU 利用率精准计算小工具开发</a></li>
+<li><a href="https://mp.weixin.qq.com/s/udpHAaB27DpVPm1ynvUxuA" target="_blank" rel="noopener">关于 eBPF 的一些粗浅理解</a></li>
+<li><a href="https://mp.weixin.qq.com/s/yEMp70FmFYn6qL8kCZgS8A" target="_blank" rel="noopener">使用 ftrace 分析函数性能</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzAwMDUwNDgxOA==&mid=2652681492&idx=1&sn=008c3ed95cf1c5985700d52c47f68c42" target="_blank" rel="noopener">eBPF是什么？为什么对可观测性很重要</a> </li>
 </ol>
 <h1 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h1><ol>
 <li><a href="https://zhuanlan.zhihu.com/p/62335468" target="_blank" rel="noopener">深入 Flutter 的高性能图形渲染</a></li>
@@ -857,11 +1005,13 @@
 <li><a href="http://gityuan.com/2019/06/22/flutter_booting/" target="_blank" rel="noopener">深入理解 Flutter 引擎启动</a></li>
 <li><a href="http://gityuan.com/2019/06/15/flutter_ui_draw/" target="_blank" rel="noopener">Flutter 渲染机制— UI 线程</a></li>
 <li><a href="http://gityuan.com/2019/06/16/flutter_gpu_draw/" target="_blank" rel="noopener">Flutter 渲染机制— GPU 线程</a></li>
+<li><a href="https://mp.weixin.qq.com/s/p3epzBC-ZRr2V9Yh1GH7tw" target="_blank" rel="noopener">深入探索 Flutter 性能优化</a></li>
 </ol>
 <h1 id="Fuchsia"><a href="#Fuchsia" class="headerlink" title="Fuchsia"></a>Fuchsia</h1><ol>
 <li><a href="https://zhuanlan.zhihu.com/p/55690708?utm_source=ZHShareTargetIDMore&utm_medium=social&utm_oi=27871238160384" target="_blank" rel="noopener">许中兴博士演讲：Fuchsia OS 简介</a></li>
 </ol>
 <h1 id="技术之外的思考"><a href="#技术之外的思考" class="headerlink" title="技术之外的思考"></a>技术之外的思考</h1><ol>
+<li><a href="https://ichn.xyz/blog/how-to-start-learning-in-a-new-area" target="_blank" rel="noopener">如何在一个全新的领域展开学习</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzU3ODAxNDcwNQ==&mid=2247484147&idx=1&sn=cd5f8fead3bcaac2d22a3dd699d2e79f&chksm=fd7a9e6dca0d177b27095d3d12720e83ba1638028799a89a8879929c1ad442529a62a46c5fe3&mpshare=1&scene=1&srcid=1027hi7FsUIG3AirEiJg198C#rd" target="_blank" rel="noopener">我到底有多么努力</a></li>
 <li><a href="https://zhuanlan.zhihu.com/zmywly8866/20711335" target="_blank" rel="noopener">工作以来的一些感悟</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/20708611" target="_blank" rel="noopener">如何自学 Android？</a></li>
@@ -871,6 +1021,16 @@
 <li><a href="https://coolshell.cn/articles/20276.html" target="_blank" rel="noopener">别让自己“墙”了自己</a></li>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzIwMTAzMTMxMg==&mid=2649494737&idx=1&sn=8e1f94c24768deb3ddd926c4fd5df986&chksm=8eec9f2eb99b16386cbd677e0545d71f0863cc77f21dd9250dda8f7a31c4a206167b510118c0&mpshare=1&scene=1&srcid=&sharer_sharetime=1568602769162&sharer_shareid=60bd7acea7881a97fbf9a6126d3e88d3#rd" target="_blank" rel="noopener">100% 成功率的 offer 收割机是怎样练成的？</a></li>
 <li><a href="https://coolshell.cn/articles/20533.html" target="_blank" rel="noopener">使用简单的逻辑方法进行独立思考</a></li>
+<li><a href="https://mp.weixin.qq.com/s/RWdiiYC423ocH-iuaiqr2w" target="_blank" rel="noopener">这一年炼就的底层内功修养</a></li>
+<li><a href="https://xiao.do/issues/084-1059071" target="_blank" rel="noopener">084 创造自己的领域，乔布斯的人生规则，发声与退出，失眠的好处</a></li>
+<li><a href="https://mp.weixin.qq.com/s/aA6xf6deR20QlhJxXNJVgw" target="_blank" rel="noopener">我掌握到了如何无障碍观看英文技术视频</a></li>
+<li><a href="https://www.bilibili.com/video/BV1vW411Z7Qf" target="_blank" rel="noopener">视频 - 泰勒·本-沙哈尔《正向领导力》</a></li>
+<li><a href="https://medium.com/@codecungtrung/why-did-i-choose-to-be-an-android-developer-not-an-ios-developer-eb67809fa704" target="_blank" rel="noopener">Why did I choose to be an Android developer, not an IOS developer ?</a></li>
+<li><a href="https://mp.weixin.qq.com/s/5lpb9ZASj7ioBXWaUaEOQg" target="_blank" rel="noopener">技术负责人要停止写代码吗？</a></li>
+<li><a href="https://www.kenshinji.me/wo-shi-ru-he-cong-ya-ba-ying-yu-dao-wu-zhang-ai-ying-wen-gong-zuo-gou-tong-de/" target="_blank" rel="noopener">我是如何从哑巴英语到无障碍英文工作沟通的</a></li>
+<li><a href="https://www.cnblogs.com/zhoujg/archive/2011/03/01/1968366.html" target="_blank" rel="noopener">英语：漏屋-英语学习的真实方法及误区分析</a></li>
+<li><a href="https://mp.weixin.qq.com/s/G2ib7f87dCsRyEejaYk-6Q" target="_blank" rel="noopener">拆掉知识的墙</a></li>
+<li><a href="http://mp.weixin.qq.com/s?__biz=MzIxNDQ3NDI5OQ==&mid=2247486068&idx=1&sn=934b4db38a852bf5cde0cee972e59885" target="_blank" rel="noopener">5000字详解性能需求</a></li>
 </ol>
 <h1 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h1><ol>
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzAxMTg2MjA2OA==&mid=2649842075&idx=1&sn=668f0ddceab52c961f1ac20a77165429" target="_blank" rel="noopener">Android 2018 最新面试题</a></li>
@@ -894,6 +1054,30 @@
 <li><a href="https://mp.weixin.qq.com/s?__biz=MzI3Mzc4ODQ3Mw==&mid=2247484333&idx=1&sn=03271692d0f713272baa16270f11b8d0&chksm=eb1cb8fbdc6b31edbffb8a7c01fb886e3689f5e0204f71b75908cfdfadef92333bb3c91df281&mpshare=1&scene=1&srcid=11297lZR9ijR5xUFAyStvw65#rd" target="_blank" rel="noopener">给扔物线 HenCoder Plus 学员的一次分享文字版</a></li>
 <li><a href="https://juejin.im/post/5e9102f9e51d4546d6357fde" target="_blank" rel="noopener">快手，字节跳动，百度，美团Offer之旅</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/31209029" target="_blank" rel="noopener">美帝面试二三事</a></li>
+<li><a href="https://www.tsaiggo.life/posts/thinking-in-interview/" target="_blank" rel="noopener">面试随想</a></li>
+</ol>
+<h1 id="开源库"><a href="#开源库" class="headerlink" title="开源库"></a>开源库</h1><ol>
+<li><a href="https://mp.weixin.qq.com/s?__biz=MzI1MzYzMjE0MQ==&mid=2247487720&idx=1&sn=4c1dc31b6201e420dcac49250b81055f&chksm=e9d0db0adea7521c9337aacc22877d4e6f33a774499c650f3bfb12ad23ffdc0b8ab6ef40a9a5&scene=21#wechat_redirect" target="_blank" rel="noopener">抖音 Android 性能优化系列：新一代全能型性能分析工具 Rhea</a></li>
+<li><a href="https://github.com/bytedance/memory-leak-detector" target="_blank" rel="noopener">Raphael 开源地址</a></li>
+<li><a href="https://github.com/bytedance/tailor" target="_blank" rel="noopener">Tailor 开源地址</a></li>
+<li><a href="https://github.com/iqiyi/xHook" target="_blank" rel="noopener">xHook</a></li>
+<li><a href="https://github.com/hexhacking/xDL" target="_blank" rel="noopener">xDL 链接</a></li>
+<li><a href="https://github.com/ele7enxxh/Android-Inline-Hook" target="_blank" rel="noopener">Android-Inline-Hook 链接</a></li>
+<li><a href="https://github.com/Rprop/And64InlineHook" target="_blank" rel="noopener">And64InlineHook 链接</a></li>
+<li><a href="https://android.googlesource.com/platform/bionic/+/master/libc/malloc_debug/README.md" target="_blank" rel="noopener">malloc debug 链接</a></li>
+<li><a href="http://www.andreasen.org/LeakTracer/" target="_blank" rel="noopener">LeakTracer 链接</a></li>
+<li><a href="https://github.com/uber/nanoscope" target="_blank" rel="noopener">Nanoscope</a></li>
+<li><a href="https://github.com/facebookincubator/profilo" target="_blank" rel="noopener">Profilo</a></li>
+<li><a href="https://gpeal.medium.com/lottie-android-5-0-7d468e36d882" target="_blank" rel="noopener">Lottie Android 5.0</a></li>
+</ol>
+<h1 id="Weekly"><a href="#Weekly" class="headerlink" title="Weekly"></a>Weekly</h1><ol>
+<li><a href="http://www.kotlinweekly.net/" target="_blank" rel="noopener">Kotlin Weekly</a></li>
+<li><a href="http://androidweekly.net/" target="_blank" rel="noopener">Android Weekly</a></li>
+<li><a href="https://androidweekly.zhubai.love/" target="_blank" rel="noopener">Android Weekly - CN</a></li>
+<li><a href="https://www.oncreatedigest.com/" target="_blank" rel="noopener">onCreate Digest</a></li>
+<li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MjM5NTMzNzQxMw==&action=getalbum&album_id=1788609729372438534&scene=173&from_msgid=2650976227&from_itemidx=1&count=3&nolastread=1#wechat_redirect" target="_blank" rel="noopener">软件测试周刊</a></li>
+<li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAwMjgwMTEzNw==&action=getalbum&album_id=2226497928947367940&scene=173&from_msgid=2652227850&from_itemidx=1&count=3&nolastread=1#wechat_redirect" target="_blank" rel="noopener">CodeDump 的网络日志</a></li>
+<li><a href="https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzIwNDQ2NjUyMQ==&action=getalbum&album_id=1340386474226958336&scene=173&from_msgid=2247490138&from_itemidx=1&count=3&nolastread=1#wechat_redirect" target="_blank" rel="noopener">体验碎周报</a></li>
 </ol>
 <h1 id="本文其他地址"><a href="#本文其他地址" class="headerlink" title="本文其他地址"></a>本文其他地址</h1><p>由于博客留言交流不方便，点赞或者交流，可以移步本文的知乎或者掘金页面<br><a href="https://zhuanlan.zhihu.com/p/30691789" target="_blank" rel="noopener">知乎 - Android 性能优化必知必会</a><br><a href="https://juejin.im/post/5ebf4f21f265da7bad355036" target="_blank" rel="noopener">掘金 - Android 性能优化必知必会</a></p>
 <h1 id="关于我-amp-amp-博客"><a href="#关于我-amp-amp-博客" class="headerlink" title="关于我 &amp;&amp; 博客"></a>关于我 &amp;&amp; 博客</h1><ol>
@@ -912,8 +1096,8 @@
         <div class="license-wrapper">
             <p>原文作者：<a href="https://androidperformance.com">Gracker</a>
             <p>原文链接：<a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/</a>
-            <p>发表日期：<a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">May 7th 2018, 8:10:44 pm</a>
-            <p>更新日期：<a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">December 2nd 2021, 12:08:57 am</a>
+            <p>发表日期：<a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">五月 7日 2018, 8:10:44 晚上</a>
+            <p>更新日期：<a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">June 21st 2022, 12:10:12 am</a>
             <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -1107,7 +1291,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#优化心得和经验"><span class="toc-number">1.</span> <span class="toc-text">优化心得和经验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#响应速度"><span class="toc-number">2.</span> <span class="toc-text">响应速度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流畅度"><span class="toc-number">3.</span> <span class="toc-text">流畅度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#内存"><span class="toc-number">4.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图形栈"><span class="toc-number">5.</span> <span class="toc-text">图形栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机"><span class="toc-number">6.</span> <span class="toc-text">虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统框架"><span class="toc-number">7.</span> <span class="toc-text">系统框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#稳定性"><span class="toc-number">8.</span> <span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#功耗"><span class="toc-number">9.</span> <span class="toc-text">功耗</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进程管理"><span class="toc-number">10.</span> <span class="toc-text">进程管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IO"><span class="toc-number">11.</span> <span class="toc-text">IO</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#调试工具"><span class="toc-number">12.</span> <span class="toc-text">调试工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#硬件相关"><span class="toc-number">13.</span> <span class="toc-text">硬件相关</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编程语言"><span class="toc-number">14.</span> <span class="toc-text">编程语言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux"><span class="toc-number">15.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Flutter"><span class="toc-number">16.</span> <span class="toc-text">Flutter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fuchsia"><span class="toc-number">17.</span> <span class="toc-text">Fuchsia</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#技术之外的思考"><span class="toc-number">18.</span> <span class="toc-text">技术之外的思考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试题"><span class="toc-number">19.</span> <span class="toc-text">面试题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本文其他地址"><span class="toc-number">20.</span> <span class="toc-text">本文其他地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number">21.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#优化心得和经验"><span class="toc-number">1.</span> <span class="toc-text">优化心得和经验</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#响应速度"><span class="toc-number">2.</span> <span class="toc-text">响应速度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流畅度"><span class="toc-number">3.</span> <span class="toc-text">流畅度</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#内存"><span class="toc-number">4.</span> <span class="toc-text">内存</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#图形栈"><span class="toc-number">5.</span> <span class="toc-text">图形栈</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#虚拟机"><span class="toc-number">6.</span> <span class="toc-text">虚拟机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统框架"><span class="toc-number">7.</span> <span class="toc-text">系统框架</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#稳定性"><span class="toc-number">8.</span> <span class="toc-text">稳定性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#功耗"><span class="toc-number">9.</span> <span class="toc-text">功耗</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#进程管理"><span class="toc-number">10.</span> <span class="toc-text">进程管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IO"><span class="toc-number">11.</span> <span class="toc-text">IO</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#调试工具"><span class="toc-number">12.</span> <span class="toc-text">调试工具</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#硬件相关"><span class="toc-number">13.</span> <span class="toc-text">硬件相关</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编程语言"><span class="toc-number">14.</span> <span class="toc-text">编程语言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux"><span class="toc-number">15.</span> <span class="toc-text">Linux</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Flutter"><span class="toc-number">16.</span> <span class="toc-text">Flutter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Fuchsia"><span class="toc-number">17.</span> <span class="toc-text">Fuchsia</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#技术之外的思考"><span class="toc-number">18.</span> <span class="toc-text">技术之外的思考</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面试题"><span class="toc-number">19.</span> <span class="toc-text">面试题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#开源库"><span class="toc-number">20.</span> <span class="toc-text">开源库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Weekly"><span class="toc-number">21.</span> <span class="toc-text">Weekly</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#本文其他地址"><span class="toc-number">22.</span> <span class="toc-text">本文其他地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number">23.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
             </div>
         
         <!-- sidebar -->

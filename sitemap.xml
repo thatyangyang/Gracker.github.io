@@ -2,16 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://androidperformance.com/2022/03/27/the-performance-tea-part-01/</loc>
+    <loc>https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/</loc>
     
-    <lastmod>2022-03-27T15:57:49.468Z</lastmod>
+    <lastmod>2022-06-20T16:10:12.119Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
+    
+    <lastmod>2022-06-20T15:06:40.700Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
+    
+    <lastmod>2022-06-20T15:05:42.963Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://androidperformance.com/about/index.html</loc>
+    
+    <lastmod>2022-06-20T15:04:39.662Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://androidperformance.com/2022/03/13/the-performance/</loc>
     
-    <lastmod>2022-03-27T15:47:49.165Z</lastmod>
+    <lastmod>2022-06-20T15:03:03.628Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://androidperformance.com/2022/03/27/the-performance-tea-part-01/</loc>
+    
+    <lastmod>2022-06-20T15:02:12.147Z</lastmod>
     
   </url>
   
@@ -19,13 +47,6 @@
     <loc>https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/</loc>
     
     <lastmod>2022-03-13T03:20:48.622Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
-    
-    <lastmod>2022-03-13T03:19:23.655Z</lastmod>
     
   </url>
   
@@ -44,23 +65,9 @@
   </url>
   
   <url>
-    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
-    
-    <lastmod>2022-03-13T02:24:41.676Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/</loc>
     
     <lastmod>2022-03-13T01:14:39.938Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://androidperformance.com/about/index.html</loc>
-    
-    <lastmod>2022-03-13T00:53:49.976Z</lastmod>
     
   </url>
   
@@ -222,13 +229,6 @@
     <loc>https://androidperformance.com/2020/08/20/weibo-imageload-opt-on-huawei/</loc>
     
     <lastmod>2021-12-01T16:09:10.664Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/</loc>
-    
-    <lastmod>2021-12-01T16:08:57.661Z</lastmod>
     
   </url>
   
