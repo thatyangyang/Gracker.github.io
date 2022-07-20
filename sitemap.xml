@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://androidperformance.com/about/index.html</loc>
+    
+    <lastmod>2022-07-20T15:46:14.672Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/</loc>
     
     <lastmod>2022-06-29T15:22:47.003Z</lastmod>
@@ -33,13 +40,6 @@
     <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
     
     <lastmod>2022-06-20T15:05:42.963Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://androidperformance.com/about/index.html</loc>
-    
-    <lastmod>2022-06-20T15:04:39.662Z</lastmod>
     
   </url>
   
