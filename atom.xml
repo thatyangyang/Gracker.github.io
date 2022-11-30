@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Android Performance</title>
+  <title>我的优化技术文章分享</title>
   
   <subtitle>闻道有先后,术业有专攻,如是而已</subtitle>
   <link href="/atom.xml" rel="self"/>
