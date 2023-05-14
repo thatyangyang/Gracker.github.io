@@ -442,6 +442,55 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2023/05/14/bad-android-app-with-system-permissions/">
+                
+                <span class="abstract-title-text">当 App 有了系统权限，真的可以为所欲为？</span>
+            </a>
+            <div class="abstract-content">
+                <p>前一段时间有个 App 很火，是 Android App 利用了 Android 系统漏洞，获得了系统权限，做了很多事情。想看看这些个 App 在利用系统漏洞获取系统权限之后，都干了什么事，于是就有了这篇文章。由于准备仓促，有些 Code 没有仔细看，感兴趣的同学可以自己去研究研究，多多讨论，对应的文章和 Code 链接都在下面：</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/P_EYQxOEupqdU0BJMRqWsw">深蓝洞察：2022 年度最 “不可赦” 漏洞</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/davinci1010/pinduoduo_backdoor">XXX apk 内嵌提权代码，及动态下发 dex 分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/x6BSQZ3sE7vDcM0qvsC1EQ">Android 反序列化漏洞攻防史话</a></li>
+</ol>
+<p>关于这个 App 是如何获取这个系统权限的，<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/x6BSQZ3sE7vDcM0qvsC1EQ">Android 反序列化漏洞攻防史话</a>，这篇文章讲的很清楚，就不再赘述了，我也不是安全方面的专家，但是建议大家多读几遍这篇文章</p>
+<blockquote>
+<p>序列化和反序列化是指将内存数据结构转换为字节流，通过网络传输或者保存到磁盘，然后再将字节流恢复为内存对象的过程。在 Web 安全领域，出现过很多反序列化漏洞，比如 PHP 反序列化、Java 反序列化等。由于在反序列化的过程中触发了非预期的程序逻辑，从而被攻击者用精心构造的字节流触发并利用漏洞从而最终实现任意代码执行等目的。</p>
+</blockquote>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2023/05/14">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2023/05/14</span>
+                </div>
+                <!-- tags -->
+                
+                    <div class= abstract-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Android">Android</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Performance">Performance</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="Systrace">Systrace</a>
+    
+</div>
+
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2022/03/27/the-performance-tea-part-01/">
                 
                 <span class="abstract-title-text">The Performance 星球茶话会 - 第一期</span>
@@ -706,7 +755,7 @@
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/06/20">
+                <div class="abstract-date" title="Last updated: 2023/05/14">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/01/03</span>
                 </div>
                 <!-- tags -->
@@ -2920,7 +2969,7 @@ Pixel 手机一台
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/06/27">
+                <div class="abstract-date" title="Last updated: 2023/05/14">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2018/05/07</span>
                 </div>
                 <!-- tags -->
@@ -4497,35 +4546,11 @@ android:focusableInTouchMode="true"
         </article>
         <div class="index-post-divider"></div>
     
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2014/03/17/android-build-your-own-android-notification-service-app/">
-                
-                <span class="abstract-title-text">Android Service：开发自己的通知中心(1):辅助性服务介绍</span>
-            </a>
-            <div class="abstract-content">
-                <h1 id="1-辅助性服务介绍"><a href="#1-辅助性服务介绍" class="headerlink" title="1 辅助性服务介绍"></a>1 辅助性服务介绍</h1><p>辅助性服务是安卓框架的一个特性，它的设计是为了让已经安装在安卓设备上的应用程序能够为用户提供一种导航式(引导式）回应。一个辅助性服务能够传达给<br>用户关于这个应用程序的利益，例如把文本转换成语音、当用户手指停留屏幕的一个重要区域时的haptic反馈。这一节涵盖了怎样去创建一个辅助性服务，如何处理应用程序的信息接收，还有如何把信息反馈给用户。<br>创建自己的辅助性服务</p>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2021/12/02">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/03/17</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
     <!-- paginator  -->
+    
+        <nav class="page-nav">
+            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/">NEXT &gt;</a>
+        </nav>
     
 </main>
 
@@ -5164,7 +5189,24 @@ android:focusableInTouchMode="true"
         
         
         
+        
+        
+        
+        
+        
     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         
@@ -5735,7 +5777,7 @@ android:focusableInTouchMode="true"
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 100
+        Total : 101
         </div>
         <!-- search  -->
         
@@ -5745,6 +5787,21 @@ android:focusableInTouchMode="true"
     
         
             
+            
+            <div class="archive-year"> 2023 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/14</span>
+            <a class="archive-post-title" href="/2023/05/14/bad-android-app-with-system-permissions/">当 App 有了系统权限，真的可以为所欲为？</a>
+        </li>
+    
+        
+            
+            
+                
+                </ul>
             
             <div class="archive-year"> 2022 </div>
             <ul class="year-list">

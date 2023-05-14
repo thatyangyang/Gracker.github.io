@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://androidperformance.com/2022/01/21/android-systrace-cpu-state-runnable/</loc>
-    <lastmod>2023-05-14</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/09/05/Android-Jank-Due-To-System/</loc>
+    <loc>https://androidperformance.com/2023/05/14/bad-android-app-with-system-permissions/</loc>
     <lastmod>2023-05-14</lastmod>
   </url>
   <url>
@@ -13,11 +9,11 @@
     <lastmod>2023-05-14</lastmod>
   </url>
   <url>
-    <loc>https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/</loc>
+    <loc>https://androidperformance.com/2022/03/27/the-performance-tea-part-01/</loc>
     <lastmod>2023-05-14</lastmod>
   </url>
   <url>
-    <loc>https://androidperformance.com/2022/03/27/the-performance-tea-part-01/</loc>
+    <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
     <lastmod>2023-05-14</lastmod>
   </url>
   <url>
@@ -25,11 +21,7 @@
     <lastmod>2023-05-14</lastmod>
   </url>
   <url>
-    <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/</loc>
-    <lastmod>2023-05-14</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/</loc>
+    <loc>https://androidperformance.com/2022/01/21/android-systrace-cpu-state-runnable/</loc>
     <lastmod>2023-05-14</lastmod>
   </url>
   <url>
@@ -42,11 +34,23 @@
   </url>
   <url>
     <loc>https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/</loc>
-    <lastmod>2022-06-27</lastmod>
+    <lastmod>2023-05-14</lastmod>
   </url>
   <url>
-    <loc>https://androidperformance.com/2022/01/03/2021-Review/</loc>
-    <lastmod>2022-06-20</lastmod>
+    <loc>https://androidperformance.com/2019/09/05/Android-Jank-Due-To-System/</loc>
+    <lastmod>2023-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/</loc>
+    <lastmod>2023-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/</loc>
+    <lastmod>2023-05-14</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/</loc>
+    <lastmod>2023-05-14</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2019/07/23/Android-Systrace-Pre/</loc>
