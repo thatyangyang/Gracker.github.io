@@ -23,7 +23,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 代码内存优化建议 - OnTrimMemory 优化">
 <meta property="og:url" content="https://androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="Android 内存优化系列文章：  Android代码内存优化建议-Android官方篇 Android代码内存优化建议-Java官方篇 Android代码内存优化建议-Android资源篇 Android代码内存优化建议-OnTrimMemory优化   OnTrimMemory 回调是 Android 4.0 之后提供的一个API，这个 API 是提供给开发者的，它的主要作用是提示开发者在系">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/WechatIMG581.png">
@@ -40,9 +40,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>Android 代码内存优化建议 - OnTrimMemory 优化 · 我的优化技术文章分享</title>
+    <title>Android 代码内存优化建议 - OnTrimMemory 优化 · Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -154,8 +152,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -207,12 +205,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -230,10 +227,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -317,7 +314,7 @@
     
         
     <!-- 404页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
@@ -356,6 +353,7 @@
 </div>
 
                 
+                <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
                         <span>字数统计: <span class="post-count word-count">2.2k</span>阅读时长: <span class="post-count reading-time">7 min</span></span>
@@ -442,7 +440,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -506,7 +504,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -521,15 +519,15 @@
     <article class="article-entry">
         <p>Android 内存优化系列文章：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Google/" target="_blank" rel="noopener">Android代码内存优化建议-Android官方篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Java/" target="_blank" rel="noopener">Android代码内存优化建议-Java官方篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/" target="_blank" rel="noopener">Android代码内存优化建议-Android资源篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/" target="_blank" rel="noopener">Android代码内存优化建议-OnTrimMemory优化</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Google/">Android代码内存优化建议-Android官方篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Java/">Android代码内存优化建议-Java官方篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/">Android代码内存优化建议-Android资源篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/">Android代码内存优化建议-OnTrimMemory优化</a></li>
 </ol>
 <hr>
 <p>OnTrimMemory 回调是 Android 4.0 之后提供的一个API，这个 API 是提供给开发者的，它的主要作用是提示开发者在系统内存不足的时候，通过处理部分资源来释放内存，从而避免被 Android 系统杀死。这样应用在下一次启动的时候，速度就会比较快。</p>
 <p>本文通过问答的方式，从各个方面来讲解 OnTrimMemory 回调的使用过程和效果。想要开发高性能且用户体验良好的 Android 应用，那么这篇文章你不应该错过。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h2 id="0-OnTrimMemory回调的作用？"><a href="#0-OnTrimMemory回调的作用？" class="headerlink" title="0. OnTrimMemory回调的作用？"></a>0. OnTrimMemory回调的作用？</h2><p>OnTrimMemory是Android在4.0之后加入的一个回调，任何实现了ComponentCallbacks2接口的类都可以重写实现这个回调方法．OnTrimMemory的主要作用就是<strong>指导应用程序在不同的情况下进行自身的内存释放，以避免被系统直接杀掉，提高应用程序的用户体验.</strong></p>
 <p>Android系统会根据不同等级的内存使用情况，调用这个函数，并传入对应的等级：</p>
@@ -565,15 +563,15 @@
 <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onTrimMemory</span><span class="params">(<span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onTrimMemory(level);</span><br><span class="line">    <span class="keyword">if</span> (level &gt;= ComponentCallbacks2.TRIM_MEMORY_MODERATE) &#123;</span><br><span class="line">        mAppsCustomizeTabHost.onTrimMemory();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>AppsCustomizeTabHost.java:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTrimMemory</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mContent.setVisibility(GONE);</span><br><span class="line">    <span class="comment">// Clear the widget pages of all their subviews - this will trigger the widget previews</span></span><br><span class="line">    <span class="comment">// to delete their bitmaps</span></span><br><span class="line">    mPagedView.clearAllWidgetPages();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTrimMemory</span>()</span> &#123;</span><br><span class="line">    mContent.setVisibility(GONE);</span><br><span class="line">    <span class="comment">// Clear the widget pages of all their subviews - this will trigger the widget previews</span></span><br><span class="line">    <span class="comment">// to delete their bitmaps</span></span><br><span class="line">    mPagedView.clearAllWidgetPages();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>AppsCustomizePagedView.java:</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void clear<span class="constructor">AllWidgetPages()</span> &#123;</span><br><span class="line">    cancel<span class="constructor">AllTasks()</span>;</span><br><span class="line">    <span class="built_in">int</span> count = get<span class="constructor">ChildCount()</span>;</span><br><span class="line">    for (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">        View v = get<span class="constructor">PageAt(<span class="params">i</span>)</span>;</span><br><span class="line">        <span class="keyword">if</span> (v instanceof PagedViewGridLayout) &#123;</span><br><span class="line">            ((PagedViewGridLayout) v).remove<span class="constructor">AllViewsOnPage()</span>;</span><br><span class="line">            mDirtyPageContent.set(i, <span class="literal">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public void clear<span class="constructor">AllWidgetPages()</span> &#123;</span><br><span class="line">    cancel<span class="constructor">AllTasks()</span>;</span><br><span class="line">    <span class="built_in">int</span> count = get<span class="constructor">ChildCount()</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">        View v = get<span class="constructor">PageAt(<span class="params">i</span>)</span>;</span><br><span class="line">        <span class="keyword">if</span> (v instanceof PagedViewGridLayout) &#123;</span><br><span class="line">            ((PagedViewGridLayout) v).remove<span class="constructor">AllViewsOnPage()</span>;</span><br><span class="line">            mDirtyPageContent.set(i, <span class="literal">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>PagedViewGridLayout.java</p>
-<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">removeAllViewsOnPage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    removeAllViews();</span><br><span class="line">    mOnLayoutListener = <span class="keyword">null</span>;</span><br><span class="line">    setLayerType(LAYER_TYPE_NONE, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="built_in">void</span> <span class="title function_">removeAllViewsOnPage</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">removeAllViews</span>();</span><br><span class="line">    mOnLayoutListener = <span class="literal">null</span>;</span><br><span class="line">    <span class="title function_">setLayerType</span>(<span class="variable constant_">LAYER_TYPE_NONE</span>, <span class="literal">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="2-2-例子-清除缓存"><a href="#2-2-例子-清除缓存" class="headerlink" title="2.2 例子: 清除缓存"></a>2.2 例子: 清除缓存</h4><p>代码出处：Contact</p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTrimMemory</span><span class="params">(<span class="keyword">int</span> level)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (level &gt;= ComponentCallbacks2.TRIM_MEMORY_MODERATE) &#123;</span><br><span class="line">        <span class="comment">// Clear the caches.  Note all pending requests will be removed too.</span></span><br><span class="line">        <span class="built_in">clear</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">clear</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    mPendingRequests.<span class="built_in">clear</span>();</span><br><span class="line">    mBitmapHolderCache.evictAll();</span><br><span class="line">    mBitmapCache.evictAll();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@Override</span></span><br><span class="line">public void onTrimMemory(int level) &#123;</span><br><span class="line">    if (level &gt;= ComponentCallbacks2.TRIM_MEMORY_MODERATE) &#123;</span><br><span class="line">        <span class="comment">// Clear the caches.  Note all pending requests will be removed too.</span></span><br><span class="line">        <span class="attribute">clear</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public void <span class="attribute">clear</span>() &#123;</span><br><span class="line">    mPendingRequests<span class="selector-class">.clear</span>();</span><br><span class="line">    mBitmapHolderCache<span class="selector-class">.evictAll</span>();</span><br><span class="line">    mBitmapCache<span class="selector-class">.evictAll</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-OnTrimMemory和onStop的关系？"><a href="#3-OnTrimMemory和onStop的关系？" class="headerlink" title="3. OnTrimMemory和onStop的关系？"></a>3. OnTrimMemory和onStop的关系？</h2><p>onTrimMemory()方法中的TRIM_MEMORY_UI_HIDDEN回调只有当我们程序中的所有UI组件全部不可见的时候才会触发，这和onStop()方法还是有很大区别的，因为onStop()方法只是当一个Activity完全不可见的时候就会调用，比如说用户打开了我们程序中的另一个Activity。</p>
 <p>因此，我们可以在onStop()方法中去释放一些Activity相关的资源，比如说取消网络连接或者注销广播接收器等，但是像UI相关的资源应该一直要等到onTrimMemory(TRIM_MEMORY_UI_HIDDEN)这个回调之后才去释放，这样可以保证如果用户只是从我们程序的一个Activity回到了另外一个Activity，界面相关的资源都不需要重新加载，从而提升响应速度。</p>
@@ -585,7 +583,7 @@
 <h2 id="6-有哪些典型的使用场景？"><a href="#6-有哪些典型的使用场景？" class="headerlink" title="6. 有哪些典型的使用场景？"></a>6. 有哪些典型的使用场景？</h2><h3 id="6-1-常驻内存的应用"><a href="#6-1-常驻内存的应用" class="headerlink" title="6.1 常驻内存的应用"></a>6.1 常驻内存的应用</h3><p>一些常驻内存的应用，比如Launcher、安全中心、电话等，在用户使用过要退出的时候，需要调用OnTrimMemory来及时释放用户使用的时候所产生的多余的内存资源：比如动态生成的View、图片缓存、Fragment等。</p>
 <h3 id="6-2-有后台Service运行的应用"><a href="#6-2-有后台Service运行的应用" class="headerlink" title="6.2 有后台Service运行的应用"></a>6.2 有后台Service运行的应用</h3><p>这些应用不是常驻内存的，意味着可以被任务管理器杀掉，但是在某些场景下用户不会去杀。<br>这类应用包括：音乐、下载等。用户退出UI界面后，音乐还在继续播放，下载程序还在运行。这时候音乐应该释放部分UI资源和Cache。</p>
 <h1 id="关于我-amp-amp-博客"><a href="#关于我-amp-amp-博客" class="headerlink" title="关于我 &amp;&amp; 博客"></a>关于我 &amp;&amp; 博客</h1><ol>
-<li><a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/about/">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
 <li><a href="https://androidperformance.com/2019/12/01/BlogMap/">博客内容导航</a></li>
 <li><a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">优秀博客文章记录 - Android 性能优化必知必会</a></li>
 </ol>
@@ -602,7 +600,7 @@
             <p>原文链接：<a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/">https://androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/</a>
             <p>发表日期：<a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/">July 20th 2015, 12:42:10 pm</a>
             <p>更新日期：<a href="https://androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/">December 2nd 2021, 12:05:38 am</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator -->
@@ -795,7 +793,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-OnTrimMemory回调的作用？"><span class="toc-number">1.</span> <span class="toc-text">0. OnTrimMemory回调的作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-哪些组件可以实现OnTrimMemory回调？"><span class="toc-number">2.</span> <span class="toc-text">1. 哪些组件可以实现OnTrimMemory回调？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-OnTrimMemory回调中可以释放哪些资源？"><span class="toc-number">3.</span> <span class="toc-text">2. OnTrimMemory回调中可以释放哪些资源？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-例子：释放不常用到的View．"><span class="toc-number">3.0.1.</span> <span class="toc-text">2.1 例子：释放不常用到的View．</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-例子-清除缓存"><span class="toc-number">3.0.2.</span> <span class="toc-text">2.2 例子: 清除缓存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-OnTrimMemory和onStop的关系？"><span class="toc-number">4.</span> <span class="toc-text">3. OnTrimMemory和onStop的关系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-OnTrimMemory和OnLowMemory的关系？"><span class="toc-number">5.</span> <span class="toc-text">4. OnTrimMemory和OnLowMemory的关系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-为什么要调用OnTrimMemory？"><span class="toc-number">6.</span> <span class="toc-text">5. 为什么要调用OnTrimMemory？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-有哪些典型的使用场景？"><span class="toc-number">7.</span> <span class="toc-text">6. 有哪些典型的使用场景？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-常驻内存的应用"><span class="toc-number">7.1.</span> <span class="toc-text">6.1 常驻内存的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-有后台Service运行的应用"><span class="toc-number">7.2.</span> <span class="toc-text">6.2 有后台Service运行的应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number"></span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0-OnTrimMemory%E5%9B%9E%E8%B0%83%E7%9A%84%E4%BD%9C%E7%94%A8%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">0. OnTrimMemory回调的作用？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%93%AA%E4%BA%9B%E7%BB%84%E4%BB%B6%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0OnTrimMemory%E5%9B%9E%E8%B0%83%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">1. 哪些组件可以实现OnTrimMemory回调？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-OnTrimMemory%E5%9B%9E%E8%B0%83%E4%B8%AD%E5%8F%AF%E4%BB%A5%E9%87%8A%E6%94%BE%E5%93%AA%E4%BA%9B%E8%B5%84%E6%BA%90%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">2. OnTrimMemory回调中可以释放哪些资源？</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E4%BE%8B%E5%AD%90%EF%BC%9A%E9%87%8A%E6%94%BE%E4%B8%8D%E5%B8%B8%E7%94%A8%E5%88%B0%E7%9A%84View%EF%BC%8E"><span class="toc-number">3.0.1.</span> <span class="toc-text">2.1 例子：释放不常用到的View．</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E4%BE%8B%E5%AD%90-%E6%B8%85%E9%99%A4%E7%BC%93%E5%AD%98"><span class="toc-number">3.0.2.</span> <span class="toc-text">2.2 例子: 清除缓存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-OnTrimMemory%E5%92%8ConStop%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">3. OnTrimMemory和onStop的关系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-OnTrimMemory%E5%92%8COnLowMemory%E7%9A%84%E5%85%B3%E7%B3%BB%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">4. OnTrimMemory和OnLowMemory的关系？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%B0%83%E7%94%A8OnTrimMemory%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">5. 为什么要调用OnTrimMemory？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E6%9C%89%E5%93%AA%E4%BA%9B%E5%85%B8%E5%9E%8B%E7%9A%84%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">6. 有哪些典型的使用场景？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6-1-%E5%B8%B8%E9%A9%BB%E5%86%85%E5%AD%98%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">7.1.</span> <span class="toc-text">6.1 常驻内存的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-2-%E6%9C%89%E5%90%8E%E5%8F%B0Service%E8%BF%90%E8%A1%8C%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">7.2.</span> <span class="toc-text">6.2 有后台Service运行的应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91-amp-amp-%E5%8D%9A%E5%AE%A2"><span class="toc-number"></span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a>
             </div>
         
         <!-- sidebar -->
@@ -2592,6 +2590,11 @@
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -2607,21 +2610,6 @@
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -2630,6 +2618,11 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2642,19 +2635,14 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2667,11 +2655,6 @@
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -2680,6 +2663,11 @@
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -2697,29 +2685,9 @@
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -2732,9 +2700,9 @@
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -2742,14 +2710,14 @@
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -2757,14 +2725,14 @@
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -2785,6 +2753,36 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -2818,14 +2816,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -2843,14 +2841,14 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2887,14 +2885,35 @@
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->

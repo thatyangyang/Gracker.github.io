@@ -23,7 +23,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 性能优化典范综述">
 <meta property="og:url" content="https://androidperformance.com/2015/04/19/Android-Performance-Patterns/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="系列文章目录：  Android性能优化典范综述 Android性能优化典范之Render Performance Android性能优化典范之Understanding Overdraw Android性能优化典范之Understanding VSYNC Android性能优化典范之Profile GPU Rendering   2015年1月6日，Google官方发布了一系列关于Android">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/performance-0/1.jpg">
@@ -41,9 +41,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>Android 性能优化典范综述 · 我的优化技术文章分享</title>
+    <title>Android 性能优化典范综述 · Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -155,8 +153,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -208,12 +206,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -231,10 +228,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -318,7 +315,7 @@
     
         
     <!-- 404页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
@@ -357,6 +354,7 @@
 </div>
 
                 
+                <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
                         <span>字数统计: <span class="post-count word-count">928</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
@@ -443,7 +441,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -507,7 +505,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -522,14 +520,14 @@
     <article class="article-entry">
         <p>系列文章目录：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns/" target="_blank" rel="noopener">Android性能优化典范综述</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-1/" target="_blank" rel="noopener">Android性能优化典范之Render Performance</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-2/" target="_blank" rel="noopener">Android性能优化典范之Understanding Overdraw</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-3/" target="_blank" rel="noopener">Android性能优化典范之Understanding VSYNC</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-4/" target="_blank" rel="noopener">Android性能优化典范之Profile GPU Rendering</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns/">Android性能优化典范综述</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-1/">Android性能优化典范之Render Performance</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-2/">Android性能优化典范之Understanding Overdraw</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-3/">Android性能优化典范之Understanding VSYNC</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-4/">Android性能优化典范之Profile GPU Rendering</a></li>
 </ol>
 <hr>
-<p>2015年1月6日，Google官方发布了一系列关于Android性能优化的小视频，将其命名为Android Performance Patterns，这一些列视频放在<a href="https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE" target="_blank" rel="noopener">YouTube</a>上，观看的话需要科学地上网。</p>
+<p>2015年1月6日，Google官方发布了一系列关于Android性能优化的小视频，将其命名为Android Performance Patterns，这一些列视频放在<a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE">YouTube</a>上，观看的话需要科学地上网。</p>
 <p><img src="/images/performance-0/1.jpg" alt="Android性能优化典范"></p>
 <p>官方简介：</p>
 <blockquote>
@@ -537,20 +535,20 @@
 </blockquote>
 <p>总之就是一系列讲解Android性能相关的视频。这些小视频的时间非常短，在3-5分钟之内，主讲人的英文语速也非常快，初期这些视频没有翻译的时候，着实考验了一把听力。好消息是现在这些视频已经都有中英文字幕了。</p>
 <p>这些视频的时间虽然很短，但是信息量却非常大，有些他一句话带过的内容，我们却需要花费很多的时间去研究他的原理，或者研究一个调试工具如何使用。也就是说，这一系列视频并没有真正教你如何去优化你的应用，而是告诉你关于Android性能优化你需要知道的知识，这样你去优化你的Android应用的时候，<strong>知道该用什么工具，该采取什么样的步骤，需要达到什么样的目标。</strong></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>由于我最近也在研究Android性能优化相关的课题，这个视频第一时间出来的时候我就看了好几遍，所以一早就有将这一系列视频翻译成中文的想法。后来看了几遍之后，我发现仅仅翻译成中文其实意义不大，他所讲述的每一个知识点，都是可以写成一篇博文甚至好几篇博文的，所以就有了这一系列文章的出现。</p>
 <p>每一篇文章中，我都会先将视频中涉及到的知识点列出来，然后一一进行讲解。有些调试工具由于篇幅原因，可能会写到单独的博文中。</p>
-<p>另外催生我写这一系列文章的是胡凯，他的博客 <a href="http://hukai.me/android-performance-patterns" target="_blank" rel="noopener">http://hukai.me/android-performance-patterns</a> 第一时间就将这一些列视频的内容翻译成了中文，优美的排版加上过硬的翻译，让这篇博文被广泛传播，备受好评。同时他也是github上 <a href="https://github.com/kesenhoo/android-training-course-in-chinese" target="_blank" rel="noopener">android-training-course-in-chinese</a> 项目的发起人，他的Github主页：<a href="https://github.com/kesenhoo" target="_blank" rel="noopener">https://github.com/kesenhoo</a>。他对于分享的热情我非常敬佩。如果你并非是Android应用开发者或者对技术细节不感兴趣的话，直接看他的那篇Android性能优化典范即可，看完之后你会对这一些列视频有一个大概的认识。</p>
+<p>另外催生我写这一系列文章的是胡凯，他的博客 <a target="_blank" rel="noopener" href="http://hukai.me/android-performance-patterns">http://hukai.me/android-performance-patterns</a> 第一时间就将这一些列视频的内容翻译成了中文，优美的排版加上过硬的翻译，让这篇博文被广泛传播，备受好评。同时他也是github上 <a target="_blank" rel="noopener" href="https://github.com/kesenhoo/android-training-course-in-chinese">android-training-course-in-chinese</a> 项目的发起人，他的Github主页：<a target="_blank" rel="noopener" href="https://github.com/kesenhoo">https://github.com/kesenhoo</a>。他对于分享的热情我非常敬佩。如果你并非是Android应用开发者或者对技术细节不感兴趣的话，直接看他的那篇Android性能优化典范即可，看完之后你会对这一些列视频有一个大概的认识。</p>
 <p>下面是关于Android性能优化典范这一些列视频的一些资源信息：</p>
 <ul>
-<li>YouTube主页：<a href="https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE" target="_blank" rel="noopener">Android Performance Patterns</a></li>
+<li>YouTube主页：<a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLWz5rJ2EKKc9CBxr3BVjPTPoDPLdPIFCE">Android Performance Patterns</a></li>
 <li>作者Google+主页：</li>
 <li>Android Performance Patterns的Google+社群：</li>
 </ul>
 <p>OK，Let us start！！！</p>
 <h1 id="关于我-amp-amp-博客"><a href="#关于我-amp-amp-博客" class="headerlink" title="关于我 &amp;&amp; 博客"></a>关于我 &amp;&amp; 博客</h1><ol>
-<li><a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/about/">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
 <li><a href="https://androidperformance.com/2019/12/01/BlogMap/">博客内容导航</a></li>
 <li><a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">优秀博客文章记录 - Android 性能优化必知必会</a></li>
 </ol>
@@ -567,7 +565,7 @@
             <p>原文链接：<a href="https://androidperformance.com/2015/04/19/Android-Performance-Patterns/">https://androidperformance.com/2015/04/19/Android-Performance-Patterns/</a>
             <p>发表日期：<a href="https://androidperformance.com/2015/04/19/Android-Performance-Patterns/">April 19th 2015, 3:20:35 pm</a>
             <p>更新日期：<a href="https://androidperformance.com/2015/04/19/Android-Performance-Patterns/">December 2nd 2021, 12:06:12 am</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator -->
@@ -760,7 +758,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number">1.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91-amp-amp-%E5%8D%9A%E5%AE%A2"><span class="toc-number">1.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -2557,6 +2555,11 @@
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -2572,21 +2575,6 @@
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -2595,6 +2583,11 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2607,19 +2600,14 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2632,11 +2620,6 @@
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -2645,6 +2628,11 @@
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -2662,29 +2650,9 @@
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -2697,9 +2665,9 @@
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -2707,14 +2675,14 @@
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -2722,14 +2690,14 @@
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -2750,6 +2718,36 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -2783,14 +2781,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -2808,14 +2806,14 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2852,14 +2850,35 @@
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->

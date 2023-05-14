@@ -23,7 +23,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 内存优化之二 - MAT使用进阶">
 <meta property="og:url" content="https://androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="本文是 MAT 工具使用系列的第二篇，这个系列共三篇，详细介绍了如何使用 MAT 来分析内存问题，既可以是 Java 应用的内存问题，也可以是 Android 应用的内存问题：  Android 内存优化之一：MAT 使用入门 Android内存优化之二：MAT使用进阶 Android内存优化之三：打开MAT中的Bitmap原图  Java的内存泄露的特点 Java中的内存泄露主要特征：可达，无用">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/MAT_Pro/MAT_1.png">
@@ -57,9 +57,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>Android 内存优化之二 - MAT使用进阶 · 我的优化技术文章分享</title>
+    <title>Android 内存优化之二 - MAT使用进阶 · Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -171,8 +169,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -224,12 +222,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -247,10 +244,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -334,7 +331,7 @@
     
         
     <!-- 404页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
@@ -373,6 +370,7 @@
 </div>
 
                 
+                <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
                         <span>字数统计: <span class="post-count word-count">1.4k</span>阅读时长: <span class="post-count reading-time">5 min</span></span>
@@ -459,7 +457,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -523,7 +521,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -538,9 +536,9 @@
     <article class="article-entry">
         <p>本文是 MAT 工具使用系列的第二篇，这个系列共三篇，详细介绍了如何使用 MAT 来分析内存问题，既可以是 Java 应用的内存问题，也可以是 Android 应用的内存问题：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/" target="_blank" rel="noopener">Android 内存优化之一：MAT 使用入门</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/" target="_blank" rel="noopener">Android内存优化之二：MAT使用进阶</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/" target="_blank" rel="noopener">Android内存优化之三：打开MAT中的Bitmap原图</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/">Android 内存优化之一：MAT 使用入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/">Android内存优化之二：MAT使用进阶</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/">Android内存优化之三：打开MAT中的Bitmap原图</a></li>
 </ol>
 <h1 id="Java的内存泄露的特点"><a href="#Java的内存泄露的特点" class="headerlink" title="Java的内存泄露的特点"></a>Java的内存泄露的特点</h1><ul>
 <li>Java中的内存泄露主要特征：可达，无用</li>
@@ -549,7 +547,7 @@
 </ul>
 <h1 id="MAT使用技巧进阶"><a href="#MAT使用技巧进阶" class="headerlink" title="MAT使用技巧进阶"></a>MAT使用技巧进阶</h1><h2 id="使用Android-Studio-Dump内存文件"><a href="#使用Android-Studio-Dump内存文件" class="headerlink" title="使用Android Studio Dump内存文件"></a>使用Android Studio Dump内存文件</h2><p>Android Studio的最新版本可以直接获取hprof文件：</p>
 <p><img src="/images/MAT_Pro/MAT_1.png" alt="Android-Studio"></p>
-<a id="more"></a>
+<span id="more"></span>
 
 <p>然后选择文件，点击右键转换成标准的hprof文件，就可以在MAT中打开了。</p>
 <blockquote>
@@ -579,13 +577,13 @@
 <p><img src="/images/MAT_Pro/MAT_9.png" alt="Thread"></p>
 <p>从图中可以得到的信息：</p>
 <ol>
-<li><p>可以看到可能有内存问题的Thread：</p>
-<p><img src="/images/MAT_Pro/MAT_10.png" alt="内存异常"></p>
-</li>
-<li><p>可以看到数量可能有问题的Thread</p>
-<p><img src="/images/MAT_Pro/MAT_11.png" alt="数量异常"></p>
-</li>
+<li>可以看到可能有内存问题的Thread：</li>
 </ol>
+<p>  <img src="/images/MAT_Pro/MAT_10.png" alt="内存异常"></p>
+<ol start="2">
+<li>可以看到数量可能有问题的Thread</li>
+</ol>
+<p> <img src="/images/MAT_Pro/MAT_11.png" alt="数量异常"></p>
 <h2 id="帮助信息"><a href="#帮助信息" class="headerlink" title="帮助信息"></a>帮助信息</h2><p>MAT中的各个视图中，在每一个Item中点击右键会出现很多选项，很多时候我们需要依赖这些选项来进行分析：</p>
 <p><img src="/images/MAT_Pro/MAT_12.png" alt="右键选项"></p>
 <p>这些选项的具体含义则可以通过右键中的Search Queries这个选项(上图中的倒数第四个选项)进行搜索和查看，非常的有用。</p>
@@ -595,13 +593,13 @@
 <ul>
 <li><strong>List objects -&gt; with incoming references</strong>：查看这个对象持有的外部对象引用</li>
 <li><strong>List objects -&gt; with outcoming references</strong>：查看这个对象被哪些外部对象引用</li>
-<li><strong>Path To GC Roots -&gt; exclude all phantim/weak/soft etc. references</strong>：查看这个对象的GC Root，不包含虚、弱引用、软引用，剩下的就是强引用。从GC上说，除了强引用外，其他的引用在JVM需要的情况下是都可以 被GC掉的，如果一个对象始终无法被GC，就是因为强引用的存在，从而导致在GC的过程中一直得不到回收，因此就内存溢出了。</li>
-<li><strong>Path To GC Roots  -&gt; exclude weak/soft references</strong>：查看这个对象的GC Root，不含弱引用和软引用所有的引用.</li>
-<li>*<em>Merge Shortest path to GC root *</em>：找到从GC根节点到一个对象或一组对象的共同路径</li>
+<li><strong>Path To GC Roots -&gt; exclude all phantim&#x2F;weak&#x2F;soft etc. references</strong>：查看这个对象的GC Root，不包含虚、弱引用、软引用，剩下的就是强引用。从GC上说，除了强引用外，其他的引用在JVM需要的情况下是都可以 被GC掉的，如果一个对象始终无法被GC，就是因为强引用的存在，从而导致在GC的过程中一直得不到回收，因此就内存溢出了。</li>
+<li><strong>Path To GC Roots  -&gt; exclude weak&#x2F;soft references</strong>：查看这个对象的GC Root，不含弱引用和软引用所有的引用.</li>
+<li>**Merge Shortest path to GC root **：找到从GC根节点到一个对象或一组对象的共同路径</li>
 </ul>
 <h2 id="Debug-Bitmap"><a href="#Debug-Bitmap" class="headerlink" title="Debug Bitmap"></a>Debug Bitmap</h2><p>如果经常使用MAT分析内存，就会发现Bitmap所占用的内存是非常大的，这个和其实际显示面积是有关系的。在2K屏幕上，一张Bitmap能达到20MB的大小。</p>
 <p>所以要是MAT提供了一种方法，可以将存储Bitmap的byte数组导出来，使用第三方工具打开。这个大大提高了我们分析内存泄露的效率。</p>
-<p>关于这个方法的操作流程，可以参考这篇文章<a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/" target="_blank" rel="noopener">还原MAT中的Bitmap图像</a>.<br>I</p>
+<p>关于这个方法的操作流程，可以参考这篇文章<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/">还原MAT中的Bitmap图像</a>.<br>I</p>
 <h2 id="Debug-ArrayList"><a href="#Debug-ArrayList" class="headerlink" title="Debug ArrayList"></a>Debug ArrayList</h2><p>ArrayList是使用非常常用的一个数据结构，在MAT中，如果想知道ArrayList中有哪些数据，需要右键-&gt; List Objects -&gt; With outgoing references,然后可以看到下面的图：</p>
 <p><img src="/images/MAT_Pro/MAT_14.png" alt="Outgoing"></p>
 <p>从上图可以看到，这个ArrayList的内容在一个array数组中，即暴漏了ArrayList的内部结构，查看的时候有点不方便，所以MAT提供了另外一种查看ArrayList内数据的方式：</p>
@@ -614,7 +612,7 @@
 </blockquote>
 <p><img src="/images/MAT_Pro/MAT_17.png" alt="Big Drops In Dominator Tree"></p>
 <h1 id="关于我-amp-amp-博客"><a href="#关于我-amp-amp-博客" class="headerlink" title="关于我 &amp;&amp; 博客"></a>关于我 &amp;&amp; 博客</h1><ol>
-<li><a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/about/">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
 <li><a href="https://androidperformance.com/2019/12/01/BlogMap/">博客内容导航</a></li>
 <li><a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">优秀博客文章记录 - Android 性能优化必知必会</a></li>
 </ol>
@@ -631,7 +629,7 @@
             <p>原文链接：<a href="https://androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/">https://androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/</a>
             <p>发表日期：<a href="https://androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/">April 11th 2015, 6:26:36 pm</a>
             <p>更新日期：<a href="https://androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/">December 2nd 2021, 12:06:15 am</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator -->
@@ -824,7 +822,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java的内存泄露的特点"><span class="toc-number">1.</span> <span class="toc-text">Java的内存泄露的特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MAT使用技巧进阶"><span class="toc-number">2.</span> <span class="toc-text">MAT使用技巧进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用Android-Studio-Dump内存文件"><span class="toc-number">2.1.</span> <span class="toc-text">使用Android Studio Dump内存文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unreachable对象"><span class="toc-number">2.2.</span> <span class="toc-text">Unreachable对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Histogram"><span class="toc-number">2.3.</span> <span class="toc-text">Histogram</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread信息"><span class="toc-number">2.3.1.</span> <span class="toc-text">Thread信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#帮助信息"><span class="toc-number">2.4.</span> <span class="toc-text">帮助信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debug-Bitmap"><span class="toc-number">2.5.</span> <span class="toc-text">Debug Bitmap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debug-ArrayList"><span class="toc-number">2.6.</span> <span class="toc-text">Debug ArrayList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-Drops-In-Dominator-Tree"><span class="toc-number">2.7.</span> <span class="toc-text">Big Drops In Dominator Tree</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number">3.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Java%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E7%9A%84%E7%89%B9%E7%82%B9"><span class="toc-number">1.</span> <span class="toc-text">Java的内存泄露的特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MAT%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E8%BF%9B%E9%98%B6"><span class="toc-number">2.</span> <span class="toc-text">MAT使用技巧进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8Android-Studio-Dump%E5%86%85%E5%AD%98%E6%96%87%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">使用Android Studio Dump内存文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Unreachable%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.2.</span> <span class="toc-text">Unreachable对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Histogram"><span class="toc-number">2.3.</span> <span class="toc-text">Histogram</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Thread%E4%BF%A1%E6%81%AF"><span class="toc-number">2.3.1.</span> <span class="toc-text">Thread信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%AE%E5%8A%A9%E4%BF%A1%E6%81%AF"><span class="toc-number">2.4.</span> <span class="toc-text">帮助信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debug-Bitmap"><span class="toc-number">2.5.</span> <span class="toc-text">Debug Bitmap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Debug-ArrayList"><span class="toc-number">2.6.</span> <span class="toc-text">Debug ArrayList</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-Drops-In-Dominator-Tree"><span class="toc-number">2.7.</span> <span class="toc-text">Big Drops In Dominator Tree</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91-amp-amp-%E5%8D%9A%E5%AE%A2"><span class="toc-number">3.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -2621,6 +2619,11 @@
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -2636,21 +2639,6 @@
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -2659,6 +2647,11 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2671,19 +2664,14 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2696,11 +2684,6 @@
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -2709,6 +2692,11 @@
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -2726,29 +2714,9 @@
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -2761,9 +2729,9 @@
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -2771,14 +2739,14 @@
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -2786,14 +2754,14 @@
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -2814,6 +2782,36 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -2847,14 +2845,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -2872,14 +2870,14 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2916,14 +2914,35 @@
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->

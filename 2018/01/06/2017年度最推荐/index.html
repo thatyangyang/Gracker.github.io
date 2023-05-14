@@ -23,7 +23,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="2017 年度好物推荐 - 给辛勤工作的自己一点奖励">
 <meta property="og:url" content="https://androidperformance.com/2018/01/06/2017%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="2017 不知不觉已经走过，博客已经许久没有更新了，一个原因是越来越觉得自己的学识浅薄，怕写了技术误了大家，另一个原因是自己太懒了。鉴于上面两个原因，我决定此博客的更新，不再非要更新技术文章，一些我觉得有意义的事情、思考等，也会更新上来。一方面自己做个记录，如果能顺带给读者带来一点帮助，那自然是最好的(虽然没几个读者…) 2017 既然才刚刚过去，我觉得有必要把 2017 年里面我觉得体验很棒或者">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/media/15152276589894.jpg">
@@ -54,9 +54,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>2017 年度好物推荐 - 给辛勤工作的自己一点奖励 · 我的优化技术文章分享</title>
+    <title>2017 年度好物推荐 - 给辛勤工作的自己一点奖励 · Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -168,8 +166,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -221,12 +219,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -244,10 +241,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -331,7 +328,7 @@
     
         
     <!-- 404页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
@@ -364,6 +361,7 @@
 </div>
 
                 
+                <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
                         <span>字数统计: <span class="post-count word-count">4.4k</span>阅读时长: <span class="post-count reading-time">15 min</span></span>
@@ -450,7 +448,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -514,7 +512,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -529,11 +527,11 @@
     <article class="article-entry">
         <p>2017 不知不觉已经走过，博客已经许久没有更新了，一个原因是越来越觉得自己的学识浅薄，怕写了技术误了大家，另一个原因是自己太懒了。鉴于上面两个原因，我决定此博客的更新，不再非要更新技术文章，一些我觉得有意义的事情、思考等，也会更新上来。一方面自己做个记录，如果能顺带给读者带来一点帮助，那自然是最好的(虽然没几个读者…)</p>
 <p>2017 既然才刚刚过去，我觉得有必要把 2017 年里面我觉得体验很棒或者对工作生活很有帮助的东西推荐给大家，或许 2018 你会需要他们。推荐的内容包含了 App、硬件、书籍、器材等，需要说明的是，这些东西是我觉得 2017 年给我带来很大帮助的，适合我不一定适合你。话不多说，直接上内容吧！</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="2017-年度最推荐-iOS-App"><a href="#2017-年度最推荐-iOS-App" class="headerlink" title="2017 年度最推荐 iOS App"></a>2017 年度最推荐 iOS App</h1><p><strong>关键词 ：减肥 学习 见识</strong></p>
 <h2 id="Keep"><a href="#Keep" class="headerlink" title="Keep"></a>Keep</h2><p><img src="/images/media/15152276589894.jpg" alt="Keep"></p>
-<p>如果你是一个健身爱好者、计划减肥者，想找一款能记录运动的 App，那么我推荐 Keep 给你。Keep 那句很出名的 slogan 不知道大家有没有听说过：<strong>自律给我自由!</strong>，我同样喜欢另外一句：<strong>不要让工作毁掉你的生活，总有比你更忙的人在运动</strong>。</p>
+<p>如果你是一个健身爱好者、计划减肥者，想找一款能记录运动的 App，那么我推荐 Keep 给你。Keep 那句很出名的 slogan 不知道大家有没有听说过：<strong>自律给我自由!<strong>，我同样喜欢另外一句：</strong>不要让工作毁掉你的生活，总有比你更忙的人在运动</strong>。</p>
 <p>软件只是一个辅助，最重要的是要自律，生活需要自律，运动需要自律，饮食需要自律。自律并不意味着生活会失去乐趣，相反，自律给我自由和自信，人总是向往完美的自己，Keep It！</p>
 <p>2017 在 Keep 的帮助下，我的体重从最重时候的 78 kg 到了现在的 70 kg，可能数值上没有什么大不了的，但是回过头来看照片对比，现在真的要自信很多。</p>
 <h2 id="得到"><a href="#得到" class="headerlink" title="得到"></a>得到</h2><p><img src="/images/media/1_9Z-KgmC_qnkI3YqbLbrjuQ.png" alt="得到"></p>
@@ -567,7 +565,7 @@
 <p>再也不用嫉妒朋友的iPhone手机，即使安装大量应用，也不会变得迟缓和耗电。有了『绿色守护』，你的Android设备也能永葆第一天拥有它时的爽滑持久！</p>
 </blockquote>
 <blockquote>
-<p>『知乎』上用户认同度最高的Android省电软件：<a href="http://www.zhihu.com/question/21007772" target="_blank" rel="noopener">http://www.zhihu.com/question/21007772</a></p>
+<p>『知乎』上用户认同度最高的Android省电软件：<a target="_blank" rel="noopener" href="http://www.zhihu.com/question/21007772">http://www.zhihu.com/question/21007772</a></p>
 </blockquote>
 <blockquote>
 <p>『绿色守护』帮助你甄别那些对系统全局性能和耗电量有不良影响的应用程序，并通过独特的『绿色化』技术，阻止它们消耗您的电池电量，占用您的宝贵内存。经过『绿色化』工艺处理的应用，在您没有主动启动它们的时候，无法『偷偷』运行，而在您正常启动它们时仍然拥有完整的功能和体验，正如iPhone应用那样！</p>
@@ -587,24 +585,24 @@
 <blockquote>
 <p>作者还强调，深度工作不是一项过时的技能，而是将人们从技术垄断导致的精神异化状态中解救出来的良药。在当前这个以网络为中心的浮浅信息时代，倡导深度工作无异于呼唤一种匠人精神的回归。</p>
 </blockquote>
-<p>豆瓣：<a href="https://book.douban.com/subject/27056409/" target="_blank" rel="noopener">https://book.douban.com/subject/27056409/</a></p>
+<p>豆瓣：<a target="_blank" rel="noopener" href="https://book.douban.com/subject/27056409/">https://book.douban.com/subject/27056409/</a></p>
 <h2 id="刻意练习-如何从新手到大师"><a href="#刻意练习-如何从新手到大师" class="headerlink" title="刻意练习-如何从新手到大师"></a>刻意练习-如何从新手到大师</h2><p><img src="/images/media/15152576721372.jpg" alt="刻意练习"></p>
 <p>这本书，也算是声名在外。其实这本书告诉我们一个很简单的道理，想要成为任何一个行业的专家，你都需要进行大量的刻意练习，而不是单纯的堆积时间。</p>
 <blockquote>
 <p>对于在任何行业或领域中希望提升自己的每个人，刻意练习是黄金标准，是迄今为止发现的最强大的学习方法。</p>
 </blockquote>
-<p>豆瓣：<a href="https://book.douban.com/subject/26895993/" target="_blank" rel="noopener">https://book.douban.com/subject/26895993/</a></p>
+<p>豆瓣：<a target="_blank" rel="noopener" href="https://book.douban.com/subject/26895993/">https://book.douban.com/subject/26895993/</a></p>
 <h1 id="2017-年度最推荐技术书"><a href="#2017-年度最推荐技术书" class="headerlink" title="2017 年度最推荐技术书"></a>2017 年度最推荐技术书</h1><p><strong>关键词 ：</strong><br>说来惭愧，2017年没有认认真真读完一本技术书，但从我阅读过的那么多技术书中，还是有两本可以推荐给大家，不过我阅读的技术书，跟我自己的工作相关的比较多，不一定适合你。</p>
 <h2 id="深入理解Android内核设计思想（第二版）"><a href="#深入理解Android内核设计思想（第二版）" class="headerlink" title="深入理解Android内核设计思想（第二版）"></a>深入理解Android内核设计思想（第二版）</h2><p><img src="/images/media/15152587790243.jpg" alt="深入理解Android内核设计思想"></p>
 <p>算是系统开发的经典书了，这书今年出了第二版，加了一些新的内容。不管是应用开发工程师，还是系统开发工程师，多了解 Android 系统的架构和设计，对自己知识的深度是很有帮助的。</p>
 <p>不过 Android 的版本发展实在是太快了，阅读此书建议配合最新的 Android 源代码。梳理流程的同时，也要深度思考设计思想。</p>
 <blockquote>
-<p>《深入理解Android内核设计思想》适用于 Android 4.3以上的版本。全书从操作系统的基础知识入手，全面剖析进程/线程、内存管理、Binderv机制、GUIv显示系统、多媒体管理、输入系统等核心技术在 Android 中的实现原理。书中讲述的知识点大部分来源于工程项目研发，因而具有较强的实用性，希望可以让读者“知其然，更知其所以然”。全书分为编译篇、系统原理篇、应用原理篇、系统工具篇共4篇22章，基本涵盖了参与Android开发所需具备的知识，并通过大量图片与实例来引导读者学习，以求尽量在源代码分析外为读者提供更易于理解的思维方式。</p>
+<p>《深入理解Android内核设计思想》适用于 Android 4.3以上的版本。全书从操作系统的基础知识入手，全面剖析进程&#x2F;线程、内存管理、Binderv机制、GUIv显示系统、多媒体管理、输入系统等核心技术在 Android 中的实现原理。书中讲述的知识点大部分来源于工程项目研发，因而具有较强的实用性，希望可以让读者“知其然，更知其所以然”。全书分为编译篇、系统原理篇、应用原理篇、系统工具篇共4篇22章，基本涵盖了参与Android开发所需具备的知识，并通过大量图片与实例来引导读者学习，以求尽量在源代码分析外为读者提供更易于理解的思维方式。</p>
 </blockquote>
 <blockquote>
 <p>《深入理解Android内核设计思想》既适合 Android 系统工程师，也适合于应用开发工程师来阅读提升Android开发能力。读者可以在《深入理解vAndroidv内核设计思想》潜移默化的学习过程中更深刻地理解Android系统，并将所学知识自然地应用到实际开发难题的解决中。</p>
 </blockquote>
-<p>豆瓣 ： <a href="https://book.douban.com/subject/25921329/" target="_blank" rel="noopener">https://book.douban.com/subject/25921329/</a></p>
+<p>豆瓣 ： <a target="_blank" rel="noopener" href="https://book.douban.com/subject/25921329/">https://book.douban.com/subject/25921329/</a></p>
 <h2 id="奔跑吧-Linux内核"><a href="#奔跑吧-Linux内核" class="headerlink" title="奔跑吧 Linux内核"></a>奔跑吧 Linux内核</h2><p><img src="/images/media/15152591841672.jpg" alt="奔跑吧 Linux内核"></p>
 <p>这本书我还在读，由于缺乏相关的知识，所以进度有点慢。Android 系统工程师必备。</p>
 <blockquote>
@@ -613,7 +611,7 @@
 <blockquote>
 <p>本书内容丰富，讲解清晰透彻，不仅适合有一定Linux相关基础的人员，包括从事与Linux相关的开发人员、操作系统的研究人员、嵌入式开发人员及Android底层开发人员等学习和使用，而且适合作为对Linux感兴趣的程序员的学习用书，也可以作为大专院校相关专业师生的学习用书和培训学校的教材。</p>
 </blockquote>
-<p>豆瓣 ： <a href="https://book.douban.com/subject/27108677/" target="_blank" rel="noopener">https://book.douban.com/subject/27108677/</a></p>
+<p>豆瓣 ： <a target="_blank" rel="noopener" href="https://book.douban.com/subject/27108677/">https://book.douban.com/subject/27108677/</a></p>
 <h1 id="2017-年度最推荐手机-–-Meizu-Pro7-Plus"><a href="#2017-年度最推荐手机-–-Meizu-Pro7-Plus" class="headerlink" title="2017 年度最推荐手机 – Meizu Pro7 Plus"></a>2017 年度最推荐手机 – Meizu Pro7 Plus</h1><p><strong>关键词 ：旗舰</strong></p>
 <p><img src="/images/media/15152597921570.jpg" alt="Meizu Pro7 Plus"></p>
 <p>并不是我不想推荐 iPhone X，是因为买不起……</p>
@@ -645,7 +643,7 @@
 <li>扫地机器人，谁不想每天回去家里的地上很干净呢？尤其是在家里有一个长毛怪和两只猫的情况下</li>
 </ol>
 <h1 id="关于我-amp-amp-博客"><a href="#关于我-amp-amp-博客" class="headerlink" title="关于我 &amp;&amp; 博客"></a>关于我 &amp;&amp; 博客</h1><ol>
-<li><a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/about/">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
 <li><a href="https://androidperformance.com/2019/12/01/BlogMap/">博客内容导航</a></li>
 <li><a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">优秀博客文章记录 - Android 性能优化必知必会</a></li>
 </ol>
@@ -662,7 +660,7 @@
             <p>原文链接：<a href="https://androidperformance.com/2018/01/06/2017%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90/">https://androidperformance.com/2018/01/06/2017%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90/</a>
             <p>发表日期：<a href="https://androidperformance.com/2018/01/06/2017%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90/">January 6th 2018, 3:40:01 pm</a>
             <p>更新日期：<a href="https://androidperformance.com/2018/01/06/2017%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90/">December 2nd 2021, 12:08:03 am</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator -->
@@ -855,7 +853,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐-iOS-App"><span class="toc-number">1.</span> <span class="toc-text">2017 年度最推荐 iOS App</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Keep"><span class="toc-number">1.1.</span> <span class="toc-text">Keep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#得到"><span class="toc-number">1.2.</span> <span class="toc-text">得到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#微信读书"><span class="toc-number">1.3.</span> <span class="toc-text">微信读书</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐-Mac-App"><span class="toc-number">2.</span> <span class="toc-text">2017 年度最推荐 Mac App</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Things-3"><span class="toc-number">2.1.</span> <span class="toc-text">Things 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MWeb"><span class="toc-number">2.2.</span> <span class="toc-text">MWeb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Evernote"><span class="toc-number">2.3.</span> <span class="toc-text">Evernote</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐-Android-App"><span class="toc-number">3.</span> <span class="toc-text">2017 年度最推荐 Android App</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#影梭"><span class="toc-number">3.1.</span> <span class="toc-text">影梭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#绿色守护"><span class="toc-number">3.2.</span> <span class="toc-text">绿色守护</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐非技术书"><span class="toc-number">4.</span> <span class="toc-text">2017 年度最推荐非技术书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#深度工作"><span class="toc-number">4.1.</span> <span class="toc-text">深度工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#刻意练习-如何从新手到大师"><span class="toc-number">4.2.</span> <span class="toc-text">刻意练习-如何从新手到大师</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐技术书"><span class="toc-number">5.</span> <span class="toc-text">2017 年度最推荐技术书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#深入理解Android内核设计思想（第二版）"><span class="toc-number">5.1.</span> <span class="toc-text">深入理解Android内核设计思想（第二版）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#奔跑吧-Linux内核"><span class="toc-number">5.2.</span> <span class="toc-text">奔跑吧 Linux内核</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐手机-–-Meizu-Pro7-Plus"><span class="toc-number">6.</span> <span class="toc-text">2017 年度最推荐手机 – Meizu Pro7 Plus</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐路由器-–-小米路由器-Pro"><span class="toc-number">7.</span> <span class="toc-text">2017 年度最推荐路由器 – 小米路由器 Pro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐平板-–-iPad-Pro"><span class="toc-number">8.</span> <span class="toc-text">2017 年度最推荐平板 – iPad Pro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐穿戴设备-–-iWatch"><span class="toc-number">9.</span> <span class="toc-text">2017 年度最推荐穿戴设备 – iWatch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐耳机-–-MDR-1000X"><span class="toc-number">10.</span> <span class="toc-text">2017 年度最推荐耳机 – MDR-1000X</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-年度最推荐减肥伴侣-–-跑步机"><span class="toc-number">11.</span> <span class="toc-text">2017 年度最推荐减肥伴侣 – 跑步机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-number">12.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number">13.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90-iOS-App"><span class="toc-number">1.</span> <span class="toc-text">2017 年度最推荐 iOS App</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Keep"><span class="toc-number">1.1.</span> <span class="toc-text">Keep</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%97%E5%88%B0"><span class="toc-number">1.2.</span> <span class="toc-text">得到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6"><span class="toc-number">1.3.</span> <span class="toc-text">微信读书</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90-Mac-App"><span class="toc-number">2.</span> <span class="toc-text">2017 年度最推荐 Mac App</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Things-3"><span class="toc-number">2.1.</span> <span class="toc-text">Things 3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MWeb"><span class="toc-number">2.2.</span> <span class="toc-text">MWeb</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Evernote"><span class="toc-number">2.3.</span> <span class="toc-text">Evernote</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90-Android-App"><span class="toc-number">3.</span> <span class="toc-text">2017 年度最推荐 Android App</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%B1%E6%A2%AD"><span class="toc-number">3.1.</span> <span class="toc-text">影梭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%BF%E8%89%B2%E5%AE%88%E6%8A%A4"><span class="toc-number">3.2.</span> <span class="toc-text">绿色守护</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90%E9%9D%9E%E6%8A%80%E6%9C%AF%E4%B9%A6"><span class="toc-number">4.</span> <span class="toc-text">2017 年度最推荐非技术书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.1.</span> <span class="toc-text">深度工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%BB%E6%84%8F%E7%BB%83%E4%B9%A0-%E5%A6%82%E4%BD%95%E4%BB%8E%E6%96%B0%E6%89%8B%E5%88%B0%E5%A4%A7%E5%B8%88"><span class="toc-number">4.2.</span> <span class="toc-text">刻意练习-如何从新手到大师</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90%E6%8A%80%E6%9C%AF%E4%B9%A6"><span class="toc-number">5.</span> <span class="toc-text">2017 年度最推荐技术书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Android%E5%86%85%E6%A0%B8%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%89%88%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">深入理解Android内核设计思想（第二版）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A5%94%E8%B7%91%E5%90%A7-Linux%E5%86%85%E6%A0%B8"><span class="toc-number">5.2.</span> <span class="toc-text">奔跑吧 Linux内核</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90%E6%89%8B%E6%9C%BA-%E2%80%93-Meizu-Pro7-Plus"><span class="toc-number">6.</span> <span class="toc-text">2017 年度最推荐手机 – Meizu Pro7 Plus</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90%E8%B7%AF%E7%94%B1%E5%99%A8-%E2%80%93-%E5%B0%8F%E7%B1%B3%E8%B7%AF%E7%94%B1%E5%99%A8-Pro"><span class="toc-number">7.</span> <span class="toc-text">2017 年度最推荐路由器 – 小米路由器 Pro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90%E5%B9%B3%E6%9D%BF-%E2%80%93-iPad-Pro"><span class="toc-number">8.</span> <span class="toc-text">2017 年度最推荐平板 – iPad Pro</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90%E7%A9%BF%E6%88%B4%E8%AE%BE%E5%A4%87-%E2%80%93-iWatch"><span class="toc-number">9.</span> <span class="toc-text">2017 年度最推荐穿戴设备 – iWatch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90%E8%80%B3%E6%9C%BA-%E2%80%93-MDR-1000X"><span class="toc-number">10.</span> <span class="toc-text">2017 年度最推荐耳机 – MDR-1000X</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2017-%E5%B9%B4%E5%BA%A6%E6%9C%80%E6%8E%A8%E8%8D%90%E5%87%8F%E8%82%A5%E4%BC%B4%E4%BE%A3-%E2%80%93-%E8%B7%91%E6%AD%A5%E6%9C%BA"><span class="toc-number">11.</span> <span class="toc-text">2017 年度最推荐减肥伴侣 – 跑步机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">12.</span> <span class="toc-text">其他</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91-amp-amp-%E5%8D%9A%E5%AE%A2"><span class="toc-number">13.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -2652,6 +2650,11 @@
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -2667,21 +2670,6 @@
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -2690,6 +2678,11 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2702,19 +2695,14 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2727,11 +2715,6 @@
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -2740,6 +2723,11 @@
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -2757,29 +2745,9 @@
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -2792,9 +2760,9 @@
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -2802,14 +2770,14 @@
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -2817,14 +2785,14 @@
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -2845,6 +2813,36 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -2878,14 +2876,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -2903,14 +2901,14 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2947,14 +2945,35 @@
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->

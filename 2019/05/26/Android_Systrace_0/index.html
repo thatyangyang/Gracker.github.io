@@ -23,7 +23,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android Systrace -- 系列文章目录">
 <meta property="og:url" content="https://androidperformance.com/2019/05/26/Android_Systrace_0/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="随着 Systrace 的功能越来越完善，加上 Android 版本的更迭，之前写的 Systrace 系列教程已经有点过时；另外随着自己技能的完善，从 Systrace 里挖掘了更多的信息，对解决各种性能问题很有帮助。这些技能我需要记录下来，增强自己的总结和归纳的能力，如果能帮助到看文章的人，也是极好的 本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/WechatIMG581.png">
@@ -40,9 +40,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>Android Systrace -- 系列文章目录 · 我的优化技术文章分享</title>
+    <title>Android Systrace -- 系列文章目录 · Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -154,8 +152,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -207,12 +205,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -230,10 +227,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -317,7 +314,7 @@
     
         
     <!-- 404页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
@@ -356,6 +353,7 @@
 </div>
 
                 
+                <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
                         <span>字数统计: <span class="post-count word-count">1.2k</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
@@ -442,7 +440,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -506,7 +504,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -521,28 +519,28 @@
     <article class="article-entry">
         <p>随着 Systrace 的功能越来越完善，加上 Android 版本的更迭，之前写的 Systrace 系列教程已经有点过时；另外随着自己技能的完善，从 Systrace 里挖掘了更多的信息，对解决各种性能问题很有帮助。这些技能我需要记录下来，增强自己的总结和归纳的能力，如果能帮助到看文章的人，也是极好的</p>
 <p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。</p>
-<a id="more"></a>
+<span id="more"></span>
 
 <h1 id="系列文章目录"><a href="#系列文章目录" class="headerlink" title="系列文章目录"></a>系列文章目录</h1><p>本篇文章是一个目录，之后的文章更新后，会在这里进行汇总，内容如下：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2019/05/28/Android-Systrace-About/" target="_blank" rel="noopener">Systrace 简介</a></li>
-<li><a href="https://www.androidperformance.com/2019/07/23/Android-Systrace-Pre/" target="_blank" rel="noopener">Systrace 基础知识 - Systrace 预备知识</a></li>
-<li><a href="https://www.androidperformance.com/2019/05/27/why-60-fps/" target="_blank" rel="noopener">Systrace 基础知识 - Why 60 fps ？</a></li>
-<li><a href="https://www.androidperformance.com/2019/06/29/Android-Systrace-SystemServer/" target="_blank" rel="noopener">Systrace 基础知识 - SystemServer 解读</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/05/28/Android-Systrace-About/">Systrace 简介</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/07/23/Android-Systrace-Pre/">Systrace 基础知识 - Systrace 预备知识</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/05/27/why-60-fps/">Systrace 基础知识 - Why 60 fps ？</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/06/29/Android-Systrace-SystemServer/">Systrace 基础知识 - SystemServer 解读</a></li>
 <li><a href="(https://www.androidperformance.com/2020/02/14/Android-Systrace-SurfaceFlinger/)">Systrace 基础知识 - SurfaceFlinger 解读</a></li>
-<li><a href="https://www.androidperformance.com/2019/11/04/Android-Systrace-Input/" target="_blank" rel="noopener">Systrace 基础知识 - Input 解读</a></li>
-<li><a href="https://www.androidperformance.com/2019/12/01/Android-Systrace-Vsync/" target="_blank" rel="noopener">Systrace 基础知识 - Vsync 解读</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/11/04/Android-Systrace-Input/">Systrace 基础知识 - Input 解读</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/12/01/Android-Systrace-Vsync/">Systrace 基础知识 - Vsync 解读</a></li>
 <li><a href="https://androidperformance.com/2019/10/22/Android-Choreographer/">Systrace 基础知识 - Vsync-App ：基于 Choreographer 的渲染机制详解</a></li>
-<li><a href="https://www.androidperformance.com/2019/11/06/Android-Systrace-MainThread-And-RenderThread/" target="_blank" rel="noopener">Systrace 基础知识 - MainThread 和 RenderThread 解读</a></li>
-<li><a href="https://www.androidperformance.com/2019/12/06/Android-Systrace-Binder/" target="_blank" rel="noopener">Systrace 基础知识 - Binder 和锁竞争解读</a></li>
-<li><a href="https://www.androidperformance.com/2019/12/15/Android-Systrace-Triple-Buffer" target="_blank" rel="noopener">Systrace 基础知识 - Triple Buffer 解读</a></li>
-<li><a href="https://www.androidperformance.com/2019/12/21/Android-Systrace-CPU" target="_blank" rel="noopener">Systrace 基础知识 - CPU Info 解读</a></li>
-<li><a href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/" target="_blank" rel="noopener">Systrace 流畅性实战 1 ：了解卡顿原理</a></li>
-<li><a href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/" target="_blank" rel="noopener">Systrace 流畅性实战 2 ：案例分析: MIUI 桌面滑动卡顿分析</a></li>
-<li><a href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-3/" target="_blank" rel="noopener">Systrace 流畅性实战 3 ：卡顿分析过程中的一些疑问</a></li>
-<li><a href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/" target="_blank" rel="noopener">Systrace 响应速度实战 1 ：了解响应速度原理</a></li>
-<li><a href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-2/" target="_blank" rel="noopener">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a></li>
-<li><a href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/" target="_blank" rel="noopener">Systrace 响应速度实战 3 ：响应速度延伸知识</a> </li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/11/06/Android-Systrace-MainThread-And-RenderThread/">Systrace 基础知识 - MainThread 和 RenderThread 解读</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/12/06/Android-Systrace-Binder/">Systrace 基础知识 - Binder 和锁竞争解读</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/12/15/Android-Systrace-Triple-Buffer">Systrace 基础知识 - Triple Buffer 解读</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/12/21/Android-Systrace-CPU">Systrace 基础知识 - CPU Info 解读</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/">Systrace 流畅性实战 1 ：了解卡顿原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/">Systrace 流畅性实战 2 ：案例分析: MIUI 桌面滑动卡顿分析</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-3/">Systrace 流畅性实战 3 ：卡顿分析过程中的一些疑问</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/">Systrace 响应速度实战 1 ：了解响应速度原理</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-2/">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/">Systrace 响应速度实战 3 ：响应速度延伸知识</a></li>
 </ol>
 <p>目录暂定这么多，后续如果在写作的时候，有更新或者删减，都会在这里进行更新，本篇文章也会置顶一段时间</p>
 <h2 id="面向读者群"><a href="#面向读者群" class="headerlink" title="面向读者群"></a>面向读者群</h2><p>本系列的文章既适用于应用开发者，也适用于系统开发者，我会在写作的时候兼顾两者。作为一名系统开发者，我大概理了一下我的优势：</p>
@@ -562,25 +560,25 @@
 <ol>
 <li>2018-03-30 目录更新：<a href="https://androidperformance.com/2018/05/03/Android_Systrace_0.html">Systrace 系列文章目录</a></li>
 <li>2018-04-01 更新文章：<a href="https://androidperformance.com/2018/04/01/why-60-fps.html">Systrace 基础知识 -  Why 60 fps ？</a></li>
-<li>2019-07-23 更新文章：<a href="https://www.androidperformance.com/2019/07/23/Android-Systrace-Pre/" target="_blank" rel="noopener">Systrace 基础知识 - Systrace 预备知识</a></li>
+<li>2019-07-23 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/07/23/Android-Systrace-Pre/">Systrace 基础知识 - Systrace 预备知识</a></li>
 <li>2019-10-22 更新问题：<a href="https://androidperformance.com/2019/10/22/Android-Choreographer/">Systrace 基础知识 - Vsync-App ：基于 Choreographer 的渲染机制详解</a></li>
-<li>2019-11-04 更新文章：<a href="https://www.androidperformance.com/2019/11/04/Android-Systrace-Input/" target="_blank" rel="noopener">Systrace 基础知识 - Input 解读</a></li>
-<li>2019-11-06 更新文章：<a href="https://www.androidperformance.com/2019/11/06/Android-Systrace-MainThread-And-RenderThread/" target="_blank" rel="noopener">Systrace 基础知识 - MainThread 和 RenderThread 解读</a></li>
-<li>2019-12-01 更新文章：<a href="https://www.androidperformance.com/2019/12/01/Android-Systrace-Vsync/" target="_blank" rel="noopener">Systrace 基础知识 - Vsync 解读</a></li>
-<li>2019-12-06 更新文章: <a href="https://www.androidperformance.com/2019/12/06/Android-Systrace-Binder/" target="_blank" rel="noopener">Systrace 基础知识 - Binder 和锁竞争解读</a></li>
-<li>2019-12-15 更新文章：<a href="https://www.androidperformance.com/2019/12/15/Android-Systrace-Triple-Buffer" target="_blank" rel="noopener">Systrace 基础知识 - Triple Buffer 解读</a></li>
-<li>2019-12-21 更新文章：<a href="https://www.androidperformance.com/2019/12/21/Android-Systrace-CPU" target="_blank" rel="noopener">Systrace 基础知识 - CPU Info 解读</a></li>
-<li>2020-02-04 更新文章：<a href="https://www.androidperformance.com/2019/06/29/Android-Systrace-SystemServer/" target="_blank" rel="noopener">Systrace 基础知识 - SystemServer 解读</a></li>
-<li>2020-02-14 更新文章：<a href="https://www.androidperformance.com/2020/02/14/Android-Systrace-SurfaceFlinger/" target="_blank" rel="noopener">Systrace 基础知识 - SurfaceFlinger 解读</a></li>
-<li>2021-04-24 更新文章：<a href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/" target="_blank" rel="noopener">Systrace 流畅性实战 1 ：了解卡顿原理</a></li>
-<li>2021-04-24 更新文章：<a href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/" target="_blank" rel="noopener">Systrace 流畅性实战 2 ：案例分析: MIUI 桌面滑动卡顿分析</a></li>
-<li>2021-04-24 更新文章：<a href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-3/" target="_blank" rel="noopener">Systrace 流畅性实战 3 ：卡顿分析过程中的一些疑问</a></li>
-<li>2021-10-28 更新文章：<a href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/" target="_blank" rel="noopener">Systrace 响应速度实战 1 ：了解响应速度原理</a></li>
-<li>2021-10-28 更新文章：<a href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-2/" target="_blank" rel="noopener">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a></li>
-<li>2021-10-28 更新文章：<a href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/" target="_blank" rel="noopener">Systrace 响应速度实战 3 ：响应速度延伸知识</a> </li>
+<li>2019-11-04 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/11/04/Android-Systrace-Input/">Systrace 基础知识 - Input 解读</a></li>
+<li>2019-11-06 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/11/06/Android-Systrace-MainThread-And-RenderThread/">Systrace 基础知识 - MainThread 和 RenderThread 解读</a></li>
+<li>2019-12-01 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/12/01/Android-Systrace-Vsync/">Systrace 基础知识 - Vsync 解读</a></li>
+<li>2019-12-06 更新文章: <a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/12/06/Android-Systrace-Binder/">Systrace 基础知识 - Binder 和锁竞争解读</a></li>
+<li>2019-12-15 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/12/15/Android-Systrace-Triple-Buffer">Systrace 基础知识 - Triple Buffer 解读</a></li>
+<li>2019-12-21 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/12/21/Android-Systrace-CPU">Systrace 基础知识 - CPU Info 解读</a></li>
+<li>2020-02-04 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/06/29/Android-Systrace-SystemServer/">Systrace 基础知识 - SystemServer 解读</a></li>
+<li>2020-02-14 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2020/02/14/Android-Systrace-SurfaceFlinger/">Systrace 基础知识 - SurfaceFlinger 解读</a></li>
+<li>2021-04-24 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/">Systrace 流畅性实战 1 ：了解卡顿原理</a></li>
+<li>2021-04-24 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/">Systrace 流畅性实战 2 ：案例分析: MIUI 桌面滑动卡顿分析</a></li>
+<li>2021-04-24 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/04/24/android-systrace-smooth-in-action-3/">Systrace 流畅性实战 3 ：卡顿分析过程中的一些疑问</a></li>
+<li>2021-10-28 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/">Systrace 响应速度实战 1 ：了解响应速度原理</a></li>
+<li>2021-10-28 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-2/">Systrace 响应速度实战 2 ：响应速度实战分析-以启动速度为例</a></li>
+<li>2021-10-28 更新文章：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/">Systrace 响应速度实战 3 ：响应速度延伸知识</a></li>
 </ol>
 <h1 id="关于我-amp-amp-博客"><a href="#关于我-amp-amp-博客" class="headerlink" title="关于我 &amp;&amp; 博客"></a>关于我 &amp;&amp; 博客</h1><ol>
-<li><a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/about/">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
 <li><a href="https://androidperformance.com/2019/12/01/BlogMap/">博客内容导航</a></li>
 <li><a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">优秀博客文章记录 - Android 性能优化必知必会</a></li>
 </ol>
@@ -597,7 +595,7 @@
             <p>原文链接：<a href="https://androidperformance.com/2019/05/26/Android_Systrace_0/">https://androidperformance.com/2019/05/26/Android_Systrace_0/</a>
             <p>发表日期：<a href="https://androidperformance.com/2019/05/26/Android_Systrace_0/">May 26th 2019, 4:54:34 pm</a>
             <p>更新日期：<a href="https://androidperformance.com/2019/05/26/Android_Systrace_0/">December 2nd 2021, 12:10:22 am</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator -->
@@ -790,7 +788,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#系列文章目录"><span class="toc-number">1.</span> <span class="toc-text">系列文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#面向读者群"><span class="toc-number">1.1.</span> <span class="toc-text">面向读者群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更新日志"><span class="toc-number">1.2.</span> <span class="toc-text">更新日志</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number">2.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E5%88%97%E6%96%87%E7%AB%A0%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">系列文章目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E8%AF%BB%E8%80%85%E7%BE%A4"><span class="toc-number">1.1.</span> <span class="toc-text">面向读者群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="toc-number">1.2.</span> <span class="toc-text">更新日志</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91-amp-amp-%E5%8D%9A%E5%AE%A2"><span class="toc-number">2.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -2587,6 +2585,11 @@
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -2602,21 +2605,6 @@
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -2625,6 +2613,11 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2637,19 +2630,14 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2662,11 +2650,6 @@
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -2675,6 +2658,11 @@
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -2692,29 +2680,9 @@
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -2727,9 +2695,9 @@
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -2737,14 +2705,14 @@
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -2752,14 +2720,14 @@
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -2780,6 +2748,36 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -2813,14 +2811,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -2838,14 +2836,14 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -2882,14 +2880,35 @@
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->

@@ -23,7 +23,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Systrace 线程 CPU 运行状态分析技巧 - Sleep 和 Uninterruptible Sleep 篇">
 <meta property="og:url" content="https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="本文是 Systrace 线程 CPU 运行状态分析技巧系列的第三篇，本文主要讲了使用 Systrace 分析 CPU 状态时遇到的 Sleep 与 Uninterruptible Sleep 状态的原因排查方法与优化方法，这两个状态导致性能变差概率非常高，而且排查起来也比较费劲，网上也没有系统化的文档。 本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-sleep/image.png">
@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-sleep/image_8.png">
 <meta property="og:image" content="https://androidperformance.com/images/android-systrace-cpu-state-sleep/image_9.png">
 <meta property="article:published_time" content="2022-03-13T00:38:12.000Z">
-<meta property="article:modified_time" content="2022-06-29T15:22:47.003Z">
+<meta property="article:modified_time" content="2023-05-14T06:24:30.789Z">
 <meta property="article:author" content="Gracker">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Performance">
@@ -48,9 +48,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>Systrace 线程 CPU 运行状态分析技巧 - Sleep 和 Uninterruptible Sleep 篇 · 我的优化技术文章分享</title>
+    <title>Systrace 线程 CPU 运行状态分析技巧 - Sleep 和 Uninterruptible Sleep 篇 · Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -162,8 +160,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -215,12 +213,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -238,10 +235,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -325,7 +322,7 @@
     
         
     <!-- 404页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
@@ -362,9 +359,10 @@
 </div>
 
                 
+                <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">4.7k</span>阅读时长: <span class="post-count reading-time">17 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">4.5k</span>阅读时长: <span class="post-count reading-time">16 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -448,7 +446,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -512,7 +510,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -526,32 +524,31 @@
                 <main class="main post-page">
     <article class="article-entry">
         <p>本文是 Systrace 线程 CPU 运行状态分析技巧系列的第三篇，本文主要讲了使用 Systrace 分析 CPU 状态时遇到的 <strong>Sleep</strong> 与 <strong>Uninterruptible Sleep</strong> 状态的原因排查方法与优化方法，这两个状态导致性能变差概率非常高，而且排查起来也比较费劲，网上也没有系统化的文档。</p>
-<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。Systrace 基础和实战系列大家可以在 <a href="https://www.androidperformance.com/2019/07/23/Android-Systrace-Pre/" target="_blank" rel="noopener">Systrace 基础知识 - Systrace 预备知识</a> 或者 <a href="https://www.androidperformance.com/2019/12/01/BlogMap/" target="_blank" rel="noopener">博客文章目录</a> 这里看到完整的目录</p>
-<a id="more"></a>
+<p>本系列的目的是通过 Systrace 这个工具，从另外一个角度来看待 Android 系统整体的运行，同时也从另外一个角度来对 Framework 进行学习。也许你看了很多讲 Framework 的文章，但是总是记不住代码，或者不清楚其运行的流程，也许从 Systrace 这个图形化的角度，你可以理解的更深入一些。Systrace 基础和实战系列大家可以在 <a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/07/23/Android-Systrace-Pre/">Systrace 基础知识 - Systrace 预备知识</a> 或者 <a target="_blank" rel="noopener" href="https://www.androidperformance.com/2019/12/01/BlogMap/">博客文章目录</a> 这里看到完整的目录</p>
+<span id="more"></span>
 
-<p><strong>CPU 运行状态分析技巧系列</strong> 节选自付费知识星球 <strong>The Performance</strong> 的 <strong>「Android 性能优化 - 系统性课程」</strong> 电子书，目前电子书正在每周更新中。付费知识星球 <strong>The Performance</strong> 是一个分享 Android 开发领域性能优化相关的圈子，主理人是三个国内一线手机厂商性能优化方面的一线开发者，有多年性能相关领域的知识积累和案例分析经验，可以提供性能、功耗分析知识的一站式服务，涵盖了基础、方法论、工具使用和最宝贵的案例分析，欢迎大家使用微信扫描 <a href="https://www.androidperformance.com/2022/03/13/the-performance" target="_blank" rel="noopener">The Performance 知识星球简介</a> 这篇文章中的二维码加入</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2022/01/21/android-systrace-cpu-state-runnable/" target="_blank" rel="noopener">Systrace 线程 CPU 运行状态分析技巧 - Runnable 篇</a></li>
-<li><a href="https://www.androidperformance.com/2022/03/13/android-systrace-cpu-state-running/" target="_blank" rel="noopener">Systrace 线程 CPU 运行状态分析技巧 - Running 篇</a></li>
-<li><a href="https://www.androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/" target="_blank" rel="noopener">Systrace 线程 CPU 运行状态分析技巧 - Sleep 和 Uninterruptible Sleep 篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2022/01/21/android-systrace-cpu-state-runnable/">Systrace 线程 CPU 运行状态分析技巧 - Runnable 篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2022/03/13/android-systrace-cpu-state-running/">Systrace 线程 CPU 运行状态分析技巧 - Running 篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/">Systrace 线程 CPU 运行状态分析技巧 - Sleep 和 Uninterruptible Sleep 篇</a></li>
 </ol>
 <h1 id="Linux-中的-Sleep-状态是什么"><a href="#Linux-中的-Sleep-状态是什么" class="headerlink" title="Linux 中的 Sleep 状态是什么"></a>Linux 中的 Sleep 状态是什么</h1><h2 id="TASK-INTERUPTIBLE-vs-TASK-UNINTERRUPTIBLE"><a href="#TASK-INTERUPTIBLE-vs-TASK-UNINTERRUPTIBLE" class="headerlink" title="TASK_INTERUPTIBLE vs TASK_UNINTERRUPTIBLE"></a>TASK_INTERUPTIBLE vs TASK_UNINTERRUPTIBLE</h2><p>一个线程的状态不属于 Running 或者 Runnable 的时候，那就是 Sleep 状态了（严谨来说，还有其他状态，不过对性能分析来说不常见，比如 STOP、Trace 等）。</p>
 <p>在 Linux 中的Sleep 状态可以细分为 3 个状态：</p>
 <ul>
 <li><strong>TASK_INTERUPTIBLE</strong> → 可中断 </li>
 <li><strong>TASK_UNINTERRUPTIBLE</strong> → 不可中断 </li>
-<li><strong>TASK_KILLABLE</strong>  → 等同于 TASK_WAKEKILL | TASK_UNINTERRUPTIBLE </li>
+<li><strong>TASK_KILLABLE</strong>  → 等同于 TASK_WAKEKILL | TASK_UNINTERRUPTIBLE</li>
 </ul>
 <p><img src="/images/android-systrace-cpu-state-sleep/image.png" alt=" &quot;图 1: 性能之巅 2 CPU 优化&quot;"></p>
-<p>在 Systrace/Perfetto 中，Sleep 状态指的是 Linux 中的TASK_INTERUPTIBLE，trace 中的颜色为白色。Uninterruptible Sleep 指的是 Linux 中的 TASK_UNINTERRUPTIBLE，trace 中的颜色为橙色。 </p>
+<p>在 Systrace&#x2F;Perfetto 中，Sleep 状态指的是 Linux 中的TASK_INTERUPTIBLE，trace 中的颜色为白色。Uninterruptible Sleep 指的是 Linux 中的 TASK_UNINTERRUPTIBLE，trace 中的颜色为橙色。 </p>
 <p>本质上他们都是处于睡眠状态，拿不到 CPU的时间片，只有满足某些条件时才会拿到时间片，即变为 Runnable，随后是 Running。  </p>
 <p>TASK_INTERRUPTIBLE 与 TASK_UNINTERRUPTIBLE 本质上都是 Sleep，<strong>区别在于前者是可以处理 Signal 而后者不能，即使是 Kill 类型的Signal</strong>。因此，除非是拿到自己等待的资源之外，没有其他方法可以唤醒它们。 TASK_WAKEKILL 是指可以接受 Kill 类型的Signal 的TASK_UNINTERRUPTIBLE。</p>
-<p>Android 中的 Looper、Java/Native 锁等待都属于 TAKS_INTERRUPTIBLE，因为他们可以被其他进程唤醒，应该说绝大部分的程序都处于 TAKS_INTERRUPTIBLE 状态，即 Sleep 状态。 看看 Systrace 中的一大片进程的白色状态就知道了（trace 中表现为白色块），它们绝大部分时间都是在 Runnning 跟 Sleep 状态之间转换，零星会看到几个 Runnable 或者 UninterruptibleSleep，即蓝色跟橙色。</p>
+<p>Android 中的 Looper、Java&#x2F;Native 锁等待都属于 TAKS_INTERRUPTIBLE，因为他们可以被其他进程唤醒，应该说绝大部分的程序都处于 TAKS_INTERRUPTIBLE 状态，即 Sleep 状态。 看看 Systrace 中的一大片进程的白色状态就知道了（trace 中表现为白色块），它们绝大部分时间都是在 Runnning 跟 Sleep 状态之间转换，零星会看到几个 Runnable 或者 UninterruptibleSleep，即蓝色跟橙色。</p>
 <h2 id="TASK-UNINTERRUPTIBLE-作用"><a href="#TASK-UNINTERRUPTIBLE-作用" class="headerlink" title="TASK_UNINTERRUPTIBLE 作用"></a>TASK_UNINTERRUPTIBLE 作用</h2><p>似乎看来 TASK_INTERUPTIBLE 就可以了，那为什么还要有 TASK_UNINTERRUPTIBLE 状态呢？</p>
 <p>中断来源有两个，一个是硬件，另一个就是软件。硬件中断是外围控制芯片直接向 CPU 发送了中断信号，被 CPU 捕获并调用了对应的硬件处理函数。软件中断，前面说的 Signal、驱动程序里的 softirq 机制，主要用来在软件层面触发执行中断处理程序，也可以用作进程间通讯机制。</p>
 <p>一个进程可以随时处理软中断或者硬件中断，他们的执行是在当前进程的上下文上，意味着共享进程的堆栈。但是在某种情况下，程序不希望有任何打扰，它就想等待自己所等待的事情执行完成。比如与硬件驱动打交道的流程，如 IO 等待、网络操作。 这是为了保护这段逻辑不会被其他事情所干扰，<code>避免它进入不可控的状态</code>。</p>
 <p>Linux 处理硬件调度的时候也会临时关闭中断控制器、调度的时候会临时关闭抢占功能，本质上为了 <code>防止程序流程进入不可控的状态</code>。这类状态本身执行时间非常短，但系统出异常、运行压力较大的时候可能会影响到性能。</p>
-<p><a href="https://elixir.bootlin.com/linux/latest/ident/TASK_UNINTERRUPTIBLE" target="_blank" rel="noopener">https://elixir.bootlin.com/linux/latest/ident/TASK_UNINTERRUPTIBLE</a> </p>
+<p><a target="_blank" rel="noopener" href="https://elixir.bootlin.com/linux/latest/ident/TASK_UNINTERRUPTIBLE">https://elixir.bootlin.com/linux/latest/ident/TASK_UNINTERRUPTIBLE</a> </p>
 <p>可以看到内核中使用此状态的情况，典型的有 Swap 读数据、信号量机制、mutex 锁、内存慢路径回收等场景。  </p>
 <h2 id="分析时候的注意点"><a href="#分析时候的注意点" class="headerlink" title="分析时候的注意点"></a>分析时候的注意点</h2><p>首先要认识到 TASK_INTERUPTIBLE、TASK_UNINTERRUPTIBLE 状态的出现是正常的，但是如果这些这些状态的累计占比达到了一定程度，就要引起注意了。特别是在关键操作路径上这类状态的占比较多的时候，需要排查原因之后做相应的优化。 分析问题以及做优化的时候需要牢牢把握两个关键点，它类似于内功心法一样: </p>
 <ol>
@@ -567,53 +564,53 @@
 <h1 id="Sleep-状态分析"><a href="#Sleep-状态分析" class="headerlink" title="Sleep 状态分析"></a>Sleep 状态分析</h1><p><img src="/images/android-systrace-cpu-state-sleep/image_3.png" alt="图 1: UIThread 等待 RenderThread"></p>
 <p><img src="/images/android-systrace-cpu-state-sleep/image_4.png" alt="图 2: Binder 调用等待"></p>
 <h2 id="诊断方法"><a href="#诊断方法" class="headerlink" title="诊断方法"></a>诊断方法</h2><h3 id="通过-wakeup-from-tid-查看唤醒线程"><a href="#通过-wakeup-from-tid-查看唤醒线程" class="headerlink" title="通过 wakeup from tid: ***查看唤醒线程"></a>通过 <code>wakeup from tid: ***</code>查看唤醒线程</h3><p>Sleep 最常见的有图 1（UIThread 与 RenderThread 同步）的情况与图 2（Binder 调用）的情况。 Sleep 状态一般是由程序主动等待某个事件的发生而造成的，比如锁等待，因此它有个比较明确的唤醒源。比如图 1，UIThread 等待的是 RenderThread，你可以通过阅读代码来了解这种多线程之间的交互关系。虽然最直接，但是对开发者的要求非常高，因为这需要你熟读图形栈的代码。这可不是一般的难度，是追求的目标，但不具备普适性。 </p>
-<p>更简单的方法是通过所谓的 <code>wakeup from tid: ***</code> 来调查线程之间的交互关系。从前面的 <a href="https://articles.zsxq.com/id_wzkkiwop5pgm.html" target="_blank" rel="noopener">Runnable 文章</a> 中讲过，任何线程进入 Running 之前会先进入到 Runnable 状态，由此再转换成 Running。从 Sleep 状态切换到 Running，必然也要经过 Runnable。</p>
+<p>更简单的方法是通过所谓的 <code>wakeup from tid: ***</code> 来调查线程之间的交互关系。从前面的 <a target="_blank" rel="noopener" href="https://articles.zsxq.com/id_wzkkiwop5pgm.html">Runnable 文章</a> 中讲过，任何线程进入 Running 之前会先进入到 Runnable 状态，由此再转换成 Running。从 Sleep 状态切换到 Running，必然也要经过 Runnable。</p>
 <p>进入到 Runnable 有两种方式，一种是 Running 中的程序被抢占了，暂时进入到 Runnable。还有一种是由另外一个线程将此线程（处于 Sleep 的线程）变成了 Runnable。 </p>
 <p>我们在调查Sleep 唤醒线程关系的时候，应用到的原理是第二种情况。在 Systrace 中这种是被 <code>wakeup from tid: ***</code> 信息所呈现。线程被抢占之后变成 Runnable，在 Systrace 中是被 <code>Running Instead</code> 呈现。 </p>
-<p><img src="/images/android-systrace-cpu-state-sleep/image_5.png" alt=""></p>
+<p><img src="/images/android-systrace-cpu-state-sleep/image_5.png"></p>
 <p>需要特别注意的是 <code>wakeupfrom</code> 这个有时候不准，原因是跟具体的 tracepoint 类型有关。分析的时候要注意甄别，不要一味地相信这个数据是对的。</p>
 <h3 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h3><ol>
 <li>Simpleperf 还原代码执行流</li>
 <li>在 Systrace 寻找时间点对齐的事件</li>
 </ol>
-<p>方法 1 适合用来看程序到底在执行什么操作进入到这种状态，是 IO 还是锁等待？球里连载 Simpleperf 工具的使用方法，其中「<a href="https://articles.zsxq.com/id_xc0a7uwmsf3z.html" target="_blank" rel="noopener">Simpleperf 分析篇 (1): 使用 Firefox Profiler 可视分析 Simpleperf 数据</a>」介绍了可以按时间顺序看函数调用的可视化方法。其他使用也会陆续更新，直接搜关键字即可。</p>
+<p>方法 1 适合用来看程序到底在执行什么操作进入到这种状态，是 IO 还是锁等待？球里连载 Simpleperf 工具的使用方法，其中「<a target="_blank" rel="noopener" href="https://articles.zsxq.com/id_xc0a7uwmsf3z.html">Simpleperf 分析篇 (1): 使用 Firefox Profiler 可视分析 Simpleperf 数据</a>」介绍了可以按时间顺序看函数调用的可视化方法。其他使用也会陆续更新，直接搜关键字即可。</p>
 <p>方法 2 是个比较笨的方法，但有时候也可以通过它找到蛛丝马迹，不过缺点是错误率比较高。</p>
 <h2 id="耗时过长的常见原因"><a href="#耗时过长的常见原因" class="headerlink" title="耗时过长的常见原因"></a>耗时过长的常见原因</h2><ul>
 <li><strong>Binder 操作</strong> → 通过打开 Binder 对应的 trace，可方便地观察到调用到远端的 Binder 执行线程。如果 Binder 耗时长，要分析远端的 Binder 执行情况，是否是锁竞争？得不到CPU 时间片？要具体问题具体分析  </li>
 <li><strong>Java\futex锁竞争等待</strong> → 最常见也是最容易引起性能问题，当负载较高时候特别容易出现，特别是在 SystemServer 进程中。这是 Binder 多线程并行化或抢占公共资源导致的弊端。  </li>
 <li><strong>主动等待</strong> → 线程主动进入 Sleep 状态，等待其它线程的唤醒，比如等待信号量的释放。优化建议：需要看代码逻辑分析等待是否合理，不合理就要优化掉。</li>
-<li><strong>等待 GPU 执行完毕</strong> → 等 GPU 任务执行完毕，Trace 中可以看到等 GPU fence 时间。常见的原因有渲染任务过重、 GPU 能力弱、GPU 频率低等。优化建议：提升 GPU 频率、降低渲染任务复杂度，比如精简 Shader、降低渲染分辨率、降低Texture 画质等。 </li>
+<li><strong>等待 GPU 执行完毕</strong> → 等 GPU 任务执行完毕，Trace 中可以看到等 GPU fence 时间。常见的原因有渲染任务过重、 GPU 能力弱、GPU 频率低等。优化建议：提升 GPU 频率、降低渲染任务复杂度，比如精简 Shader、降低渲染分辨率、降低Texture 画质等。</li>
 </ul>
 <h1 id="UninterruptibleSleep-状态分析"><a href="#UninterruptibleSleep-状态分析" class="headerlink" title="UninterruptibleSleep 状态分析"></a>UninterruptibleSleep 状态分析</h1><h2 id="诊断方法-1"><a href="#诊断方法-1" class="headerlink" title="诊断方法"></a>诊断方法</h2><p>本质上UninterruptibleSleep 也是一种 Sleep，因此分析 Sleep 状态时用到的方法也是通用的。不过此状态有两个特殊点与 Sleep 不同，因此在此特别说明。 </p>
 <ol>
 <li><strong>UninterruptibleSleep 分为 IOWait 与 Non-IOWait</strong></li>
-<li><strong>UninterruptibleSleep 有 Block reason</strong> </li>
+<li><strong>UninterruptibleSleep 有 Block reason</strong></li>
 </ol>
 <h3 id="UninterruptibleSleep-分为-IOWait-与-Non-IOWait"><a href="#UninterruptibleSleep-分为-IOWait-与-Non-IOWait" class="headerlink" title="UninterruptibleSleep 分为 IOWait 与 Non-IOWait"></a>UninterruptibleSleep 分为 IOWait 与 Non-IOWait</h3><p>IO 等待好理解，就是程序执行了 IO 操作。最简单的，程序如果没法从 PageCache 缓存里快速拿到数据，那就要与设备进行 IO 操作。CPU 内部缓存的访问速度是最快的，其次是内存，最后是磁盘。它们之间的延迟差异是数量级差异，因此系统越是从磁盘中读取数据，对整体性能的影响就越大。  </p>
 <p>非 IO 等待主要是指内核级别的锁等待，或者驱动程序中人为设置的等待。Linux 内核中某些路径是热点区域，因此不得不拿锁来进行保护。比如Binder 驱动，当负载大到一定程度，Binder 的内部的锁竞争导致的性能瓶颈就会呈现出来。 </p>
-<h3 id="Block-Reason"><a href="#Block-Reason" class="headerlink" title="Block Reason"></a>Block Reason</h3><p>谷歌的 Riley Andrews(<a href="mailto:riandrews@google.com">riandrews@google.com</a>) 15年左右往内核里提交了一个 tracepoint 补丁，用于记录当发生 UninterruptibleSleep 的时候是否是 IO 等待、调用函数等信息。Systrace 中的展示的 IOWait 与 BlockReason，就是通过解析这条 tracepoint 而来的。这条代码提交的介绍如下（由于这笔提交未合入到 Linux 上游主线，因此要注意你用的内核是否单独带了此补丁）: </p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">sched</span>: <span class="selector-tag">add</span> <span class="selector-tag">sched</span> <span class="selector-tag">blocked</span> <span class="selector-tag">tracepoint</span> <span class="selector-tag">which</span> <span class="selector-tag">dumps</span> <span class="selector-tag">out</span> <span class="selector-tag">context</span> <span class="selector-tag">of</span> <span class="selector-tag">sleep</span>.</span><br><span class="line"><span class="selector-tag">Decare</span> <span class="selector-tag">war</span> <span class="selector-tag">on</span> <span class="selector-tag">uninterruptible</span> <span class="selector-tag">sleep</span>. <span class="selector-tag">Add</span> <span class="selector-tag">a</span> <span class="selector-tag">tracepoint</span> <span class="selector-tag">which</span></span><br><span class="line"><span class="selector-tag">walks</span> <span class="selector-tag">the</span> <span class="selector-tag">kernel</span> <span class="selector-tag">stack</span> <span class="selector-tag">and</span> <span class="selector-tag">dumps</span> <span class="selector-tag">the</span> <span class="selector-tag">first</span> <span class="selector-tag">non-scheduler</span> <span class="selector-tag">function</span></span><br><span class="line"><span class="selector-tag">called</span> <span class="selector-tag">before</span> <span class="selector-tag">the</span> <span class="selector-tag">scheduler</span> <span class="selector-tag">is</span> <span class="selector-tag">invoked</span>.</span><br><span class="line"></span><br><span class="line">Change-Id: [I19e965d5206329360a92cbfe2afcc8c30f65c229](https://android-review.googlesource.com/#/q/I19e965d5206329360a92cbfe2afcc8c30f65c229)</span><br><span class="line"><span class="selector-tag">Signed-off-by</span>: <span class="selector-tag">Riley</span> <span class="selector-tag">Andrews</span> <span class="selector-attr">[riandrews@google.com]</span>(<span class="selector-tag">mailto</span><span class="selector-pseudo">:riandrews</span><span class="keyword">@google</span>.com)</span><br></pre></td></tr></table></figure>
+<h3 id="Block-Reason"><a href="#Block-Reason" class="headerlink" title="Block Reason"></a>Block Reason</h3><p>谷歌的 Riley Andrews(<a href="mailto:&#x72;&#x69;&#97;&#x6e;&#100;&#114;&#x65;&#x77;&#x73;&#x40;&#x67;&#x6f;&#x6f;&#103;&#108;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x72;&#x69;&#97;&#x6e;&#100;&#114;&#x65;&#x77;&#x73;&#x40;&#x67;&#x6f;&#x6f;&#103;&#108;&#x65;&#x2e;&#x63;&#x6f;&#109;</a>) 15年左右往内核里提交了一个 tracepoint 补丁，用于记录当发生 UninterruptibleSleep 的时候是否是 IO 等待、调用函数等信息。Systrace 中的展示的 IOWait 与 BlockReason，就是通过解析这条 tracepoint 而来的。这条代码提交的介绍如下（由于这笔提交未合入到 Linux 上游主线，因此要注意你用的内核是否单独带了此补丁）: </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sched: add sched blocked tracepoint which dumps out context of sleep.</span><br><span class="line">Decare war on uninterruptible sleep. Add a tracepoint which</span><br><span class="line">walks the kernel stack and dumps the first non-scheduler function</span><br><span class="line">called before the scheduler is invoked.</span><br><span class="line"></span><br><span class="line">Change-Id: [I19e965d5206329360a92cbfe2afcc8c30f65c229](https://android-review.googlesource.com/#/q/I19e965d5206329360a92cbfe2afcc8c30f65c229)</span><br><span class="line">Signed-off-by: Riley Andrews [riandrews@google.com](mailto:riandrews@google.com)</span><br></pre></td></tr></table></figure>
 
 
 <p>在 ftrace（Systrace 使用的数据抓取机制） 中的被记录为</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sched_blocked_reason: pid=<span class="number">30235</span> iowait=<span class="number">0</span> caller=get_user_pages_fast+<span class="number">0x34</span>/<span class="number">0x70</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sched_blocked_reason: pid=<span class="number">30235</span> iowait=<span class="number">0</span> caller=get_user_pages_fast+<span class="number">0x34</span>/<span class="number">0x70</span> </span><br></pre></td></tr></table></figure>
 
 
 <p>这句话被 Systrace 可视化的效果为: </p>
-<p><img src="/images/android-systrace-cpu-state-sleep/image_6.png" alt=""></p>
+<p><img src="/images/android-systrace-cpu-state-sleep/image_6.png"></p>
 <p>主线程中有一段 Uninterruptible Sleep 状态，它的 BlockReason 是 <code>get_user_pages_fast</code>。它是一个 Linux 内核中函数的名字，代表着是线程是被它切换到了 UninterruptibleSleep 状态。为了查看具体的原因，需要查看这个函数的具体实现。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * get_user_pages_fast() - pin user pages in memory</span></span><br><span class="line"><span class="comment"> * @start:      starting user address</span></span><br><span class="line"><span class="comment"> * @nr_pages:   number of pages from start to pin</span></span><br><span class="line"><span class="comment"> * @gup_flags:  flags modifying pin behaviour</span></span><br><span class="line"><span class="comment"> * @pages:      array that receives pointers to the pages pinned.</span></span><br><span class="line"><span class="comment"> *              Should be at least nr_pages long.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Attempt to pin user pages in memory without taking mm-&gt;mmap_lock.</span></span><br><span class="line"><span class="comment"> * If not successful, it will fall back to taking the lock and</span></span><br><span class="line"><span class="comment"> * calling get_user_pages().</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Returns number of pages pinned. This may be fewer than the number requested.</span></span><br><span class="line"><span class="comment"> * If nr_pages is 0 or negative, returns 0. If no pages were pinned, returns</span></span><br><span class="line"><span class="comment"> * -errno.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">get_user_pages_fast</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">long</span> start, <span class="keyword">int</span> nr_pages,</span></span></span><br><span class="line"><span class="function"><span class="params">      <span class="keyword">unsigned</span> <span class="keyword">int</span> gup_flags, struct page **pages)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!is_valid_gup_flags(gup_flags))</span><br><span class="line">    <span class="keyword">return</span> -EINVAL;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">   * The caller may or may not have explicitly set FOLL_GET; either way is</span></span><br><span class="line"><span class="comment">   * OK. However, internally (within mm/gup.c), gup fast variants must set</span></span><br><span class="line"><span class="comment">   * FOLL_GET, because gup fast is always a "pin with a +1 page refcount"</span></span><br><span class="line"><span class="comment">   * request.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  gup_flags |= FOLL_GET;</span><br><span class="line">  <span class="keyword">return</span> internal_get_user_pages_fast(start, nr_pages, gup_flags, pages);</span><br><span class="line">&#125;</span><br><span class="line">EXPORT_SYMBOL_GPL(get_user_pages_fast);</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * get_user_pages_fast() - pin user pages in memory</span></span><br><span class="line"><span class="comment"> * @start:      starting user address</span></span><br><span class="line"><span class="comment"> * @nr_pages:   number of pages from start to pin</span></span><br><span class="line"><span class="comment"> * @gup_flags:  flags modifying pin behaviour</span></span><br><span class="line"><span class="comment"> * @pages:      array that receives pointers to the pages pinned.</span></span><br><span class="line"><span class="comment"> *              Should be at least nr_pages long.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Attempt to pin user pages in memory without taking mm-&gt;mmap_lock.</span></span><br><span class="line"><span class="comment"> * If not successful, it will fall back to taking the lock and</span></span><br><span class="line"><span class="comment"> * calling get_user_pages().</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * Returns number of pages pinned. This may be fewer than the number requested.</span></span><br><span class="line"><span class="comment"> * If nr_pages is 0 or negative, returns 0. If no pages were pinned, returns</span></span><br><span class="line"><span class="comment"> * -errno.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">get_user_pages_fast</span><span class="params">(<span class="type">unsigned</span> <span class="type">long</span> start, <span class="type">int</span> nr_pages,</span></span><br><span class="line"><span class="params">      <span class="type">unsigned</span> <span class="type">int</span> gup_flags, <span class="keyword">struct</span> page **pages)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">if</span> (!is_valid_gup_flags(gup_flags))</span><br><span class="line">    <span class="keyword">return</span> -EINVAL;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">   * The caller may or may not have explicitly set FOLL_GET; either way is</span></span><br><span class="line"><span class="comment">   * OK. However, internally (within mm/gup.c), gup fast variants must set</span></span><br><span class="line"><span class="comment">   * FOLL_GET, because gup fast is always a &quot;pin with a +1 page refcount&quot;</span></span><br><span class="line"><span class="comment">   * request.</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  gup_flags |= FOLL_GET;</span><br><span class="line">  <span class="keyword">return</span> internal_get_user_pages_fast(start, nr_pages, gup_flags, pages);</span><br><span class="line">&#125;</span><br><span class="line">EXPORT_SYMBOL_GPL(get_user_pages_fast);</span><br></pre></td></tr></table></figure>
 
 
 <p>从函数解释上可以看到，函数首先是通过无锁的方式pin 应用侧的 pages，如果失败的时候不得不尝试持锁后走慢速执行路径。此时，无法持锁的时候那就要等待了，直到先前持锁的人释放锁。那之前被谁持有了呢？这时候可以利用之前介绍的Sleep 诊断方法，如下图。</p>
-<p><img src="/images/android-systrace-cpu-state-sleep/image_7.png" alt=""></p>
+<p><img src="/images/android-systrace-cpu-state-sleep/image_7.png"></p>
 <p>UninterruptibleSleep 状态相比 Sleep 有点复杂，因为它涉及到 Linux 内部的实现。可能是内核本身的机制有问题，也有可能是应用层使用不对，因此要联合上层的行为综合诊断才行。毕竟内核也不是万能的，它也有自己的能力边界，当应用层的使用超过其边界的时候，就会出现影响性能的现象。 </p>
 <h2 id="IOWait-常见原因与优化方法"><a href="#IOWait-常见原因与优化方法" class="headerlink" title="IOWait 常见原因与优化方法"></a>IOWait 常见原因与优化方法</h2><h3 id="1-主动IO-操作"><a href="#1-主动IO-操作" class="headerlink" title="1. 主动IO 操作"></a>1. <strong>主动IO 操作</strong></h3><ul>
 <li>程序进行频繁、大量的读或者写 IO 操作，这是最常见的情况。  </li>
 <li>多个应用同时下发 IO 操作，导致器件的压力较大。同时执行的程序多的时候 IO 负载高的可能性也大。</li>
 <li>器件本身的 IO 性能较差，可通过 IO Benchmark 来进行排查。 常见的原因有磁盘碎片化、器件老化、剩余空间较少（越是低端机越明显）、读放大、写放大等等。</li>
 <li>文件系统特性，比如有些文件系统的内部操作会表现为 IO 等待。</li>
-<li>开启 Swap 机制的内核下，数据从 Swap 中读取。 </li>
+<li>开启 Swap 机制的内核下，数据从 Swap 中读取。</li>
 </ul>
 <p><strong>优化方法</strong></p>
 <ul>
@@ -629,13 +626,13 @@
 <li>关键路径上减少 IO 操作</li>
 <li>通过Readahead 机制读数据</li>
 <li>将热点数据尽量聚集在一起，使被 Readahead 机制命中的概率高 </li>
-<li>最后一个老生常谈的，减少大量的内存分配、内存浪费等操作 </li>
+<li>最后一个老生常谈的，减少大量的内存分配、内存浪费等操作</li>
 </ul>
 <p>系统中的内存是被各个进程所共用。当app 只考虑自己，肆无忌惮的使用计算资源，必然会影响到其他程序。这时候系统还是会回来压制你，到头来亏损的还是自己。 不过能想到这一步的开发者比较少，也不现实。明文化的执行系统约定，可能是个终极解决方案。 </p>
 <h2 id="Non-IOWait-常见原因"><a href="#Non-IOWait-常见原因" class="headerlink" title="Non-IOWait 常见原因"></a>Non-IOWait 常见原因</h2><ul>
 <li><strong>低内存导致等待</strong> → 低内存的时候要回收其他程序或者缓存上的内存。</li>
 <li><strong>Binder 等待</strong> → 有大量 Binder 操作的时候出现概率较高。  </li>
-<li><strong>各种各样的内核锁，不胜枚举</strong>。结合「诊断方法」来分析。 </li>
+<li><strong>各种各样的内核锁，不胜枚举</strong>。结合「诊断方法」来分析。</li>
 </ul>
 <h2 id="系统调度与-UninterruptibleSleep-耦合的问题"><a href="#系统调度与-UninterruptibleSleep-耦合的问题" class="headerlink" title="系统调度与 UninterruptibleSleep   耦合的问题"></a>系统调度与 UninterruptibleSleep   耦合的问题</h2><p>当线程处于 UninterruptibleSleep 非 IO等待状态（即内核锁），而持有该锁的其他线程因 CPU 调度原因，较长时间处于 Runnable 状态。这时候就出现了有意思的现象，即使被等待的线程处于高优先级，它的依赖方没有被调度器及时的识别到，即使是非常短的锁持有，也会出现较长时间的等待。 </p>
 <p>规避或者彻底解决这类问题都是件比较难的事情，不同厂家实现了不同的解决方案，也是比较考虑厂家技术能力的一个问题。 </p>
@@ -695,18 +692,18 @@
 <td>W</td>
 </tr>
 </tbody></table>
-<h2 id="案例-从-Swap-读取数据时的等待"><a href="#案例-从-Swap-读取数据时的等待" class="headerlink" title="案例: 从 Swap 读取数据时的等待"></a>案例: 从 Swap 读取数据时的等待</h2><p><img src="/images/android-systrace-cpu-state-sleep/image_8.png" alt=""></p>
-<h2 id="案例-同进程的多个线程进行-mmap"><a href="#案例-同进程的多个线程进行-mmap" class="headerlink" title="案例: 同进程的多个线程进行 mmap"></a>案例: 同进程的多个线程进行 mmap</h2><p><img src="/images/android-systrace-cpu-state-sleep/image_9.png" alt=""></p>
+<h2 id="案例-从-Swap-读取数据时的等待"><a href="#案例-从-Swap-读取数据时的等待" class="headerlink" title="案例: 从 Swap 读取数据时的等待"></a>案例: 从 Swap 读取数据时的等待</h2><p><img src="/images/android-systrace-cpu-state-sleep/image_8.png"></p>
+<h2 id="案例-同进程的多个线程进行-mmap"><a href="#案例-同进程的多个线程进行-mmap" class="headerlink" title="案例: 同进程的多个线程进行 mmap"></a>案例: 同进程的多个线程进行 mmap</h2><p><img src="/images/android-systrace-cpu-state-sleep/image_9.png"></p>
 <p>共享同一个 mm_struct 的线程同时执行 mmap() 系统调用进行 vma 分配时发生锁竞争。</p>
 <p>mmap_write_lock_killable() 与 mmap_write_unlock() 包起来的区域就是由锁受保护的区域。 </p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="title">vm_mmap_pgoff</span><span class="params">(struct file *file, <span class="keyword">unsigned</span> <span class="keyword">long</span> addr,</span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="keyword">unsigned</span> <span class="keyword">long</span> len, <span class="keyword">unsigned</span> <span class="keyword">long</span> prot,</span></span></span><br><span class="line"><span class="function"><span class="params">  <span class="keyword">unsigned</span> <span class="keyword">long</span> flag, <span class="keyword">unsigned</span> <span class="keyword">long</span> pgoff)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">long</span> ret;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">mm_struct</span> *<span class="title">mm</span> = <span class="title">current</span>-&gt;<span class="title">mm</span>;</span></span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">long</span> populate;</span><br><span class="line">  LIST_HEAD(uf);</span><br><span class="line"></span><br><span class="line">  ret = security_mmap_file(file, prot, flag);</span><br><span class="line">  <span class="keyword">if</span> (!ret) &#123;</span><br><span class="line">    <span class="keyword">if</span> (mmap_write_lock_killable(mm))</span><br><span class="line">      <span class="keyword">return</span> -EINTR;</span><br><span class="line">    ret = do_mmap(file, addr, len, prot, flag, pgoff, &amp;populate,</span><br><span class="line">            &amp;uf);</span><br><span class="line">    mmap_write_unlock(mm);</span><br><span class="line">    userfaultfd_unmap_complete(mm, &amp;uf);</span><br><span class="line">    <span class="keyword">if</span> (populate)</span><br><span class="line">      mm_populate(ret, populate);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">long</span> <span class="title function_">vm_mmap_pgoff</span><span class="params">(<span class="keyword">struct</span> file *file, <span class="type">unsigned</span> <span class="type">long</span> addr,</span></span><br><span class="line"><span class="params">  <span class="type">unsigned</span> <span class="type">long</span> len, <span class="type">unsigned</span> <span class="type">long</span> prot,</span></span><br><span class="line"><span class="params">  <span class="type">unsigned</span> <span class="type">long</span> flag, <span class="type">unsigned</span> <span class="type">long</span> pgoff)</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">unsigned</span> <span class="type">long</span> ret;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">mm_struct</span> *<span class="title">mm</span> =</span> current-&gt;mm;</span><br><span class="line">  <span class="type">unsigned</span> <span class="type">long</span> populate;</span><br><span class="line">  LIST_HEAD(uf);</span><br><span class="line"></span><br><span class="line">  ret = security_mmap_file(file, prot, flag);</span><br><span class="line">  <span class="keyword">if</span> (!ret) &#123;</span><br><span class="line">    <span class="keyword">if</span> (mmap_write_lock_killable(mm))</span><br><span class="line">      <span class="keyword">return</span> -EINTR;</span><br><span class="line">    ret = do_mmap(file, addr, len, prot, flag, pgoff, &amp;populate,</span><br><span class="line">            &amp;uf);</span><br><span class="line">    mmap_write_unlock(mm);</span><br><span class="line">    userfaultfd_unmap_complete(mm, &amp;uf);</span><br><span class="line">    <span class="keyword">if</span> (populate)</span><br><span class="line">      mm_populate(ret, populate);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 
 
 <h1 id="关于我-amp-amp-博客"><a href="#关于我-amp-amp-博客" class="headerlink" title="关于我 &amp;&amp; 博客"></a>关于我 &amp;&amp; 博客</h1><ol>
-<li><a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/about/">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
 <li><a href="https://androidperformance.com/2019/12/01/BlogMap/">博客内容导航</a></li>
 <li><a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">优秀博客文章记录 - Android 性能优化必知必会</a></li>
 </ol>
@@ -721,8 +718,8 @@
             <p>原文作者：<a href="https://androidperformance.com">Gracker</a>
             <p>原文链接：<a href="https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/">https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/</a>
             <p>发表日期：<a href="https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/">March 13th 2022, 8:38:12 am</a>
-            <p>更新日期：<a href="https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/">June 29th 2022, 11:22:47 pm</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            <p>更新日期：<a href="https://androidperformance.com/2022/03/13/android-systrace-cpu-state-sleep/">May 14th 2023, 2:24:30 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator -->
@@ -915,7 +912,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-中的-Sleep-状态是什么"><span class="toc-number">1.</span> <span class="toc-text">Linux 中的 Sleep 状态是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TASK-INTERUPTIBLE-vs-TASK-UNINTERRUPTIBLE"><span class="toc-number">1.1.</span> <span class="toc-text">TASK_INTERUPTIBLE vs TASK_UNINTERRUPTIBLE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TASK-UNINTERRUPTIBLE-作用"><span class="toc-number">1.2.</span> <span class="toc-text">TASK_UNINTERRUPTIBLE 作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分析时候的注意点"><span class="toc-number">1.3.</span> <span class="toc-text">分析时候的注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trace-中的可视化效果"><span class="toc-number">1.4.</span> <span class="toc-text">Trace 中的可视化效果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sleep-状态分析"><span class="toc-number">2.</span> <span class="toc-text">Sleep 状态分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#诊断方法"><span class="toc-number">2.1.</span> <span class="toc-text">诊断方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过-wakeup-from-tid-查看唤醒线程"><span class="toc-number">2.1.1.</span> <span class="toc-text">通过 wakeup from tid: ***查看唤醒线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他方法"><span class="toc-number">2.1.2.</span> <span class="toc-text">其他方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#耗时过长的常见原因"><span class="toc-number">2.2.</span> <span class="toc-text">耗时过长的常见原因</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UninterruptibleSleep-状态分析"><span class="toc-number">3.</span> <span class="toc-text">UninterruptibleSleep 状态分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#诊断方法-1"><span class="toc-number">3.1.</span> <span class="toc-text">诊断方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UninterruptibleSleep-分为-IOWait-与-Non-IOWait"><span class="toc-number">3.1.1.</span> <span class="toc-text">UninterruptibleSleep 分为 IOWait 与 Non-IOWait</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-Reason"><span class="toc-number">3.1.2.</span> <span class="toc-text">Block Reason</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOWait-常见原因与优化方法"><span class="toc-number">3.2.</span> <span class="toc-text">IOWait 常见原因与优化方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-主动IO-操作"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. 主动IO 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-低内存导致的-IO-变多"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. 低内存导致的 IO 变多</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Non-IOWait-常见原因"><span class="toc-number">3.3.</span> <span class="toc-text">Non-IOWait 常见原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#系统调度与-UninterruptibleSleep-耦合的问题"><span class="toc-number">3.4.</span> <span class="toc-text">系统调度与 UninterruptibleSleep   耦合的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#附录"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-线程状态释义"><span class="toc-number">4.1.</span> <span class="toc-text">Linux 线程状态释义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例-从-Swap-读取数据时的等待"><span class="toc-number">4.2.</span> <span class="toc-text">案例: 从 Swap 读取数据时的等待</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#案例-同进程的多个线程进行-mmap"><span class="toc-number">4.3.</span> <span class="toc-text">案例: 同进程的多个线程进行 mmap</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number">5.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-%E4%B8%AD%E7%9A%84-Sleep-%E7%8A%B6%E6%80%81%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">Linux 中的 Sleep 状态是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TASK-INTERUPTIBLE-vs-TASK-UNINTERRUPTIBLE"><span class="toc-number">1.1.</span> <span class="toc-text">TASK_INTERUPTIBLE vs TASK_UNINTERRUPTIBLE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TASK-UNINTERRUPTIBLE-%E4%BD%9C%E7%94%A8"><span class="toc-number">1.2.</span> <span class="toc-text">TASK_UNINTERRUPTIBLE 作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E6%97%B6%E5%80%99%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-number">1.3.</span> <span class="toc-text">分析时候的注意点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trace-%E4%B8%AD%E7%9A%84%E5%8F%AF%E8%A7%86%E5%8C%96%E6%95%88%E6%9E%9C"><span class="toc-number">1.4.</span> <span class="toc-text">Trace 中的可视化效果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Sleep-%E7%8A%B6%E6%80%81%E5%88%86%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">Sleep 状态分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8A%E6%96%AD%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">诊断方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-wakeup-from-tid-%E6%9F%A5%E7%9C%8B%E5%94%A4%E9%86%92%E7%BA%BF%E7%A8%8B"><span class="toc-number">2.1.1.</span> <span class="toc-text">通过 wakeup from tid: ***查看唤醒线程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.2.</span> <span class="toc-text">其他方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%97%E6%97%B6%E8%BF%87%E9%95%BF%E7%9A%84%E5%B8%B8%E8%A7%81%E5%8E%9F%E5%9B%A0"><span class="toc-number">2.2.</span> <span class="toc-text">耗时过长的常见原因</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UninterruptibleSleep-%E7%8A%B6%E6%80%81%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">UninterruptibleSleep 状态分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%8A%E6%96%AD%E6%96%B9%E6%B3%95-1"><span class="toc-number">3.1.</span> <span class="toc-text">诊断方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#UninterruptibleSleep-%E5%88%86%E4%B8%BA-IOWait-%E4%B8%8E-Non-IOWait"><span class="toc-number">3.1.1.</span> <span class="toc-text">UninterruptibleSleep 分为 IOWait 与 Non-IOWait</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Block-Reason"><span class="toc-number">3.1.2.</span> <span class="toc-text">Block Reason</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IOWait-%E5%B8%B8%E8%A7%81%E5%8E%9F%E5%9B%A0%E4%B8%8E%E4%BC%98%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">3.2.</span> <span class="toc-text">IOWait 常见原因与优化方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%BB%E5%8A%A8IO-%E6%93%8D%E4%BD%9C"><span class="toc-number">3.2.1.</span> <span class="toc-text">1. 主动IO 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%8E%E5%86%85%E5%AD%98%E5%AF%BC%E8%87%B4%E7%9A%84-IO-%E5%8F%98%E5%A4%9A"><span class="toc-number">3.2.2.</span> <span class="toc-text">2. 低内存导致的 IO 变多</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Non-IOWait-%E5%B8%B8%E8%A7%81%E5%8E%9F%E5%9B%A0"><span class="toc-number">3.3.</span> <span class="toc-text">Non-IOWait 常见原因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%B0%83%E5%BA%A6%E4%B8%8E-UninterruptibleSleep-%E8%80%A6%E5%90%88%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">3.4.</span> <span class="toc-text">系统调度与 UninterruptibleSleep   耦合的问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">4.</span> <span class="toc-text">附录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux-%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E9%87%8A%E4%B9%89"><span class="toc-number">4.1.</span> <span class="toc-text">Linux 线程状态释义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-%E4%BB%8E-Swap-%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE%E6%97%B6%E7%9A%84%E7%AD%89%E5%BE%85"><span class="toc-number">4.2.</span> <span class="toc-text">案例: 从 Swap 读取数据时的等待</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-%E5%90%8C%E8%BF%9B%E7%A8%8B%E7%9A%84%E5%A4%9A%E4%B8%AA%E7%BA%BF%E7%A8%8B%E8%BF%9B%E8%A1%8C-mmap"><span class="toc-number">4.3.</span> <span class="toc-text">案例: 同进程的多个线程进行 mmap</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91-amp-amp-%E5%8D%9A%E5%AE%A2"><span class="toc-number">5.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -2712,6 +2709,11 @@
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -2727,21 +2729,6 @@
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -2750,6 +2737,11 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2762,19 +2754,14 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2787,11 +2774,6 @@
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -2800,6 +2782,11 @@
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -2817,29 +2804,9 @@
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -2852,9 +2819,9 @@
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -2862,14 +2829,14 @@
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -2877,14 +2844,14 @@
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -2905,6 +2872,36 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -2938,14 +2935,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -2963,14 +2960,14 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -3007,14 +3004,35 @@
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->

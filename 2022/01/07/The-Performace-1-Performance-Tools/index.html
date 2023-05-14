@@ -23,7 +23,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 性能优化的术、道、器">
 <meta property="og:url" content="https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="Paul Graham 在其著作 &lt;黑客与画家&gt; 中断言：“不同语言的执行效率差距正变得越来越大，所以性能分析器（profiler）将变得越来越重要。目前，性能分析并没有受到重视。许多人好像仍然相信，程序运行速度提升的关键在于开发出能够生成更快速代码的编译器。代码效率与机器性能的差距正在不断加大，我们将会越来越清楚地看到，应用软件运行速度提升的关键在于有一个好的性能分析器帮助指导程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://androidperformance.com/images/The-Performace-1-Performance-Tools/cc4162d9-7c2b-43b1-b9a1-f14d5c8e8605.jpg">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://androidperformance.com/images/The-Performace-1-Performance-Tools/image-20220308234016600.png">
 <meta property="og:image" content="https://androidperformance.com/images/The-Performace-1-Performance-Tools/WechatIMG581.png">
 <meta property="article:published_time" content="2022-01-06T16:42:03.000Z">
-<meta property="article:modified_time" content="2022-03-13T01:14:39.938Z">
+<meta property="article:modified_time" content="2023-05-14T06:29:06.545Z">
 <meta property="article:author" content="Gracker">
 <meta property="article:tag" content="Android">
 <meta property="article:tag" content="Framework">
@@ -50,9 +50,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>Android 性能优化的术、道、器 · 我的优化技术文章分享</title>
+    <title>Android 性能优化的术、道、器 · Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -164,8 +162,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -217,12 +215,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -240,10 +237,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -327,7 +324,7 @@
     
         
     <!-- 404页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
@@ -362,9 +359,10 @@
 </div>
 
                 
+                <!-- 文章字数统计 -->
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">9.8k</span>阅读时长: <span class="post-count reading-time">33 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">9.8k</span>阅读时长: <span class="post-count reading-time">34 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -448,7 +446,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -512,7 +510,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -531,9 +529,9 @@
 </blockquote>
 <p>谷歌搜索 「Android 优化工具」，你会找到很多与此相关的内容。他们的问题在于要么是内容高度重复、要么是直接讲使用方法，很少会给你介绍整体性的架构，一不小心就会让人会种「一个工具搞定一切」的错误认知。以笔者团队的多年经验来看，在性能分析领域这种银弹级别的工具是不存在的。工具在发展，老问题会以新的方式变样出现，不掌握核心逻辑的话始终会让你浮于技术的表面。 </p>
 <p>本文首先系统性的梳理性能分析中的可观测性技术，它涵盖数据类型、抓取方法以及分析方法等三部分内容，之后是介绍谷歌提供的「三大件」分析工具。目的是想让你了解不变的理论性的知识，以及与之对应的在安卓环境中可用的工具，这些可以让你少走一些弯路，直接复用前辈们的经验。 </p>
-<p>需要特别说明的是，对于性能优化肯定不止有这三个工具可用，但这个三个工具是我们平时用到的「第一手工具」。进行进一步分析之前，你都需要依赖这三个工具进行瓶颈定位，之后才应不同领域特性选择对应的工具进行下钻分析。 </p>
-<a id="more"></a>
+<span id="more"></span>
 
+<p>需要特别说明的是，对于性能优化肯定不止有这三个工具可用，但这个三个工具是我们平时用到的「第一手工具」。进行进一步分析之前，你都需要依赖这三个工具进行瓶颈定位，之后才应不同领域特性选择对应的工具进行下钻分析。 </p>
 <h1 id="1-性能分析中的可观测性技术"><a href="#1-性能分析中的可观测性技术" class="headerlink" title="1 性能分析中的可观测性技术"></a>1 性能分析中的可观测性技术</h1><ul>
 <li>这个操作到底有没有被执行？执行时间有多长？</li>
 <li>为什么两个版本的前后差异这么大？</li>
@@ -547,7 +545,7 @@
 <p>如果你的程序部署了一个精心设计且运行良好的可观测性技术，可以大大加快研发软件的效率，因为即使我们使用了各种各样的前置性静态代码检测、人工代码审查，也无法 100% 拦截软件的问题。只有在真实环境里运行之后才知道是否真正发生了问题，即使这个环境可能是一个你的自动化测试用例。即使这样，你还需要翻阅你的日志，重读代码来找出问题。出于这些原因，每个工程团队都需要有一个功能完备的可观测性工具作为他们的基础设施之一。 </p>
 <p>可观测性技术是一个系统性工程，它能够让你更深入的了解软件里发生的事情。可用于了解软件系统内部运行过程（特别是对于业务逻辑或者交互关系复杂的系统）、排查问题甚至通过寻找瓶颈点优化程序本身。对于复杂的系统来说，你通过阅读代码来了解整个运行过程其实是很困难的事情，更高效的方法就是借助此类工具，以最直观的的方式获取软件运行的状态。</p>
 <p>下面将从 数据类型、数据获取方法、分析方法 这三个主题来帮助你了解可观测性技术。</p>
-<h2 id="1-1-数据类型"><a href="#1-1-数据类型" class="headerlink" title="1.1 数据类型"></a>1.1 数据类型</h2><p>日志的形式可能是键值对（key=Value），JSON、CSV，关系型数据库或者其他任何格式。其次我们通过日志还原出系统当时运行的整个状态，目的是为了解决某个问题，观察某个模块的运行方式，甚至刻画系统使用者的行为模式。在可观测性技术上把日志类型分类为 Log 类型、Metric 类型，以及 Trace 类型。  </p>
+<h2 id="1-1-数据类型"><a href="#1-1-数据类型" class="headerlink" title="1.1 数据类型"></a>1.1 数据类型</h2><p>日志的形式可能是键值对（key&#x3D;Value），JSON、CSV，关系型数据库或者其他任何格式。其次我们通过日志还原出系统当时运行的整个状态，目的是为了解决某个问题，观察某个模块的运行方式，甚至刻画系统使用者的行为模式。在可观测性技术上把日志类型分类为 Log 类型、Metric 类型，以及 Trace 类型。  </p>
 <p><img src="/images/The-Performace-1-Performance-Tools/d9548a10-cc3d-497d-9d4c-5efa92de1a43-20220107005708401.png" alt="数据类型"></p>
 <h3 id="Log-类型"><a href="#Log-类型" class="headerlink" title="Log 类型"></a>Log 类型</h3><p>Log 是最朴素的数据记录方式，一般记录了什么模块在几点发生了什么事情，日志等级是警告还是错误。 绝大部分系统，不管是嵌入式设备还是汽车上的计算机，他们所使用的日志形式几乎都是这种形式。这是最简单，最直接也最好实现的一种方式。几乎所有的 Log 类型是通过 string 类型的方式存储，数据呈现形式是一条一条的文本数据。Log 是最基本的类型，因此通过转换，可以将 Log 类型转换成 Metric 或者 Trace 类型，当然成本就是转换的过程，当数据量非常巨大的时候这可能会成为瓶颈。</p>
 <p>为了标识出不同的日志类型等级，一般使用错误、警告、调试等级别来划分日志等级。显然，错误类型的是你首要关注的日志等级。不过实践中也不会严格按照这种方式划分，因为很多工程师不会严格区分他们之间的差异，这可能是他们的工程开发环境中不太会对不同等级的日志进行分类分析有关。总之，你可以根据你的目的，将 Log 类型进行等级划分，它就像一个索引一样，可以进一步可以提高分析问题、定位目标信息的效率。 </p>
@@ -574,9 +572,9 @@
 <p>有条件式抓取经常用在可以识别出的异常的场景里。比如当系统的某个观测值超过了预先设定的阈值时，此时触发抓取日志并且持续一段时间或者达到另外一种阈值之后结束抓取。这相比于前面一个方法稍微进步了一些，仅在出问题的时候对系统有影响，其他时候没有任何影响点。但它需要你能够识别出异常，并且这种异常是不需要异常发生之前的历史数据。当然你可以通过降低阈值来更容易达到触发点，这可能会提高触发数据抓取的概率，这时候会遇到前面介绍的无条件式抓取遇到的同样的问题，需要平衡性能损失。</p>
 <h3 id="落盘策略"><a href="#落盘策略" class="headerlink" title="落盘策略"></a>落盘策略</h3><p>持续落盘是存储整个数据抓取过程中的所有数据，代价是存储的压力。如果能知道触发点，比如能够检测到异常点，这时候可以选择性的落盘。为了保证历史数据的有效性，因此把日志先暂存储到 RingBuffer 中，只有接受到落盘指令后再进行落盘存储。这种方式兼顾了性能与存储压力，但成本是运行时内存损耗与触发器的准确性。</p>
 <h2 id="1-3-分析方式"><a href="#1-3-分析方式" class="headerlink" title="1.3 分析方式"></a>1.3 分析方式</h2><p><img src="/images/The-Performace-1-Performance-Tools/0d8c6651-c62f-4f0f-aacc-0ebb56667e23-20220107005708419.png" alt="分析方式"></p>
-<h3 id="数据可视化分析"><a href="#数据可视化分析" class="headerlink" title="数据可视化分析"></a>数据可视化分析</h3><p>随着问题分析的复杂化，出现了要解决多个模块间交互的性能问题需求，业界就出现了以时间为横轴把对应事件放到各自泳道上的数据可视化分析方法，可以方便的看到所关心事件什么时候发生、与其他系统的交互信息等等。在 Android 里我们常用的 Systrace/Perfetto 以及更早之前的 KernelShark 等工具本质上都是这一类工具。在「数据类型」提到的 「Trace 类型」，经常采用这种可视化分析方法。 </p>
-<p>Systrace 的可视化框架是基于 Chrome 的一个叫 Catapult 的子项目构建。<a href="https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/preview" target="_blank" rel="noopener">Trace Event Format</a> 讲述了 Catapult 所支持的数据格式，如果你有 Trace 类型的数据，完全可以使用此框架来展示可视化数据。AOSP 编译系统，安卓应用的编译过程，也都有相应的 Trace 文件输出，它们也都基于 Catapult 实现了可视化效果。 </p>
-<h3 id="数据库分析"><a href="#数据库分析" class="headerlink" title="数据库分析"></a>数据库分析</h3><p>面对大量数据分析的分析，通过对数据进行格式化，把他们转换成二维数据表，借助 SQL 语言可实现高效的查询操作。在服务器领域中 <a href="https://www.elastic.co/cn/what-is/elk-stack" target="_blank" rel="noopener">ELK</a> 等技术栈可以实现更为灵活的格式化搜索与统计功能。借助数据库与 Python，你甚至可以实现一套自动化数据诊断工具链。 </p>
+<h3 id="数据可视化分析"><a href="#数据可视化分析" class="headerlink" title="数据可视化分析"></a>数据可视化分析</h3><p>随着问题分析的复杂化，出现了要解决多个模块间交互的性能问题需求，业界就出现了以时间为横轴把对应事件放到各自泳道上的数据可视化分析方法，可以方便的看到所关心事件什么时候发生、与其他系统的交互信息等等。在 Android 里我们常用的 Systrace&#x2F;Perfetto 以及更早之前的 KernelShark 等工具本质上都是这一类工具。在「数据类型」提到的 「Trace 类型」，经常采用这种可视化分析方法。 </p>
+<p>Systrace 的可视化框架是基于 Chrome 的一个叫 Catapult 的子项目构建。<a target="_blank" rel="noopener" href="https://docs.google.com/document/d/1CvAClvFfyA5R-PhYUmn5OOQtYMH4h6I0nSsKchNAySU/preview">Trace Event Format</a> 讲述了 Catapult 所支持的数据格式，如果你有 Trace 类型的数据，完全可以使用此框架来展示可视化数据。AOSP 编译系统，安卓应用的编译过程，也都有相应的 Trace 文件输出，它们也都基于 Catapult 实现了可视化效果。 </p>
+<h3 id="数据库分析"><a href="#数据库分析" class="headerlink" title="数据库分析"></a>数据库分析</h3><p>面对大量数据分析的分析，通过对数据进行格式化，把他们转换成二维数据表，借助 SQL 语言可实现高效的查询操作。在服务器领域中 <a target="_blank" rel="noopener" href="https://www.elastic.co/cn/what-is/elk-stack">ELK</a> 等技术栈可以实现更为灵活的格式化搜索与统计功能。借助数据库与 Python，你甚至可以实现一套自动化数据诊断工具链。 </p>
 <p>从上面的讨论可知，从文本分析到数据库分析他们要面对的分析目的是不一样的。单纯的看一个模块的耗时用文本分析就够用了，多个系统间的交互那就要用可视化工具，复杂的数据库分析就要用到 SQL 的工具。无论哪种分析方式，本质上都是针对数据的分析，在实战中我们经常会通过其他工具对数据进行转换以支持不同的分析方式，比如从文本分析方式改成数据库分析方式。 </p>
 <p>根据自己的目的，选择合适的分析方式才会让你的工作事倍功半。 </p>
 <p>对于 Android 开发者来说，Google 提供了几个非常重要的性能分析工具，帮助系统开发者、应用开发者来优化他们的程序。</p>
@@ -584,12 +582,12 @@
 <h2 id="2-1-初代系统性能分析工具-Systrace"><a href="#2-1-初代系统性能分析工具-Systrace" class="headerlink" title="2.1 初代系统性能分析工具 - Systrace"></a>2.1 初代系统性能分析工具 - Systrace</h2><p>Systrace 是 Trace 类型的可视化分析工具，是第一代系统级性能分析工具。Trace 类型所支持的功能它都有支持。在 Perfetto 出现之前，基本上是唯一的性能分析工具，它将 Android 系统和 App 的运行信息以图形化的方式展示出来，与 Log 相比，Systrace 的图像化方式更为直观；与 TraceView 相比，抓取 Systrace 时候的性能开销基本可以忽略，最大程度地减少观察者效应带来的影响。</p>
 <p><img src="/images/The-Performace-1-Performance-Tools/8ea0e7de-1f32-471f-929a-5a37d73e3270.png" alt="Systrace"></p>
 <h3 id="Systrace-的设计思路"><a href="#Systrace-的设计思路" class="headerlink" title="Systrace 的设计思路"></a><strong>Systrace 的设计思路</strong></h3><p>在<strong>系统的一些关键操作</strong>（比如 Touch 操作、Power 按钮、滑动操作等）、<strong>系统机制</strong>（input 分发、View 绘制、进程间通信、进程管理机制等）、<strong>软硬件信息</strong>（CPU 频率信息、CPU 调度信息、磁盘信息、内存信息等）的关键流程上，插入类似 Log 的信息，我们称之为 TracePoint（本质是 Ftrace 信息），通过这些 TracePoint 来展示一个核心操作过程的执行时间、某些变量的值等信息。然后 Android 系统把这些散布在各个进程中的 TracePoint 收集起来，写入到一个文件中。导出这个文件后，Systrace 通过解析这些 TracePoint 的信息，得到一段时间内整个系统的运行信息。</p>
-<p><img src="/images/The-Performace-1-Performance-Tools/56bebe5b-e5fd-4b69-8e36-3197fe205034.png" alt=""></p>
+<p><img src="/images/The-Performace-1-Performance-Tools/56bebe5b-e5fd-4b69-8e36-3197fe205034.png"></p>
 <p>Android 系统中，一些重要的模块都已经默认插入了一些 TracePoint，通过 TraceTag 来分类，其中信息来源如下</p>
 <ol>
 <li>Framework Java 层的 TracePoint 通过 android.os.Trace 类完成</li>
 <li>Framework Native 层的 TracePoint 通过 ATrace 宏完成</li>
-<li>App 开发者可以通过 android.os.Trace 类自定义 Trace </li>
+<li>App 开发者可以通过 android.os.Trace 类自定义 Trace</li>
 </ol>
 <p>这样 Systrace 就可以把 Android 上下层的所有信息都收集起来并集中展示，对于 Android 开发者来说，Systrace 最大的作用就是把整个 Android 系统的运行状态，从黑盒变成了白盒。全局性和可视化使得 Systrace 成为 Android 开发者在分析复杂的性能问题的时候的首选。</p>
 <h3 id="实践中的应用情况"><a href="#实践中的应用情况" class="headerlink" title="实践中的应用情况"></a>实践中的应用情况</h3><p>解析后的 Systrace 由于有大量的系统信息，天然适合分析 Android App 和 Android 系统的性能问题， Android 的 App 开发者、系统开发者、Kernel 开发者都可以使用 Systrace 来分析性能问题。</p>
@@ -609,23 +607,23 @@
 </li>
 </ol>
 <p>在遇到上述问题后，可以使用多种方式抓取 Systrace ，将解析后的文件在 Chrome 打开，然后就可以进行分析</p>
-<h2 id="2-2-新一代性能分析全栈工具-Perfetto"><a href="#2-2-新一代性能分析全栈工具-Perfetto" class="headerlink" title="2.2 新一代性能分析全栈工具 - Perfetto"></a>2.2 新一代性能分析全栈工具 - Perfetto</h2><p>谷歌在 2017 年开始了第一笔提交，随后的 4 年（截止到 2021.12）内总共有 100 多位开发者提交了近 3.7W 笔提交，几乎每天都有 PR 与 Merge 操作，是一个相当活跃的项目。 除了功能强大之外其野心也非常大，官网上号称它是下一代面向可跨平台的 Trace/Metric 数据抓取与分析工具。应用也比较广泛，除了 Perfetto 网站，<a href="https://devblogs.microsoft.com/performance-diagnostics/new-tools-for-analyzing-android-linux-and-chromium-browser-performance/" target="_blank" rel="noopener">Windows Performance Tool</a> 与 <a href="https://developer.android.com/studio" target="_blank" rel="noopener">Android Studio</a>，以及华为的 <a href="https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/overview-0000001050741459" target="_blank" rel="noopener">GraphicProfiler</a> 也支持 Perfetto 数据的可视化与分析。 我们相信谷歌还会持续投入资源到 Perfetto 项目，可以说它应该就是下一代性能分析工具了，会完全取代 Systrace。</p>
+<h2 id="2-2-新一代性能分析全栈工具-Perfetto"><a href="#2-2-新一代性能分析全栈工具-Perfetto" class="headerlink" title="2.2 新一代性能分析全栈工具 - Perfetto"></a>2.2 新一代性能分析全栈工具 - Perfetto</h2><p>谷歌在 2017 年开始了第一笔提交，随后的 4 年（截止到 2021.12）内总共有 100 多位开发者提交了近 3.7W 笔提交，几乎每天都有 PR 与 Merge 操作，是一个相当活跃的项目。 除了功能强大之外其野心也非常大，官网上号称它是下一代面向可跨平台的 Trace&#x2F;Metric 数据抓取与分析工具。应用也比较广泛，除了 Perfetto 网站，<a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/performance-diagnostics/new-tools-for-analyzing-android-linux-and-chromium-browser-performance/">Windows Performance Tool</a> 与 <a target="_blank" rel="noopener" href="https://developer.android.com/studio">Android Studio</a>，以及华为的 <a target="_blank" rel="noopener" href="https://developer.huawei.com/consumer/cn/doc/development/Tools-Guides/overview-0000001050741459">GraphicProfiler</a> 也支持 Perfetto 数据的可视化与分析。 我们相信谷歌还会持续投入资源到 Perfetto 项目，可以说它应该就是下一代性能分析工具了，会完全取代 Systrace。</p>
 <h3 id="提供的亮点功能"><a href="#提供的亮点功能" class="headerlink" title="提供的亮点功能"></a>提供的亮点功能</h3><p>Perfetto 相比 Systrace 最大的改进是可以支持长时间数据抓取，这是得益于它有一个可在后台运行的服务，通过它实现了对收集上来的数据进行 Protobuf 的编码并存盘。从数据来源来看，核心原理与 Systrace 是一致的，也都是基于 Linux 内核的 Ftrace 机制实现了用户空间与内核空间关键事件的记录（ATRACE、CPU 调度）。Systrace 提供的功能 Perfetto 都支持，由此才说 Systrace 最终会被 Perfetto 替代。</p>
 <p><img src="/images/The-Performace-1-Performance-Tools/fc328f61-6e2a-4695-b712-c42a7e9ab02b.png" alt="Perfetto"></p>
 <p>Perfetto 所支持的数据类型、获取方法，以及分析方式上看也是前所未有的全面，它几乎支持所有的类型与方法。数据类型上通过 ATRACE 实现了 Trace 类型支持，通过可定制的节点读取机制实现了 Metric 类型的支持，在 UserDebug 版本上通过获取 Logd 数据实现了 Log 类型的支持。</p>
 <p>你可以通过 Perfetto.dev 网页、命令行工具手动触发抓取与结束，通过设置中的开发者选项触发长时间抓取，甚至你可以通过框架中提供的 Perfetto Trigger API 来动态开启数据抓取，基本上涵盖了我们在项目上能遇到的所有的情境。 </p>
 <p>在数据分析层面，Perfetto 提供了类似 Systrace 操作的数据可视化分析网页，但底层实现机制完全不同，最大的好处是可以支持超大文件的渲染，这是 Systrace 做不到的（超过 300M 以上时可能会崩溃、可能会超卡）。在这个可视化网页上，可以看到各种二次处理的数据、可以执行 SQL 查询命令、甚至还可以看到 logcat 的内容。Perfetto Trace 文件可以转换成基于 SQLite 的数据库文件，既可以现场敲 SQL 也可以把已经写好的 SQL 形成执行文件。甚至你可以把他导入到 Jupyter 等数据科学工具栈，将你的分析思路分享给其他伙伴。 </p>
 <p>比如你想要计算 SurfaceFlinger 线程消耗 CPU 的总量，或者运行在大核中的线程都有哪一些等等，可以与领域专家合作，把他们的经验转成 SQL 指令。如果这个还不满足你的需求， Perfetto 也提供了 Python API，将数据导出成 DataFrame 格式近乎可以实现任意你想要的数据分析效果。 </p>
-<p>这一套下来供开发者可挖掘的点就非常多了，从笔者团队的实践来看，他几乎可以覆盖从功能开发、功能测试、CI/CD 以及线上监控、专家系统等方方面面。本星球的后续系列文章中，也会重点介绍 Perfetto 的强大功能与基于它开发的专家系统，可以帮助你「一键解答」性能瓶颈。 </p>
+<p>这一套下来供开发者可挖掘的点就非常多了，从笔者团队的实践来看，他几乎可以覆盖从功能开发、功能测试、CI&#x2F;CD 以及线上监控、专家系统等方方面面。本星球的后续系列文章中，也会重点介绍 Perfetto 的强大功能与基于它开发的专家系统，可以帮助你「一键解答」性能瓶颈。 </p>
 <h3 id="实践中的应用情况-1"><a href="#实践中的应用情况-1" class="headerlink" title="实践中的应用情况"></a>实践中的应用情况</h3><p>性能分析首要用到的工具就是 Perfetto，使用 Systrace 的场景是越来越少了。所以，你首要掌握的工具应该是 Perfetto，学习它的用法以及它提供的指标。 </p>
 <p>不过 Perfetto 也有一些边界，首先它虽然提供了较高的灵活性但本质上还是静态数据收集器，不是动态跟踪工具，跟 eBPF 还是有本质上的差异。其次运行时成本比较高，因为涉及到在手机中实现 Ftrace 数据到 Perfetto 数据的转换。最后他不提供文本分析方式，只能通过网页可视化或者操作 SQLite 来进行额外的分析了。综合来看 Perfetto 是功能强大，几乎涵盖了可观测性技术的方方面面，但是使用门槛也比较高。值得挖掘与学习的知识点比较多，我们后续的文章中也会重点安排此部分的内容。</p>
 <h2 id="2-3-Android-Studio-Profiler-工具"><a href="#2-3-Android-Studio-Profiler-工具" class="headerlink" title="2.3 Android Studio Profiler  工具"></a>2.3 Android Studio Profiler  工具</h2><p>Android 的应用开发集成环境（官方推荐）是 Android Studio （之前是Eclipse，不过已经淘汰了） ，它自然而然也需要把开发和性能调优集成一起。非常幸运的是，随着 Android Studio 的迭代、演进，到目前，Android Studio 有了自己的性能分析工具 Android Profiler，它是一个集合体，集成了多种性能分析工具于一体，让开发者可以在 Android Studio 做开发应用，也不用再下载其它工具就能让能做性能调优工作。</p>
 <p>目前 Android Studio Profiler 已经集成了 4 类性能分析工具： CPU、Memory、Network、Battery，其中 CPU 相关性能分析工具为 CPU Profiler，也是本章的主角，它把 CPU 相关的性能分析工具都集成在了一起，开发者可以根据自己需求来选择使用哪一个。可能很多人都知道，谷歌已经开发了一些独立的 CPU 性能分析工具，如 Perfetto、Simpleperf、Java Method Trace 等，现在又出来一个 CPU Profiler，显然不可能去重复造轮子，CPU Profiler 目前做法就是：从这些已知的工具中获取数据，然后把数据解析成自己想要的样式，通过统一的界面展示出来。</p>
 <h3 id="提供的亮点功能-1"><a href="#提供的亮点功能-1" class="headerlink" title="提供的亮点功能"></a><strong>提供的亮点功能</strong></h3><p>CPU Profiler 集成了性能分析工具：Perfetto、Simpleperf、Java Method Trace，它自然而然具备了这些工具的全部或部分功能，如下：</p>
 <ol>
-<li><strong>System Trace Recording，它是</strong>用 Perfetto 抓取的信息，可用于分析进程函数耗时、调度、渲染等情况，但是它一个精简版，只能显示进程强相关的信息且会过滤掉耗时短的事件，建议将 Trace 导出文件后在 <a href="https://ui.perfetto.dev/" target="_blank" rel="noopener">https://ui.perfetto.dev/</a> 上进行分析。</li>
+<li><strong>System Trace Recording，它是</strong>用 Perfetto 抓取的信息，可用于分析进程函数耗时、调度、渲染等情况，但是它一个精简版，只能显示进程强相关的信息且会过滤掉耗时短的事件，建议将 Trace 导出文件后在 <a target="_blank" rel="noopener" href="https://ui.perfetto.dev/">https://ui.perfetto.dev/</a> 上进行分析。</li>
 <li><strong>Java Method Trace Recording，它是</strong>从虚拟机获取函数调用栈信息，用于分析 Java 函数调用和耗时情况。</li>
-<li><strong>C/C++ Function Trace，它是用</strong> Simpleperf 抓取的信息，Simpleperf  是从 CPU 的性能监控单元 PMU 硬件组件获取数据。 <strong>C/C++ Method Trace</strong> 只具备 Simpleperf 部分功能，用于分析 C/C++ 函数调用和耗时情况。</li>
+<li><strong>C&#x2F;C++ Function Trace，它是用</strong> Simpleperf 抓取的信息，Simpleperf  是从 CPU 的性能监控单元 PMU 硬件组件获取数据。 <strong>C&#x2F;C++ Method Trace</strong> 只具备 Simpleperf 部分功能，用于分析 C&#x2F;C++ 函数调用和耗时情况。</li>
 </ol>
 <p><img src="/images/The-Performace-1-Performance-Tools/92246083-124c-4290-a5c4-5b57529741cb.png" alt="CPU Profiler"></p>
 <h3 id="实践中的应用情况-2"><a href="#实践中的应用情况-2" class="headerlink" title="实践中的应用情况"></a>实践中的应用情况</h3><p>应用的性能问题主要分为两类：响应慢、不流畅。</p>
@@ -633,13 +631,13 @@
 <li>响应慢问题常有：应用启动慢、页面跳转慢、列表加载慢、按钮响应慢等</li>
 <li>不流畅问题常有：列表滑动不流畅、页面滑动不跟手、动画卡顿等</li>
 </ul>
-<p>CPU Profiler 在这些场景中要如何使用呢？基本的思路是：首先就要抓 System Trace，先用System Trace 分析、定位问题，如果不能定位到问题，再借助 Java Method Trace 或 C/C++ Function Trace 进一步分析定位。</p>
+<p>CPU Profiler 在这些场景中要如何使用呢？基本的思路是：首先就要抓 System Trace，先用System Trace 分析、定位问题，如果不能定位到问题，再借助 Java Method Trace 或 C&#x2F;C++ Function Trace 进一步分析定位。</p>
 <p>以一个性能极差的应用为例，在系统的关键位置插了 Systrace TracePoint，假设对代码不熟悉，那要怎么找到性能瓶颈呢？我们先把应用跑起来，<strong>通过 CPU Profiler</strong> <strong>录制一个 System Trace</strong> （后面文章会介绍工具的使用方法）如下：</p>
-<p><img src="/images/The-Performace-1-Performance-Tools/359770f0-ccf4-4857-9f7d-89db47e44d0b.png" alt=""></p>
-<p>通过上面 Trace 可以知道是在 egl_core 线程中的 onDrawFrame 操作耗时，如果发现不了问题，建议导出到 <a href="https://ui.perfetto.dev/" target="_blank" rel="noopener">https://ui.perfetto.dev/</a> 进一步分析，可以查找源代码看看 onDrawFrame 是什么东西， 我们通过查找发现 onDrawFrame 是 Java 函数 onDrawFrame 的耗时，要分析 Java 函数耗时情况，<strong>我们要录制一个 Java Method Trace</strong>，如下：</p>
-<p><img src="/images/The-Performace-1-Performance-Tools/ee7e0852-9643-46f1-86b6-23e3975c1e54.png" alt=""></p>
-<p>通过上面 Trace 很容易发现是一个叫做 Utils.onDraw 的 native 函数耗时，因为涉及到C/C++ 代码，所以要再录制一个 <strong>C/C++ Function Trace 进一步分析，如下：</strong></p>
-<p><img src="/images/The-Performace-1-Performance-Tools/25a10f6e-4465-4ea4-addb-624203e99dfd.png" alt=""></p>
+<p><img src="/images/The-Performace-1-Performance-Tools/359770f0-ccf4-4857-9f7d-89db47e44d0b.png"></p>
+<p>通过上面 Trace 可以知道是在 egl_core 线程中的 onDrawFrame 操作耗时，如果发现不了问题，建议导出到 <a target="_blank" rel="noopener" href="https://ui.perfetto.dev/">https://ui.perfetto.dev/</a> 进一步分析，可以查找源代码看看 onDrawFrame 是什么东西， 我们通过查找发现 onDrawFrame 是 Java 函数 onDrawFrame 的耗时，要分析 Java 函数耗时情况，<strong>我们要录制一个 Java Method Trace</strong>，如下：</p>
+<p><img src="/images/The-Performace-1-Performance-Tools/ee7e0852-9643-46f1-86b6-23e3975c1e54.png"></p>
+<p>通过上面 Trace 很容易发现是一个叫做 Utils.onDraw 的 native 函数耗时，因为涉及到C&#x2F;C++ 代码，所以要再录制一个 <strong>C&#x2F;C++ Function Trace 进一步分析，如下：</strong></p>
+<p><img src="/images/The-Performace-1-Performance-Tools/25a10f6e-4465-4ea4-addb-624203e99dfd.png"></p>
 <p>可以发现在 native 的 Java_com_gl_shader_Utils_onDraw 中代码执行了 sleep，它就是导致了性能低下的罪魁祸首！</p>
 <p>AS 中的 CPU Profiler 最大优势是集成了各种子工具，在一个地方就能操作一切，对应用开发者来说是非常方便的，不过对系统开发者来说可能没那么幸运。</p>
 <h2 id="2-4-综合对比"><a href="#2-4-综合对比" class="headerlink" title="2.4 综合对比"></a>2.4 综合对比</h2><table>
@@ -675,7 +673,7 @@
 </tr>
 <tr>
 <td>SimplePerf</td>
-<td>Java/C++ 函数执行耗时 分析 PMU 计数器</td>
+<td>Java&#x2F;C++ 函数执行耗时 分析 PMU 计数器</td>
 <td>Trace 类性</td>
 <td>无条件抓取 持续落盘</td>
 <td>可视化分析 文本分析</td>
@@ -695,7 +693,7 @@
 <td>可视化分析</td>
 </tr>
 <tr>
-<td>Android Log/dumpsys</td>
+<td>Android Log&#x2F;dumpsys</td>
 <td>综合分析</td>
 <td>Log 类型</td>
 <td>有条件抓取 持续抓取但不落盘</td>
@@ -762,21 +760,21 @@
 <p><strong>注意:</strong> <strong>iOS 手机用户不要直接在星球里面付款，在微信界面长按图片扫描二维码加入即可，否则苹果会收取高昂的手续</strong></p>
 <h1 id="5-附录"><a href="#5-附录" class="headerlink" title="5 附录"></a>5 附录</h1><ul>
 <li>Perfetto 项目地址 <ul>
-<li>官方使用文档: <a href="https://perfetto.dev/docs/" target="_blank" rel="noopener">https://perfetto.dev/docs/</a>  </li>
-<li>Github 代码库 <a href="https://github.com/google/perfetto" target="_blank" rel="noopener">https://github.com/google/perfetto</a> ，可以提 bug 或者需求，当然也可以提 PR 贡献你的力量。</li>
+<li>官方使用文档: <a target="_blank" rel="noopener" href="https://perfetto.dev/docs/">https://perfetto.dev/docs/</a>  </li>
+<li>Github 代码库 <a target="_blank" rel="noopener" href="https://github.com/google/perfetto">https://github.com/google/perfetto</a> ，可以提 bug 或者需求，当然也可以提 PR 贡献你的力量。</li>
 </ul>
 </li>
 <li>Android GPU Inspector<ul>
-<li>官方使用文档: <a href="https://developer.android.com/agi" target="_blank" rel="noopener">https://developer.android.com/agi</a></li>
+<li>官方使用文档: <a target="_blank" rel="noopener" href="https://developer.android.com/agi">https://developer.android.com/agi</a></li>
 </ul>
 </li>
 <li>其他大厂的性能分析工具 <ul>
-<li><a href="https://docs.microsoft.com/en-us/windows-hardware/test/wpt/" target="_blank" rel="noopener">Windows Performance Toolkit</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/windows-hardware/test/wpt/">Windows Performance Toolkit</a></li>
 </ul>
 </li>
 </ul>
 <h1 id="关于我-amp-amp-博客"><a href="#关于我-amp-amp-博客" class="headerlink" title="关于我 &amp;&amp; 博客"></a>关于我 &amp;&amp; 博客</h1><ol>
-<li><a href="https://www.androidperformance.com/about/" target="_blank" rel="noopener">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/about/">关于我</a> , 非常希望和大家一起交流 , 共同进步 .</li>
 <li><a href="https://androidperformance.com/2019/12/01/BlogMap/">博客内容导航</a></li>
 <li><a href="https://androidperformance.com/2018/05/07/Android-performance-optimization-skills-and-tools/">优秀博客文章记录 - Android 性能优化必知必会</a></li>
 </ol>
@@ -792,8 +790,8 @@
             <p>原文作者：<a href="https://androidperformance.com">Gracker</a>
             <p>原文链接：<a href="https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/">https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/</a>
             <p>发表日期：<a href="https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/">January 7th 2022, 12:42:03 am</a>
-            <p>更新日期：<a href="https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/">March 13th 2022, 9:14:39 am</a>
-            <p>版权声明：本文采用<a rel="license noopener" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+            <p>更新日期：<a href="https://androidperformance.com/2022/01/07/The-Performace-1-Performance-Tools/">May 14th 2023, 2:29:06 pm</a>
+            <p>版权声明：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
     <!-- paginator -->
@@ -986,7 +984,7 @@
                 <div class="toc-catalog">
                     <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
                 </div>
-                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-性能分析中的可观测性技术"><span class="toc-number">1.</span> <span class="toc-text">1 性能分析中的可观测性技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-数据类型"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Log-类型"><span class="toc-number">1.1.1.</span> <span class="toc-text">Log 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Metric-类型"><span class="toc-number">1.1.2.</span> <span class="toc-text">Metric 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trace-类型"><span class="toc-number">1.1.3.</span> <span class="toc-text">Trace 类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-数据获取方法"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 数据获取方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#静态代码与动态跟踪"><span class="toc-number">1.2.1.</span> <span class="toc-text">静态代码与动态跟踪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#无条件式抓取与有条件式抓取"><span class="toc-number">1.2.2.</span> <span class="toc-text">无条件式抓取与有条件式抓取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#落盘策略"><span class="toc-number">1.2.3.</span> <span class="toc-text">落盘策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-分析方式"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 分析方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据可视化分析"><span class="toc-number">1.3.1.</span> <span class="toc-text">数据可视化分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库分析"><span class="toc-number">1.3.2.</span> <span class="toc-text">数据库分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-谷歌提供的-Andorid-性能分析工具"><span class="toc-number">2.</span> <span class="toc-text">2 谷歌提供的 Andorid 性能分析工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-初代系统性能分析工具-Systrace"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 初代系统性能分析工具 - Systrace</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Systrace-的设计思路"><span class="toc-number">2.1.1.</span> <span class="toc-text">Systrace 的设计思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践中的应用情况"><span class="toc-number">2.1.2.</span> <span class="toc-text">实践中的应用情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-新一代性能分析全栈工具-Perfetto"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 新一代性能分析全栈工具 - Perfetto</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#提供的亮点功能"><span class="toc-number">2.2.1.</span> <span class="toc-text">提供的亮点功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践中的应用情况-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">实践中的应用情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Android-Studio-Profiler-工具"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Android Studio Profiler  工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#提供的亮点功能-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">提供的亮点功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践中的应用情况-2"><span class="toc-number">2.3.2.</span> <span class="toc-text">实践中的应用情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-综合对比"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 综合对比</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-关于「器、术、道」"><span class="toc-number">3.</span> <span class="toc-text">3 关于「器、术、道」</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-关于「The-Performance-知识星球」"><span class="toc-number">4.</span> <span class="toc-text">4  关于「The Performance 知识星球」</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-附录"><span class="toc-number">5.</span> <span class="toc-text">5 附录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#关于我-amp-amp-博客"><span class="toc-number">6.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%B8%AD%E7%9A%84%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text">1 性能分析中的可观测性技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Log-%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.1.</span> <span class="toc-text">Log 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Metric-%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.2.</span> <span class="toc-text">Metric 类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Trace-%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.3.</span> <span class="toc-text">Trace 类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E6%95%B0%E6%8D%AE%E8%8E%B7%E5%8F%96%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 数据获取方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E4%BB%A3%E7%A0%81%E4%B8%8E%E5%8A%A8%E6%80%81%E8%B7%9F%E8%B8%AA"><span class="toc-number">1.2.1.</span> <span class="toc-text">静态代码与动态跟踪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E6%9D%A1%E4%BB%B6%E5%BC%8F%E6%8A%93%E5%8F%96%E4%B8%8E%E6%9C%89%E6%9D%A1%E4%BB%B6%E5%BC%8F%E6%8A%93%E5%8F%96"><span class="toc-number">1.2.2.</span> <span class="toc-text">无条件式抓取与有条件式抓取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%90%BD%E7%9B%98%E7%AD%96%E7%95%A5"><span class="toc-number">1.2.3.</span> <span class="toc-text">落盘策略</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E5%88%86%E6%9E%90%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 分析方式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96%E5%88%86%E6%9E%90"><span class="toc-number">1.3.1.</span> <span class="toc-text">数据可视化分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E6%9E%90"><span class="toc-number">1.3.2.</span> <span class="toc-text">数据库分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%B0%B7%E6%AD%8C%E6%8F%90%E4%BE%9B%E7%9A%84-Andorid-%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7"><span class="toc-number">2.</span> <span class="toc-text">2 谷歌提供的 Andorid 性能分析工具</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%88%9D%E4%BB%A3%E7%B3%BB%E7%BB%9F%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7-Systrace"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 初代系统性能分析工具 - Systrace</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Systrace-%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%80%9D%E8%B7%AF"><span class="toc-number">2.1.1.</span> <span class="toc-text">Systrace 的设计思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E6%83%85%E5%86%B5"><span class="toc-number">2.1.2.</span> <span class="toc-text">实践中的应用情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E6%96%B0%E4%B8%80%E4%BB%A3%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%85%A8%E6%A0%88%E5%B7%A5%E5%85%B7-Perfetto"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 新一代性能分析全栈工具 - Perfetto</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BE%9B%E7%9A%84%E4%BA%AE%E7%82%B9%E5%8A%9F%E8%83%BD"><span class="toc-number">2.2.1.</span> <span class="toc-text">提供的亮点功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E6%83%85%E5%86%B5-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">实践中的应用情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Android-Studio-Profiler-%E5%B7%A5%E5%85%B7"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Android Studio Profiler  工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BE%9B%E7%9A%84%E4%BA%AE%E7%82%B9%E5%8A%9F%E8%83%BD-1"><span class="toc-number">2.3.1.</span> <span class="toc-text">提供的亮点功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E8%B7%B5%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8%E6%83%85%E5%86%B5-2"><span class="toc-number">2.3.2.</span> <span class="toc-text">实践中的应用情况</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E7%BB%BC%E5%90%88%E5%AF%B9%E6%AF%94"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 综合对比</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%85%B3%E4%BA%8E%E3%80%8C%E5%99%A8%E3%80%81%E6%9C%AF%E3%80%81%E9%81%93%E3%80%8D"><span class="toc-number">3.</span> <span class="toc-text">3 关于「器、术、道」</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%85%B3%E4%BA%8E%E3%80%8CThe-Performance-%E7%9F%A5%E8%AF%86%E6%98%9F%E7%90%83%E3%80%8D"><span class="toc-number">4.</span> <span class="toc-text">4  关于「The Performance 知识星球」</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E9%99%84%E5%BD%95"><span class="toc-number">5.</span> <span class="toc-text">5 附录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E6%88%91-amp-amp-%E5%8D%9A%E5%AE%A2"><span class="toc-number">6.</span> <span class="toc-text">关于我 &amp;&amp; 博客</span></a></li></ol>
             </div>
         
         <!-- sidebar -->
@@ -2783,6 +2781,11 @@
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -2798,21 +2801,6 @@
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -2821,6 +2809,11 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2833,19 +2826,14 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2858,11 +2846,6 @@
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -2871,6 +2854,11 @@
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -2888,29 +2876,9 @@
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -2923,9 +2891,9 @@
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -2933,14 +2901,14 @@
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -2948,14 +2916,14 @@
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -2976,6 +2944,36 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -3009,14 +3007,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -3034,14 +3032,14 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -3078,14 +3076,35 @@
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->

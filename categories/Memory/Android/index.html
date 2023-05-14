@@ -21,9 +21,9 @@
     <meta name="description" content="Focus On Android Performance">
     <meta name="description" content="Focus On Android Performance">
 <meta property="og:type" content="website">
-<meta property="og:title" content="我的优化技术文章分享">
+<meta property="og:title" content="Android Performance">
 <meta property="og:url" content="https://androidperformance.com/categories/Memory/Android/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="Focus On Android Performance">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Gracker">
@@ -32,9 +32,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>我的优化技术文章分享</title>
+    <title>Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -146,8 +144,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -199,12 +197,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -222,10 +219,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -291,7 +288,7 @@
 ">
     
     <!-- 主页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/)"></div>
     <div class="site-intro-meta">
@@ -360,7 +357,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -424,7 +421,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -493,10 +490,10 @@
             <div class="abstract-content">
                 <p>Android 内存优化系列文章：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Google/" target="_blank" rel="noopener">Android代码内存优化建议-Android官方篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Java/" target="_blank" rel="noopener">Android代码内存优化建议-Java官方篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/" target="_blank" rel="noopener">Android代码内存优化建议-Android资源篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/" target="_blank" rel="noopener">Android代码内存优化建议-OnTrimMemory优化</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Google/">Android代码内存优化建议-Android官方篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Java/">Android代码内存优化建议-Java官方篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/">Android代码内存优化建议-Android资源篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/">Android代码内存优化建议-OnTrimMemory优化</a></li>
 </ol>
 <hr>
 <p>这篇文章主要介绍在实际Android应用程序的开发中，容易导致内存泄露的一些情况。开发人员如果在进行代码编写之前就有内存泄露方面的基础知识，那么写出来的代码会强壮许多，写这篇文章也是这个初衷。本文从Android开发中的资源使用情况入手，介绍了如何在Bitmap、数据库查询、9-patch、过渡绘制等方面优化内存的使用。</p>
@@ -543,10 +540,10 @@
             <div class="abstract-content">
                 <p>Android 内存优化系列文章：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Google/" target="_blank" rel="noopener">Android代码内存优化建议-Android官方篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Java/" target="_blank" rel="noopener">Android代码内存优化建议-Java官方篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/" target="_blank" rel="noopener">Android代码内存优化建议-Android资源篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/" target="_blank" rel="noopener">Android代码内存优化建议-OnTrimMemory优化</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Google/">Android代码内存优化建议-Android官方篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Java/">Android代码内存优化建议-Java官方篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/">Android代码内存优化建议-Android资源篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/">Android代码内存优化建议-OnTrimMemory优化</a></li>
 </ol>
 <hr>
 <p>为了使垃圾回收器可以正常释放程序所占用的内存，在编写代码的时候就一定要注意尽量避免出现内存泄漏的情况（通常都是由于全局成员变量持有对象引用所导致的），并且在适当的时候去释放对象引用。对于大多数的应用程序而言，后面其它的事情就可以都交给垃圾回收器去完成了，如果一个对象的引用不再被其它对象所持有，那么系统就会将这个对象所分配的内存进行回收。</p>
@@ -594,10 +591,10 @@
             <div class="abstract-content">
                 <p>Android 内存优化系列文章：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Google/" target="_blank" rel="noopener">Android代码内存优化建议-Android官方篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Java/" target="_blank" rel="noopener">Android代码内存优化建议-Java官方篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/" target="_blank" rel="noopener">Android代码内存优化建议-Android资源篇</a></li>
-<li><a href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/" target="_blank" rel="noopener">Android代码内存优化建议-OnTrimMemory优化</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Google/">Android代码内存优化建议-Android官方篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-Java/">Android代码内存优化建议-Java官方篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-AndroidResource/">Android代码内存优化建议-Android资源篇</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/07/20/Android-Performance-Memory-onTrimMemory/">Android代码内存优化建议-OnTrimMemory优化</a></li>
 </ol>
 <hr>
 <p>这篇文章主要是介绍了一些小细节的优化技巧，当这些小技巧综合使用起来的时候，对于整个App的性能提升还是有作用的，只是不能较大幅度的提升性能而已。选择合适的算法与数据结构才应该是你首要考虑的因素，在这篇文章中不会涉及这方面。你应该使用这篇文章中的小技巧作为平时写代码的习惯，这样能够提升代码的效率。</p>
@@ -645,11 +642,11 @@
             <div class="abstract-content">
                 <p>系列文章目录：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns/" target="_blank" rel="noopener">Android性能优化典范综述</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-1/" target="_blank" rel="noopener">Android性能优化典范之Render Performance</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-2/" target="_blank" rel="noopener">Android性能优化典范之Understanding Overdraw</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-3/" target="_blank" rel="noopener">Android性能优化典范之Understanding VSYNC</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-4/" target="_blank" rel="noopener">Android性能优化典范之Profile GPU Rendering</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns/">Android性能优化典范综述</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-1/">Android性能优化典范之Render Performance</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-2/">Android性能优化典范之Understanding Overdraw</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-3/">Android性能优化典范之Understanding VSYNC</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-4/">Android性能优化典范之Profile GPU Rendering</a></li>
 </ol>
 <hr>
 <blockquote>
@@ -706,11 +703,11 @@
             <div class="abstract-content">
                 <p>系列文章目录：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns/" target="_blank" rel="noopener">Android性能优化典范综述</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-1/" target="_blank" rel="noopener">Android性能优化典范之Render Performance</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-2/" target="_blank" rel="noopener">Android性能优化典范之Understanding Overdraw</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-3/" target="_blank" rel="noopener">Android性能优化典范之Understanding VSYNC</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-4/" target="_blank" rel="noopener">Android性能优化典范之Profile GPU Rendering</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns/">Android性能优化典范综述</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-1/">Android性能优化典范之Render Performance</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-2/">Android性能优化典范之Understanding Overdraw</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-3/">Android性能优化典范之Understanding VSYNC</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/19/Android-Performance-Patterns-4/">Android性能优化典范之Profile GPU Rendering</a></li>
 </ol>
 <hr>
 <blockquote>
@@ -764,9 +761,9 @@
             <div class="abstract-content">
                 <p>本文是 MAT 工具使用系列的第二篇，这个系列共三篇，详细介绍了如何使用 MAT 来分析内存问题，既可以是 Java 应用的内存问题，也可以是 Android 应用的内存问题：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/" target="_blank" rel="noopener">Android 内存优化之一：MAT 使用入门</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/" target="_blank" rel="noopener">Android内存优化之二：MAT使用进阶</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/" target="_blank" rel="noopener">Android内存优化之三：打开MAT中的Bitmap原图</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/">Android 内存优化之一：MAT 使用入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/">Android内存优化之二：MAT使用进阶</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/">Android内存优化之三：打开MAT中的Bitmap原图</a></li>
 </ol>
 <p>在使用MAT查看应用程序内存使用情况的时候,我们经常会碰到Bitmap对象以及BitmapDrawable$BitmapState对象,而且在内存使用上,Bitmap所占用的内存占大多数.在这样的情况下, Bitmap所造成的内存泄露尤其严重, 需要及时发现并且及时处理.在这样的需求下, 当我们在MAT中发现和图片相关的内存泄露的时候, 如果能知道是那一张图片,对分析问题会有很大的帮助.</p>
 <p>本文就介绍如何将MAT中的Bitmap数组对象还原成一张图片。</p>
@@ -813,9 +810,9 @@
             <div class="abstract-content">
                 <p>本文是 MAT 工具使用系列的第二篇，这个系列共三篇，详细介绍了如何使用 MAT 来分析内存问题，既可以是 Java 应用的内存问题，也可以是 Android 应用的内存问题：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/" target="_blank" rel="noopener">Android 内存优化之一：MAT 使用入门</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/" target="_blank" rel="noopener">Android内存优化之二：MAT使用进阶</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/" target="_blank" rel="noopener">Android内存优化之三：打开MAT中的Bitmap原图</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/">Android 内存优化之一：MAT 使用入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/">Android内存优化之二：MAT使用进阶</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/">Android内存优化之三：打开MAT中的Bitmap原图</a></li>
 </ol>
 <h1 id="Java的内存泄露的特点"><a href="#Java的内存泄露的特点" class="headerlink" title="Java的内存泄露的特点"></a>Java的内存泄露的特点</h1><ul>
 <li>Java中的内存泄露主要特征：可达，无用</li>
@@ -867,9 +864,9 @@
             <div class="abstract-content">
                 <p>本文是 MAT 工具使用系列的第一篇，这个系列共三篇，详细介绍了如何使用 MAT 来分析内存问题，既可以是 Java 应用的内存问题，也可以是 Android 应用的内存问题：</p>
 <ol>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/" target="_blank" rel="noopener">Android 内存优化(1) - MAT 使用入门</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/" target="_blank" rel="noopener">Android 内存优化(2) - MAT使用进阶</a></li>
-<li><a href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/" target="_blank" rel="noopener">Android 内存优化(3) - 打开MAT中的Bitmap原图</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT/">Android 内存优化(1) - MAT 使用入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Usage-Of-MAT-Pro/">Android 内存优化(2) - MAT使用进阶</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.androidperformance.com/2015/04/11/AndroidMemory-Open-Bitmap-Object-In-MAT/">Android 内存优化(3) - 打开MAT中的Bitmap原图</a></li>
 </ol>
 <h1 id="MAT简介"><a href="#MAT简介" class="headerlink" title="MAT简介"></a>MAT简介</h1><h2 id="MAT介绍"><a href="#MAT介绍" class="headerlink" title="MAT介绍"></a>MAT介绍</h2><p>MAT(Memory Analyzer Tool)，一个基于 Eclipse 的内存分析工具，是一个快速、功能丰富的JAVA heap分析工具，它可以帮助我们查找内存泄漏和减少内存消耗。使用内存分析工具从众多的对象中进行分析，快速的计算出在内存中对象的占用大小，看看是谁阻止了垃圾收集器的回收工作，并可以通过报表直观的查看到可能造成这种结果的对象。  </p>
 <p><img src="/images/MAT/MAT_Intro.png" alt="image"></p>
@@ -2824,6 +2821,11 @@
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -2839,21 +2841,6 @@
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -2862,6 +2849,11 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2874,19 +2866,14 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2899,11 +2886,6 @@
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -2912,6 +2894,11 @@
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -2929,29 +2916,9 @@
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -2964,9 +2931,9 @@
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -2974,14 +2941,14 @@
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -2989,14 +2956,14 @@
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -3017,6 +2984,36 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -3050,14 +3047,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -3075,14 +3072,14 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -3119,14 +3116,35 @@
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->

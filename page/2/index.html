@@ -21,9 +21,9 @@
     <meta name="description" content="Focus On Android Performance">
     <meta name="description" content="Focus On Android Performance">
 <meta property="og:type" content="website">
-<meta property="og:title" content="我的优化技术文章分享">
+<meta property="og:title" content="Android Performance">
 <meta property="og:url" content="https://androidperformance.com/page/2/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="Focus On Android Performance">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Gracker">
@@ -32,9 +32,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>我的优化技术文章分享</title>
+    <title>Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -146,8 +144,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -199,12 +197,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -222,10 +219,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -298,7 +295,7 @@
     
         
     <!-- 文章页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
     <div class="site-intro-meta">
@@ -375,7 +372,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -439,7 +436,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -465,7 +462,7 @@
                 <span class="abstract-title-text">Android 系统开发系列（1）：Android 12 源代码下载、编译和刷机</span>
             </a>
             <div class="abstract-content">
-                <p>Android 12 <a href="https://mp.weixin.qq.com/s/OiFSWEnc-0N2z7JYWTJluw" target="_blank" rel="noopener">正式版</a> 已经发布：<a href="https://mp.weixin.qq.com/s/OiFSWEnc-0N2z7JYWTJluw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/OiFSWEnc-0N2z7JYWTJluw</a> 。Android 12 正式版的代码也已经发布，<a href="https://source.android.google.cn/" target="_blank" rel="noopener">官方文档</a> 也进行了更新：<a href="https://source.android.google.cn/" target="_blank" rel="noopener">https://source.android.google.cn/</a></p>
+                <p>Android 12 <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/OiFSWEnc-0N2z7JYWTJluw">正式版</a> 已经发布：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/OiFSWEnc-0N2z7JYWTJluw">https://mp.weixin.qq.com/s/OiFSWEnc-0N2z7JYWTJluw</a> 。Android 12 正式版的代码也已经发布，<a target="_blank" rel="noopener" href="https://source.android.google.cn/">官方文档</a> 也进行了更新：<a target="_blank" rel="noopener" href="https://source.android.google.cn/">https://source.android.google.cn/</a></p>
 <p>本文就带大家下载和编译最新的 Android 12 代码，本地编译的代码有下面几个好处</p>
 <ol>
 <li>可以刷真机，方便开发者进行本地 Debug，同时代码可以导入 Android Studio 进行 Debug</li>
@@ -507,16 +504,16 @@
                 <span class="abstract-title-text">Android Systrace 响应速度实战 3 ：响应速度延伸知识</span>
             </a>
             <div class="abstract-content">
-                <p>在讨论 Android 性能问题的时候，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这三个性能相关的知识点通常会放到一起来讲，因为引起卡顿、响应慢、ANR 的原因类似，只不过根据重要程度，被人为分成了卡顿、响应慢、ANR 三种，所以我们可以定义广义上的卡顿，包含了卡顿、响应慢和 ANR 三种，所以如果用户反馈说手机卡顿或者 App 卡顿，大部分情况下都是广义上的卡顿，需要搞清楚，到底出现了哪一种问题</p>
-<p>如果是动画播放卡顿、列表滑动卡顿这种，我们一般定义为 <strong>狭义的卡顿</strong>，对应的英文描述我觉得应该是 <strong>Jank</strong>；如果是应用启动慢、亮灭屏慢、场景切换慢，我们一般定义为 <strong>响应慢</strong> ，对应的英文描述我觉得应该是 <strong>Slow</strong> ；如果是发生了 ANR，那就是 <strong>应用无响应问题</strong> 。三种情况所对应的分析方法和解决方法不太一样，所以需要分开来讲</p>
-<p>另外在 App 或者厂商内部，<strong>卡顿</strong>、<strong>响应速度</strong>、<strong>ANR</strong> 这几个性能指标都是有单独的标准的，比如 <strong>掉帧率</strong>、<strong>启动速度</strong>、<strong>ANR 率</strong>等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
-<p><strong>本文是响应速度系列的第三篇，主要是讲在使用 Systrace 分析应用响应速度问题的时候，其中的一些延伸知识，包括启动速度测试、Log 输出解读、Systrace 状态解读、三方启动库等内容</strong>
+                <p>在讨论 Android 性能问题的时候，卡顿、响应速度、ANR 这三个性能相关的知识点通常会放到一起来讲，因为引起卡顿、响应慢、ANR 的原因类似，只不过根据重要程度，被人为分成了卡顿、响应慢、ANR 三种，所以我们可以定义广义上的卡顿，包含了卡顿、响应慢和 ANR 三种，所以如果用户反馈说手机卡顿或者 App 卡顿，大部分情况下都是广义上的卡顿，需要搞清楚，到底出现了哪一种问题</p>
+<p>如果是动画播放卡顿、列表滑动卡顿这种，我们一般定义为 狭义的卡顿，对应的英文描述我觉得应该是 Jank；如果是应用启动慢、亮灭屏慢、场景切换慢，我们一般定义为 响应慢，对应的英文描述我觉得应该是 Slow ；如果是发生了 ANR，那就是 <strong>应用无响应问题</strong> 。三种情况所对应的分析方法和解决方法不太一样，所以需要分开来讲</p>
+<p>另外在 App 或者厂商内部，卡顿、响应速度、ANR 这几个性能指标都是有单独的标准的，比如 掉帧率、启动速度、ANR 率等，所以针对这些性能问题的分析和优化能力，对开发者来说就非常重要了</p>
+<p>本文是响应速度系列的第三篇，主要是讲在使用 Systrace 分析应用响应速度问题的时候，其中的一些延伸知识，包括启动速度测试、Log 输出解读、Systrace 状态解读、三方启动库等内容</p>
             </div>
             <!-- read more -->
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/03/03">
+                <div class="abstract-date" title="Last updated: 2023/05/14">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/09/13</span>
                 </div>
                 <!-- tags -->
@@ -740,7 +737,7 @@
             
             <div class="abstract-post-meta">
                 <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/02/28">
+                <div class="abstract-date" title="Last updated: 2023/05/14">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/04/24</span>
                 </div>
                 <!-- tags -->
@@ -774,7 +771,7 @@
                 <span class="abstract-title-text">华为手机刷微博体验更好？技术角度的一些分析和思考</span>
             </a>
             <div class="abstract-content">
-                <p>技术群里的小伙伴发了一条微博， <a href="https://weibo.com/1808884742/IApbpEVQr" target="_blank" rel="noopener">https://weibo.com/1808884742/IApbpEVQr</a>， 博主 @王波粒 发现， Mate 30 Pro 有个很特别的现象（建议先去看一下视频） </p>
+                <p>技术群里的小伙伴发了一条微博， <a target="_blank" rel="noopener" href="https://weibo.com/1808884742/IApbpEVQr">https://weibo.com/1808884742/IApbpEVQr</a>， 博主 @王波粒 发现， Mate 30 Pro 有个很特别的现象（建议先去看一下视频） </p>
 <p>但是这个视频描述和底下的猜测都不对，我这边总结一下这个现象： <strong>微博这个 App 在华为的手机上，在主页列表上下滑动的情况下依然可以流畅加载图片，而同一个版本的微博客户端，安装到其他手机上，在主页列表上下滑动的情况下，则必须要等到滑动停止之后才会加载图片</strong> </p>
 <p>下面就针对这个现象,从技术的角度来深入分析产生这种现象的原因,以及我们能从里面学到什么</p>
             </div>
@@ -991,108 +988,120 @@
         <div class="friends">
             <div>
                 
-                FRIENDS
+                Gracker 的朋友们
             </div>
             
                 
                     <span>
-                        <a href="blog.csdn.net/innost" target="_black">邓老师</a>
+                        <a href="blog.csdn.net/innost" target="_blank">邓老师</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://hencoder.com" target="_black">HenCoder</a>
+                        <a href="https://hencoder.com" target="_blank">HenCoder</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="http://gityuan.com/" target="_black">Gityuan</a>
+                        <a href="http://gityuan.com/" target="_blank">Gityuan</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://www.kymjs.com/" target="_black">张涛-开源实验室</a>
+                        <a href="https://www.kymjs.com/" target="_blank">张涛-开源实验室</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="http://yifeiyuan.me/" target="_black">程序亦非猿</a>
+                        <a href="http://yifeiyuan.me/" target="_blank">程序亦非猿</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="http://weishu.me/" target="_black">Weishu</a>
+                        <a href="http://weishu.me/" target="_blank">Weishu</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="blog.csdn.net/singwhatiwanna" target="_black">任玉刚</a>
+                        <a href="blog.csdn.net/singwhatiwanna" target="_blank">任玉刚</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://blog.csdn.net/lzyzsd" target="_black">大头鬼</a>
+                        <a href="https://blog.csdn.net/lzyzsd" target="_blank">大头鬼</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://droidyue.com/" target="_black">技术小黑屋</a>
+                        <a href="https://droidyue.com/" target="_blank">技术小黑屋</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="http://hukai.me/" target="_black">胡凯</a>
+                        <a href="http://hukai.me/" target="_blank">胡凯</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://www.liaohuqiu.net/cn/" target="_black">廖祜秋</a>
+                        <a href="https://www.liaohuqiu.net/cn/" target="_blank">廖祜秋</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://androidweekly.cn/" target="_black">Android 开发技术周报</a>
+                        <a href="https://androidweekly.cn/" target="_blank">Android 开发技术周报</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://p.codekk.com" target="_black">CodeKK</a>
+                        <a href="https://p.codekk.com" target="_blank">CodeKK</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://www.trinea.cn" target="_black">Trinea</a>
+                        <a href="https://www.trinea.cn" target="_blank">Trinea</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://www.gcssloop.com/#blog" target="_black">GcsSloop</a>
+                        <a href="https://www.gcssloop.com/#blog" target="_blank">GcsSloop</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://juejin.im/user/589549d18d6d810058363474/posts" target="_black">Android 研习社</a>
+                        <a href="https://juejin.im/user/589549d18d6d810058363474/posts" target="_blank">Android 研习社</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://luyao.tech" target="_black">秉心说</a>
+                        <a href="https://luyao.tech" target="_blank">秉心说</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href="https://juejin.cn/user/1838039172387262" target="_blank">字节跳动技术团队</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href="https://juejin.cn/user/149189312913511" target="_blank">芦半山</a>
                     </span>
                 
             
@@ -1102,10 +1111,21 @@
         <div class="profile-link-item">
             <a href="/about" class="about-me">
                 
-                ABOUT ME
+                关于作者
             </a>
         </div>
     
+    
+        
+        
+                
+        
+        <div class="profile-link-item">
+            <a target="_blank" rel="noopener" href="https://www.bing.com/search?q=site%3Ahttps://www.androidperformance.com/" class="search-me">
+                
+                SEARCH
+            </a>
+        </div>
     
     
 </div>
@@ -3027,6 +3047,11 @@
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -3042,21 +3067,6 @@
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -3065,6 +3075,11 @@
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -3077,19 +3092,14 @@
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -3102,11 +3112,6 @@
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -3115,6 +3120,11 @@
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -3132,29 +3142,9 @@
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -3167,9 +3157,9 @@
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -3177,14 +3167,14 @@
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -3192,14 +3182,14 @@
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -3220,6 +3210,36 @@
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -3253,14 +3273,14 @@
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -3278,14 +3298,14 @@
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -3322,14 +3342,35 @@
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->

@@ -21,9 +21,9 @@
     <meta name="description" content="Focus On Android Performance">
     <meta name="description" content="Focus On Android Performance">
 <meta property="og:type" content="website">
-<meta property="og:title" content="我的优化技术文章分享">
+<meta property="og:title" content="Android Performance">
 <meta property="og:url" content="https://androidperformance.com/page/10/index.html">
-<meta property="og:site_name" content="我的优化技术文章分享">
+<meta property="og:site_name" content="Android Performance">
 <meta property="og:description" content="Focus On Android Performance">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Gracker">
@@ -32,9 +32,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="icon" href="/assets/favicon.ico">
     
-        <link rel="alternate" href="/atom.xml" title="Android Tech And Perf" type="application/atom+xml">
-    
-    <title>我的优化技术文章分享</title>
+    <title>Android Performance</title>
     <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
 /* This file is meant as a standalone workflow for
 - testing support for link[rel=preload]
@@ -146,8 +144,8 @@
 
     <style type="text/css">
     @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
+        font-family: 'LXGWWenKaiMono-Regular';
+        src: url("/font/LXGWWenKaiMono-Regular.ttf");
     }
 
     body {
@@ -199,12 +197,11 @@
     <link rel="preload" href="/css/dark.css?v=20211217" as="style">
     <link rel="stylesheet" href="/css/dark.css">
     <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <!-- <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"> -->
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.1/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
     <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
     <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="/font/LXGWWenKaiMono-Regular.ttf" as="font" crossorigin>
     <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
     <!-- algolia -->
     
@@ -222,10 +219,10 @@
         gtag('config', 'UA-50993302-2');
     </script>
     
-<meta name="generator" content="Hexo 4.2.1"></head>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="Android Performance" type="application/atom+xml">
+</head>
 
-    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script> -->
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
     <script type="text/javascript">
         if (typeof window.$ == undefined) {
             console.warn('jquery load from jsdelivr failed, will load local script')
@@ -298,7 +295,7 @@
     
         
     <!-- 文章页  -->
-            
+    
     <div class="site-intro-placeholder"></div>
     <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
     <div class="site-intro-meta">
@@ -375,7 +372,7 @@
     } else {
       WebFont.load({
         custom: {
-          families: ['Oswald-Regular'],
+          families: ['LXGWWenKaiMono-Regular'],
         },
         loading: function () {
           // 所有字体开始加载
@@ -439,7 +436,7 @@
 
   asyncLoadWithFallBack(
     [
-      'https://cdn.bootcdn.net/ajax/libs/webfont/1.6.9/webfontloader.js',
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
       'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
       "/lib/webfontloader.min.js",
     ],
@@ -493,9 +490,9 @@
                 <span class="abstract-title-text">Android 性能优化之过渡绘制 - 实战篇</span>
             </a>
             <div class="abstract-content">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇<a href="https://www.androidperformance.com/2014/10/20/android-performance-optimization-overdraw-1/" target="_blank" rel="noopener">文章</a>从理论的角度讲解了一下什么是过渡绘制，以及可以用来查看和确认过渡绘制的工具，还提供了一些优化过渡绘制的方法。对代码和布局比较熟悉的人，看完上一篇其实就已经可以对自己的应用进行优化了。我记得有人说过，用iphone你只需要保证苹果有节操即可，用Android你就得保证所有的Android开发者都有节操。但现实是残酷的，现在Android市场上，有很多粗制滥造的应用，其中不乏大厂之作，各位打开过渡绘制按钮，就知道我所言非虚。作为一个Android开发人员，我肯定是更希望Android能一步一步好起来，超越iphone。</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>上一篇<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2014/10/20/android-performance-optimization-overdraw-1/">文章</a>从理论的角度讲解了一下什么是过渡绘制，以及可以用来查看和确认过渡绘制的工具，还提供了一些优化过渡绘制的方法。对代码和布局比较熟悉的人，看完上一篇其实就已经可以对自己的应用进行优化了。我记得有人说过，用iphone你只需要保证苹果有节操即可，用Android你就得保证所有的Android开发者都有节操。但现实是残酷的，现在Android市场上，有很多粗制滥造的应用，其中不乏大厂之作，各位打开过渡绘制按钮，就知道我所言非虚。作为一个Android开发人员，我肯定是更希望Android能一步一步好起来，超越iphone。</p>
 <p>这篇文章从实战的角度，讲解了一个过渡绘制的优化过程。当然这里用到的只是很少的一部分，毕竟每个应用差别很大，优化方式也各不一样。所以这篇文章仅供参考，想把这块做好还是要下功夫的。</p>
-<p>如果没有看过前一篇，可以点这里：<a href="https://www.androidperformance.com/2014/10/20/android-performance-optimization-overdraw-1/" target="_blank" rel="noopener">Android性能优化之过渡绘制(一)</a></p>
+<p>如果没有看过前一篇，可以点这里：<a target="_blank" rel="noopener" href="https://www.androidperformance.com/2014/10/20/android-performance-optimization-overdraw-1/">Android性能优化之过渡绘制(一)</a></p>
 <hr>
             </div>
             <!-- read more -->
@@ -650,7 +647,7 @@ android:focusableInTouchMode="true"
 <li>Bug出现很随机，不是必出现</li>
 <li>其他自己脑补</li>
 </ol>
-<h2 id="0-说明"><a href="#0-说明" class="headerlink" title="0.说明"></a>0.说明</h2><p>这篇文章最早是在我的CSDN博客上面发布了:<a href="http://blog.csdn.net/grackergao/article/details/18322749" target="_blank" rel="noopener" title="Log2File类的使用">http://blog.csdn.net/grackergao/article/details/18322749</a> .现在讲他转移到了这里,代码的Github地址 :<a href="https://github.com/Gracker/Android-Utils/blob/master/Log2File.java" target="_blank" rel="noopener" title="Log2File的github地址">https://github.com/Gracker/Android-Utils/blob/master/Log2File.java</a></p>
+<h2 id="0-说明"><a href="#0-说明" class="headerlink" title="0.说明"></a>0.说明</h2><p>这篇文章最早是在我的CSDN博客上面发布了:<a target="_blank" rel="noopener" href="http://blog.csdn.net/grackergao/article/details/18322749" title="Log2File类的使用">http://blog.csdn.net/grackergao/article/details/18322749</a> .现在讲他转移到了这里,代码的Github地址 :<a target="_blank" rel="noopener" href="https://github.com/Gracker/Android-Utils/blob/master/Log2File.java" title="Log2File的github地址">https://github.com/Gracker/Android-Utils/blob/master/Log2File.java</a></p>
             </div>
             <!-- read more -->
             
@@ -867,108 +864,120 @@ android:focusableInTouchMode="true"
         <div class="friends">
             <div>
                 
-                FRIENDS
+                Gracker 的朋友们
             </div>
             
                 
                     <span>
-                        <a href="blog.csdn.net/innost" target="_black">邓老师</a>
+                        <a href="blog.csdn.net/innost" target="_blank">邓老师</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://hencoder.com" target="_black">HenCoder</a>
+                        <a href="https://hencoder.com" target="_blank">HenCoder</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="http://gityuan.com/" target="_black">Gityuan</a>
+                        <a href="http://gityuan.com/" target="_blank">Gityuan</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://www.kymjs.com/" target="_black">张涛-开源实验室</a>
+                        <a href="https://www.kymjs.com/" target="_blank">张涛-开源实验室</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="http://yifeiyuan.me/" target="_black">程序亦非猿</a>
+                        <a href="http://yifeiyuan.me/" target="_blank">程序亦非猿</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="http://weishu.me/" target="_black">Weishu</a>
+                        <a href="http://weishu.me/" target="_blank">Weishu</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="blog.csdn.net/singwhatiwanna" target="_black">任玉刚</a>
+                        <a href="blog.csdn.net/singwhatiwanna" target="_blank">任玉刚</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://blog.csdn.net/lzyzsd" target="_black">大头鬼</a>
+                        <a href="https://blog.csdn.net/lzyzsd" target="_blank">大头鬼</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://droidyue.com/" target="_black">技术小黑屋</a>
+                        <a href="https://droidyue.com/" target="_blank">技术小黑屋</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="http://hukai.me/" target="_black">胡凯</a>
+                        <a href="http://hukai.me/" target="_blank">胡凯</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://www.liaohuqiu.net/cn/" target="_black">廖祜秋</a>
+                        <a href="https://www.liaohuqiu.net/cn/" target="_blank">廖祜秋</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://androidweekly.cn/" target="_black">Android 开发技术周报</a>
+                        <a href="https://androidweekly.cn/" target="_blank">Android 开发技术周报</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://p.codekk.com" target="_black">CodeKK</a>
+                        <a href="https://p.codekk.com" target="_blank">CodeKK</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://www.trinea.cn" target="_black">Trinea</a>
+                        <a href="https://www.trinea.cn" target="_blank">Trinea</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://www.gcssloop.com/#blog" target="_black">GcsSloop</a>
+                        <a href="https://www.gcssloop.com/#blog" target="_blank">GcsSloop</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://juejin.im/user/589549d18d6d810058363474/posts" target="_black">Android 研习社</a>
+                        <a href="https://juejin.im/user/589549d18d6d810058363474/posts" target="_blank">Android 研习社</a>
                     </span>
                 
             
                 
                     <span>
-                        <a href="https://luyao.tech" target="_black">秉心说</a>
+                        <a href="https://luyao.tech" target="_blank">秉心说</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href="https://juejin.cn/user/1838039172387262" target="_blank">字节跳动技术团队</a>
+                    </span>
+                
+            
+                
+                    <span>
+                        <a href="https://juejin.cn/user/149189312913511" target="_blank">芦半山</a>
                     </span>
                 
             
@@ -978,10 +987,21 @@ android:focusableInTouchMode="true"
         <div class="profile-link-item">
             <a href="/about" class="about-me">
                 
-                ABOUT ME
+                关于作者
             </a>
         </div>
     
+    
+        
+        
+                
+        
+        <div class="profile-link-item">
+            <a target="_blank" rel="noopener" href="https://www.bing.com/search?q=site%3Ahttps://www.androidperformance.com/" class="search-me">
+                
+                SEARCH
+            </a>
+        </div>
     
     
 </div>
@@ -2903,6 +2923,11 @@ android:focusableInTouchMode="true"
                 Android
             </span>
         
+            <span class="sidebar-tag-name" data-tags="Framework">
+                <span class="iconfont-archer">&#xe606;</span>
+                Framework
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="Performance">
                 <span class="iconfont-archer">&#xe606;</span>
                 Performance
@@ -2918,21 +2943,6 @@ android:focusableInTouchMode="true"
                 Systrace
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Framework">
-                <span class="iconfont-archer">&#xe606;</span>
-                Framework
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Lunch">
-                <span class="iconfont-archer">&#xe606;</span>
-                Lunch
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="MethodTrace">
-                <span class="iconfont-archer">&#xe606;</span>
-                MethodTrace
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="MAT">
                 <span class="iconfont-archer">&#xe606;</span>
                 MAT
@@ -2941,6 +2951,11 @@ android:focusableInTouchMode="true"
             <span class="sidebar-tag-name" data-tags="Memory">
                 <span class="iconfont-archer">&#xe606;</span>
                 Memory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="MethodTrace">
+                <span class="iconfont-archer">&#xe606;</span>
+                MethodTrace
             </span>
         
             <span class="sidebar-tag-name" data-tags="启动优化">
@@ -2953,19 +2968,14 @@ android:focusableInTouchMode="true"
                 DelayLoad
             </span>
         
-            <span class="sidebar-tag-name" data-tags="Java">
-                <span class="iconfont-archer">&#xe606;</span>
-                Java
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="HashMap">
-                <span class="iconfont-archer">&#xe606;</span>
-                HashMap
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="程序员">
                 <span class="iconfont-archer">&#xe606;</span>
                 程序员
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Java">
+                <span class="iconfont-archer">&#xe606;</span>
+                Java
             </span>
         
             <span class="sidebar-tag-name" data-tags="Singleton">
@@ -2978,11 +2988,6 @@ android:focusableInTouchMode="true"
                 Nexus
             </span>
         
-            <span class="sidebar-tag-name" data-tags="设计规范">
-                <span class="iconfont-archer">&#xe606;</span>
-                设计规范
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="流畅性">
                 <span class="iconfont-archer">&#xe606;</span>
                 流畅性
@@ -2991,6 +2996,11 @@ android:focusableInTouchMode="true"
             <span class="sidebar-tag-name" data-tags="个人感悟">
                 <span class="iconfont-archer">&#xe606;</span>
                 个人感悟
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="设计规范">
+                <span class="iconfont-archer">&#xe606;</span>
+                设计规范
             </span>
         
             <span class="sidebar-tag-name" data-tags="卡顿">
@@ -3008,29 +3018,9 @@ android:focusableInTouchMode="true"
                 Ubuntu
             </span>
         
-            <span class="sidebar-tag-name" data-tags="响应速度">
-                <span class="iconfont-archer">&#xe606;</span>
-                响应速度
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="体验优化">
                 <span class="iconfont-archer">&#xe606;</span>
                 体验优化
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="hwui">
-                <span class="iconfont-archer">&#xe606;</span>
-                hwui
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="RenderThread">
-                <span class="iconfont-archer">&#xe606;</span>
-                RenderThread
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Menory">
-                <span class="iconfont-archer">&#xe606;</span>
-                Menory
             </span>
         
             <span class="sidebar-tag-name" data-tags="读书笔记">
@@ -3043,9 +3033,9 @@ android:focusableInTouchMode="true"
                 程序员的修炼
             </span>
         
-            <span class="sidebar-tag-name" data-tags="测试">
+            <span class="sidebar-tag-name" data-tags="了解你的用户">
                 <span class="iconfont-archer">&#xe606;</span>
-                测试
+                了解你的用户
             </span>
         
             <span class="sidebar-tag-name" data-tags="互联网那些事">
@@ -3053,14 +3043,14 @@ android:focusableInTouchMode="true"
                 互联网那些事
             </span>
         
+            <span class="sidebar-tag-name" data-tags="测试">
+                <span class="iconfont-archer">&#xe606;</span>
+                测试
+            </span>
+        
             <span class="sidebar-tag-name" data-tags="游戏与编程">
                 <span class="iconfont-archer">&#xe606;</span>
                 游戏与编程
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="阅读之美">
-                <span class="iconfont-archer">&#xe606;</span>
-                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="设计原则">
@@ -3068,14 +3058,14 @@ android:focusableInTouchMode="true"
                 设计原则
             </span>
         
-            <span class="sidebar-tag-name" data-tags="了解你的用户">
-                <span class="iconfont-archer">&#xe606;</span>
-                了解你的用户
-            </span>
-        
             <span class="sidebar-tag-name" data-tags="利器">
                 <span class="iconfont-archer">&#xe606;</span>
                 利器
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="阅读之美">
+                <span class="iconfont-archer">&#xe606;</span>
+                阅读之美
             </span>
         
             <span class="sidebar-tag-name" data-tags="知识星球">
@@ -3096,6 +3086,36 @@ android:focusableInTouchMode="true"
             <span class="sidebar-tag-name" data-tags="StartingWindow">
                 <span class="iconfont-archer">&#xe606;</span>
                 StartingWindow
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Lunch">
+                <span class="iconfont-archer">&#xe606;</span>
+                Lunch
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="hwui">
+                <span class="iconfont-archer">&#xe606;</span>
+                hwui
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="RenderThread">
+                <span class="iconfont-archer">&#xe606;</span>
+                RenderThread
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Menory">
+                <span class="iconfont-archer">&#xe606;</span>
+                Menory
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="HashMap">
+                <span class="iconfont-archer">&#xe606;</span>
+                HashMap
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="响应速度">
+                <span class="iconfont-archer">&#xe606;</span>
+                响应速度
             </span>
         
     </div>
@@ -3129,14 +3149,14 @@ android:focusableInTouchMode="true"
             Memory
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Performance">
             <span class="iconfont-archer">&#xe60a;</span>
             Performance
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="Android">
@@ -3154,14 +3174,14 @@ android:focusableInTouchMode="true"
             Framework
         </span>
     
-        <span class="sidebar-category-name" data-categories="Android">
-            <span class="iconfont-archer">&#xe60a;</span>
-            Android
-        </span>
-    
         <span class="sidebar-category-name" data-categories="Tools">
             <span class="iconfont-archer">&#xe60a;</span>
             Tools
+        </span>
+    
+        <span class="sidebar-category-name" data-categories="Android">
+            <span class="iconfont-archer">&#xe60a;</span>
+            Android
         </span>
     
         <span class="sidebar-category-name" data-categories="读书笔记">
@@ -3198,14 +3218,35 @@ android:focusableInTouchMode="true"
         <!-- import experimental options here -->
         <!-- Custom Font -->
 
+    <!-- Check browser compatibility of CSS variables -->
+    <script>
+        if (browserSupportCSSVariables === undefined) {
+            var browserSupportCSSVariables = window.CSS && window.CSS.supports && window.CSS.supports('--a', 0);
+        }
+    </script>
+    <script>
+        if (browserSupportCSSVariables) {
+            var customFontName = 'Noto Sans SC:n3,n4,n5,n7'
+            var customFontUrl = 'https://fonts.googleapis.cnpmjs.org/css2?family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap'
+            if (!customFontName) {
+                console.log('Custom font name is not set or read failed');
+            }
+            if (!customFontUrl) {
+                console.log('Custom font url is not set or read failed');
+            }
+        } else {
+            console.error('Current browser doesn\'t support custom font.')
+        }
+    </script>
+    <script src="/scripts/customFontLoader.js?v=20211217" defer></script>
+
 
         <!-- main func -->
         <script src="/scripts/main.js?v=20211217"></script>
         <!-- dark mode -->
         <script src="/scripts/dark.js?v=20211217"></script>
         <!-- fancybox -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script> -->
-        <script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
         <!-- algolia -->
         
         <!-- busuanzi -->
