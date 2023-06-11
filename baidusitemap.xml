@@ -1,6 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://androidperformance.com/2019/11/04/Android-Systrace-Input/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/12/01/Android-Systrace-Vsync/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/12/06/Android-Systrace-Binder/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/12/15/Android-Systrace-Triple-Buffer/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/12/21/Android-Systrace-CPU/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2020/02/14/Android-Systrace-SurfaceFlinger/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/05/27/why-60-fps/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/05/26/Android_Systrace_0/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/06/29/Android-Systrace-SystemServer/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/05/28/Android-Systrace-About/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/10/22/Android-Choreographer/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-3/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-2/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2019/07/23/Android-Systrace-Pre/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
+    <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
     <loc>https://androidperformance.com/2023/05/14/bad-android-app-with-system-permissions/</loc>
     <lastmod>2023-05-14</lastmod>
   </url>
@@ -45,31 +113,7 @@
     <lastmod>2023-05-14</lastmod>
   </url>
   <url>
-    <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-1/</loc>
-    <lastmod>2023-05-14</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-3/</loc>
-    <lastmod>2023-05-14</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/07/23/Android-Systrace-Pre/</loc>
-    <lastmod>2022-03-12</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-2/</loc>
-    <lastmod>2022-03-01</lastmod>
-  </url>
-  <url>
     <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-1/</loc>
-    <lastmod>2022-02-28</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2021/09/13/android-systrace-Responsiveness-in-action-2/</loc>
-    <lastmod>2022-02-28</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2021/04/24/android-systrace-smooth-in-action-3/</loc>
     <lastmod>2022-02-28</lastmod>
   </url>
   <url>
@@ -77,52 +121,8 @@
     <lastmod>2022-02-09</lastmod>
   </url>
   <url>
-    <loc>https://androidperformance.com/2019/10/22/Android-Choreographer/</loc>
-    <lastmod>2022-01-10</lastmod>
-  </url>
-  <url>
     <loc>https://androidperformance.com/2019/09/18/Android-Jank-Due-To-Low-Memory/</loc>
     <lastmod>2022-01-10</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/05/28/Android-Systrace-About/</loc>
-    <lastmod>2022-01-05</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/06/29/Android-Systrace-SystemServer/</loc>
-    <lastmod>2021-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/05/26/Android_Systrace_0/</loc>
-    <lastmod>2021-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/05/27/why-60-fps/</loc>
-    <lastmod>2021-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2020/02/14/Android-Systrace-SurfaceFlinger/</loc>
-    <lastmod>2021-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/12/21/Android-Systrace-CPU/</loc>
-    <lastmod>2021-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/12/15/Android-Systrace-Triple-Buffer/</loc>
-    <lastmod>2021-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/12/06/Android-Systrace-Binder/</loc>
-    <lastmod>2021-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/12/01/Android-Systrace-Vsync/</loc>
-    <lastmod>2021-12-01</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/11/04/Android-Systrace-Input/</loc>
-    <lastmod>2021-12-01</lastmod>
   </url>
   <url>
     <loc>https://androidperformance.com/2018/09/19/how-to-stop-sucking-and-be-awesome-instead-1/</loc>
