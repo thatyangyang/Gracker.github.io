@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
+    <lastmod>2023-06-11</lastmod>
+  </url>
+  <url>
     <loc>https://androidperformance.com/2019/11/04/Android-Systrace-Input/</loc>
     <lastmod>2023-06-11</lastmod>
   </url>
@@ -70,10 +74,6 @@
   </url>
   <url>
     <loc>https://androidperformance.com/2023/05/14/bad-android-app-with-system-permissions/</loc>
-    <lastmod>2023-05-14</lastmod>
-  </url>
-  <url>
-    <loc>https://androidperformance.com/2019/12/01/BlogMap/</loc>
     <lastmod>2023-05-14</lastmod>
   </url>
   <url>
