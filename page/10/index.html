@@ -457,6 +457,36 @@
             
         
         <article class="index-post">
+            <a class="abstract-title" href="/2015/02/04/build-rom-for-nexus5/">
+                
+                <span class="abstract-title-text">为 Nexus5 编译 AndroidL 固件</span>
+            </a>
+            <div class="abstract-content">
+                <p>接前一篇文章<a target="_blank" rel="noopener" href="https://www.androidperformance.com/view-android-source-code-with-androidstudio.html">使用Android Studio查看Android Lollipop源码</a>, 我们知道,仅仅看代码,提高是比较有限的,而且理解起来也比较肤浅,往往过目就忘. 而自己写过的代码,往往会印象比较深刻,在写的时候也会比较容易理解流程. 所以我们在看代码的同时, 如果能修改代码, 在手机上跑起来并看到修改的效果,这无疑会加快看代码的效率和积极性. 所以这篇文章,就讲解一下如何自己编译AndroidL的源码,并且在Nexus5上跑起来. 至于为何需要自己编译固件,而不是直接安装Google给出的工厂固件?原因是Google给出的工厂固件是User版本,是没法随心所欲Push东西进去的. 所以我们需要编译自己的Userdebug版本.</p>
+<p>本文假设你已经下载了AndroidL的源码,并且有一台Nexus5手机(手机系统开发人员必备), 如果你还没有AndroidL的源码,或者你有源码但是没有配置编译的环境,那么 <a target="_blank" rel="noopener" href="https://source.android.com/source/initializing.html">Initializing a Build Environment</a> 和<a target="_blank" rel="noopener" href="https://source.android.com/source/downloading.html">Downloading the Source</a>这两篇文章你应该先去看一下(我又一次假设你会翻墙,如果你不会翻墙,那么下代码也是一个痛苦的事情). 这后面的教程Google官网也有教程.所以我只针对Nexus5进行讲解.</p>
+<p>另外你需要知道AOSP,AOSP即Android Open Source Project 汉语意思是：谷歌开放源代码项目.我们通过Google官方下载的源代码,就是AOSP的代码, 其中是不包含Google开发的那些个应用的,各个厂商拿到的也是这个版本,在这个版本的基础上进行修改. 而Google发布的工厂固件则是包含全套Google服务的. 厂商如果想安装Google服务,就需要过Google的那一套认证,比较麻烦,而且价格不菲,鉴于Google在国内的尴尬地位,国内很多厂商都没有过这个认证.</p>
+            </div>
+            <!-- read more -->
+            
+            <div class="abstract-post-meta">
+                <!-- date -->
+                <div class="abstract-date" title="Last updated: 2021/12/02">
+                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2015/02/04</span>
+                </div>
+                <!-- tags -->
+                
+            </div>
+        </article>
+        <div class="index-post-divider"></div>
+    
+        
+        
+        
+        
+            
+            
+        
+        <article class="index-post">
             <a class="abstract-title" href="/2015/01/30/android-performance-tools-systrace-1/">
                 
                 <span class="abstract-title-text">Android 性能优化之 Systrace 工具介绍(一)</span>
@@ -720,40 +750,6 @@ android:focusableInTouchMode="true"
                 <!-- date -->
                 <div class="abstract-date" title="Last updated: 2021/12/02">
                     <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/04/01</span>
-                </div>
-                <!-- tags -->
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2014/03/25/ubuntu-adb-can-not-find-devices/">
-                
-                <span class="abstract-title-text">Android:Ubuntu 下执行 Adb 命令找不到设备</span>
-            </a>
-            <div class="abstract-content">
-                <h2 id="1-问题概述"><a href="#1-问题概述" class="headerlink" title="1.问题概述"></a>1.问题概述</h2><p><span style="color: #000000;">最近开发Nokia项目，遇到的问题如下：</span></p>
-<p><span style="color: #000000;">插入Nokia x后，电脑没有反应，即不识别，同事的windows也不识别，最后在谷歌上搜索了良久，才找到了解决方案，但是没有记录，后来又要给别人配置的时候，发现忘记怎么配置了。想想这也是一个具有通性的问题，还是记录下来，分享给大家。</span></p>
-<h2 id="2-问题解决方案"><a href="#2-问题解决方案" class="headerlink" title="2.问题解决方案"></a>2.问题解决方案</h2><p><span style="color: #000000;">首先问题是：执行adb命令提示找不到设备，在做其他操作之前，请先确认已经做了如下操作：</span></p>
-<ol>
-<li><span style="color: #000000;">确定已经打开了USB调试选项（设置-开发者选项-USB调试），有的机器没有开发者选项，需要到关于里面点击版本号若干下，或者去百度谷歌。</span></li>
-<li><span style="color: #000000;">确定使用sudo命令adb kill-server 和adb start-server后仍然没有用。</span><br><span style="color: #000000;">如果上述操作都确认了，还是找不到设备，那么继续往下看：</span></li>
-</ol>
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2021/12/02">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2014/03/25</span>
                 </div>
                 <!-- tags -->
                 
@@ -1149,6 +1145,11 @@ android:focusableInTouchMode="true"
         <div class="sidebar-panel-archives">
     <!-- 在 ejs 中将 archive 按照时间排序 -->
     
+        
+        
+        
+        
+        
         
         
         
@@ -2237,7 +2238,7 @@ android:focusableInTouchMode="true"
     
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 101
+        Total : 102
         </div>
         <!-- search  -->
         
@@ -2251,6 +2252,12 @@ android:focusableInTouchMode="true"
             <div class="archive-year"> 2023 </div>
             <ul class="year-list">
             
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">08/21</span>
+            <a class="archive-post-title" href="/2023/08/21/the-performance-design-of-os/">OS 设计之性能设计</a>
+        </li>
+    
         
         <li class="archive-post-item">
             <span class="archive-post-date">05/14</span>
@@ -3157,6 +3164,16 @@ android:focusableInTouchMode="true"
             <span class="sidebar-tag-name" data-tags="响应速度">
                 <span class="iconfont-archer">&#xe606;</span>
                 响应速度
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="Design">
+                <span class="iconfont-archer">&#xe606;</span>
+                Design
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="OperationSystem">
+                <span class="iconfont-archer">&#xe606;</span>
+                OperationSystem
             </span>
         
     </div>
